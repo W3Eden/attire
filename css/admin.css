@@ -1,0 +1,16 @@
+#wpcontent {
+    padding-left: 0;
+}
+
+.bg-dark {
+    box-shadow: 0 3px 5px #888888;
+
+}
+
+.bg-dark .navbar * {
+    color: white !important;
+}
+
+#spnr .components-spinner{
+    float: none;
+}
