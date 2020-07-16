@@ -7,6 +7,19 @@ if (!defined('ABSPATH')) {
  */
 if (class_exists('WP_Customize_Control')) {
 
+    class Attire_Section_Header_Custom_Control extends WP_Customize_Control
+    {
+
+        public $type = 'section-header';
+
+        public function render_content()
+        {
+            ?>
+            <div  style="padding: 10px 15px;background: #fff;font-weight: 800;margin: 15px -15px 0;border-top: 1px solid #f9f9f9;border-bottom: 1px solid #f7f7f7;box-shadow: inset 0 0 1px   #888888;color: #4c69db;text-transform: uppercase;letter-spacing: 1px;"><?php echo esc_html($this->label); ?></div>
+            <?php
+        }
+    }
+
     class Attire_Customize_Range_Control extends WP_Customize_Control
     {
         public $type = 'custom_range';
@@ -418,6 +431,22 @@ function attire_customize_register($wp_customize)
                         'max' => isset($max) ? $max : 5,
                     )
                 ));
+                break;
+
+            case 'section-header':
+                $wp_customize->add_setting($theme_option . '[' . $id . ']', array(
+                    'default' => $default,
+                    'capability' => $capability,
+                    'type' => $option_type,
+                    'transport' => $transport,
+                    'sanitize_callback' => 'esc_url_raw',
+                ));
+
+                $wp_customize->add_control(new Attire_Section_Header_Custom_Control($wp_customize, $id, array(
+                    'label' => $label,
+                    'section' => $section,
+                    'settings' => $theme_option . '[' . $id . ']',
+                )));
                 break;
 
             case 'image':

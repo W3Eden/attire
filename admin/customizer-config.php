@@ -918,9 +918,13 @@ $attire_options = array(
             '4' => __('4 Columns', 'attire'),
         ),
     ),
-
-    'heading_font' => array(
+    'heading_font_section' => array(
         'label' => __('Heading Font', 'attire'),
+        'type' => 'section-header',
+        'section' => 'attire_generic_fonts',
+    ),
+    'heading_font' => array(
+        'label' => __('Font Family', 'attire'),
         'transport' => 'postMessage',
         'type' => 'typography',
         'section' => 'attire_generic_fonts',
@@ -928,7 +932,7 @@ $attire_options = array(
         'description' => esc_html__('Font family for H1...H6 html tags', 'attire')
     ),
     'heading_font_size' => array(
-        'label' => __('Heading Font Size', 'attire'),
+        'label' => __('Font Size', 'attire'),
         'description' => esc_html__('For H tags (h1...h6)', 'attire'),
         'transport' => 'postMessage',
         'type' => 'range',
@@ -941,7 +945,7 @@ $attire_options = array(
         )
     ),
     'heading_font_weight' => array(
-        'label' => __('Header Font Weight', 'attire'),
+        'label' => __('Font Weight', 'attire'),
         'transport' => 'postMessage',
         'type' => 'range',
         'section' => 'attire_generic_fonts',
@@ -953,8 +957,14 @@ $attire_options = array(
         )
     ),
 
-    'body_font' => array(
+    'body_font_section' => array(
         'label' => __('Body Font', 'attire'),
+        'type' => 'section-header',
+        'section' => 'attire_generic_fonts',
+    ),
+
+    'body_font' => array(
+        'label' => __('Font Family', 'attire'),
         'transport' => 'postMessage',
         'type' => 'typography',
         'section' => 'attire_generic_fonts',
@@ -962,7 +972,7 @@ $attire_options = array(
     ),
 
     'body_font_size' => array(
-        'label' => __('Body Font Size', 'attire'),
+        'label' => __('Font Size', 'attire'),
         'transport' => 'postMessage',
         'type' => 'range',
         'section' => 'attire_generic_fonts',
@@ -979,6 +989,31 @@ $attire_options = array(
         'type' => 'range',
         'section' => 'attire_generic_fonts',
         'default' => '400',
+        'input_attrs' => array(
+            'min' => 100,
+            'max' => 900,
+            'step' => 100,
+        )
+    ),
+    'button_font_section' => array(
+        'label' => __('Button Font', 'attire'),
+        'type' => 'section-header',
+        'section' => 'attire_generic_fonts',
+    ),
+    'button_font' => array(
+        'label' => __('Font Family', 'attire'),
+        'transport' => 'postMessage',
+        'type' => 'typography',
+        'section' => 'attire_generic_fonts',
+        'default' => 'Sen',
+        'description' => esc_html__('Font family buttons', 'attire')
+    ),
+    'button_font_weight' => array(
+        'label' => __('Font Weight', 'attire'),
+        'transport' => 'postMessage',
+        'type' => 'range',
+        'section' => 'attire_generic_fonts',
+        'default' => '700',
         'input_attrs' => array(
             'min' => 100,
             'max' => 900,

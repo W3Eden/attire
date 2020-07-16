@@ -303,6 +303,10 @@ class AttireThemeEngine {
 		$font_size       = $body_font_size != '' ? "font-size:{$body_font_size}px;" : "";
 		$text_color      = $body_font_color ? "color:{$body_font_color};" : "";
 
+        $button_font        = isset($theme_mod['button_font']) ? esc_attr( $theme_mod['button_font'] ) :  '';
+        $button_font_weight = isset($theme_mod['button_font_weight']) ? "font-weight:".esc_attr( $theme_mod['button_font_weight'] ).";" :  '';
+
+
 		if ( $body_font != '' ) {
 			$font_family = isset($fonts[ $body_font ]) && $fonts[ $body_font ]['family'] != '' ? "font-family:\"{$fonts[$body_font]['family']}\", {$fonts[$body_font]['category']};" : "";
 		} else {
@@ -340,6 +344,8 @@ class AttireThemeEngine {
 		}
 
 		$css .= "h1, h1 a{{$font_family}{$h1_font_size}{$heading_font_weight}{$text_color}}";
+		if($button_font !== '')
+		$css .= ".btn,  button.btn, a.btn{{$button_font} {$button_font_weight} letter-spacing:  0.5px;}";
 		$css .= "h2, h2 a{{$font_family}{$h2_font_size}{$heading_font_weight}{$text_color}}";
 		$css .= "h3, h3 a, .archive-item .card-title.post-title a{{$font_family}{$h3_font_size}{$heading_font_weight}{$text_color}}";
 		$css .= "h4, h4 a{{$font_family}{$h4_font_size}{$heading_font_weight}{$text_color}}";

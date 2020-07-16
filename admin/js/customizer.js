@@ -274,6 +274,9 @@
     setCss('body_font_weight', '.site-description,' + body_elements, 'font-weight');
     setCss('body_color', body_elements, 'color');
 
+    setFont('button_font', 'button, button.btn, .btn, a.btn', 'font-family');
+    setCss('button_font_weight', 'button, button.btn, .btn, a.btn', 'font-weight');
+
     /**
      *
      * Typography -> Widget Fonts
