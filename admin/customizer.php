@@ -615,7 +615,7 @@ function attire_customize_register($wp_customize)
                     'transport' => $transport,
                     'sanitize_callback' => 'sanitize_text_field',
                 ));
-                $wp_customize->add_setting($theme_option . '[' . $id . '_letter_spacing]', array(
+                /*$wp_customize->add_setting($theme_option . '[' . $id . '_letter_spacing]', array(
                     'default' => $default,
                     'capability' => $capability,
                     'type' => $option_type,
@@ -628,7 +628,7 @@ function attire_customize_register($wp_customize)
                     'type' => $option_type,
                     'transport' => $transport,
                     'sanitize_callback' => 'sanitize_text_field',
-                ));
+                ));*/
                 /*$wp_customize->add_control($id, array(
                     'settings' => $theme_option . '[' . $id . ']',
                     'label' => $label,
