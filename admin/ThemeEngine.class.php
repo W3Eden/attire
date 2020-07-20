@@ -351,7 +351,6 @@ class AttireThemeEngine {
 
 		$css .= "h1, h1 a{{$font_family}{$h1_font_size}{$heading_font_weight}{$text_color}}";
 		if($button_font !== '') {
-		    wpdmprecho($theme_mod);
             $css .= ".btn, button.btn, a.btn{font-family:\"{$fonts[$button_font]['family']}\" !important; {$button_font_weight} letter-spacing:  0.5px;}";
             if(isset($fonts[ $button_font ]) && $fonts[ $button_font ]['family'] != '') $font_family_vars['--button-font'] = $fonts[$button_font]['family'];
         }
