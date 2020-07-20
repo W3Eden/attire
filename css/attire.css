@@ -115,9 +115,11 @@ pre {
     padding: 20px;
     overflow: auto;
 }
-
+.card .card-header,
+.attire-post-and-comments table th,
 th {
-    font-weight: bold; /* Make sure they're bold */
+    font-weight: bold;
+    font-family: var(--heading-font);
 }
 
 textarea,
@@ -1805,9 +1807,6 @@ article.post.product:before {
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.75);
 }
 
-.wpdm-thumb {
-    background: #fff;
-}
 
 #wp-calendar {
     width: 100%;
@@ -1823,7 +1822,20 @@ article.post.product:before {
     overflow: hidden;
 }
 
+
+/* ================================================================ */
+/* Download Manager style */
+/* ================================================================ */
+
 /* categories card */
+
+.wpdm-thumb {
+    background: #fff;
+}
+.w3eden #payment_form .payment-gateway-list {
+    font-family: var(--button-font);
+}
+
 .w3eden .card .card-body {
     display: block;
 }
@@ -1886,10 +1898,6 @@ article.post.product:before {
     word-spacing: 2px;
     line-height: 28px;
 }
-
-/* ================================================================ */
-/* Download Manager style */
-/* ================================================================ */
 
 /*=== Attire block cards ===*/
 .att-block-card {
@@ -2063,8 +2071,7 @@ article.post.product:before {
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
 }
-
-/** WPDM Styles :: START **/
+/** wpdm  page styles **/
 #theme-user-dashboard .panel-body .panel-row {
     display: flex;
 }

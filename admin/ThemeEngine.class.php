@@ -235,7 +235,7 @@ class AttireThemeEngine {
 
 	public function ThemeCustomizerCSS() {
 
-		$theme_mod = get_option( 'attire_options' );
+		$theme_mod = WPATTIRE()->theme_options;
 
         $fontsdata = AttireOptionFields::GetFonts();
 
@@ -304,18 +304,19 @@ class AttireThemeEngine {
 		$text_color      = $body_font_color ? "color:{$body_font_color};" : "";
 
         $button_font        = isset($theme_mod['button_font']) ? esc_attr( $theme_mod['button_font'] ) :  '';
-        $button_font_weight = isset($theme_mod['button_font_weight']) ? "font-weight:".esc_attr( $theme_mod['button_font_weight'] ).";" :  '';
+        $button_font_weight = isset($theme_mod['button_font_weight']) ? "font-weight:".esc_attr( $theme_mod['button_font_weight'] )." !important;" :  '';
 
 
 		if ( $body_font != '' ) {
 			$font_family = isset($fonts[ $body_font ]) && $fonts[ $body_font ]['family'] != '' ? "font-family:\"{$fonts[$body_font]['family']}\", {$fonts[$body_font]['category']};" : "";
+			if(isset($fonts[ $body_font ]) && $fonts[ $body_font ]['family'] != '') $font_family_vars['--body-font'] = $fonts[ $body_font ]['family'];
 		} else {
 			$font_family = '';
 		}
 
 		$css .= ".attire-content p, .attire-post-and-comments,.attire-post-and-comments p,.attire-post-and-comments article,.attire-post-and-comments ul,.attire-post-and-comments ol, 
 		.attire-post-and-comments table, .attire-post-and-comments blockquote, .attire-post-and-comments pre {{$font_family}{$font_size}{$body_font_weight}{$text_color}}";
-		$css .= ".site-description, .copyright-text, .attire-post-and-comments th, .attire-post-and-comments td, .attire-post-and-comments button, .attire-post-and-comments input{{$font_family}}";
+		$css .= ".site-description, .copyright-text, .attire-post-and-comments td, .attire-post-and-comments button, .attire-post-and-comments input{{$font_family}}";
 
 
 		/**
@@ -326,26 +327,33 @@ class AttireThemeEngine {
 		$heading_font_weight = intval( $theme_mod['heading_font_weight'] );
 		$heading_font_weight = $heading_font_weight != '' ? "font-weight:{$heading_font_weight};" : "";
 		$heading_font_size   = intval( $theme_mod['heading_font_size'] );
+		$heading2_font_size   = intval( $theme_mod['heading2_font_size'] );
+		$heading3_font_size   = intval( $theme_mod['heading3_font_size'] );
+		$heading4_font_size   = intval( $theme_mod['heading4_font_size'] );
 		$header_color        = esc_attr( $theme_mod['header_color'] );
 		$heading_font        = esc_attr( $theme_mod['heading_font'] );
 		$h1_font_size        = 'font-size:' . $heading_font_size . 'px;';
-		$h2_font_size        = 'font-size:' . ceil( $heading_font_size * .7 ) . 'px;';
-		$h3_font_size        = 'font-size:' . ceil( $heading_font_size * .6 ) . 'px;';
-		$h4_font_size        = 'font-size:' . ceil( $heading_font_size * .4 ) . 'px;';
-		$h5_font_size        = 'font-size:' . ceil( $heading_font_size * .4 ) . 'px;';
-		$h6_font_size        = 'font-size:' . ceil( $heading_font_size * .3 ) . 'px;';
+		$h2_font_size        = 'font-size:' . ( $heading2_font_size ) . 'px;';
+		$h3_font_size        = 'font-size:' . ( $heading3_font_size ) . 'px;';
+		$h4_font_size        = 'font-size:' . ( $heading4_font_size ) . 'px;';
+		$h5_font_size        = 'font-size:' . ( $heading4_font_size - 2 ) . 'px;';
+		$h6_font_size        = 'font-size:' . ( $heading4_font_size - 4 ) . 'px;';
 
 		$text_color = $header_color ? "color:{$header_color};" : "";
 
 		if ( $heading_font != '' ) {
 			$font_family = isset($fonts[ $heading_font ]) && $fonts[ $heading_font ]['family'] != '' ? "font-family:\"{$fonts[$heading_font]['family']}\", {$fonts[$heading_font]['category']};" : "";
+			if(isset($fonts[ $heading_font ]) && $fonts[ $heading_font ]['family'] != '') $font_family_vars['--heading-font'] = $fonts[$heading_font]['family'];
+
 		} else {
 			$font_family = '';
 		}
 
 		$css .= "h1, h1 a{{$font_family}{$h1_font_size}{$heading_font_weight}{$text_color}}";
-		if($button_font !== '')
-		$css .= ".btn,  button.btn, a.btn{{$button_font} {$button_font_weight} letter-spacing:  0.5px;}";
+		if($button_font !== '') {
+            $css .= ".btn, button.btn, a.btn{font-family:\"{$fonts[$button_font]['family']}\" !important; {$button_font_weight} letter-spacing:  0.5px;}";
+            if(isset($fonts[ $button_font ]) && $fonts[ $button_font ]['family'] != '') $font_family_vars['--button-font'] = $fonts[$button_font]['family'];
+        }
 		$css .= "h2, h2 a{{$font_family}{$h2_font_size}{$heading_font_weight}{$text_color}}";
 		$css .= "h3, h3 a, .archive-item .card-title.post-title a{{$font_family}{$h3_font_size}{$heading_font_weight}{$text_color}}";
 		$css .= "h4, h4 a{{$font_family}{$h4_font_size}{$heading_font_weight}{$text_color}}";
@@ -610,6 +618,9 @@ class AttireThemeEngine {
 		foreach ($color_vars as $var => $val){
             $vars .= "--color-{$var}: {$val};\r\n";
         }
+		foreach ($font_family_vars as $var => $val){
+            $vars .= "{$var}: \"{$val}\";\r\n";
+        }
 		$vars .= "}";
 
 
@@ -641,9 +652,7 @@ class AttireThemeEngine {
 	}
 
 	public static function NextGetOption( $index = null, $default = null ) {
-		global $attire_options;
-
-		$attire_options = get_option( 'attire_options' );
+		$attire_options = WPATTIRE()->theme_options;
 		if ( ! empty( $attire_options[ $index ] ) ) {
 			return $attire_options[ $index ];
 		} else {

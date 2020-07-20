@@ -2,7 +2,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-$theme_mod      = get_option( 'attire_options' );
+$theme_mod      = WPATTIRE()->theme_options;
 $content_layout = $theme_mod['header_content_layout_type'];
 $nav_width      = isset( $theme_mod['main_layout_type'] ) ? $theme_mod['main_layout_type'] : 'container-fluid'; // For sticky menu to match site width
 

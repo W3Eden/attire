@@ -64,7 +64,7 @@ class AttireFramework {
 	public static function DynamicSidebars( $pos ) {
 		global $post;
 
-		$theme_mod = get_option( 'attire_options' );
+		$theme_mod = WPATTIRE()->theme_options;
 
 		$left_sidebar_style  = "default";
 		$right_sidebar_style = "default";
@@ -85,7 +85,7 @@ class AttireFramework {
 			$right_sidebar_width = intval( $theme_mod['front_page_rs_width'] );
 		} elseif ( is_page() ) {
 			$meta = get_post_meta( get_the_ID(), 'attire_post_meta', true );
-			$sl = isset($meta['sidebar_layout']) ? $meta['sidebar_layout'] : 'default';	
+			$sl = isset($meta['sidebar_layout']) ? $meta['sidebar_layout'] : 'default';
 			$sidebar_layout      = $sl === 'default' ? esc_attr( $theme_mod['layout_default_page'] ) : $sl;
 			$theme_mod['layout_default_page']  = $sidebar_layout;
 			$left_sidebar        = esc_attr( $theme_mod['default_page_ls'] );
@@ -194,7 +194,7 @@ class AttireFramework {
 	 */
 	public static function ContentAreaWidth() {
 		global $post;
-		$theme_mod = get_option( 'attire_options' );
+		$theme_mod = WPATTIRE()->theme_options;
 
 		$sidebar_layout      = "right-sidebar-1";
 		$content_width       = 12;
@@ -213,7 +213,7 @@ class AttireFramework {
 			if ( is_page() ) {
 
 				$meta = get_post_meta( get_the_ID(), 'attire_post_meta', true );
-				$sl = isset($meta['sidebar_layout']) ? $meta['sidebar_layout'] : 'default';	
+				$sl = isset($meta['sidebar_layout']) ? $meta['sidebar_layout'] : 'default';
 				$sidebar_layout      = $sl === 'default' ? esc_attr( $theme_mod['layout_default_page'] ) : $sl;
 				$theme_mod['layout_default_page']  = $sidebar_layout;
 				$left_sidebar_width  = intval( $theme_mod['default_page_ls_width'] );

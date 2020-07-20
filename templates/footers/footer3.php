@@ -2,7 +2,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-$theme_mod      = get_option( 'attire_options' );
+$theme_mod      = WPATTIRE()->theme_options;
 $content_layout = $theme_mod['footer_content_layout_type'];
 ?>
 <footer class="footer3" id="footer3">

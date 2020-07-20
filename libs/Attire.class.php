@@ -4,17 +4,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+global $__attire;
+
 class Attire {
 
 	public $attire_defaults;
+	public $theme_options;
 
 	function __construct() {
 		$this->RegisterNavMenus();
 		$this->Filters();
 		$this->Actions();
-
+        $this->themeOptions();
 		add_action( 'after_setup_theme', array( $this, 'ThemeSetup' ) );
 	}
+
+	function themeOptions(){
+        $theme_mod = get_option( 'attire_options' );
+        $defaults = $this->getAttireDefaults();
+        if(!is_array($theme_mod)) $theme_mod = [];
+        foreach ($defaults as $key => $value){
+            if(!isset($theme_mod[$key]))
+                $theme_mod[$key] = $value;
+        }
+        $this->theme_options  = $theme_mod;
+        return $theme_mod;
+    }
 
 	/**
 	 * Usage: Load language file
@@ -28,14 +43,33 @@ class Attire {
 	}
 
 	function Actions() {
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueueScripts' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueuePriorityScripts' ), 1 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueueThemeStyles' ), 1 );
+        add_action( 'wp_enqueue_scripts', array( $this, 'enqueueScripts' ) );
 	}
 
-    function enqueuePriorityScripts()
+    function enqueueThemeStyles()
     {
         wp_register_style('font-awesome', ATTIRE_TEMPLATE_URL . '/fonts/fontawesome/css/all.min.css');
         wp_enqueue_style('font-awesome');
+
+        wp_register_script( 'attire-sticky', ATTIRE_TEMPLATE_URL . '/js/jquery.sticky.js', array('jquery'), null, true );
+        wp_enqueue_script( 'attire-sticky' );
+
+        wp_register_style( 'attire-responsive', ATTIRE_TEMPLATE_URL . '/css/responsive.css' );
+        wp_enqueue_style( 'attire-responsive' );
+
+        wp_register_style( 'bootstrap', ATTIRE_TEMPLATE_URL . '/bootstrap/css/bootstrap.min.css' );
+        wp_enqueue_style( 'bootstrap' );
+
+        wp_register_style( 'attire-main', get_stylesheet_uri(), array( 'bootstrap', 'attire-responsive' ) );
+        wp_enqueue_style( 'attire-main' );
+
+        wp_register_style( 'attire-woocommerce', ATTIRE_TEMPLATE_URL . '/css/woocommerce.css' );
+        if ( class_exists( 'WooCommerce' ) )
+            wp_enqueue_style( 'attire-woocommerce' );
+
+        wp_register_style( 'attire', ATTIRE_TEMPLATE_URL . '/css/attire.min.css' );
+        wp_enqueue_style( 'attire' );
     }
 
 
@@ -43,7 +77,7 @@ class Attire {
 	 * @usage Load all necessary scripts & styles
 	 */
 	function enqueueScripts() {
-		$theme_mod = get_option( 'attire_options' );
+		$theme_mod = self::themeOptions();
 
 		// Font Options ( From Customizer Typography Options )
 		$family[] = sanitize_text_field( $theme_mod['heading_font'] );
@@ -60,48 +94,13 @@ class Attire {
 		$cssimport = '//fonts.googleapis.com/css?family=' . implode( "|", $family );
 		$cssimport = str_replace( '||', '|', $cssimport );
 
+        wp_register_style( 'attire-google-fonts', $cssimport, array(), null );
+        wp_enqueue_style( 'attire-google-fonts' );
+
         wp_enqueue_script( 'jquery' );
 
-        //attire-mbl-menu
-
-		//wp_register_script( 'attire-gn-classie', ATTIRE_TEMPLATE_URL . '/mobile-menu-rss/js/classie.js', array(), null, true );
-		//wp_enqueue_script( 'attire-gn-classie' );
-
-		//wp_register_script( 'attire-gn-gnm', ATTIRE_TEMPLATE_URL . '/mobile-menu-rss/js/gnmenu.js', array(), null, true );
-		//wp_enqueue_script( 'attire-gn-gnm' );
-
-
-		wp_register_script( 'attire-sticky', ATTIRE_TEMPLATE_URL . '/js/jquery.sticky.js', array('jquery'), null, true );
-		wp_enqueue_script( 'attire-sticky' );
-
-		wp_register_style( 'attire-responsive', ATTIRE_TEMPLATE_URL . '/css/responsive.css' );
-		wp_enqueue_style( 'attire-responsive' );
-
-		wp_register_style( 'bootstrap', ATTIRE_TEMPLATE_URL . '/bootstrap/css/bootstrap.min.css' );
-		wp_enqueue_style( 'bootstrap' );
-
-		wp_register_style( 'attire-main', get_stylesheet_uri(), array( 'bootstrap', 'attire-responsive' ) );
-		wp_enqueue_style( 'attire-main' );
-
-		//wp_register_style( 'font-awesome', ATTIRE_TEMPLATE_URL . '/fonts/fontawesome/css/all.min.css' );
-		//wp_enqueue_style( 'font-awesome' );
-
-		wp_register_style( 'attire-google-fonts', $cssimport, array(), null );
-		wp_enqueue_style( 'attire-google-fonts' );
-
-        wp_register_style( 'attire-woocommerce', ATTIRE_TEMPLATE_URL . '/css/woocommerce.css' );
-        if ( class_exists( 'WooCommerce' ) )
-            wp_enqueue_style( 'attire-woocommerce' );
-
-		wp_register_style( 'attire', ATTIRE_TEMPLATE_URL . '/css/attire.css' );
-		wp_enqueue_style( 'attire' );
-
-		wp_register_script( 'popper', ATTIRE_TEMPLATE_URL . '/bootstrap/js/popper.min.js', array(), null, true );
-		wp_enqueue_script( 'popper' );
-
-		wp_register_script( 'bootstrap', ATTIRE_TEMPLATE_URL . '/bootstrap/js/bootstrap.min.js', array(
+		wp_register_script( 'bootstrap', ATTIRE_TEMPLATE_URL . '/bootstrap/js/bootstrap.bundle.js', array(
 			'jquery',
-			'popper'
 		), null, true );
 		wp_enqueue_script( 'bootstrap' );
 
@@ -241,12 +240,12 @@ class Attire {
         add_image_size( 'attire-card-image', 600, 400, array( 'center', 'top' ) );
 
 		if ( ! get_option( 'attire_options' ) ) {
-			add_option( 'attire_options', $this->GetAttireDefaults() );
+			add_option( 'attire_options', $this->getAttireDefaults() );
 		}
 	}
 
 
-	public function GetAttireDefaults() {
+	public function getAttireDefaults() {
 		$this->attire_defaults = array(
 			'footer_widget_number' => '3',
 			'copyright_info'       => '&copy;' . esc_attr__( 'Copyright ', 'attire' ) . date( 'Y' ) . '.',
@@ -287,11 +286,17 @@ class Attire {
 
 			'heading_font'        => 'Rubik:400,400i,500,700',
 			'heading_font_size'   => '25',
+			'heading2_font_size'   => '21',
+			'heading3_font_size'   => '17',
+			'heading4_font_size'   => '14',
 			'heading_font_weight' => '700',
 
 			'body_font'        => 'Rubik:400,400i,500,700',
 			'body_font_size'   => '14',
 			'body_font_weight' => '400',
+
+			'button_font'        => 'Sen:400,700,800',
+			'button_font_weight' => '700',
 
 			'widget_title_font'        => 'Rubik:400,400i,500,700',
 			'widget_title_font_size'   => '14',
@@ -776,4 +781,11 @@ class Attire {
          */
         do_action( 'comment_form_after' );
     }
+}
+
+$__attire = new Attire();
+
+function WPATTIRE(){
+    global $__attire;
+    return $__attire;
 }

@@ -931,19 +931,6 @@ $attire_options = array(
         'default' => 'Montserrat',
         'description' => esc_html__('Font family for H1...H6 html tags', 'attire')
     ),
-    'heading_font_size' => array(
-        'label' => __('Font Size', 'attire'),
-        'description' => esc_html__('For H tags (h1...h6)', 'attire'),
-        'transport' => 'postMessage',
-        'type' => 'range',
-        'section' => 'attire_generic_fonts',
-        'default' => '25',
-        'input_attrs' => array(
-            'min' => 20,
-            'max' => 72,
-            'step' => 1,
-        )
-    ),
     'heading_font_weight' => array(
         'label' => __('Font Weight', 'attire'),
         'transport' => 'postMessage',
@@ -954,6 +941,58 @@ $attire_options = array(
             'min' => 100,
             'max' => 900,
             'step' => 100,
+        )
+    ),
+    'heading_font_size' => array(
+        'label' => __('H1 Font Size', 'attire'),
+        'description' => '',
+        'transport' => 'postMessage',
+        'type' => 'range',
+        'section' => 'attire_generic_fonts',
+        'default' => '25',
+        'input_attrs' => array(
+            'min' => 10,
+            'max' => 72,
+            'step' => 1,
+        )
+    ),
+    'heading2_font_size' => array(
+        'label' => __('H2 Font Size', 'attire'),
+        'description' => '',
+        'transport' => 'postMessage',
+        'type' => 'range',
+        'section' => 'attire_generic_fonts',
+        'default' => '21',
+        'input_attrs' => array(
+            'min' => 10,
+            'max' => 72,
+            'step' => 1,
+        )
+    ),
+    'heading3_font_size' => array(
+        'label' => __('H3 Font Size', 'attire'),
+        'description' => '',
+        'transport' => 'postMessage',
+        'type' => 'range',
+        'section' => 'attire_generic_fonts',
+        'default' => '17',
+        'input_attrs' => array(
+            'min' => 10,
+            'max' => 72,
+            'step' => 1,
+        )
+    ),
+    'heading4_font_size' => array(
+        'label' => __('H4 Font Size', 'attire'),
+        'description' => '',
+        'transport' => 'postMessage',
+        'type' => 'range',
+        'section' => 'attire_generic_fonts',
+        'default' => '14',
+        'input_attrs' => array(
+            'min' => 20,
+            'max' => 72,
+            'step' => 1,
         )
     ),
 
