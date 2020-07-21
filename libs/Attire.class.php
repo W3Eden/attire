@@ -82,6 +82,7 @@ class Attire {
 		// Font Options ( From Customizer Typography Options )
 		$family[] = sanitize_text_field( $theme_mod['heading_font'] );
 		$family[] = sanitize_text_field( $theme_mod['body_font'] );
+		$family[] = sanitize_text_field( $theme_mod['button_font'] );
 		$family[] = sanitize_text_field( $theme_mod['widget_title_font'] );
 		$family[] = sanitize_text_field( $theme_mod['widget_content_font'] );
 		$family[] = sanitize_text_field( $theme_mod['menu_top_font'] );
