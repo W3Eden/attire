@@ -60,7 +60,8 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 
 			$class_names = $value = '';
 
-			$classes   = empty( $item->classes ) ? array() : (array) $item->classes;
+			$_classes   = empty( $item->classes ) ? array() : (array) $item->classes;
+            $_classes = implode(" ", $_classes);
 			$classes[] = 'menu-item-' . $item->ID;
 
 			$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
@@ -89,7 +90,7 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 			$atts['target'] = ! empty( $item->target ) ? $item->target : '';
 			$atts['rel']    = ! empty( $item->xfn ) ? $item->xfn : '';
 			$atts['href']   = ! empty( $item->url ) ? $item->url : '';
-//			$atts['class']  = 'dropdown-item';
+			$atts['class']  = $_classes;
 
 
 			if ( $depth > 0 && ! in_array( 'menu-item-has-children', $classes ) ) {
@@ -117,7 +118,7 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 			$item_output .= '<a' . $attributes . '>';
 
 			$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-			$item_output .= ( $args->has_children ) ? ' </a><span class="dropdown-toggler"><i class="fas fa-caret-down" aria-hidden="true"></i></span>' : '</a>';
+			$item_output .= ( $args->has_children ) ? ' </a><span class="dropdown-toggler"><i class="fas fa-angle-down" aria-hidden="true"></i></span>' : '</a>';
 			$item_output .= $args->after;
 
 			$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );

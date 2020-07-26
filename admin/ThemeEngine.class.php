@@ -261,7 +261,7 @@ class AttireThemeEngine {
 
 		$search_form_visibility = isset( $theme_mod['attire_search_form_visibility'] ) ? $theme_mod['attire_search_form_visibility'] : 'show';
 		if ( $search_form_visibility === 'hide' ) {
-//			$css .= 'header .mainmenu > .menu-item:last-child > a{padding-right:0;}';
+//			$css .= 'header .mainmenu > .nav-item:last-child > a{padding-right:0;}';
 			$css .= 'ul.ul-search{display:none;}';
 		}
 
@@ -483,7 +483,7 @@ class AttireThemeEngine {
 			$font_family = '';
 		}
 
-		$css .= "header .mainmenu > .menu-item a,footer .footermenu > .menu-item a, .info-link,.attire-mbl-menu li.nav-item a,input.gn-search{{$font_family}{$font_size}{$font_weight}}";
+		$css .= "header .mainmenu > .nav-item a,footer .footermenu > .menu-item a, .info-link,.attire-mbl-menu li.nav-item a,input.gn-search{{$font_family}{$font_size}{$font_weight}}";
 
 		/**
 		 *
@@ -511,7 +511,7 @@ class AttireThemeEngine {
 		 */
         $color_vars['menu-top-font-color'] =  esc_attr( $theme_mod['menu_top_font_color'] );
 		$color = "color:" . esc_attr( $theme_mod['menu_top_font_color'] ) . ";";
-		$css   .= "header .mainmenu > .menu-item:not(.active) > a, header .nav i.fa.fa-search, header .dropdown-toggler, header .mobile-menu-toggle,.attire-mbl-menu li.nav-item a, input.gn-search,.attire-mbl-menu-main a.gn-icon-search,.attire-mbl-menu .dropdown-toggler i:before{{$color}}";
+		$css   .= "header .mainmenu > .nav-item:not(.active) > a, header .nav i.fa.fa-search, header .dropdown-toggler, header .mobile-menu-toggle,.attire-mbl-menu li.nav-item a, input.gn-search,.attire-mbl-menu-main a.gn-icon-search,.attire-mbl-menu .dropdown-toggler i:before{{$color}}";
 
         $color_vars['main-nav-bg'] =  esc_attr( $theme_mod['main_nav_bg'] );
 		$main_nav_bg = 'background-color:' . esc_attr( $theme_mod['main_nav_bg'] );
@@ -519,11 +519,11 @@ class AttireThemeEngine {
 
         $color_vars['menuhbg-color'] =  esc_attr( $theme_mod['menuhbg_color'] );
         $main_nav_hover_active_bg = 'background-color:' . esc_attr( $theme_mod['menuhbg_color'] );
-		$css                      .= "header .mainmenu > .menu-item:hover, header .mainmenu > .menu-item.active,.attire-mbl-menu li.active{ {$main_nav_hover_active_bg};}";
+		$css                      .= "header .mainmenu > .nav-item:hover, header .mainmenu > .nav-item.active,.attire-mbl-menu li.active{ {$main_nav_hover_active_bg};}";
 
-
+        $color_vars['main-menu-text-active'] =  esc_attr( $theme_mod['menuht_color'] );
 		$main_nav_hover_active_text_color = 'color:' . esc_attr( $theme_mod['menuht_color'] );
-		$css                              .= "header .mainmenu > .menu-item:hover > a, header .mainmenu > .menu-item.active > a, header .mainmenu > .menu-item:hover > .dropdown-toggler, header .mainmenu > .menu-item.active > .dropdown-toggler,#search-top:hover i,.attire-mbl-menu li.active a, .attire-mbl-menu li.active .dropdown-toggler i:before{ {$main_nav_hover_active_text_color};}";
+		$css                              .= "header .mainmenu > .nav-item:hover > a, header .mainmenu > .nav-item.active > a, header .mainmenu > .nav-item:hover > .dropdown-toggler, header .mainmenu > .nav-item.active > .dropdown-toggler,#search-top:hover i,.attire-mbl-menu li.active a, .attire-mbl-menu li.active .dropdown-toggler i:before{ {$main_nav_hover_active_text_color};}";
 
 
 		/**

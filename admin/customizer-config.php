@@ -489,6 +489,11 @@ $attire_options = array(
                 'value' => 'header-5',
                 'title' => __('Nav Style 5', 'attire'),
                 'src' => get_template_directory_uri() . '/images/headers/header5.jpg',
+            ),
+            5 => array(
+                'value' => 'header-6',
+                'title' => __('Nav Style 6', 'attire'),
+                'src' => get_template_directory_uri() . '/images/headers/header3.jpg',
             )
         ),
     ),
