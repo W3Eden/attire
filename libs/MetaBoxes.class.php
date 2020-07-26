@@ -80,7 +80,7 @@ class AttireMetaBoxes {
 
 		wp_nonce_field( 'attire_page_layout_nonce', 'attire_page_layout_nonce' );
 		echo "<div class='w3eden' style='padding-top: 10px'>";
-		echo '<select class="form-control wpdm-custom-select" id="page_width" name="attire_post_meta[layout_page]">';
+		echo '<select class="d-block" id="page_width" name="attire_post_meta[layout_page]">';
 		echo '<option  value="default"  ' . esc_attr( $default ) . '>' . __( 'Theme Default', 'attire' ) . '</option>';
 		echo '<option  value="container-fluid"  ' . esc_attr( $container_fluid ) . '>' . __( 'Full-Width', 'attire' ) . '</option>';
 		echo '<option  value="container"  ' . esc_attr( $container ) . '> ' . __( 'Container', 'attire' ) . '</option>';
@@ -157,7 +157,7 @@ class AttireMetaBoxes {
 
         function headerFooter( $post ){
 
-	        include dirname(__DIR__).'/admin/metaboxes/header-footer.php';
+	        include dirname(__DIR__).'/admin/metaboxes/attire-page-options.php';
 
         }
 

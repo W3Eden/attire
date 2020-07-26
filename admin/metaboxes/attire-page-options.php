@@ -6,19 +6,35 @@
  * Date: 4/6/20 16:49
  */
 if (!defined("ABSPATH")) die();
-
+global $attire_options;
 $meta = get_post_meta($post->ID, 'attire_post_meta', true);
 $hide_site_header = isset($meta['hide_site_header']) ? (int)$meta['hide_site_header'] : 0;
+$nav_header = isset($meta['nav_header']) ? (int)$meta['nav_header'] : -1;
 $page_header = isset($meta['page_header']) ? (int)$meta['page_header'] : -1;
 $hide_site_footer = isset($meta['hide_site_footer']) ? (int)$meta['hide_site_footer'] : 0;
-
 wp_nonce_field('attire_page_header_nonce', 'attire_page_header_nonce');
-
+include dirname(__DIR__).'/customizer-config.php';
 ?>
-<div class='w3eden' style='padding-top: 10px'>
+<div style='padding-top: 10px'>
+    <div class="form-group">
+
+        <div class='form-group'>
+            <label for="nav_header"><?php _e('Top Menu Style', 'attire') ?></label>
+            <select id="nav_header" class="d-block" name="attire_post_meta[nav_header]">
+                <option value="-1" <?php selected(-1, $nav_header) ?>><?php _e('Theme Default', 'attire') ?></option>
+                <option value="1" <?php selected(1, $nav_header) ?>><?php _e('Nav Style 1', 'attire') ?></option>
+                <option value="2" <?php selected(2, $nav_header) ?>><?php _e('Nav Style 2', 'attire') ?></option>
+                <option value="3" <?php selected(3, $nav_header) ?>><?php _e('Nav Style 3', 'attire') ?></option>
+                <option value="4" <?php selected(4, $nav_header) ?>><?php _e('Nav Style 4', 'attire') ?></option>
+                <option value="5" <?php selected(5, $nav_header) ?>><?php _e('Nav Style 5', 'attire') ?></option>
+                <option value="6" <?php selected(6, $nav_header) ?>><?php _e('Nav Style 6', 'attire') ?></option>
+            </select>
+        </div>
+
+    </div>
     <div class='form-group'>
         <label><?php _e('Page Header', 'attire') ?></label>
-        <select class="form-control wpdm-custom-select" id="page_header" name="attire_post_meta[page_header]">
+        <select id="page_header" class="d-block" name="attire_post_meta[page_header]">
             <option value="-1" <?php selected(-1, $page_header) ?>><?php _e('Theme Default', 'attire') ?></option>
             <option value="1" <?php selected(1, $page_header) ?>><?php _e('Show', 'attire') ?></option>
             <option value="0" <?php selected(0, $page_header) ?>> <?php _e('Hide', 'attire') ?></option>
