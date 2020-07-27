@@ -90,7 +90,7 @@ header .navbar {
     padding: 0;
 }
 
-li.nav-item {
+header li.nav-item {
     line-height: 50px;
 }
 
