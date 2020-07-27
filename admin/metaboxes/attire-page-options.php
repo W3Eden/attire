@@ -21,13 +21,13 @@ include dirname(__DIR__).'/customizer-config.php';
         <div class='form-group'>
             <label for="nav_header"><?php _e('Top Menu Style', 'attire') ?></label>
             <select id="nav_header" class="d-block" name="attire_post_meta[nav_header]">
-                <option value="-1" <?php selected(-1, $nav_header) ?>><?php _e('Theme Default', 'attire') ?></option>
-                <option value="1" <?php selected(1, $nav_header) ?>><?php _e('Nav Style 1', 'attire') ?></option>
-                <option value="2" <?php selected(2, $nav_header) ?>><?php _e('Nav Style 2', 'attire') ?></option>
-                <option value="3" <?php selected(3, $nav_header) ?>><?php _e('Nav Style 3', 'attire') ?></option>
-                <option value="4" <?php selected(4, $nav_header) ?>><?php _e('Nav Style 4', 'attire') ?></option>
-                <option value="5" <?php selected(5, $nav_header) ?>><?php _e('Nav Style 5', 'attire') ?></option>
-                <option value="6" <?php selected(6, $nav_header) ?>><?php _e('Nav Style 6', 'attire') ?></option>
+                <option value="" <?php selected("", $nav_header) ?>><?php _e('Theme Default', 'attire') ?></option>
+                <option value="header-1" <?php selected(1, $nav_header) ?>><?php _e('Nav Style 1', 'attire') ?></option>
+                <option value="header-2" <?php selected(2, $nav_header) ?>><?php _e('Nav Style 2', 'attire') ?></option>
+                <option value="header-3" <?php selected(3, $nav_header) ?>><?php _e('Nav Style 3', 'attire') ?></option>
+                <option value="header-4" <?php selected(4, $nav_header) ?>><?php _e('Nav Style 4', 'attire') ?></option>
+                <option value="header-5" <?php selected(5, $nav_header) ?>><?php _e('Nav Style 5', 'attire') ?></option>
+                <option value="header-6" <?php selected(6, $nav_header) ?>><?php _e('Nav Style 6', 'attire') ?></option>
             </select>
         </div>
 
