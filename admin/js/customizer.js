@@ -127,20 +127,32 @@
             $('h1 *,.h1, h1').each(function () {
                 this.style.setProperty('font-size', newValue + 'px');
             });
+        });
+    });
+    wp.customize('attire_options[heading2_font_size]', function (value) {
+        value.bind(function (newValue) {
             $('h2:not(.site-description) *, h2:not(.site-description),.h2').each(function () {
-                this.style.setProperty('font-size', Math.round(newValue * .75) + 'px');
+                this.style.setProperty('font-size', newValue + 'px');
             });
+        });
+    });
+    wp.customize('attire_options[heading3_font_size]', function (value) {
+        value.bind(function (newValue) {
             $('h3 *, h3,.h3').each(function () {
-                this.style.setProperty('font-size', Math.round(newValue * .6) + 'px');
+                this.style.setProperty('font-size', newValue + 'px');
             });
+        });
+    });
+    wp.customize('attire_options[heading4_font_size]', function (value) {
+        value.bind(function (newValue) {
             $('h4 *, h4,.h4').each(function () {
-                this.style.setProperty('font-size', Math.round(newValue * .56) + 'px');
+                this.style.setProperty('font-size', newValue + 'px');
             });
             $('h5 *,h5,.h5').each(function () {
-                this.style.setProperty('font-size', Math.round(newValue * .415) + 'px');
+                this.style.setProperty('font-size', (newValue -  2) + 'px');
             });
             $('h6 *,h6,h6').each(function () {
-                this.style.setProperty('font-size', Math.round(newValue * .375) + 'px');
+                this.style.setProperty('font-size', (newValue -  4) + 'px');
             });
         });
     });

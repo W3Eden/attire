@@ -326,9 +326,20 @@ input[type="radio"]:checked::before{
     opacity: 0;
 }
 
+.attire-image-picker .card{
+    padding: 0;
+}
+.attire-image-picker .card .card-header{
+    padding: 10px;
+    font-weight: 700;
+    border-bottom: 1px solid #dddddd;
+}
+.attire-image-picker .card .card-body{
+    padding: 0;
+}
 .attire-image-picker img {
     width: 100%;
-    margin-bottom: 15px;
+    margin: 0px;
     transition: all 1s ease;
 }
 
@@ -337,8 +348,9 @@ input[type="radio"]:checked::before{
     border: 2px solid #c0c0c0;
 }
 
+.attire-image-picker input[type="radio"]:checked + .card,
 .attire-image-picker input[type="radio"]:checked + img {
-    border: 2px solid #4b82e0;
+    border: 2px solid #337cfa;
     cursor: pointer;
 }
 

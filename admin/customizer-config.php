@@ -467,33 +467,33 @@ $attire_options = array(
         'choices' => array(
             0 => array(
                 'value' => 'header-1',
-                'title' => __('Nav Style 1', 'attire'),
+                'title' => __('Default Navigation Header', 'attire'),
                 'src' => get_template_directory_uri() . '/images/headers/header1.jpg',
             ),
             1 => array(
                 'value' => 'header-2',
-                'title' => __('Nav Style 2', 'attire'),
+                'title' => __('Compact Navigation Header', 'attire'),
                 'src' => get_template_directory_uri() . '/images/headers/header2.jpg',
             ),
             2 => array(
                 'value' => 'header-3',
-                'title' => __('Nav Style 3', 'attire'),
+                'title' => __('Narrow Navigation Header', 'attire'),
                 'src' => get_template_directory_uri() . '/images/headers/header3.jpg',
             ),
             3 => array(
                 'value' => 'header-4',
-                'title' => __('Nav Style 4', 'attire'),
+                'title' => __('Centered Navigation Header', 'attire'),
                 'src' => get_template_directory_uri() . '/images/headers/header4.jpg',
             ),
             4 => array(
                 'value' => 'header-5',
-                'title' => __('Nav Style 5', 'attire'),
+                'title' => __('Extended Navigation Header', 'attire'),
                 'src' => get_template_directory_uri() . '/images/headers/header5.jpg',
             ),
             5 => array(
                 'value' => 'header-6',
-                'title' => __('Nav Style 6', 'attire'),
-                'src' => get_template_directory_uri() . '/images/headers/header3.jpg',
+                'title' => __('Transparent Navigation Header', 'attire'),
+                'src' => get_template_directory_uri() . '/images/headers/header6.jpg',
             )
         ),
     ),

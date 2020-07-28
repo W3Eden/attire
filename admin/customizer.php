@@ -122,9 +122,16 @@ if (class_exists('WP_Customize_Control')) {
                     <label>
                         <input type="radio" <?php $this->link(); ?> name="<?php echo esc_attr($this->id); ?>"
                                value="<?php echo esc_attr($choice['value']); ?>"/>
-                        <img src="<?php echo esc_url($choice['src']); ?>"
-                             alt="<?php echo esc_attr($choice['title']); ?>"
-                             title="<?php echo esc_attr($choice['title']); ?>"/>
+                        <div class="card">
+                            <div class="card-header">
+                                <?php echo esc_attr($choice['title']); ?>
+                            </div>
+                            <div class="card-body">
+                                <img src="<?php echo esc_url($choice['src']); ?>"
+                                     alt="<?php echo esc_attr($choice['title']); ?>"
+                                     title="<?php echo esc_attr($choice['title']); ?>"/>
+                            </div>
+                        </div>
                     </label>
 
                 <?php endforeach; ?>

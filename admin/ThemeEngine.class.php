@@ -709,15 +709,16 @@ class AttireThemeEngine {
 
 
 		$style = '';
-		if ( is_page() || is_single() ) {
-			$attire_post_meta = get_post_meta( get_the_ID(), 'attire_post_meta', true );
-			$style            = isset( $attire_post_meta['nav_header'] ) ? sanitize_text_field( $attire_post_meta['nav_header'] ) : '';
-		}
+		if(!isset($_REQUEST['wp_customize'])) {
+            if (is_page() || is_single()) {
+                $attire_post_meta = get_post_meta(get_the_ID(), 'attire_post_meta', true);
+                $style = isset($attire_post_meta['nav_header']) ? sanitize_text_field($attire_post_meta['nav_header']) : '';
+            }
+        }
 
 		if ( ! isset( $style ) || $style == '' ) {
 			$style = sanitize_text_field( self::NextGetOption( 'nav_header', 'header-1' ) );
 		}
-
 		if ( ! locate_template( "templates/headers/" . $style . ".php" ) ) {
 			$style = 'header-1';
 		}
