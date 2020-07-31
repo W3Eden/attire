@@ -653,6 +653,9 @@ class AttireThemeEngine {
 
 	public static function NextGetOption( $index = null, $default = null ) {
 		$attire_options = WPATTIRE()->theme_options;
+        if ($default == 'header-1') {
+            $attire_options = get_option('attire_options');
+        }
 		if ( ! empty( $attire_options[ $index ] ) ) {
 			return $attire_options[ $index ];
 		} else {
