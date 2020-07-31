@@ -638,7 +638,7 @@ class AttireThemeEngine {
 
 	public static function AttireBodySchema() {
 
-		$blog = ( is_home() || is_archive() || is_attachment() || is_tax() || is_single() ) ? true : false;
+		$blog = ( is_home() || is_archive() || is_attachment() || is_tax() || is_single() );
 
 		$itemtype = 'WebPage';
 
