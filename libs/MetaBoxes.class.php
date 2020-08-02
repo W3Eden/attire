@@ -156,7 +156,6 @@ class AttireMetaBoxes {
         }
 
         function headerFooter( $post ){
-
 	        include dirname(__DIR__).'/admin/metaboxes/attire-page-options.php';
 
         }
