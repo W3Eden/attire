@@ -21,6 +21,8 @@ class AttireThemeEngine {
 	function Actions() {
 		add_action( 'wp_head', array( $this, 'WPHead' ) );
 		add_action( 'admin_head', array( $this, 'adminHead' ) );
+		add_action( 'admin_footer', array( $this, 'adminFooter' ) );
+		add_action( 'wp_ajax_hide_ab_notice', array( $this, 'hideABNotice' ) );
 
 		add_action( 'widgets_init', array( $this, 'InitiateWidgets' ) );
 	}
@@ -38,6 +40,114 @@ class AttireThemeEngine {
             }
         </style>
         <?php
+    }
+
+    function hideABNotice(){
+	    update_option("__hide_ab_notice", 1);
+	    die();
+    }
+
+    function adminFooter(){
+	    if(!file_exists(WP_CONTENT_DIR.'/plugins/attire-blocks/') && (int)get_option('__hide_ab_notice', 0) === 0){
+	    ?>
+            <div id="aitte-intro" style="display: none">
+
+                <div class="xcard" id="ab_notice">
+                    <div class="xcontent">
+                        <a href="#" id="xclose">Dismiss</a>
+                        <h2>Awesome! Your theme is ready</h2>
+                        Now, let's install Attire  Blocks to super power your gutenberg editor.
+                    </div>
+                    <div  class="xbtn">
+                        <a href="<?php echo admin_url('/plugin-install.php?s=Attire+Blocks&tab=search&type=tag'); ?>" class="btx">
+                            Install now
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .xcard{
+                    padding: 20px;
+                    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+                    margin: 20px 0;
+                    width: calc(100% - 40px);
+                    max-width: calc(100% - 40px);
+                    border: 0;
+                    display: flex;
+                    grid-template-columns: 1fr 150px;
+                    background: #ffffff;
+                }
+                .xcontent{
+                    flex: 4;
+                    padding-left: 10px;
+                    position: relative;
+                }
+                .xbtn{
+                    width: 200px;
+                    min-width: 200px;
+                    align-content: center;
+                    display: grid;
+                }
+                .xcard h2{
+                    margin: 5px 0 5px;
+                }
+                .xbtn .btx{
+                    padding: 15px 20px;
+                    color: #ffffff;
+                    font-weight: 600;
+                    text-decoration: none;
+                    display: block;
+                    text-align: center;
+                    position: relative;
+                    border-radius: 5px;
+                    background: linear-gradient(135deg, #ecc344 0%, #e42d7f 100%);
+                    border: 0;
+                    transition: all ease-in-out 300ms;
+                    box-shadow: 0 0 10px  rgba(228,45,127,0.3);
+                    margin: 0 5px;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
+                .xbtn .btx:hover{
+                    transition: all ease-in-out 300ms;
+                    background: linear-gradient(135deg, #ecc344 19%, #e42d7f 90%);
+                }
+                #xclose{
+                    position: absolute;
+                    text-decoration: none;
+                    color: #fff;
+                    background: linear-gradient(135deg, #ff7432 19%, #f81c7f 90%);
+                    font-size: 9px;
+                    padding: 3px 10px;
+                    top: 0;
+                    z-index: 999;
+                    left: 0;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    margin-top: -31px;
+                    opacity: 0;
+                    border-radius: 500px;
+                    transition: all ease-in-out 500ms;
+                }
+                .xcard:hover #xclose{
+                    opacity: 1;
+                    transition: all ease-in-out 500ms;
+                }
+            </style>
+        <script>
+            jQuery(function ($){
+                if(pagenow === 'dashboard'){
+                    $('#dashboard-widgets-wrap').before($('#aitte-intro').html());
+                    $('#xclose').on('click', function (e){
+                        e.preventDefault();
+                        $('#ab_notice').fadeOut();
+                        $.get(ajaxurl, {hide_ab_notice: 1,  action: 'hide_ab_notice'});
+                    });
+                }
+            });
+        </script>
+        <?php
+        }
     }
 
 

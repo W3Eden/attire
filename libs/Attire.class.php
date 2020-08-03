@@ -782,6 +782,142 @@ class Attire {
          */
         do_action( 'comment_form_after' );
     }
+
+
+    /**
+     * @param $var
+     * @param $index
+     * @param array $params
+     * @return array|bool|float|int|mixed|string|string[]|null
+     */
+
+    function valueOf($var, $index, $params = [])
+    {
+        $index = explode("/" , $index );
+        $default = is_string($params) ? $params : '';
+        $default = is_array($params) && isset($params['default']) ? $params['default'] : $default;
+        if(count($index) > 1){
+            $val = $var;
+            foreach ($index as $key){
+                $val = is_array($val) && isset($val[$key])?$val[$key]:'__not__set__';
+                if($val === '__not__set__') return $default;
+            }
+        } else
+            $val = isset($var[$index[0]]) ? $var[$index[0]] : $default;
+
+        if(is_array($params) && isset($params['validate'])) {
+            if (!is_array($val))
+                $val = $this->sanitizeVar($val, $params['validate']);
+            else
+                $val = $this->sanitizeArray($val, $params['validate']);
+        }
+
+        return $val;
+    }
+
+    /**
+     * @usage Validate and sanitize input data
+     * @param $var
+     * @param array $params
+     * @return int|null|string
+     */
+    function queryVar($var, $params = array())
+    {
+        $_var = explode("/" , $var );
+        if(count($_var) > 1){
+            $val = $_REQUEST;
+            foreach ($_var as $key){
+                $val = is_array($val) && isset($val[$key])?$val[$key]:false;
+            }
+        } else
+            $val = isset($_REQUEST[$var]) ? $_REQUEST[$var] : ( isset($params['default']) ? $params['default'] : null );
+        $validate = is_string($params) ? $params : '';
+        $validate = is_array($params) && isset($params['validate']) ? $params['validate'] : $validate;
+
+        if(!is_array($val))
+            $val = $this->sanitizeVar($val, $validate);
+        else
+            $val = $this->sanitizeArray($val, $validate);
+
+        return $val;
+    }
+
+    /**
+     * Sanitize an array or any single value
+     * @param $array
+     * @return mixed
+     */
+    function sanitizeArray($array, $sanitize = 'kses'){
+        if(!is_array($array)) return esc_attr($array);
+        foreach ($array as $key => &$value){
+            $validate = is_array($sanitize) && isset($sanitize[$key]) ? $sanitize[$key] : $sanitize;
+            if(is_array($value))
+                $this->sanitizeArray($value, $validate);
+            else {
+                $value = $this->sanitizeVar($value, $validate);
+            }
+            $array[$key] = &$value;
+        }
+        return $array;
+    }
+
+    /**
+     * Sanitize any single value
+     * @param $value
+     * @return string
+     */
+    function sanitizeVar($value, $sanitize = 'kses'){
+        if(is_array($value))
+            return $this->sanitizeArray($value, $sanitize);
+        else {
+            switch ($sanitize){
+                case 'int':
+                case 'num':
+                    return (int)$value;
+                    break;
+                case 'double':
+                case 'float':
+                    return (double)($value);
+                    break;
+                case 'txt':
+                case 'str':
+                    $value = esc_attr($value);
+                    break;
+                case 'kses':
+                    $allowedtags = wp_kses_allowed_html();
+                    $allowedtags['div'] = array('class' => true);
+                    $allowedtags['strong'] = array('class' => true);
+                    $allowedtags['b'] = array('class' => true);
+                    $allowedtags['i'] = array('class' => true);
+                    $allowedtags['a'] = array('class' => true, 'href' => true);
+                    $value = wp_kses($value, $allowedtags);
+                    break;
+                case 'serverpath':
+                    $value = realpath($value);
+                    $value = str_replace("\\", "/", $value);
+                    break;
+                case 'txts':
+                    $value = sanitize_textarea_field($value);
+                    break;
+                case 'url':
+                    $value = esc_url($value);
+                    break;
+                case 'filename':
+                    $value = mb_ereg_replace("([^\w\s\d\-_~,;\[\]\(\).])", '_', $value);
+                    $value = mb_ereg_replace("([\.]+)", '_', $value);
+                    break;
+                case 'html':
+
+                    break;
+                default:
+                    $value = esc_sql(esc_attr($value));
+                    break;
+            }
+        }
+        return $value;
+    }
+
+
 }
 
 $__attire = new Attire();
