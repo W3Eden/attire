@@ -20,7 +20,6 @@
         wp.customize('attire_options[' + themeModName + ']', function (value) {
             value.bind(function (newVal) {
                 if ($('style#' + themeModName).length) {
-                    console.log(themeModName);
                     try {
                         $('style#' + themeModName).html(selector + '{' + propertyName + ':' + newVal + unit + ' !important;}');
                     } catch (err) {
