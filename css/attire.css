@@ -528,7 +528,7 @@ span[id*=more-]:before {
     margin-bottom: 20px;
     border-bottom: 1px solid #e6e6e6;
 }
-.single-post .meta-list li {
+.meta-list li {
     display: inline-block;
 }
 

@@ -19,6 +19,9 @@ Attire is a fast, mobile responsive, highly customizable, SEO friendly multipurp
 
 == Changelog ==
 
+= 1.4.9 - 2020.08.09 =
+* Fixed an issue with the post meta display
+
 = 1.4.8 - 2020.08.09 =
 * Added new option to show/hide post author box on single post
 * Improved post meta styles

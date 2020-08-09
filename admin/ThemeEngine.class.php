@@ -870,7 +870,7 @@ class AttireThemeEngine {
             <?php } ?>
             <?php
             $meta_position = AttireThemeEngine::NextGetOption( 'attire_single_post_meta_position', 'after-title' );
-            if ( $meta_position === 'after-title' ) {
+            if ( $meta_position === 'after-title' && is_single()) {
                 get_template_part( 'single', 'post-meta' );
             } ?>
         </div>
