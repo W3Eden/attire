@@ -402,7 +402,7 @@ span[id*=more-]:before {
     top: 20px;
     font-size: 12pt;
     padding: 7px 10px;
-    background: var(-color-main-nav-bg);
+    background: var(--color-main-nav-bg);
     width: 35px;
     border-radius: 3px;
 }
@@ -510,7 +510,7 @@ span[id*=more-]:before {
 }
 
 .post-meta .meta-list {
-    padding: 20px 0;
+    padding: 10px 0;
     overflow: auto;
     margin: 0;
 }
@@ -523,11 +523,12 @@ span[id*=more-]:before {
     padding: 10px 0;
     overflow: auto;
     font-size: 11px;
+}
+.single-post-content .meta-list{
     margin-bottom: 20px;
     border-bottom: 1px solid #e6e6e6;
 }
-
-.single-post .meta-list li:not(:last-child) {
+.single-post .meta-list li {
     display: inline-block;
 }
 
@@ -537,9 +538,15 @@ span[id*=more-]:before {
 }
 
 .post-meta .meta-list span.bold,
-.post-navs {
+.post-navs .card-footer{
     text-decoration: none;
     font-weight: 600;
+}
+.post-navs .card-footer{
+    font-size: 11px;
+}
+.post-navs .col-md-6:last-child{
+    border-left: 1px solid #dddddd;
 }
 
 .wp-post-image {
@@ -549,7 +556,6 @@ span[id*=more-]:before {
 .single-post .wp-post-image {
     width: 100%;
     border-radius: 3px;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
 }
 
 .single-post-content,
@@ -560,7 +566,6 @@ span[id*=more-]:before {
     border-radius: 3px;
 }
 
-.post-meta .meta-list span:not(.bold),
 .post-navs i {
     color: rgba(0, 0, 0, 0.4);
     font-weight: 500;
@@ -1442,7 +1447,7 @@ header li.nav-item:not(.desktop-search) a {
     display: inline-block;
     letter-spacing: 0;
     padding: 7px 15px;
-    background: var(-color-main-nav-bg);
+    background: var(--color-main-nav-bg);
     color: #ffffff;
     border-radius: 2px;
 }
@@ -1577,7 +1582,7 @@ a.footer-logo {
 }
 
 .commentlist .bypostauthor .card {
-    border-color: var(-color-main-nav-bg);
+    border-color: var(--color-main-nav-bg);
 }
 
 .widget ul li {
@@ -1669,7 +1674,7 @@ a.footer-logo {
 }
 
 ul#breadcrumbs {
-    margin-top: 6px;
+    margin-top: 12px;
 }
 ul#breadcrumbs li{
     display: inline-block;

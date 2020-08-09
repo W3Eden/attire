@@ -230,6 +230,7 @@ class AttireThemeEngine {
             <?php echo wp_filter_nohtml_kses($css); ?>
             }
 
+            .page_header_wrap .meta-list *,
             .page_header_wrap a{
                 <?php echo $text_color; ?>
             }
@@ -867,6 +868,11 @@ class AttireThemeEngine {
                     <?php } else AttireBase::breadcrumb(); ?>
                 </div>
             <?php } ?>
+            <?php
+            $meta_position = AttireThemeEngine::NextGetOption( 'attire_single_post_meta_position', 'after-title' );
+            if ( $meta_position === 'after-title' ) {
+                get_template_part( 'single', 'post-meta' );
+            } ?>
         </div>
 
 		<?php

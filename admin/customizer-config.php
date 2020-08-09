@@ -243,6 +243,17 @@ $attire_options = array(
             'after-title' => __('After Post Title', 'attire')
         )
     ),
+    'attire_single_post_author_box' => array(
+        'label' => __('Post Author Box', 'attire'),
+        'transport' => 'refresh',
+        'type' => 'select',
+        'section' => 'attire_blog_section',
+        'default' => 'show',
+        'choices' => array(
+            'show' => __('Show', 'attire'),
+            'hide' => __('Hide', 'attire')
+        )
+    ),
     'site_header_bg_color_left' => array(
         'label' => __('Header Background Left', 'attire'),
         'transport' => 'postMessage',
@@ -1289,7 +1300,7 @@ $attire_options = array(
         'label' => __('Show Page Header', 'attire'),
         'transport' => 'postMessage',
         'type' => 'checkbox',
-        'default' => false,
+        'default' => true,
         'section' => 'header_image'
     ),
     'ph_show_on_fp' => array(
@@ -1303,14 +1314,14 @@ $attire_options = array(
         'label' => __('Show Breadcrumb', 'attire'),
         'transport' => 'postMessage',
         'type' => 'checkbox',
-        'default' => false,
+        'default' => true,
         'section' => 'header_image'
     ),
     'ph_bg_color' => array(
         'label' => __('Page Header Background Color', 'attire'),
         'transport' => 'postMessage',
         'type' => 'color',
-        'default' => '',
+        'default' => '#F5F5F5',
         'section' => 'header_image'
     ),
     'ph_overlay_opacity' => array(
@@ -1361,7 +1372,7 @@ $attire_options = array(
         'label' => __('Page Header Padding Top', 'attire'),
         'transport' => 'postMessage',
         'type' => 'range',
-        'default' => 20,
+        'default' => 48,
         'input_attrs' => array(
             'min' => 20,
             'max' => 600,
@@ -1373,7 +1384,7 @@ $attire_options = array(
         'label' => __('Page Header Padding Bottom', 'attire'),
         'transport' => 'postMessage',
         'type' => 'range',
-        'default' => 20,
+        'default' => 48,
         'input_attrs' => array(
             'min' => 20,
             'max' => 600,
