@@ -55,7 +55,7 @@ class Attire {
         wp_register_script( 'attire-sticky', ATTIRE_TEMPLATE_URL . '/js/jquery.sticky.js', array('jquery'), null, true );
         wp_enqueue_script( 'attire-sticky' );
 
-        wp_register_style( 'attire-responsive', ATTIRE_TEMPLATE_URL . '/css/responsive.css' );
+        wp_register_style( 'attire-responsive', ATTIRE_TEMPLATE_URL . '/css/responsive.min.css' );
         wp_enqueue_style( 'attire-responsive' );
 
         wp_register_style( 'bootstrap', ATTIRE_TEMPLATE_URL . '/bootstrap/css/bootstrap.min.css' );
@@ -64,7 +64,7 @@ class Attire {
         wp_register_style( 'attire-main', get_stylesheet_uri(), array( 'bootstrap', 'attire-responsive' ) );
         wp_enqueue_style( 'attire-main' );
 
-        wp_register_style( 'attire-woocommerce', ATTIRE_TEMPLATE_URL . '/css/woocommerce.css' );
+        wp_register_style( 'attire-woocommerce', ATTIRE_TEMPLATE_URL . '/css/woocommerce.min.css' );
         if ( class_exists( 'WooCommerce' ) )
             wp_enqueue_style( 'attire-woocommerce' );
 
@@ -685,7 +685,10 @@ class Attire {
 
                     }
                     elseif ( ! is_user_logged_in() ) {
-                        echo "<div class='col-md-4 field-{$name}'>";
+                        if($name === 'cookies')
+                            echo "<div class='col-md-12 field-{$name}'>";
+                        else
+                            echo "<div class='col-md-4 field-{$name}'>";
                         if ( $first_field === $name ) {
                             /**
                              * Fires before the comment fields in the comment form, excluding the textarea.

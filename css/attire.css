@@ -1207,6 +1207,8 @@ header li.nav-item:not(.desktop-search) a {
 #attire-mbl-menu li.nav-item a {
     padding-left: 20px;
     display: block;
+    height: 48px;
+    line-height: 48px;
 }
 
 #attire-mbl-menu .dropdown-toggler {
@@ -1525,7 +1527,23 @@ a.footer-logo {
 .mx_comments h2 {
     margin-bottom: 0;
 }
-
+#commentform input.form-control{
+    padding: 0 15px;
+    line-height: 48px;
+    height: 48px;
+}
+#commentform .col-md-12.field-cookies p {
+    line-height: 48px !important;
+    font-weight: 400;
+    padding: 0 15px;
+}
+#commentform .col-md-12.field-cookies{
+    border-top: 1px solid #dddddd;
+}
+#commentform .col-md-12.field-cookies *{
+    margin: 0;
+    font-weight: 400;
+}
 .commentlist {
     padding-left: 0;
 }

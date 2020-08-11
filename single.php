@@ -91,10 +91,10 @@ $navigation_buttons = $navigation_buttons === 'show' ? 'canshow' : 'noshow';
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <?php echo esc_attr(get_previous_post()->post_title); ?>
+                                        <?php if($previous_post = get_previous_post()) echo esc_attr($previous_post->post_title); ?>
                                     </div>
                                     <div class="col-md-6 text-right">
-                                        <?php echo esc_attr(get_next_post()->post_title); ?>
+                                        <?php if($next_post = get_next_post()) echo esc_attr($next_post->post_title); ?>
                                     </div>
                                 </div>
                             </div>

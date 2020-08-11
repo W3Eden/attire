@@ -235,7 +235,6 @@
         width: 100%;
         -webkit-transition: min-height 1s ease, max-height 1s ease, visibility 1s ease;
         -moz-transition: min-height 1s ease, max-height 1s ease, visibility 1s ease;
-        -ms-transition: min-height 1s ease, max-height 1s ease, visibility 1s ease;
         -o-transition: min-height 1s ease, max-height 1s ease, visibility 1s ease;
         transition: min-height 1s ease, max-height 1s ease, visibility 1s ease;
         min-height: 50px;
