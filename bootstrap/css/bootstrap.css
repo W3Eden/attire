@@ -7122,6 +7122,10 @@ button.bg-dark:focus {
     border: 0 !important;
 }
 
+.border-bottom {
+    border-bottom: 1px solid #dee2e6 !important;
+}
+
 /*
 .border {
     border: 1px solid #dee2e6 !important;
@@ -7133,10 +7137,6 @@ button.bg-dark:focus {
 
 .border-right {
     border-right: 1px solid #dee2e6 !important;
-}
-
-.border-bottom {
-    border-bottom: 1px solid #dee2e6 !important;
 }
 
 .border-left {

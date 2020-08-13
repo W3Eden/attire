@@ -16,9 +16,9 @@
         <i class="fas fa-arrow-left"></i>
     </div>
     <div class="middle-logo logo-div p-5 text-center">
-        <a class="site-logo navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo AttireThemeEngine::FooterLogo(); ?></a>
+        <a class="site-logo navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo AttireThemeEngine::MobileMenuLogo(); ?></a>
     </div>
-    <div class="p-3" style="background: rgba(0,0,0,0.2); ?>">
+    <div class="p-1 bg-white">
         <?php get_template_part("templates/parts/mobile", "search"); ?>
     </div>
     <nav class="attire-mbl-menu-wrapper">

@@ -52,9 +52,6 @@ class Attire {
         wp_register_style('font-awesome', ATTIRE_TEMPLATE_URL . '/fonts/fontawesome/css/all.min.css');
         wp_enqueue_style('font-awesome');
 
-        wp_register_script( 'attire-sticky', ATTIRE_TEMPLATE_URL . '/js/jquery.sticky.js', array('jquery'), null, true );
-        wp_enqueue_script( 'attire-sticky' );
-
         wp_register_style( 'attire-responsive', ATTIRE_TEMPLATE_URL . '/css/responsive.min.css' );
         wp_enqueue_style( 'attire-responsive' );
 
