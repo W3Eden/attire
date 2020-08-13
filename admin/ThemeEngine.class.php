@@ -506,7 +506,7 @@ class AttireThemeEngine {
 
 		$css .= ".navbar-light .navbar-brand,.navbar-dark .navbar-brand,.logo-header{{$heading_font_weight}{$site_title_text_color}{$site_title_line_height}}";
 		$css .= ".footer-logo{{$heading_font_weight}{$site_footer_title_text_color}{$footer_title_line_height}}";
-		$css .= ".header-contents,.logo-header:hover,.footer-logo:hover{{$site_title_text_color}}";
+		$css .= ".header-contents,.logo-header:hover,.footer-logo:hover, #attire-mbl-menu a.site-logo.navbar-brand, a.gn-icon.gn-icon-menu i.fas.fa-bars{{$site_title_text_color}}";
 		$css .= ".site-description,.copyright-text{{$body_font_weight}{$site_description_text_color}}";
 		$css .= ".info-link > li > span, .small-menu i.fa, .social-icons-div i{{$site_description_text_color}}";
 
@@ -521,8 +521,7 @@ class AttireThemeEngine {
 		$site_header_bg_color_right = isset($theme_mod['site_header_bg_color_right']) ? esc_attr( $theme_mod['site_header_bg_color_right'] ) : '#555555';
 		$site_header_bg_grad_angle = isset($theme_mod['site_header_bg_grad_angle']) ? esc_attr( $theme_mod['site_header_bg_grad_angle'] ) : 45;
 		$site_header_bg       = "background: $site_header_bg_color linear-gradient( {$site_header_bg_grad_angle}deg, $site_header_bg_color, $site_header_bg_color_right);";
-		$css                  .= ".header-div { {$site_header_bg}}";
-		$css                  .= "a.gn-icon.gn-icon-menu i{ color:$site_header_bg_color;-webkit-filter: invert(100%);filter: invert(100%);}";
+		$css                  .= ".header-div, #attire-mbl-menu .middle-logo.logo-div, .media.attire-mbl-header { {$site_header_bg}}";
 		$css                  .= ".sticky-menu{ {$site_header_bg}}";
 		$site_footer_bg       = 'background-color:' . esc_attr( $theme_mod['site_footer_bg_color'] );
 		$css                  .= ".footer-div{ {$site_footer_bg}}";
@@ -806,6 +805,22 @@ class AttireThemeEngine {
 	}
 
 
+	public static function MobileMenuLogo() {
+		$logourl = esc_url( self::NextGetOption( 'site_logo_mobile_menu' ) );
+
+		if(!$logourl) $logourl = esc_url( self::NextGetOption( 'site_logo_footer' ) );
+
+		if ( $logourl ) {
+			$image_id = attachment_url_to_postid( $logourl );
+			$meta     = wp_prepare_attachment_for_js( $image_id );
+
+			return "<img src='{$logourl}' title='" . esc_attr( $meta['title'] ) . "' alt='" . esc_attr( $meta['alt'] ) . "' />";
+		} else {
+			return esc_html( get_bloginfo( 'sitename' ) );
+		}
+	}
+
+
 	function PageLayout( $type ) {
 		global $post;
 		$data = maybe_unserialize( get_post_meta( $post->ID, 'attire_post_meta', true ) );
@@ -870,7 +885,7 @@ class AttireThemeEngine {
             <?php } ?>
             <?php
             $meta_position = AttireThemeEngine::NextGetOption( 'attire_single_post_meta_position', 'after-title' );
-            if ( $meta_position === 'after-title' && is_single()) {
+            if ( $meta_position === 'after-title' && is_singular('post')) {
                 get_template_part( 'single', 'post-meta' );
             } ?>
         </div>

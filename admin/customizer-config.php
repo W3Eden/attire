@@ -341,6 +341,25 @@ $attire_options = array(
             'step' => 1,
         )
     ),
+    'site_logo_mobile_menu' => array(
+	    'label' => __('Mobile Menu Logo', 'attire'),
+	    'transport' => 'postMessage',
+	    'type' => 'image',
+	    'section' => 'attire_logo_options',
+	    'default' => '',
+    ),
+    'site_logo_mobile_menu_height' => array(
+	    'label' => __('Mobile Menu Logo Height', 'attire'),
+	    'transport' => 'postMessage',
+	    'type' => 'range',
+	    'section' => 'attire_logo_options',
+	    'default' => 60,
+	    'input_attrs' => array(
+		    'min' => 10,
+		    'max' => 200,
+		    'step' => 1,
+	    )
+    ),
     'main_layout_type' => array(
         'label' => __('Site Layout', 'attire'),
         'transport' => 'postMessage',
