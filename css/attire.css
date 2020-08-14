@@ -717,7 +717,7 @@ footer .dropdown-menu {
 }
 
 header .dropdown-submenu .dropdown-menu {
-    top: -2px;
+    top: 0px;
     left: 100%;
     line-height: 40px;
 }
