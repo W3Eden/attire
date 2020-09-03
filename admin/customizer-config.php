@@ -342,23 +342,23 @@ $attire_options = array(
         )
     ),
     'site_logo_mobile_menu' => array(
-	    'label' => __('Mobile Menu Logo', 'attire'),
-	    'transport' => 'postMessage',
-	    'type' => 'image',
-	    'section' => 'attire_logo_options',
-	    'default' => '',
+        'label' => __('Mobile Menu Logo', 'attire'),
+        'transport' => 'postMessage',
+        'type' => 'image',
+        'section' => 'attire_logo_options',
+        'default' => '',
     ),
     'site_logo_mobile_menu_height' => array(
-	    'label' => __('Mobile Menu Logo Height', 'attire'),
-	    'transport' => 'postMessage',
-	    'type' => 'range',
-	    'section' => 'attire_logo_options',
-	    'default' => 60,
-	    'input_attrs' => array(
-		    'min' => 10,
-		    'max' => 200,
-		    'step' => 1,
-	    )
+        'label' => __('Mobile Menu Logo Height', 'attire'),
+        'transport' => 'postMessage',
+        'type' => 'range',
+        'section' => 'attire_logo_options',
+        'default' => 60,
+        'input_attrs' => array(
+            'min' => 10,
+            'max' => 200,
+            'step' => 1,
+        )
     ),
     'main_layout_type' => array(
         'label' => __('Site Layout', 'attire'),
@@ -983,6 +983,48 @@ $attire_options = array(
         'description' => '',
         'transport' => 'postMessage',
         'type' => 'range',
+        'section' => 'attire_generic_fonts',
+        'default' => '25',
+        'input_attrs' => array(
+            'min' => 10,
+            'max' => 72,
+            'step' => 1,
+        )
+    ),
+    'heading_font_size_desktop' => array(
+        'label' => __('H1 Font Size', 'attire'),
+        'description' => '',
+        'transport' => 'postMessage',
+        'type' => 'attire_responsive_input',
+        'sub_type' => 'h1_font_size',
+        'section' => 'attire_generic_fonts',
+        'default' => '25',
+        'input_attrs' => array(
+            'min' => 10,
+            'max' => 72,
+            'step' => 1,
+        )
+    ),
+    'heading_font_size_tablet' => array(
+        'label' => __('H1 Font Size', 'attire'),
+        'description' => '',
+        'transport' => 'postMessage',
+        'type' => 'attire_responsive_input',
+        'sub_type' => 'h1_font_size',
+        'section' => 'attire_generic_fonts',
+        'default' => '25',
+        'input_attrs' => array(
+            'min' => 10,
+            'max' => 72,
+            'step' => 1,
+        )
+    ),
+    'heading_font_size_mobile' => array(
+        'label' => __('H1 Font Size', 'attire'),
+        'description' => '',
+        'transport' => 'postMessage',
+        'type' => 'attire_responsive_input',
+        'sub_type' => 'h1_font_size',
         'section' => 'attire_generic_fonts',
         'default' => '25',
         'input_attrs' => array(

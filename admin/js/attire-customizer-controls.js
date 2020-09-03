@@ -24,10 +24,28 @@
             $(this).val(val);
         });
 
-        $('body').on('hove', '#_customize-input-heading_font', function () {
-            $('#_customize-input-heading_font').chosen();
-        });
+        $('body')
+            .on('hove', '#_customize-input-heading_font', function () {
+                $('#_customize-input-heading_font').chosen();
+            })
+            .on('click', '.attire-responsive-icons i', function () {
+                var _this = $(this);
+                $('.attire-responsive-icons i.active').removeClass('active');
+                $('.attire-responsive-wrapper.active').removeClass('active');
+                $(this).addClass('active');
 
+                if (_this.hasClass('at-show-desktop-option')) {
+                    $('.preview-desktop').click();
+                    $('.attire-responsive-desktop').addClass('active');
+                } else if (_this.hasClass('at-show-tablet-option')) {
+                    $('.preview-tablet').click();
+                    $('.attire-responsive-tablet').addClass('active');
+                } else if (_this.hasClass('at-show-mobile-option')) {
+                    $('.preview-mobile').click();
+                    $('.attire-responsive-mobile').addClass('active');
+                }
+            });
 
     });
+
 })(jQuery);

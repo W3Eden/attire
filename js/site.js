@@ -18,11 +18,8 @@ jQuery(function ($) {
         if($('.admin-bar').length)
             topspace = 30;
 
-        console.log(topspace);
-
         var sticky = $('.stickable')[0].offsetTop;
         window.onscroll = function() {
-            console.log(window.pageYOffset);
             if (window.pageYOffset > sticky) {
                 $('nav.stickable').addClass("fixed-top");
             } else {

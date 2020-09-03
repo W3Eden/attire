@@ -15,7 +15,7 @@ if (class_exists('WP_Customize_Control')) {
         public function render_content()
         {
             ?>
-            <div  style="padding: 10px 15px;background: #fff;font-weight: 800;margin: 15px -15px 0;border-top: 1px solid #f9f9f9;border-bottom: 1px solid #f7f7f7;box-shadow: inset 0 0 1px   #888888;color: #4c69db;text-transform: uppercase;letter-spacing: 1px;"><?php echo esc_html($this->label); ?></div>
+            <div style="padding: 10px 15px;background: #fff;font-weight: 800;margin: 15px -15px 0;border-top: 1px solid #f9f9f9;border-bottom: 1px solid #f7f7f7;box-shadow: inset 0 0 1px   #888888;color: #4c69db;text-transform: uppercase;letter-spacing: 1px;"><?php echo esc_html($this->label); ?></div>
             <?php
         }
     }
@@ -43,6 +43,57 @@ if (class_exists('WP_Customize_Control')) {
                         </td>
                     </tr>
                 </table>
+            </label>
+            <?php
+        }
+    }
+
+    class Attire_Customize_Responsive_Control extends WP_Customize_Control
+    {
+        public $type = 'attire_responsive_input';
+
+        public function build_field_html($key, $setting)
+        {
+            echo json_encode($setting);
+            $classes = ['desktop', 'tablet', 'mobile'];
+            $value = '';
+            if (isset($settings[$key])) {
+                $value = $settings[$key]->value();
+            }
+
+            echo '<table class="wp_custom_range_table attire-responsive-wrapper attire-responsive-' . $classes[$key] . ' ' . ($classes[$key] == 'desktop' ? 'active' : '') . '">
+                    <tr>
+                        <td style="width:80%;">
+                            <input class="attire-responsive-input" data-input-type="range" type="range" value="' . $value . '" ' . $this->get_link($key) . ' />
+                        </td>
+                        <td style="width: 20%">
+                            <input class="attire-responsive-input cs-range-value" value="' . esc_attr($this->value()) . '" type="number"/>
+                        </td>
+                    </tr>
+                </table>';
+        }
+
+        public function render_content()
+        {
+            ?>
+            <label>
+                <?php if (!empty($this->label)) : ?>
+                    <span class="customize-control-title">
+                        <?php echo esc_html($this->label); ?>
+                        <span class="float-right attire-responsive-icons">
+                            <i class="fas fa-desktop at-show-desktop-option active"></i>
+                            <i class="fas fa-tablet-alt at-show-tablet-option"></i>
+                            <i class="fas fa-mobile-alt at-show-mobile-option"></i>
+                        </span>
+                    </span>
+                <?php endif; ?>
+                <div class="attire-responsive-inputs">
+                    <?php
+                    foreach ($this->settings as $key => $value) {
+                        $this->build_field_html($key, $value);
+                    }
+                    ?>
+                </div>
             </label>
             <?php
         }
@@ -158,7 +209,8 @@ if (class_exists('WP_Customize_Control')) {
                 ?>
                 <h2><?php esc_html_e('Write a Review', 'attire') ?></h2>
                 <p style="text-align:left;">
-                    We highly appreciate if you kindly take a few minutes to give us your impression of the theme and any suggestions you may have.
+                    We highly appreciate if you kindly take a few minutes to give us your impression of the theme and
+                    any suggestions you may have.
                     It will help us to improve our ability to serve you and other users.
                 </p>
                 <p>
@@ -197,10 +249,11 @@ if (class_exists('WP_Customize_Control')) {
                 <?php if (!empty($this->label)) : ?>
                     <span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
                 <?php endif; ?>
-                <select id="<?php echo $this->id; ?>"  <?php $this->link(); ?> name="<?php echo esc_attr($this->id); ?>" <?php $this->input_attrs(); ?>>
-                    <?php foreach($this->choices as $key => $value){ ?>
-                        <option value="<?php echo  $key; ?>" <?php selected($this->value(), $key) ?> ><?php echo $value; ?></option>
-                    <?php }?>
+                <select id="<?php echo $this->id; ?>" <?php $this->link(); ?>
+                        name="<?php echo esc_attr($this->id); ?>" <?php $this->input_attrs(); ?>>
+                    <?php foreach ($this->choices as $key => $value) { ?>
+                        <option value="<?php echo $key; ?>" <?php selected($this->value(), $key) ?> ><?php echo $value; ?></option>
+                    <?php } ?>
                 </select>
 
             </label>
@@ -274,7 +327,10 @@ function attire_customize_register($wp_customize)
     $transport = '';
     $label = '';
     $section = '';
+    $sub_type = '';
     $description = '';
+    $className = '';
+    $responsive_controls = [];
 
     $wp_customize->get_setting('blogname')->transport = 'postMessage';
     $wp_customize->get_setting('blogdescription')->transport = 'postMessage';
@@ -337,7 +393,6 @@ function attire_customize_register($wp_customize)
     /* Add Settings and Controls */
     foreach ($attire_options as $id => $args) {
         extract($args);
-
         switch ($type) {
             case 'text':
                 $wp_customize->add_setting($theme_option . '[' . $id . ']', array(
@@ -369,6 +424,32 @@ function attire_customize_register($wp_customize)
                     'settings' => $theme_option . '[' . $id . ']',
                 )));
                 break;
+            case 'attire_responsive_input':
+                if (isset($responsive_controls[$sub_type])) {
+                    array_push($responsive_controls[$sub_type]['settings'], $theme_option . '[' . $id . ']');
+                } else {
+                    $responsive_controls[$sub_type] = [];
+                    $responsive_controls[$sub_type]['id'] = $id;
+                    $responsive_controls[$sub_type]['className'] = $className;
+                    $responsive_controls[$sub_type]['label'] = $label;
+                    $responsive_controls[$sub_type]['section'] = $section;
+                    $responsive_controls[$sub_type]['settings'] = [];
+                    array_push($responsive_controls[$sub_type]['settings'], $theme_option . '[' . $id . ']');
+                }
+
+                $wp_customize->add_setting($theme_option . '[' . $id . ']', array(
+                    'default' => '',
+                    'capability' => $capability,
+                    'type' => $option_type,
+                    'transport' => $transport,
+                    'sanitize_callback' => '__return_false'
+                ));
+
+//                $wp_customize->add_control(new Attire_Customize_Responsive_Control($wp_customize, $id, array(
+//                    'label' => $label,
+//                    'section' => $section,
+//                    'settings' => $theme_option . '[' . $id . ']',
+//                )));
                 break;
             case 'textarea':
                 $wp_customize->add_setting($theme_option . '[' . $id . ']', array(
@@ -612,7 +693,7 @@ function attire_customize_register($wp_customize)
                 $fonts = array();
                 $fonts[''] = 'Default';
                 foreach ($fontsdata as $font) {
-                    $fonts[$font->family.":".implode(",", $font->variants)] = $font->family;
+                    $fonts[$font->family . ":" . implode(",", $font->variants)] = $font->family;
                 }
                 asort($fonts);
                 $wp_customize->add_setting($theme_option . '[' . $id . ']', array(
@@ -780,6 +861,13 @@ function attire_customize_register($wp_customize)
             }
         }
     }
+    foreach ($responsive_controls as $key => $obj) {
+        $wp_customize->add_control(new Attire_Customize_Responsive_Control($wp_customize, $obj['id'], array(
+            'label' => $obj['label'],
+            'section' => $obj['section'],
+            'settings' => $obj['settings'],
+        )));
+    }
 
 }
 
@@ -895,26 +983,29 @@ function attire_customizer_style()
 
 add_action('customize_controls_enqueue_scripts', 'attire_customizer_style');
 
-add_action("customize_controls_print_styles", function (){
+add_action("customize_controls_print_styles", function () {
     ?>
     <style>
 
     </style>
-<?php
+    <?php
 });
-add_action("customize_controls_print_scripts", function (){
+add_action("customize_controls_print_scripts", function () {
     ?>
     <script>
         jQuery(function ($) {
             $('.customize-save-button-wrapper').prepend("<a title='<?php _e('Reset to default settings', 'attire'); ?>' id='reset-attire' class='button button-secondary' href='#' style='float: left;margin-right: 5px;background: #fb4e60;color:#ffffff;border-color: rgba(251, 55, 56, 0.8)'><?php _e('Reset', 'attire'); ?></a>");
-            $('body').on('click', '#reset-attire', function(e){
+            $('body').on('click', '#reset-attire', function (e) {
                 e.preventDefault();
-                if(!confirm("<?php _e('Are you trying to reset Attire theme options to it\'s default settings.\nAction can not be reverted.\nAre your sure?', 'attire'); ?>")) return false;
+                if (!confirm("<?php _e('Are you trying to reset Attire theme options to it\'s default settings.\nAction can not be reverted.\nAre your sure?', 'attire'); ?>")) return false;
                 var tt = $(this);
                 tt.attr('disabled', 'disabled').html('<?php _e('Reseting...', 'attire'); ?>');
-                $.post(ajaxurl, { action: 'reset_attire_options', __reset_attire: '<?php echo wp_create_nonce(NONCE_KEY ); ?>' }, function(res){
+                $.post(ajaxurl, {
+                    action: 'reset_attire_options',
+                    __reset_attire: '<?php echo wp_create_nonce(NONCE_KEY); ?>'
+                }, function (res) {
                     //tt.removeAttr('disabled').html('<?php _e('Reset to Default', 'attire'); ?>');
-                    if(res.success){
+                    if (res.success) {
                         //jQuery('#customize-preview iframe').attr('src', jQuery('#customize-preview iframe').attr('src'));
                         location.reload(true);
                     }
@@ -926,8 +1017,8 @@ add_action("customize_controls_print_scripts", function (){
     <?php
 });
 
-add_action("wp_ajax_reset_attire_options", function (){
-    if(wp_verify_nonce($_REQUEST['__reset_attire'], NONCE_KEY) && current_user_can('manage_options')){
+add_action("wp_ajax_reset_attire_options", function () {
+    if (wp_verify_nonce($_REQUEST['__reset_attire'], NONCE_KEY) && current_user_can('manage_options')) {
         delete_option('attire_options');
         wp_send_json(array('success' => true));
     }

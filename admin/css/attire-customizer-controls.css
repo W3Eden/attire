@@ -72,10 +72,11 @@ input[type=range]:focus {
     outline: none !important;
 }
 
-input[type=range]{
+input[type=range] {
     background-color: rgba(81, 124, 191, 0.4);
     border: 0;
 }
+
 input[type=range]:hover {
     background-color: rgb(81, 124, 191);
     border: 0;
@@ -135,7 +136,7 @@ input[type="range"]::-ms-thumb {
     background-color: #16aaff;
 }
 
-input[type="checkbox"]{
+input[type="checkbox"] {
     border-radius: 2px;
     box-shadow: none;
     transition: all ease-in-out 400ms;
@@ -145,13 +146,16 @@ input[type="checkbox"]{
     background: url('data:image/svg+xml;utf8,<svg class="bi bi-square" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/> </svg>');
     vertical-align: text-top
 }
-input[type="checkbox"]:checked{
+
+input[type="checkbox"]:checked {
     border: 0 !important;
     transition: all ease-in-out 400ms;
     background: url('checked.svg');
 }
+
 input[type="checkbox"]::before {
-    display: none; !important;
+    display: none;
+!important;
     content: "\f560";
     margin: 0.05rem 0 0 -.65rem;
     height: 1.3125rem;
@@ -164,15 +168,20 @@ input[type="checkbox"]::before {
     position: absolute;
 }
 
-input[type="checkbox"]:checked::before{
+input[type="checkbox"]:checked::before {
     color: #3399ff;
     display: none;
 }
-input[type="radio"]{ transition: all ease-in-out 400ms; }
-input[type="radio"]:checked{
+
+input[type="radio"] {
+    transition: all ease-in-out 400ms;
+}
+
+input[type="radio"]:checked {
     border: 1px solid #3399ff !important;
 }
-input[type="radio"]:checked::before{
+
+input[type="radio"]:checked::before {
     background-color: #3399ff !important;
     transition: all ease-in-out 400ms;
 }
@@ -226,14 +235,17 @@ input[type="radio"]:checked::before{
     border-radius: 3px !important;
     height: 35px;
 }
-.customize-control textarea{
+
+.customize-control textarea {
     border: 1px solid #a6adbd;
     border-radius: 3px !important;
 }
-.customize-control select{
-    background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),#ffffff url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxNzkyIiB2aWV3Qm94PSIwIDAgMTc5MiAxNzkyIiB3aWR0aD0iMTc5MiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTQwOCAxMDg4cTAgMjYtMTkgNDVsLTQ0OCA0NDhxLTE5IDE5LTQ1IDE5dC00NS0xOWwtNDQ4LTQ0OHEtMTktMTktMTktNDV0MTktNDUgNDUtMTloODk2cTI2IDAgNDUgMTl0MTkgNDV6bTAtMzg0cTAgMjYtMTkgNDV0LTQ1IDE5aC04OTZxLTI2IDAtNDUtMTl0LTE5LTQ1IDE5LTQ1bDQ0OC00NDhxMTktMTkgNDUtMTl0NDUgMTlsNDQ4IDQ0OHExOSAxOSAxOSA0NXoiLz48L3N2Zz4=") right 8px center no-repeat;
+
+.customize-control select {
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), #ffffff url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxNzkyIiB2aWV3Qm94PSIwIDAgMTc5MiAxNzkyIiB3aWR0aD0iMTc5MiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTQwOCAxMDg4cTAgMjYtMTkgNDVsLTQ0OCA0NDhxLTE5IDE5LTQ1IDE5dC00NS0xOWwtNDQ4LTQ0OHEtMTktMTktMTktNDV0MTktNDUgNDUtMTloODk2cTI2IDAgNDUgMTl0MTkgNDV6bTAtMzg0cTAgMjYtMTkgNDV0LTQ1IDE5aC04OTZxLTI2IDAtNDUtMTl0LTE5LTQ1IDE5LTQ1bDQ0OC00NDhxMTktMTkgNDUtMTl0NDUgMTlsNDQ4IDQ0OHExOSAxOSAxOSA0NXoiLz48L3N2Zz4=") right 8px center no-repeat;
     background-size: 14px !important;
 }
+
 .customize-control select option {
     padding: 5px;
 }
@@ -282,14 +294,16 @@ input[type="radio"]:checked::before{
     width: 100%;
 }
 
-.wp-picker-open + .wp-picker-input-wrap{
+.wp-picker-open + .wp-picker-input-wrap {
     display: flex !important;
 }
+
 .color-picker-hex.wp-color-picker {
     width: 100px !important;
     margin-right: 5px !important;
     text-align: center;
 }
+
 .wp-core-ui .wp-picker-default {
     margin-left: 10%;
 }
@@ -326,17 +340,20 @@ input[type="radio"]:checked::before{
     opacity: 0;
 }
 
-.attire-image-picker .card{
+.attire-image-picker .card {
     padding: 0;
 }
-.attire-image-picker .card .card-header{
+
+.attire-image-picker .card .card-header {
     padding: 10px;
     font-weight: 700;
     border-bottom: 1px solid #dddddd;
 }
-.attire-image-picker .card .card-body{
+
+.attire-image-picker .card .card-body {
     padding: 0;
 }
+
 .attire-image-picker img {
     width: 100%;
     margin: 0px;
@@ -466,11 +483,23 @@ Copyright (c) 2015 Daniel Eden
     }
 }
 
-#accordion-section-attire_write_review .accordion-section-title{
-    background-color:#ffe184;
-    color:#222222;
+#accordion-section-attire_write_review .accordion-section-title {
+    background-color: #ffe184;
+    color: #222222;
 }
+
 #sub-accordion-section-header_image .customize-inside-control-row {
     margin-left: 0;
 }
 
+.attire-responsive-wrapper {
+    display: none;
+}
+
+.attire-responsive-wrapper.active {
+    display: block !important;
+}
+
+.attire-responsive-icons .active {
+    color: #000000;
+}
