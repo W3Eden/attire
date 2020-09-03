@@ -1,7 +1,7 @@
 jQuery(function ($) {
 
     $(window).scroll();
-    // Sticky menu
+
     var top = 0;
     var height = 0;
     if ($('.default-menu').length) {
@@ -31,23 +31,11 @@ jQuery(function ($) {
 
 
 
-    // END: Sticky menu
+    /* END: Sticky menu */
 
-    // Footer Dropdown to Dropup converter
-    //
-    // $(document).ready(function () {
-    //     $('footer .dropdown:not(.dropdown-submenu)').each(function () {
-    //         var _this = this;
-    //         //  convert footer nav to dropup
-    //         if ($(this).closest('footer').length) {
-    //             var $ul = $(this).children("ul.dropdown-menu");
-    //             $ul.css('top', '-' + $ul.css('height'));
-    //         }
-    //     });
-    // });
-
-    // Responsive Dropdown menu JS
-
+    /*
+     Responsive Dropdown menu JS
+     */
     function toggleDropdownMobile(_this) {
 
         if ($(_this).next('ul').css('display') === 'none') {
@@ -73,10 +61,10 @@ jQuery(function ($) {
         $('.dropdown-toggler').children('i').removeClass('fa-angle-up');
         $('.dropdown-toggler').children('i').addClass('fa-angle-down');
     });
-
-    // END : Responsive JS
-
-    // Navbar search form
+/*
+     END : Responsive JS
+*/
+    /* Navbar search form*/
 
     var showField = false;
 
@@ -118,10 +106,10 @@ jQuery(function ($) {
         }, 500);
     }
 
-    // END: Navbar search form
+    /* END: Navbar search form*/
 
 
-    // Back to top button
+    /*Back to top button*/
 
     $(document).ready(function () {
 
@@ -145,22 +133,22 @@ jQuery(function ($) {
         })
     });
 
-    // END: Back to top
+    /* END: Back to top*/
 
     $('.attire-tip').tooltip();
 
 
-// START: Full-Screen search form
+/* START: Full-Screen search form*/
 
     var wHeight = window.innerHeight;
-    //search bar middle alignment
+    /*//search bar middle alignment*/
     $('.mk-fullscreen-searchform').css('top', wHeight / 2);
-    //reform search bar
+    /*//reform search bar*/
     jQuery(window).resize(function () {
         wHeight = window.innerHeight;
         $('.mk-fullscreen-searchform').css('top', wHeight / 2);
     });
-    // Search
+    /*Search*/
     $('#search-button').click(function (e) {
         e.preventDefault();
         $("div.mk-fullscreen-search-overlay").addClass("mk-fullscreen-search-overlay-show");
@@ -169,6 +157,6 @@ jQuery(function ($) {
         e.preventDefault();
         $("div.mk-fullscreen-search-overlay").removeClass("mk-fullscreen-search-overlay-show");
     });
-//END : Full-Screen search form
+/*END : Full-Screen search form*/
 
 });

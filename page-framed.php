@@ -31,7 +31,7 @@ get_header();
                         <div class="entry-content">
 
 							<?php
-							$ph_active = AttireThemeEngine::NextGetOption( 'ph_active', false );
+							$ph_active = AttireThemeEngine::NextGetOption( 'ph_active', true );
 
 							/*
 							if ( ! $ph_active ) {

@@ -5,7 +5,7 @@ if (!defined('ABSPATH')) {
 get_header();
 $meta_position = AttireThemeEngine::NextGetOption('attire_single_post_meta_position', 'after-title');
 $author_box = AttireThemeEngine::NextGetOption('attire_single_post_author_box', 'show');
-$page_header_active = AttireThemeEngine::NextGetOption('ph_active', false);
+$page_header_active = AttireThemeEngine::NextGetOption('ph_active', true);
 
 $navigation_buttons = AttireThemeEngine::NextGetOption('attire_single_post_post_navigation', 'show');
 $navigation_buttons = $navigation_buttons === 'show' ? 'canshow' : 'noshow';

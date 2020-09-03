@@ -963,7 +963,6 @@ $attire_options = array(
         'transport' => 'postMessage',
         'type' => 'typography',
         'section' => 'attire_generic_fonts',
-        'default' => 'Montserrat',
         'description' => esc_html__('Font family for H1...H6 html tags', 'attire')
     ),
     'heading_font_weight' => array(
@@ -1084,7 +1083,6 @@ $attire_options = array(
         'transport' => 'postMessage',
         'type' => 'typography',
         'section' => 'attire_generic_fonts',
-        'default' => 'Montserrat',
     ),
 
     'body_font_size' => array(
@@ -1121,7 +1119,6 @@ $attire_options = array(
         'transport' => 'postMessage',
         'type' => 'typography',
         'section' => 'attire_generic_fonts',
-        'default' => 'Sen',
         'description' => esc_html__('Font family buttons', 'attire')
     ),
     'button_font_weight' => array(
@@ -1141,7 +1138,6 @@ $attire_options = array(
         'transport' => 'postMessage',
         'type' => 'typography',
         'section' => 'attire_widget_fonts',
-        'default' => 'Montserrat',
     ),
     'widget_title_font_size' => array(
         'label' => __('Widget Title Font Size', 'attire'),
@@ -1173,7 +1169,6 @@ $attire_options = array(
         'transport' => 'postMessage',
         'type' => 'typography',
         'section' => 'attire_widget_fonts',
-        'default' => 'Montserrat',
     ),
     'widget_content_font_size' => array(
         'label' => __('Widget Content Font Size', 'attire'),
@@ -1204,7 +1199,6 @@ $attire_options = array(
         'transport' => 'postMessage',
         'type' => 'typography',
         'section' => 'attire_menu_fonts',
-        'default' => 'Montserrat',
     ),
     'menu_top_font_size' => array(
         'label' => __('Menu Top Font Size', 'attire'),
@@ -1237,7 +1231,6 @@ $attire_options = array(
         'transport' => 'postMessage',
         'type' => 'typography',
         'section' => 'attire_menu_fonts',
-        'default' => 'Montserrat',
     ),
     'menu_dropdown_font_size' => array(
         'label' => __('Menu Dropdown Font Size', 'attire'),

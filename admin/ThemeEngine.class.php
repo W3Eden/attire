@@ -184,8 +184,8 @@ class AttireThemeEngine {
 		$ph_text_color = AttireThemeEngine::NextGetOption( 'ph_text_color', '' );
 		$ph_text_align = AttireThemeEngine::NextGetOption( 'ph_text_align', 'center' );
 		$pb_height     = AttireThemeEngine::NextGetOption( 'ph_bg_height', 200 );
-		$ph_bg_padding_top        = AttireThemeEngine::NextGetOption( 'ph_bg_padding_top', 20 );
-		$ph_bg_padding_bottom     = AttireThemeEngine::NextGetOption( 'ph_bg_padding_bottom', 20 );
+		$ph_bg_padding_top        = AttireThemeEngine::NextGetOption( 'ph_bg_padding_top', 48 );
+		$ph_bg_padding_bottom     = AttireThemeEngine::NextGetOption( 'ph_bg_padding_bottom', 48 );
 		$pb_mb     = AttireThemeEngine::NextGetOption( 'ph_margin_bottom', 20 );
 		$pb_opacity     = AttireThemeEngine::NextGetOption( 'ph_overlay_opacity', 0 );
         $pb_opacity = $pb_opacity / 100;
@@ -194,7 +194,10 @@ class AttireThemeEngine {
 		if ( isset( $ph_bg_img ) && $ph_bg_img != '' ) {
 			$pbg = esc_url( $ph_bg_img );
             $ph_bg_color_rgb = self::hex2rgb($ph_bg_color);
-			$css .= "background: linear-gradient(45deg, rgba($ph_bg_color_rgb,{$pb_opacity}), rgba($ph_bg_color_rgb,{$pb_opacity})), url({$pbg}) center no-repeat;";
+            if($ph_bg_color)
+			    $css .= "background: linear-gradient(45deg, rgba($ph_bg_color_rgb,{$pb_opacity}), rgba($ph_bg_color_rgb,{$pb_opacity})), url({$pbg}) center no-repeat;";
+            else
+			    $css .= "background: linear-gradient(45deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url({$pbg}) center no-repeat;";
 			$css .= "background-position: ;";
 			$css .= "background-size: cover;";
 //			$css .= "background-attachment: fixed;";
