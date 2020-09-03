@@ -966,6 +966,9 @@ function attire_customizer_style()
         'customize-controls'
     ), false, true);
 
+    wp_register_style('font-awesome', ATTIRE_TEMPLATE_URL . '/fonts/fontawesome/css/all.min.css');
+    wp_enqueue_style('font-awesome');
+
 }
 
 add_action('customize_controls_enqueue_scripts', 'attire_customizer_style');
