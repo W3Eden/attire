@@ -37,7 +37,7 @@ if ( is_home() ) {
 $theme_default_page_width = AttireThemeEngine::NextGetOption( 'body_content_layout_type' );
 $site_width               = AttireThemeEngine::NextGetOption( 'main_layout_type', 'container-fluid' );
 
-$ph_active                = AttireThemeEngine::NextGetOption( 'ph_active', true );
+$ph_active                = AttireThemeEngine::NextGetOption( 'ph_active', false );
 
 $meta = get_post_meta( get_the_ID(), 'attire_post_meta', true );
 // For page specific settings
