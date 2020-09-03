@@ -52,40 +52,25 @@ if (class_exists('WP_Customize_Control')) {
     {
         public $type = 'attire_responsive_input';
 
-        public function build_field_html($key, $setting)
-        {
-            echo json_encode($setting);
-            $classes = ['desktop', 'tablet', 'mobile'];
-            $value = '';
-            if (isset($settings[$key])) {
-                $value = $settings[$key]->value();
-            }
-
-            echo '<table class="wp_custom_range_table attire-responsive-wrapper attire-responsive-' . $classes[$key] . ' ' . ($classes[$key] == 'desktop' ? 'active' : '') . '">
-                    <tr>
-                        <td style="width:80%;">
-                            <input class="attire-responsive-input" data-input-type="range" type="range" value="' . $value . '" ' . $this->get_link($key) . ' />
-                        </td>
-                        <td style="width: 20%">
-                            <input class="attire-responsive-input cs-range-value" value="' . esc_attr($this->value()) . '" type="number"/>
-                        </td>
-                    </tr>
-                </table>';
-        }
-
         public function render_content()
         {
             ?>
             <label>
                 <?php if (!empty($this->label)) : ?>
-                    <span class="customize-control-title">
-                        <?php echo esc_html($this->label); ?>
-                        <span class="float-right attire-responsive-icons">
-                            <i class="fas fa-desktop at-show-desktop-option active"></i>
-                            <i class="fas fa-tablet-alt at-show-tablet-option"></i>
-                            <i class="fas fa-mobile-alt at-show-mobile-option"></i>
-                        </span>
-                    </span>
+                    <table class="customize-control-title">
+                        <tr>
+                            <td style="width:80%;">
+                                <?php echo esc_html($this->label); ?>
+                            </td>
+                            <td style="width: 15%">
+                                <span class="float-right attire-responsive-icons">
+                                    <i class="fas fa-desktop at-show-desktop-option active"></i>&nbsp;
+                                    <i class="fas fa-tablet-alt at-show-tablet-option"></i>&nbsp;
+                                    <i class="fas fa-mobile-alt at-show-mobile-option"></i>
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
                 <?php endif; ?>
                 <div class="attire-responsive-inputs">
                     <?php
@@ -97,6 +82,26 @@ if (class_exists('WP_Customize_Control')) {
             </label>
             <?php
         }
+
+        public function build_field_html($key, $setting)
+        {
+            $classes = ['desktop', 'tablet', 'mobile'];
+            $value = '';
+            if (isset($this->settings[$key])) {
+                $value = $this->settings[$key]->value();
+            }
+            echo '<table class="wp_custom_range_table attire-responsive-wrapper attire-responsive-' . $classes[$key] . ' ' . ($classes[$key] == 'desktop' ? 'active' : '') . '">
+                    <tr>
+                        <td style="width:80%;">
+                            <input class="attire-responsive-input" data-input-type="range" type="range" value="' . $value . '" ' . $this->get_link($key) . ' />
+                        </td>
+                        <td style="width: 20%">
+                            <input   class="attire-responsive-input cs-range-value" value="' . $value . '" type="number"  ' . $this->get_link($key) . ' />
+                        </td>
+                    </tr>
+                </table>';
+        }
+
     }
 
     class Attire_Layout_Picker_Custom_Control extends WP_Customize_Control
@@ -329,7 +334,6 @@ function attire_customize_register($wp_customize)
     $section = '';
     $sub_type = '';
     $description = '';
-    $className = '';
     $responsive_controls = [];
 
     $wp_customize->get_setting('blogname')->transport = 'postMessage';
@@ -424,33 +428,6 @@ function attire_customize_register($wp_customize)
                     'settings' => $theme_option . '[' . $id . ']',
                 )));
                 break;
-            case 'attire_responsive_input':
-                if (isset($responsive_controls[$sub_type])) {
-                    array_push($responsive_controls[$sub_type]['settings'], $theme_option . '[' . $id . ']');
-                } else {
-                    $responsive_controls[$sub_type] = [];
-                    $responsive_controls[$sub_type]['id'] = $id;
-                    $responsive_controls[$sub_type]['className'] = $className;
-                    $responsive_controls[$sub_type]['label'] = $label;
-                    $responsive_controls[$sub_type]['section'] = $section;
-                    $responsive_controls[$sub_type]['settings'] = [];
-                    array_push($responsive_controls[$sub_type]['settings'], $theme_option . '[' . $id . ']');
-                }
-
-                $wp_customize->add_setting($theme_option . '[' . $id . ']', array(
-                    'default' => '',
-                    'capability' => $capability,
-                    'type' => $option_type,
-                    'transport' => $transport,
-                    'sanitize_callback' => '__return_false'
-                ));
-
-//                $wp_customize->add_control(new Attire_Customize_Responsive_Control($wp_customize, $id, array(
-//                    'label' => $label,
-//                    'section' => $section,
-//                    'settings' => $theme_option . '[' . $id . ']',
-//                )));
-                break;
             case 'textarea':
                 $wp_customize->add_setting($theme_option . '[' . $id . ']', array(
                     'default' => $default,
@@ -467,7 +444,6 @@ function attire_customize_register($wp_customize)
                     'settings' => $theme_option . '[' . $id . ']',
                 ));
                 break;
-
             case 'email':
                 $wp_customize->add_setting($theme_option . '[' . $id . ']', array(
                     'default' => $default,
@@ -483,7 +459,6 @@ function attire_customize_register($wp_customize)
                     'settings' => $theme_option . '[' . $id . ']',
                 ));
                 break;
-
             case 'url':
                 $wp_customize->add_setting($theme_option . '[' . $id . ']', array(
                     'default' => $default,
@@ -499,7 +474,6 @@ function attire_customize_register($wp_customize)
                     'settings' => $theme_option . '[' . $id . ']',
                 ));
                 break;
-
             case 'number':
                 $wp_customize->add_setting($theme_option . '[' . $id . ']', array(
                     'default' => $default,
@@ -520,7 +494,6 @@ function attire_customize_register($wp_customize)
                     )
                 ));
                 break;
-
             case 'section-header':
                 $wp_customize->add_setting($theme_option . '[' . $id . ']', array(
                     'default' => $default,
@@ -536,7 +509,6 @@ function attire_customize_register($wp_customize)
                     'settings' => $theme_option . '[' . $id . ']',
                 )));
                 break;
-
             case 'image':
                 $wp_customize->add_setting($theme_option . '[' . $id . ']', array(
                     'default' => $default,
@@ -552,7 +524,6 @@ function attire_customize_register($wp_customize)
                     'settings' => $theme_option . '[' . $id . ']',
                 )));
                 break;
-
             case 'select':
                 $wp_customize->add_setting($theme_option . '[' . $id . ']', array(
                     'default' => $default,
@@ -570,7 +541,6 @@ function attire_customize_register($wp_customize)
                     'choices' => $choices,
                 ));
                 break;
-
             case 'checkbox':
                 $wp_customize->add_setting($theme_option . '[' . $id . ']', array(
                     'default' => $default,
@@ -587,7 +557,6 @@ function attire_customize_register($wp_customize)
                     'settings' => $theme_option . '[' . $id . ']',
                 ));
                 break;
-
             case 'color':
                 $wp_customize->add_setting($theme_option . '[' . $id . ']', array(
                     'default' => $default,
@@ -603,7 +572,6 @@ function attire_customize_register($wp_customize)
                     'settings' => $theme_option . '[' . $id . ']',
                 )));
                 break;
-
             case 'layout':
                 $wp_customize->add_setting($theme_option . '[' . $id . ']', array(
                     'default' => $default,
@@ -622,7 +590,6 @@ function attire_customize_register($wp_customize)
                     'settings' => $theme_option . '[' . $id . ']',
                 )));
                 break;
-
             case 'image-picker':
                 $wp_customize->add_setting($theme_option . '[' . $id . ']', array(
                     'default' => $default,
@@ -640,7 +607,6 @@ function attire_customize_register($wp_customize)
                     'choices' => $choices,
                 )));
                 break;
-
             case 'dropdown-pages':
                 $wp_customize->add_setting($theme_option . '[' . $id . ']', array(
                     'capability' => $capability,
@@ -657,7 +623,6 @@ function attire_customize_register($wp_customize)
                     'settings' => $theme_option . '[' . $id . ']',
                 ));
                 break;
-
             case 'dropdown-taxonomy':
                 $choices = array();
                 $taxonomies = get_terms($taxonomy, 'hide_empty=0');
@@ -686,7 +651,6 @@ function attire_customize_register($wp_customize)
                     'choices' => $choices,
                 ));
                 break;
-
             case 'typography':
                 $fontsdata = AttireOptionFields::GetFonts();
                 //wpdmdd($fontsdata);
@@ -738,7 +702,6 @@ function attire_customize_register($wp_customize)
                     )
                 ));
                 break;
-
             case 'range':
                 $wp_customize->add_setting($theme_option . '[' . $id . ']', array(
                     'default' => $default,
@@ -764,7 +727,6 @@ function attire_customize_register($wp_customize)
                 );
 
                 break;
-
             case 'dropdown-sidebar':
                 global $wp_registered_sidebars;
                 $sidebars = array();
@@ -788,6 +750,25 @@ function attire_customize_register($wp_customize)
                     'section' => $section,
                     'type' => 'select',
                     'choices' => $sidebars,
+                ));
+                break;
+            case 'attire_responsive_input':
+                if (isset($responsive_controls[$sub_type])) {
+                    array_push($responsive_controls[$sub_type]['settings'], $theme_option . '[' . $id . ']');
+                } else {
+                    $responsive_controls[$sub_type] = [];
+                    $responsive_controls[$sub_type]['id'] = $id;
+                    $responsive_controls[$sub_type]['label'] = $label;
+                    $responsive_controls[$sub_type]['section'] = $section;
+                    $responsive_controls[$sub_type]['input_attrs'] = $input_attrs;
+                    $responsive_controls[$sub_type]['settings'] = [];
+                    array_push($responsive_controls[$sub_type]['settings'], $theme_option . '[' . $id . ']');
+                }
+
+                $wp_customize->add_setting($theme_option . '[' . $id . ']', array(
+                    'default' => '',
+                    'capability' => $capability,
+                    'transport' => $transport
                 ));
                 break;
 
@@ -861,12 +842,18 @@ function attire_customize_register($wp_customize)
             }
         }
     }
+
     foreach ($responsive_controls as $key => $obj) {
-        $wp_customize->add_control(new Attire_Customize_Responsive_Control($wp_customize, $obj['id'], array(
-            'label' => $obj['label'],
-            'section' => $obj['section'],
-            'settings' => $obj['settings'],
-        )));
+        $wp_customize->add_control(
+            new Attire_Customize_Responsive_Control(
+                $wp_customize,
+                $key,
+                array(
+                    'label' => $obj['label'],
+                    'section' => $obj['section'],
+                    'settings' => $obj['settings'],
+                    'input_attrs' => $obj['input_attrs']
+                )));
     }
 
 }
