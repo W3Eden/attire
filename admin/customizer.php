@@ -93,10 +93,10 @@ if (class_exists('WP_Customize_Control')) {
             echo '<table class="wp_custom_range_table attire-responsive-wrapper attire-responsive-' . $classes[$key] . ' ' . ($classes[$key] == 'desktop' ? 'active' : '') . '">
                     <tr>
                         <td style="width:80%;">
-                            <input class="attire-responsive-input" data-input-type="range" type="range" value="' . $value . '" ' . $this->get_link($key) . ' />
+                            <input ' .  $this->input_attrs() . ' class="attire-responsive-input" data-input-type="range" type="range" value="' . $value . '" ' . $this->get_link($key) . ' />
                         </td>
                         <td style="width: 20%">
-                            <input   class="attire-responsive-input cs-range-value" value="' . $value . '" type="number"  ' . $this->get_link($key) . ' />
+                            <input ' .  $this->input_attrs() . ' class="attire-responsive-input cs-range-value" value="' . $value . '" type="number"/>
                         </td>
                     </tr>
                 </table>';
@@ -332,7 +332,7 @@ function attire_customize_register($wp_customize)
     $transport = '';
     $label = '';
     $section = '';
-    $sub_type = '';
+    $option_type = '';
     $description = '';
     $responsive_controls = [];
 
@@ -753,23 +753,33 @@ function attire_customize_register($wp_customize)
                 ));
                 break;
             case 'attire_responsive_input':
-                if (isset($responsive_controls[$sub_type])) {
-                    array_push($responsive_controls[$sub_type]['settings'], $theme_option . '[' . $id . ']');
+                if (isset($responsive_controls[$option_type])) {
+                    array_push($responsive_controls[$option_type]['settings'], $theme_option . '[' . $id . ']');
                 } else {
-                    $responsive_controls[$sub_type] = [];
-                    $responsive_controls[$sub_type]['id'] = $id;
-                    $responsive_controls[$sub_type]['label'] = $label;
-                    $responsive_controls[$sub_type]['section'] = $section;
-                    $responsive_controls[$sub_type]['input_attrs'] = $input_attrs;
-                    $responsive_controls[$sub_type]['settings'] = [];
-                    array_push($responsive_controls[$sub_type]['settings'], $theme_option . '[' . $id . ']');
+                    $responsive_controls[$option_type] = [];
+                    $responsive_controls[$option_type]['settings'] = [];
+                    array_push($responsive_controls[$option_type]['settings'], $theme_option . '[' . $id . ']');
                 }
 
                 $wp_customize->add_setting($theme_option . '[' . $id . ']', array(
-                    'default' => '',
+                    'default' => $default,
                     'capability' => $capability,
-                    'transport' => $transport
+                    'transport' => $transport,
+                    'sanitize_callback' => 'attire_sanitize_integer',
                 ));
+                if (count($responsive_controls[$option_type]['settings']) === 3) {
+                    $wp_customize->add_control(
+                        new Attire_Customize_Responsive_Control(
+                            $wp_customize,
+                            $id,
+                            array(
+                                'label' => $label,
+                                'section' => $section,
+                                'description' => __('Measurement is in pixel.', 'attire'),
+                                'settings' => $responsive_controls[$option_type]['settings'],
+                                'input_attrs' => $input_attrs
+                            )));
+                }
                 break;
 
             default:
@@ -843,18 +853,18 @@ function attire_customize_register($wp_customize)
         }
     }
 
-    foreach ($responsive_controls as $key => $obj) {
-        $wp_customize->add_control(
-            new Attire_Customize_Responsive_Control(
-                $wp_customize,
-                $key,
-                array(
-                    'label' => $obj['label'],
-                    'section' => $obj['section'],
-                    'settings' => $obj['settings'],
-                    'input_attrs' => $obj['input_attrs']
-                )));
-    }
+//    foreach ($responsive_controls as $key => $obj) {
+//        $wp_customize->add_control(
+//            new Attire_Customize_Responsive_Control(
+//                $wp_customize,
+//                $key,
+//                array(
+//                    'label' => $obj['label'],
+//                    'section' => $obj['section'],
+//                    'settings' => $obj['settings'],
+//                    'input_attrs' => $obj['input_attrs']
+//                )));
+//    }
 
 }
 
