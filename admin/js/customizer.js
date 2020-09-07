@@ -196,11 +196,11 @@
      */
     setCss('menu_top_font_color', 'header .mainmenu > .menu-item:not(.active) > a, header .nav i.fa.fa-search, header .dropdown-toggler, header .mobile-menu-toggle', 'color');
     setCss('main_nav_bg', '.short-nav .collapse.navbar-collapse, .long-nav', 'background-color');
-    setCss('menuhbg_color', 'header .mainmenu > .menu-item:hover, header .mainmenu > .menu-item.active,header .mainmenu > .dropdown ul li *', 'background-color');
+    setCss('menuhbg_color', 'header .mainmenu > .menu-item:hover, header .mainmenu > .menu-item.active', 'background-color');
     setCss('menuht_color', 'header .mainmenu > .menu-item:hover > a,header .mainmenu > .menu-item.active > a,header .mainmenu > .menu-item:hover > .dropdown-toggler,header .mainmenu > .menu-item.active > .dropdown-toggler', 'color');
     setCss('menu_dropdown_bg_color', 'header .mainmenu .dropdown-menu', 'background');
     setCss('menu_dropdown_font_color', 'header .mainmenu > .dropdown ul li *', 'color');
-    setCss('menu_dropdown_hover_bg', 'header .dropdown ul li:hover a.dropdown-item', 'background-color');
+    setCss('menu_dropdown_hover_bg', 'header .dropdown ul li:hover', 'background-color');
     setCss('menu_dropdown_hover_font_color', 'header .dropdown ul li:hover a.dropdown-item', 'color');
 
 
