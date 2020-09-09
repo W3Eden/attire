@@ -413,14 +413,17 @@ class AttireThemeEngine
          * Responsive css Tablet
          *
          */
-        echo json_encode($theme_mod, JSON_PRETTY_PRINT);
-        $css .= '@media only screen and (min-width: 768px) {';
+
+        $css .= '@media (min-width: 600px) and (max-width: 1024px){';
         $css .= 'h1, h1 a{font-size:' . intval($theme_mod['heading_font_size_tablet']) . 'px;}';
         $css .= 'h2, h2 a{font-size:' . intval($theme_mod['heading2_font_size_tablet']) . 'px;}';
         $css .= 'h3, h3 a{font-size:' . intval($theme_mod['heading3_font_size_tablet']) . 'px;}';
         $css .= 'h4, h4 a{font-size:' . intval($theme_mod['heading4_font_size_tablet']) . 'px;}';
         $css .= 'h5, h5 a{font-size:' . intval($theme_mod['heading4_font_size_tablet'] - 2) . 'px;}';
         $css .= 'h6, h6 a{font-size:' . intval($theme_mod['heading4_font_size_tablet'] - 4) . 'px;}';
+        $css .= '.attire-content p, .attire-post-and-comments,.attire-post-and-comments p,.attire-post-and-comments article,.attire-post-and-comments ul,.attire-post-and-comments ol, 
+		.attire-post-and-comments table, .attire-post-and-comments blockquote, .attire-post-and-comments pre { ' . intval($theme_mod["body_font_size_tablet"]) . 'px;}';
+
         $css .= '}';
 
         /**
@@ -429,13 +432,15 @@ class AttireThemeEngine
          *
          */
 
-        $css .= '@media only screen and (max-width: 600px   ) {';
+        $css .= '@media only screen and (max-width: 599px) {';
         $css .= 'h1, h1 a{font-size:' . intval($theme_mod['heading_font_size_mobile']) . 'px;}';
         $css .= 'h2, h2 a{font-size:' . intval($theme_mod['heading2_font_size_mobile']) . 'px;}';
         $css .= 'h3, h3 a{font-size:' . intval($theme_mod['heading3_font_size_mobile']) . 'px;}';
         $css .= 'h4, h4 a{font-size:' . intval($theme_mod['heading4_font_size_mobile']) . 'px;}';
         $css .= 'h5, h5 a{font-size:' . intval($theme_mod['heading4_font_size_mobile'] - 2) . 'px;}';
         $css .= 'h6, h6 a{font-size:' . intval($theme_mod['heading4_font_size_mobile'] - 4) . 'px;}';
+        $css .= '.attire-content p, .attire-post-and-comments,.attire-post-and-comments p,.attire-post-and-comments article,.attire-post-and-comments ul,.attire-post-and-comments ol, 
+		.attire-post-and-comments table, .attire-post-and-comments blockquote, .attire-post-and-comments pre { ' . intval($theme_mod["body_font_size_mobile"]) . 'px; }';
         $css .= '}';
 
         /**
@@ -466,7 +471,7 @@ class AttireThemeEngine
         $body_bg = esc_attr($theme_mod['body_bg_color']);
         $css .= "body {background-color:{$body_bg}}";
         $color_vars['body-bg-color'] = $body_bg;
-        $body_font_size = intval($theme_mod['body_font_size']);
+        $body_font_size = intval($theme_mod['body_font_size_desktop']);
         $body_font_color = esc_attr($theme_mod['body_color']);
         $body_font = esc_attr($theme_mod['body_font']);
         $font_size = $body_font_size != '' ? "font-size:{$body_font_size}px;" : "";

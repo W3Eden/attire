@@ -52,7 +52,7 @@
     function insertImage(themeModName, selector) {
         wp.customize('attire_options[' + themeModName + ']', function (value) {
             value.bind(function (newVal) {
-                $(selector).html("<img src='"+newVal+"' alt='Image' />")
+                $(selector).html("<img src='" + newVal + "' alt='Image' />")
             });
         });
     }
@@ -100,8 +100,7 @@
                 if (newVal === 'container') {
                     $(selector).removeClass('container-fluid');
                     $(selector).addClass('container');
-                }
-                else {
+                } else {
                     $(selector).removeClass('container');
                     $(selector).addClass('container-fluid');
                 }
@@ -116,8 +115,7 @@
                 if (newVal === 'layout-fixed-width') {
                     $(selector).removeClass('container-fluid');
                     $(selector).addClass('layout-fixed-width');
-                }
-                else {
+                } else {
                     $(selector).removeClass('layout-fixed-width');
                     $(selector).addClass('container-fluid');
                 }
@@ -125,45 +123,6 @@
         })
 
     }
-
-    wp.customize('attire_options[heading_font_size]', function (value) {
-        value.bind(function (newValue) {
-            $('.site-logo,.footer-logo').each(function () {
-                this.style.setProperty('font-size', newValue + 'px');
-            });
-            $('h1 *,.h1, h1').each(function () {
-                this.style.setProperty('font-size', newValue + 'px');
-            });
-        });
-    });
-    wp.customize('attire_options[heading2_font_size]', function (value) {
-        value.bind(function (newValue) {
-            $('h2:not(.site-description) *, h2:not(.site-description),.h2').each(function () {
-                this.style.setProperty('font-size', newValue + 'px');
-            });
-        });
-    });
-    wp.customize('attire_options[heading3_font_size]', function (value) {
-        value.bind(function (newValue) {
-            $('h3 *, h3,.h3').each(function () {
-                this.style.setProperty('font-size', newValue + 'px');
-            });
-        });
-    });
-    wp.customize('attire_options[heading4_font_size]', function (value) {
-        value.bind(function (newValue) {
-            $('h4 *, h4,.h4').each(function () {
-                this.style.setProperty('font-size', newValue + 'px');
-            });
-            $('h5 *,h5,.h5').each(function () {
-                this.style.setProperty('font-size', (newValue -  2) + 'px');
-            });
-            $('h6 *,h6,h6').each(function () {
-                this.style.setProperty('font-size', (newValue -  4) + 'px');
-            });
-        });
-    });
-
 
     /**
      *
@@ -361,6 +320,100 @@
     setContainerType('footer_widget_content_layout_type', '.footer-widgets-outer');
     setContainerType('footer_content_layout_type', 'footer .footer-contents');
 
+
+    function setResponsiveCss(themeModName, selector, propertyName) {
+        var querySelectorStart = ''
+        var querySelectorEnd = '}';
+
+        if (themeModName.split('_')[themeModName.split('_').length - 1] === 'tablet') {
+            querySelectorStart = '@media (min-width: 600px) and (max-width: 1024px){ ';
+            querySelectorEnd = '}';
+
+        } else if (themeModName.split('_')[themeModName.split('_').length - 1] === 'mobile') {
+            querySelectorStart = '@media only screen and (max-width: 599px) {';
+            querySelectorEnd = '}';
+        }
+
+
+        var unit = '';
+        var px = ['font-size', 'max-width', 'min-width', 'width', 'min-height', 'max-height', 'height', 'margin-bottom', 'padding-top', 'padding-bottom'];
+        if (px.indexOf(propertyName) > -1) {
+            unit = 'px';
+        }
+        // if the theme mod is for heading4 `H4` we need to calculate h6 and h5 too
+        if (themeModName.split('_')[0] === 'heading4') {
+            wp.customize('attire_options[' + themeModName + ']', function (value) {
+                value.bind(function (newVal) {
+                    if ($('style#' + themeModName).length) {
+                        try {
+                            $('style#' + themeModName).html(
+                                querySelectorStart +
+                                selector + '{' + propertyName + ':' + newVal + unit + ' !important;}' +
+                                'h5 *,h5,.h5{' + propertyName + ':' + (newVal - 2) + unit + '  !important;}' +
+                                'h6 *,h6,h6{' + propertyName + ':' + (newVal - 4) + unit + '  !important;}' +
+                                querySelectorEnd
+                            );
+                        } catch (err) {
+                            console.log(err);
+                        }
+                    } else {
+                        try {
+                            $('head').append('<style id="' + themeModName + '">'
+                                + querySelectorStart +
+                                selector + '{' + propertyName + ':' + newVal + unit + ' !important;}' +
+                                'h5 *,h5,.h5{' + propertyName + ':' + (newVal - 2) + unit + '  !important;}' +
+                                'h6 *,h6,h6{' + propertyName + ':' + (newVal - 4) + unit + '  !important;}' +
+                                querySelectorEnd + '</style>');
+                        } catch (err) {
+                            console.log(err);
+                        }
+                    }
+                });
+            });
+        } else {
+            wp.customize('attire_options[' + themeModName + ']', function (value) {
+                value.bind(function (newVal) {
+                    if ($('style#' + themeModName).length) {
+                        try {
+                            $('style#' + themeModName).html(querySelectorStart + selector + '{' + propertyName + ':' + newVal + unit + ' !important;}' + querySelectorEnd);
+                        } catch (err) {
+                            console.log(err);
+                        }
+                    } else {
+                        try {
+                            $('head').append('<style id="' + themeModName + '">' + querySelectorStart + selector + '{' + propertyName + ':' + newVal + unit + '!important;}' + querySelectorEnd + '</style>');
+                        } catch (err) {
+                            console.log(err);
+                        }
+                    }
+                });
+            });
+        }
+
+    }
+
+
+    /**
+     *
+     * Responsive font size
+     *
+     */
+    setResponsiveCss('heading_font_size_desktop', '.site-logo,.footer-logo,h1 *,.h1, h1', 'font-size');
+    setResponsiveCss('heading2_font_size_desktop', 'h2:not(.site-description) *, h2:not(.site-description),.h2', 'font-size');
+    setResponsiveCss('heading3_font_size_desktop', 'h3 *, h3,.h3', 'font-size');
+    setResponsiveCss('heading4_font_size_desktop', 'h4 *, h4,.h4', 'font-size');
+
+
+    setResponsiveCss('heading_font_size_tablet', '.site-logo,.footer-logo,h1 *,.h1, h1', 'font-size');
+    setResponsiveCss('heading2_font_size_tablet', 'h2:not(.site-description) *, h2:not(.site-description),.h2', 'font-size');
+    setResponsiveCss('heading3_font_size_tablet', 'h3 *, h3,.h3', 'font-size');
+    setResponsiveCss('heading4_font_size_tablet', 'h4 *, h4,.h4', 'font-size');
+
+
+    setResponsiveCss('heading_font_size_mobile', '.site-logo,.footer-logo,h1 *,.h1, h1', 'font-size');
+    setResponsiveCss('heading2_font_size_mobile', 'h2:not(.site-description) *, h2:not(.site-description),.h2', 'font-size');
+    setResponsiveCss('heading3_font_size_mobile', 'h3 *, h3,.h3', 'font-size');
+    setResponsiveCss('heading4_font_size_mobile', 'h4 *, h4,.h4', 'font-size');
 })(jQuery);
 
 
