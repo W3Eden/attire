@@ -19,6 +19,11 @@ Attire is a fast, mobile responsive, highly customizable, SEO friendly multipurp
 
 == Changelog ==
 
+= 1.5.4 - 2020.09.09 =
+* Screen size specific font sizes can be applied now.
+* Fixed an issue where page header in post not showing.
+* Some css adjustments.
+
 = 1.5.3 - 2020.08.15 =
 * Fixed an issue with menu hover color
 
