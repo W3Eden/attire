@@ -310,7 +310,9 @@ class Attire
             'heading_font_weight' => '700',
 
             'body_font' => 'Rubik:400,400i,500,700',
-            'body_font_size' => '14',
+            'body_font_size_desktop' => '14',
+            'body_font_size_tablet' => '14',
+            'body_font_size_mobile' => '14',
             'body_font_weight' => '400',
 
             'button_font' => 'Sen:400,700,800',
