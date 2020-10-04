@@ -319,19 +319,27 @@ class Attire
             'button_font_weight' => '700',
 
             'widget_title_font' => 'Rubik:400,400i,500,700',
-            'widget_title_font_size' => '14',
+            'widget_title_font_size_desktop' => '14',
+            'widget_title_font_size_tablet' => '14',
+            'widget_title_font_size_mobile' => '14',
             'widget_title_font_weight' => '500',
 
             'widget_content_font' => 'Rubik:400,400i,500,700',
-            'widget_content_font_size' => '13',
+            'widget_content_font_size_desktop' => '13',
+            'widget_content_font_size_tablet' => '13',
+            'widget_content_font_size_mobile' => '13',
             'widget_content_font_weight' => '400',
 
             'menu_top_font' => 'Rubik:400,400i,500,700',
-            'menu_top_font_size' => '13',
+            'menu_top_font_size_desktop' => '13',
+            'menu_top_font_size_tablet' => '13',
+            'menu_top_font_size_mobile' => '13',
             'menu_top_font_weight' => '400',
 
             'menu_dropdown_font' => 'Rubik:400,400i,500,700',
-            'menu_dropdown_font_size' => '13',
+            'menu_dropdown_font_size_desktop' => '13',
+            'menu_dropdown_font_size_tablet' => '13',
+            'menu_dropdown_font_size_mobile' => '13',
             'menu_dropdown_font_weight' => '400',
 
             'site_header_bg_color_left' => '#fafafa',
