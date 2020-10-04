@@ -423,6 +423,10 @@ class AttireThemeEngine
         $css .= 'h6, h6 a{font-size:' . intval($theme_mod['heading4_font_size_tablet'] - 4) . 'px;}';
         $css .= '.attire-content p, .attire-post-and-comments,.attire-post-and-comments p,.attire-post-and-comments article,.attire-post-and-comments ul,.attire-post-and-comments ol, 
 		.attire-post-and-comments table, .attire-post-and-comments blockquote, .attire-post-and-comments pre { ' . intval($theme_mod["body_font_size_tablet"]) . 'px;}';
+        $css .= '.widget, .widget li, .widget p {font-size:' . intval($theme_mod['widget_content_font_size_tablet']) . 'px;}';
+        $css .= '.widget .widget-title {font-size:' . intval($theme_mod['widget_title_font_size_tablet']) . 'px;}';
+        $css .= 'header .mainmenu > .nav-item a,footer .footermenu > .menu-item a, .info-link,.attire-mbl-menu li.nav-item a,input.gn-search{font-size:' . $theme_mod['menu_top_font_size_tablet'] . 'px;}';
+        $css .= 'header .dropdown ul li a.dropdown-item, footer .dropdown ul li a.dropdown-item,.attire-mbl-menu .dropdown-menu li.nav-item a{font-size:' . $theme_mod['menu_dropdown_font_size_tablet'] . 'px;}';
 
         $css .= '}';
 
@@ -441,6 +445,11 @@ class AttireThemeEngine
         $css .= 'h6, h6 a{font-size:' . intval($theme_mod['heading4_font_size_mobile'] - 4) . 'px;}';
         $css .= '.attire-content p, .attire-post-and-comments,.attire-post-and-comments p,.attire-post-and-comments article,.attire-post-and-comments ul,.attire-post-and-comments ol, 
 		.attire-post-and-comments table, .attire-post-and-comments blockquote, .attire-post-and-comments pre { ' . intval($theme_mod["body_font_size_mobile"]) . 'px; }';
+        $css .= '.widget, .widget li, .widget p {font-size:' . intval($theme_mod['widget_content_font_size_mobile']) . 'px;}';
+        $css .= '.widget .widget-title {font-size:' . intval($theme_mod['widget_title_font_size_mobile']) . 'px;}';
+        $css .= 'header .mainmenu > .nav-item a,footer .footermenu > .menu-item a, .info-link,.attire-mbl-menu li.nav-item a,input.gn-search{font-size:' . $theme_mod['menu_top_font_size_mobile'] . 'px;}';
+        $css .= 'header .dropdown ul li a.dropdown-item, footer .dropdown ul li a.dropdown-item,.attire-mbl-menu .dropdown-menu li.nav-item a{font-size:' . $theme_mod['menu_dropdown_font_size_mobile'] . 'px;}';
+
         $css .= '}';
 
         /**
@@ -596,7 +605,7 @@ class AttireThemeEngine
          *
          */
 
-        $font_size = intval($theme_mod['widget_content_font_size']);
+        $font_size = intval($theme_mod['widget_content_font_size_desktop']);
         $widget_content_font_weight = intval($theme_mod['widget_content_font_weight']);
         $font_weight = $widget_content_font_weight != '' ? "font-weight:{$widget_content_font_weight};" : "";
         $font = esc_attr($theme_mod['widget_content_font']);
@@ -620,7 +629,7 @@ class AttireThemeEngine
          */
 
         $widget_title_font_weight = intval($theme_mod['widget_title_font_weight']);
-        $font_size = intval($theme_mod['widget_title_font_size']);
+        $font_size = intval($theme_mod['widget_title_font_size_desktop']);
         $font_weight = $widget_title_font_weight != '' ? "font-weight:{$widget_title_font_weight};" : "";
         $font = esc_attr($theme_mod['widget_title_font']);
         $color = "color:" . esc_attr($theme_mod['widget_title_font_color']);
@@ -645,7 +654,7 @@ class AttireThemeEngine
          */
 
         $font = esc_attr($theme_mod['menu_top_font']);
-        $font_size = intval($theme_mod['menu_top_font_size']);
+        $font_size = intval($theme_mod['menu_top_font_size_desktop']);
         $menu_top_font_weight = intval($theme_mod['menu_top_font_weight']);
         $font_weight = $menu_top_font_weight != '' ? "font-weight:{$menu_top_font_weight};" : "";
         $font_size = $font_size != '' ? "font-size:{$font_size}px;" : "";
@@ -664,7 +673,7 @@ class AttireThemeEngine
          *
          */
         $menu_dropdown_font_weight = intval($theme_mod['menu_dropdown_font_weight']);
-        $font_size = intval($theme_mod['menu_dropdown_font_size']);
+        $font_size = intval($theme_mod['menu_dropdown_font_size_desktop']);
         $font_weight = $menu_dropdown_font_weight != '' ? "font-weight:{$menu_dropdown_font_weight};" : "";
         $font = esc_attr($theme_mod['menu_dropdown_font']);
         $font_size = $font_size != '' ? "font-size:{$font_size}px;" : "";

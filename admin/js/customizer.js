@@ -402,18 +402,31 @@
     setResponsiveCss('heading2_font_size_desktop', 'h2:not(.site-description) *, h2:not(.site-description),.h2', 'font-size');
     setResponsiveCss('heading3_font_size_desktop', 'h3 *, h3,.h3', 'font-size');
     setResponsiveCss('heading4_font_size_desktop', 'h4 *, h4,.h4', 'font-size');
+    setResponsiveCss('widget_title_font_size_desktop', '.widget .widget-title', 'font-size');
+    setResponsiveCss('widget_content_font_size_desktop', '.widget, .widget li, .widget p', 'font-size');
+    setResponsiveCss('menu_top_font_size_desktop', 'header .mainmenu > .nav-item a,footer .footermenu > .menu-item a, .info-link,.attire-mbl-menu li.nav-item a,input.gn-search', 'font-size');
+    setResponsiveCss('menu_dropdown_font_size_desktop', 'header .dropdown ul li a.dropdown-item, footer .dropdown ul li a.dropdown-item,.attire-mbl-menu .dropdown-menu li.nav-item a', 'font-size');
 
 
     setResponsiveCss('heading_font_size_tablet', '.site-logo,.footer-logo,h1 *,.h1, h1', 'font-size');
     setResponsiveCss('heading2_font_size_tablet', 'h2:not(.site-description) *, h2:not(.site-description),.h2', 'font-size');
     setResponsiveCss('heading3_font_size_tablet', 'h3 *, h3,.h3', 'font-size');
     setResponsiveCss('heading4_font_size_tablet', 'h4 *, h4,.h4', 'font-size');
+    setResponsiveCss('widget_title_font_size_tablet', '.widget .widget-title', 'font-size');
+    setResponsiveCss('widget_content_font_size_tablet', '.widget, .widget li, .widget p', 'font-size');
+    setResponsiveCss('menu_top_font_size_tablet', 'header .mainmenu > .nav-item a,footer .footermenu > .menu-item a, .info-link,.attire-mbl-menu li.nav-item a,input.gn-search', 'font-size');
+    setResponsiveCss('menu_dropdown_font_size_tablet', 'header .dropdown ul li a.dropdown-item, footer .dropdown ul li a.dropdown-item,.attire-mbl-menu .dropdown-menu li.nav-item a', 'font-size');
 
 
     setResponsiveCss('heading_font_size_mobile', '.site-logo,.footer-logo,h1 *,.h1, h1', 'font-size');
     setResponsiveCss('heading2_font_size_mobile', 'h2:not(.site-description) *, h2:not(.site-description),.h2', 'font-size');
     setResponsiveCss('heading3_font_size_mobile', 'h3 *, h3,.h3', 'font-size');
     setResponsiveCss('heading4_font_size_mobile', 'h4 *, h4,.h4', 'font-size');
+    setResponsiveCss('widget_title_font_size_mobile', '.widget .widget-title', 'font-size');
+    setResponsiveCss('widget_content_font_size_mobile', '.widget, .widget li, .widget p', 'font-size');
+    setResponsiveCss('menu_top_font_size_mobile', 'header .mainmenu > .nav-item a,footer .footermenu > .menu-item a, .info-link,.attire-mbl-menu li.nav-item a,input.gn-search', 'font-size');
+    setResponsiveCss('menu_dropdown_font_size_mobile', 'header .dropdown ul li a.dropdown-item, footer .dropdown ul li a.dropdown-item,.attire-mbl-menu .dropdown-menu li.nav-item a', 'font-size');
+
 })(jQuery);
 
 
