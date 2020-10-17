@@ -222,7 +222,6 @@ input[type="radio"]:checked::before {
     background-color: #186EA0;
     transition: all .5s ease-in-out;
     -webkit-transition: all .5s ease-in-out;
-    -webkit-transition: all .5s ease-in-out;
 }
 
 .customize-control button.remove-button {
@@ -356,7 +355,7 @@ input[type="radio"]:checked::before {
 
 .attire-image-picker img {
     width: 100%;
-    margin: 0px;
+    margin: 0;
     transition: all 1s ease;
 }
 

@@ -9385,7 +9385,5 @@ $jsonfonts = <<<FONTS
   }
  ]
 FONTS;
-
 $jsonfonts = json_decode($jsonfonts);
-
 return $jsonfonts;
