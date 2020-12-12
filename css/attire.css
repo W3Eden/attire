@@ -1520,7 +1520,7 @@ a.footer-logo {
     list-style: none;
 }
 
-.mx_comments,
+.mx_comments #comments,
 .single-post-author {
     margin-top: 30px;
 }

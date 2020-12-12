@@ -19,15 +19,19 @@ Attire is a fast, mobile responsive, highly customizable, SEO friendly multipurp
 
 == Changelog ==
 
+= 1.5.6 - 2020.12.12 =
+* Cleaned up some css
+* Support for WordPress version 5.6
+
 = 1.5.5 - 2020.10.17 =
 * More responsive customisation option
 * Reduced css file size
-* Some css issues addressed.
+* Some css issues addressed
 
 = 1.5.4 - 2020.09.09 =
-* Screen size specific font sizes can be applied now.
-* Fixed an issue where page header in post not showing.
-* Some css adjustments.
+* Screen size specific font sizes can be applied now
+* Fixed an issue where page header in post not showing
+* Some css adjustments
 
 = 1.5.3 - 2020.08.15 =
 * Fixed an issue with menu hover color
