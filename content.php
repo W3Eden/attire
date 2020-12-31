@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <div class="d-flex justify-content-between">
                     <div>
                         <span><?php echo __( 'On', 'attire' ); ?></span>
-                        <span class="black bold"><a href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?></a></span>
+                        <span class="black bold"><a href="<?php the_permalink(); ?>"><?php echo get_the_modified_date(); ?></a></span>
                     </div>
                     <div>
                         <span><?php echo __( 'By', 'attire' ); ?></span>

@@ -2,7 +2,7 @@
 
 Attire is a fast, mobile responsive, highly customizable, SEO friendly multipurpose theme. It was built with the Gutenberg editor in mind and offers hundreds of customization options that allow to make a website look exactly the way you intended. Create any type of website, such as business agency, shop, corporate, education, restaurant, blog, portfolio, landing page and so on. This theme allows to customize pages with google-fonts, page background, page header, and sidebars. Try Demo: http://demo.wpattire.com. Attire is # WooCommerce Ready # Gutenberg Block Ready # RTL & Translation Ready # Also Compatible with all major page builders like elementor, divi, visual composer.
 
-* Attire - WordPress Theme, Copyright 2019 wpattire.com
+* Attire - WordPress Theme, Copyright 2020 wpattire.com
 * Attire - WordPress Theme is distributed under the terms of the GNU GPL v3.0
 
 == Attire documentation ==
@@ -18,6 +18,9 @@ Attire is a fast, mobile responsive, highly customizable, SEO friendly multipurp
 * Popper licensed under MIT [https://github.com/FezVrasta/popper.js/blob/master/LICENSE.md]
 
 == Changelog ==
+
+= 1.5.7 - 2020.12.30 =
+* Post date is now change to `update date` instead of `create date`.
 
 = 1.5.6 - 2020.12.12 =
 * Cleaned up some css
