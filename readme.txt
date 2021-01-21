@@ -19,6 +19,9 @@ Attire is a fast, mobile responsive, highly customizable, SEO friendly multipurp
 
 == Changelog ==
 
+= 1.5.8 - 2020.01.21 =
+* Removed the empty white space bellow pages that have comments turned off.
+
 = 1.5.7 - 2020.12.30 =
 * Post date is now change to `update date` instead of `create date`.
 

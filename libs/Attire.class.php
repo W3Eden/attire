@@ -437,7 +437,7 @@ class Attire
                 '<p class="comment-form-author">%s %s</p>',
                 sprintf(
                     '<label for="author">%s%s</label>',
-                    __('Name'),
+                    __('Name', 'attire'),
                     ($req ? ' <span class="required">*</span>' : '')
                 ),
                 sprintf(
@@ -450,7 +450,7 @@ class Attire
                 '<p class="comment-form-email">%s %s</p>',
                 sprintf(
                     '<label for="email">%s%s</label>',
-                    __('Email'),
+                    __('Email', 'attire'),
                     ($req ? ' <span class="required">*</span>' : '')
                 ),
                 sprintf(
@@ -464,7 +464,7 @@ class Attire
                 '<p class="comment-form-url">%s %s</p>',
                 sprintf(
                     '<label for="url">%s</label>',
-                    __('Website')
+                    __('Website', 'attire')
                 ),
                 sprintf(
                     '<input id="url" name="url" %s value="%s" size="30" maxlength="200" />',
@@ -485,7 +485,7 @@ class Attire
                 ),
                 sprintf(
                     '<label for="wp-comment-cookies-consent">%s</label>',
-                    __('Save my name, email, and website in this browser for the next time I comment.')
+                    __('Save my name, email, and website in this browser for the next time I comment.', 'attire')
                 )
             );
 
@@ -497,7 +497,7 @@ class Attire
 
         $required_text = sprintf(
         /* translators: %s: Asterisk symbol (*). */
-            ' ' . __('Required fields are marked %s'),
+            ' ' . __('Required fields are marked %s', 'attire'),
             '<span class="required">*</span>'
         );
 
@@ -516,7 +516,7 @@ class Attire
                 '<p class="comment-form-comment">%s %s</p>',
                 sprintf(
                     '<label for="comment">%s</label>',
-                    _x('Comment', 'noun')
+                    _x('Comment', 'attire')
                 ),
                 '<textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea>'
             ),
@@ -524,7 +524,7 @@ class Attire
                 '<p class="must-log-in">%s</p>',
                 sprintf(
                 /* translators: %s: Login URL. */
-                    __('You must be <a href="%s">logged in</a> to post a comment.'),
+                    __('You must be <a href="%s">logged in</a> to post a comment.', 'attire'),
                     /** This filter is documented in wp-includes/link-template.php */
                     wp_login_url(apply_filters('the_permalink', get_permalink($post_id), $post_id))
                 )
@@ -533,10 +533,10 @@ class Attire
                 '<p class="logged-in-as">%s</p>',
                 sprintf(
                 /* translators: 1: Edit user link, 2: Accessibility text, 3: User name, 4: Logout URL. */
-                    __('<a href="%1$s" aria-label="%2$s">Logged in as %3$s</a>. <a href="%4$s">Log out?</a>'),
+                    '<a href="%1$s" aria-label="%2$s">' . __('Logged in as %3$s', 'attire') . '</a><a href="%4$s">' . __('Log out?', 'attire') . '</a>',
                     get_edit_user_link(),
                     /* translators: %s: User name. */
-                    esc_attr(sprintf(__('Logged in as %s. Edit your profile.'), $user_identity)),
+                    esc_attr(sprintf(__('Logged in as %s. Edit your profile.', 'attire'), $user_identity)),
                     $user_identity,
                     /** This filter is documented in wp-includes/link-template.php */
                     wp_logout_url(apply_filters('the_permalink', get_permalink($post_id), $post_id))
@@ -546,7 +546,7 @@ class Attire
                 '<p class="comment-notes">%s%s</p>',
                 sprintf(
                     '<span id="email-notes">%s</span>',
-                    __('Your email address will not be published.')
+                    __('Your email address will not be published.', 'attire')
                 ),
                 ($req ? $required_text : '')
             ),
@@ -557,15 +557,15 @@ class Attire
             'class_form' => 'comment-form',
             'class_submit' => 'btn btn-primary btn-lg',
             'name_submit' => 'submit',
-            'title_reply' => __('Leave a Reply'),
+            'title_reply' => __('Leave a Reply', 'attire'),
             /* translators: %s: Author of the comment being replied to. */
-            'title_reply_to' => __('Leave a Reply to %s'),
+            'title_reply_to' => __('Leave a Reply to %s', 'attire'),
             'title_reply_before' => '<h3 id="reply-title" class="comment-reply-title">',
             'title_reply_after' => '</h3>',
             'cancel_reply_before' => ' <small>',
             'cancel_reply_after' => '</small>',
-            'cancel_reply_link' => __('Cancel reply'),
-            'label_submit' => __('Post Comment'),
+            'cancel_reply_link' => __('Cancel reply', 'attire'),
+            'label_submit' => __('Post Comment', 'attire'),
             'submit_button' => '<input name="%1$s" type="submit" id="%2$s" class="%3$s" value="%4$s" />',
             'submit_field' => '%1$s %2$s',
             'format' => 'xhtml',

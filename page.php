@@ -35,9 +35,13 @@ get_header();
 						<?php wp_link_pages(); ?>
 						<?php do_action( "attire_after_content" ); ?>
                     </div>
-                    <div class="mx_comments">
-						<?php comments_template(); ?>
-                    </div>
+                    <?php if(comments_open()){ ?>
+                        <div class=" mx_comments">
+                            <div class="">
+                                <?php comments_template(); ?>
+                            </div>
+                        </div>
+                    <?php } ?>
 
 				<?php endwhile; ?>
 
