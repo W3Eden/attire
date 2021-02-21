@@ -516,7 +516,7 @@ class Attire
                 '<p class="comment-form-comment">%s %s</p>',
                 sprintf(
                     '<label for="comment">%s</label>',
-                    _x('Comment', 'attire')
+                    __('Comment', 'attire')
                 ),
                 '<textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea>'
             ),
