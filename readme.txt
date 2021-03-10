@@ -19,6 +19,9 @@ Attire is a fast, mobile responsive, highly customizable, SEO friendly multipurp
 
 == Changelog ==
 
+= 1.6.0 =
+* Redesigned `Back to top` indicator.
+
 = 1.5.9 - 2021.02.15 =
 * Translation file updated.
 
