@@ -197,6 +197,12 @@ $attire_sections = array(
 );
 
 $attire_options = array(
+    'attire_write_review' => array(
+        'label' => __('Write a review', 'attire'),
+        'transport' => 'postMessage',
+        'type' => 'attire_review',
+        'section' => 'attire_write_review'
+    ),
     'attire_archive_page_post_view' => array(
         'label' => __('Archive Page Post View', 'attire'),
         'transport' => 'postMessage',
@@ -207,12 +213,6 @@ $attire_options = array(
             'full-post' => __('Show entire post', 'attire'),
             'excerpt' => __('Show excerpt', 'attire')
         )
-    ),
-    'attire_write_review' => array(
-        'label' => __('Write a review', 'attire'),
-        'transport' => 'postMessage',
-        'type' => 'attire_review',
-        'section' => 'attire_write_review'
     ),
     'attire_read_more_text' => array(
         'label' => __('Read More Text', 'attire'),
@@ -252,6 +252,18 @@ $attire_options = array(
         'choices' => array(
             'show' => __('Show', 'attire'),
             'hide' => __('Hide', 'attire')
+        )
+    ),
+    'attire_single_post_comment_button_size' => array(
+        'label' => __('Comment Button Size', 'attire'),
+        'transport' => 'postMessage',
+        'type' => 'select',
+        'section' => 'attire_blog_section',
+        'default' => 'btn-md',
+        'choices' => array(
+            'btn-sm' => __('Small', 'attire'),
+            'btn-md' => __('Medium', 'attire'),
+            'btn-lg' => __('Large', 'attire')
         )
     ),
     'site_header_bg_color_left' => array(
@@ -722,6 +734,20 @@ $attire_options = array(
         'type' => 'color',
         'section' => 'attire_body_color_options',
         'default' => '#000000',
+    ),
+    'attire_single_post_comment_button_color' => array(
+        'label' => __('Comment Button Color', 'attire'),
+        'transport' => 'postMessage',
+        'type' => 'color',
+        'section' => 'attire_body_color_options',
+        'default' => '#007bff'
+    ),
+    'attire_single_post_comment_button_text_color' => array(
+        'label' => __('Comment Button Text Color', 'attire'),
+        'transport' => 'postMessage',
+        'type' => 'color',
+        'section' => 'attire_body_color_options',
+        'default' => '#ffffff'
     ),
 
     // Sidebar widget colors

@@ -9,14 +9,80 @@
 (function ($) {
 
 
+    // object structure
+    //gradients = {
+    //         site_header:{
+    //             color_left:'#ffffff',
+    //             color_right:'#ffffff',
+    //             grad_angle:'45'
+    //         }
+    //     }
+
+    var gradients = {};
+
+    //saved_mods = localized script in customizer.php; handle = attire_customizer
+    Object.keys(saved_mods).forEach(key => {
+        var value = saved_mods[key];
+        if (key.indexOf('_color_left') !== -1 || key.indexOf('_color_right') !== -1 || key.indexOf('_grad_angle') !== -1) {
+            var themeModPrefix = key.split('_bg_')[0];
+            var themeModAttribute = key.split('_bg_')[1];
+            if (!gradients[themeModPrefix]) {
+                gradients[themeModPrefix] = {};
+            }
+            gradients[themeModPrefix][themeModAttribute] = value;
+        }
+    });
+
+    function setGradientColor(themeModName, selector) {
+
+        wp.customize('attire_options[' + themeModName + ']', function (value) {
+            value.bind(function (newVal) {
+
+                var themeModPrefix = themeModName.split('_bg_')[0];
+                var themeModAttribute = themeModName.split('_bg_')[1];
+
+                if (!gradients[themeModPrefix]) {
+                    gradients[themeModPrefix] = {};
+                }
+                gradients[themeModPrefix][themeModAttribute] = newVal;
+                var grad_angle = gradients[themeModPrefix].grad_angle || 45;
+                var color_left = gradients[themeModPrefix].color_left || '#ffffff';
+                var color_right = gradients[themeModPrefix].color_right || '#ffffff';
+                var cssValue = 'linear-gradient( ' + grad_angle + 'deg, ' + color_left + ', ' + color_right + ')';
+                if ($('style#' + themeModPrefix).length) {
+                    try {
+                        $('style#' + themeModPrefix).html(selector + '{background:' + cssValue + ' !important;}');
+                    } catch (err) {
+                        console.log(err);
+                    }
+                } else {
+                    try {
+                        $('head').append('<style id="' + themeModPrefix + '">' + selector + '{background:' + cssValue + '!important;}</style>');
+                    } catch (err) {
+                        console.log(err);
+                    }
+                }
+            });
+        });
+    }
+
+    function setClass(themeModName, selector) {
+        wp.customize('attire_options[' + themeModName + ']', function (value) {
+            value.bind(function (newVal) {
+                if (newVal.indexOf('btn-') > -1) {
+                    $(selector).removeClass('btn-sm btn-md- btn-lg');
+                }
+                $(selector).addClass(newVal);
+            });
+        });
+    }
+
     function setCss(themeModName, selector, propertyName) {
         var unit = '';
         var px = ['font-size', 'max-width', 'min-width', 'width', 'min-height', 'max-height', 'height', 'margin-bottom', 'padding-top', 'padding-bottom'];
         if (px.indexOf(propertyName) > -1) {
             unit = 'px';
         }
-
-
         wp.customize('attire_options[' + themeModName + ']', function (value) {
             value.bind(function (newVal) {
                 if ($('style#' + themeModName).length) {
@@ -138,7 +204,9 @@
      */
     setCss('site_title_text_color', '.site-logo,.logo-header', 'color');
     setCss('site_description_text_color', '.site-description', 'color');
-    setCss('site_header_bg_color', '.header-div', 'background-color');
+    setGradientColor('site_header_bg_color_left', '.header-div', 'background-color');
+    setGradientColor('site_header_bg_color_right', '.header-div');
+    setGradientColor('site_header_bg_grad_angle', '.header-div');
 
     /**
      *
@@ -154,7 +222,7 @@
      *
      */
     setCss('menu_top_font_color', 'header .mainmenu > .menu-item:not(.active) > a, header .nav i.fa.fa-search, header .dropdown-toggler, header .mobile-menu-toggle', 'color');
-    setCss('main_nav_bg', '.short-nav .collapse.navbar-collapse, .long-nav', 'background-color');
+    setCss('main_nav_bg', '.short-nav .collapse.navbar-collapse, .long-nav,.sidebar .widget-heading.widget-title', 'background-color');
     setCss('menuhbg_color', 'header .mainmenu > .menu-item:hover, header .mainmenu > .menu-item.active', 'background-color');
     setCss('menuht_color', 'header .mainmenu > .menu-item:hover > a,header .mainmenu > .menu-item.active > a,header .mainmenu > .menu-item:hover > .dropdown-toggler,header .mainmenu > .menu-item.active > .dropdown-toggler', 'color');
     setCss('menu_dropdown_bg_color', 'header .mainmenu .dropdown-menu', 'background');
@@ -183,7 +251,7 @@
      */
     setCss('body_bg_color', 'body #mainframe', 'background-color');
     setCss('body_color', '.attire-post-and-comments,.attire-post-and-comments p,.attire-post-and-comments article,.attire-post-and-comments ul,.attire-post-and-comments ol, .attire-post-and-comments table, .attire-post-and-comments blockquote, .attire-post-and-comments pre ', 'color');
-    setCss('a_color', '.attire-content a,.small-menu a', 'color');
+    setCss('a_color', '.attire-content a,.small-menu a,.page_header_wrap a', 'color');
     setCss('ah_color', '.attire-content a:hover,.footer-widgets-area a:hover,.small-menu a:hover', 'color');
     setCss('header_color', 'h1,h2,h3,h4,h5,h6,h1 *,h2 *,h3 *,h4 *,h5 *,h6 *', 'color');
 
@@ -311,6 +379,9 @@
      */
     setText('attire_read_more_text', '.read-more-link');
     setVisibility('attire_single_post_post_navigation', '.meta-list li.post-navs');
+    setClass('attire_single_post_comment_button_size', '#commentform .btn');
+    setCss('attire_single_post_comment_button_color', '#commentform .btn', 'background');
+    setCss('attire_single_post_comment_button_text_color', '#commentform .btn', 'color');
 
     setCss('container_width', '.container', 'max-width');
     setCss('main_layout_width', 'body #mainframe.layout-fixed-width', 'max-width');

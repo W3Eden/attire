@@ -967,6 +967,9 @@ function attire_sanitize_checkbox($checked)
 function attire_customize_preview_js()
 {
     wp_enqueue_script('attire_customizer', get_template_directory_uri() . '/admin/js/customizer.js', array('customize-preview'), '20171015', true);
+    wp_localize_script('attire_customizer', 'saved_mods',
+        $theme_mod = WPATTIRE()->theme_options
+    );
 }
 
 add_action('customize_preview_init', 'attire_customize_preview_js');

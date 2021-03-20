@@ -634,6 +634,7 @@ class AttireThemeEngine
         $font = esc_attr($theme_mod['widget_title_font']);
         $color = "color:" . esc_attr($theme_mod['widget_title_font_color']);
         $background = "background:" . esc_attr($theme_mod['main_nav_bg']);
+        $footer_background = "background:" . esc_attr($theme_mod['footer_nav_bg']);
 
         if ($font != '') {
             $font_family = isset($fonts[$font]) && $fonts[$font]['family'] != '' ? "font-family:\"{$fonts[$font]['family']}\", {$fonts[$font]['category']};" : "";
@@ -644,6 +645,7 @@ class AttireThemeEngine
         $font_size = $font_size != '' ? "font-size:{$font_size}px;" : "";
         $css .= ".widget .widget-title {{$font_family}{$font_size}{$font_weight}}";
         $css .= ".attire-content .widget .widget-title {{$color};{$background}}";
+        $css .= ".footer-widgets-area .widget .widget-title {{$footer_background}}";
         $css .= ".sticky .card{{$color};{$background}}";
         $css .= ".sticky .card .card-body *{{$color} !important;}";
 
@@ -742,11 +744,11 @@ class AttireThemeEngine
         $color = "color:" . esc_attr($theme_mod['footer_nav_top_font_color']) . ";";
         $css .= "footer a, footer .footermenu > .menu-item:not(.active) > a, footer .dropdown-toggler{{$color}}";
 
-        //$footer_nav_bg = 'background-color:' . esc_attr( $theme_mod['footer_nav_bg'] );
-        //$css           .= "footer .footermenu { {$footer_nav_bg};}";
+        $footer_nav_bg = 'background-color:' . esc_attr($theme_mod['footer_nav_bg']);
+        $css .= "footer .footermenu { {$footer_nav_bg};}";
 
-        //$footer_nav_hover_active_bg = 'background-color:' . esc_attr( $theme_mod['footer_nav_hbg'] );
-        //$css                        .= "footer .footermenu > .menu-item:hover,footer .footermenu > .menu-item.active{{$footer_nav_hover_active_bg};}";
+        $footer_nav_hover_active_bg = 'background-color:' . esc_attr($theme_mod['footer_nav_hbg']);
+        $css .= "footer .footermenu > .menu-item:hover,footer .footermenu > .menu-item.active{{$footer_nav_hover_active_bg};}";
 
         $footer_nav_hover_active_text = 'color:' . esc_attr($theme_mod['footer_nav_ht_color']);
         $css .= "footer a:hover, footer .footermenu > .menu-item:hover > a,footer .footermenu > .menu-item.active > a, footer .footermenu > .menu-item:hover > .dropdown-toggler,footer .footermenu > .menu-item.active > .dropdown-toggler{{$footer_nav_hover_active_text};}";
@@ -776,10 +778,17 @@ class AttireThemeEngine
          * Footer widget css
          *
          */
-
         $css .= ".footer-widgets-area {background-color : " . esc_attr($theme_mod['footer_widget_bg_color']) . "}";
         $css .= ".footer-widgets .widget-title, .footer-widgets-area .widget-heading {color : " . esc_attr($theme_mod['footer_widget_title_font_color']) . "}";
         $css .= ".footer-widgets .widget *:not(.widget-title):not(input){color : " . esc_attr($theme_mod['footer_widget_content_font_color']) . "}";
+
+        /**
+         *
+         * Blog css
+         *
+         */
+        $css .= "#commentform .btn{background : " . esc_attr($theme_mod['attire_single_post_comment_button_color']) . "}";
+        $css .= "#commentform .btn{color : " . esc_attr($theme_mod['attire_single_post_comment_button_text_color']) . "}";
 
         /**
          *

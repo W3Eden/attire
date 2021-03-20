@@ -19,7 +19,14 @@ Attire is a fast, mobile responsive, highly customizable, SEO friendly multipurp
 
 == Changelog ==
 
-= 1.6.0 =
+= 1.6.2 - 2021.03.19 =
+* Some bug fixes.
+
+= 1.6.1 - 2021.03.18 =
+* `Post Comment` button style can now be adjusted.
+* Fixed some live preview issues.
+
+= 1.6.0 - 2021.03.09 =
 * Redesigned `Back to top` indicator.
 
 = 1.5.9 - 2021.02.15 =
