@@ -174,7 +174,7 @@ class AttireThemeEngine
     {
 
         $post_id = null;
-        if (is_page() || is_archive() || is_home() || 1) {
+        if (is_page() || is_archive() || is_home()) {
             $post_id = get_queried_object_id();
 
         }
@@ -186,8 +186,8 @@ class AttireThemeEngine
         $ph_bg_img = '';
         if (has_post_thumbnail($post_id)):
             $image = wp_get_attachment_image_src(get_post_thumbnail_id($post_id), 'full');
-
-            $ph_bg_img = $image[0];
+            if (is_array($image))
+                $ph_bg_img = $image[0];
 
         endif;
 

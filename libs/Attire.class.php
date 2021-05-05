@@ -384,6 +384,7 @@ class Attire
 
             "attire_single_post_comment_button_color" => "#007bff",
             "attire_single_post_comment_button_text_color" => "#ffffff",
+            "attire_single_post_comment_button_size" => "btn-md",
             'attire_archive_page_post_view' => 'excerpt',
             'attire_read_more_text' => 'read more...',
             'attire_single_post_post_navigation' => 'show',

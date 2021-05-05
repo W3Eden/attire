@@ -15,11 +15,11 @@ jQuery(function ($) {
 
     if ($('.stickable').length) {
         var topspace = 0;
-        if($('.admin-bar').length)
+        if ($('.admin-bar').length)
             topspace = 30;
 
         var sticky = $('.stickable')[0].offsetTop;
-        window.onscroll = function() {
+        window.onscroll = function () {
             if (window.pageYOffset > sticky) {
                 $('nav.stickable').addClass("fixed-top");
             } else {
@@ -28,7 +28,6 @@ jQuery(function ($) {
         };
 
     }
-
 
 
     /* END: Sticky menu */
@@ -61,9 +60,9 @@ jQuery(function ($) {
         $('.dropdown-toggler').children('i').removeClass('fa-angle-up');
         $('.dropdown-toggler').children('i').addClass('fa-angle-down');
     });
-/*
-     END : Responsive JS
-*/
+    /*
+         END : Responsive JS
+    */
     /* Navbar search form*/
 
     var showField = false;
@@ -138,7 +137,7 @@ jQuery(function ($) {
     $('.attire-tip').tooltip();
 
 
-/* START: Full-Screen search form*/
+    /* START: Full-Screen search form*/
 
     var wHeight = window.innerHeight;
     /*//search bar middle alignment*/
@@ -157,6 +156,38 @@ jQuery(function ($) {
         e.preventDefault();
         $("div.mk-fullscreen-search-overlay").removeClass("mk-fullscreen-search-overlay-show");
     });
-/*END : Full-Screen search form*/
+    /*END : Full-Screen search form*/
 
+    //keyboard navigation for accessibility
+
+    $('.menu-item a').on('keydown', function (e) {
+        // left key
+        if (e.which === 37) {
+            e.preventDefault();
+            $(this).parent().prev().children('a').focus();
+        }
+        // right key
+        else if (e.which === 39) {
+            e.preventDefault();
+            $(this).parent().next().children('a').focus();
+        }
+        // down key
+        else if (e.which === 40) {
+            e.preventDefault();
+            if ($(this).next().length) {
+                $(this).next().find('li:first-child a').first().focus();
+            } else {
+                $(this).parent().next().children('a').focus();
+            }
+        }
+        // up key
+        else if (e.which === 38) {
+            e.preventDefault();
+            if ($(this).parent().prev().length) {
+                $(this).parent().prev().children('a').focus();
+            } else {
+                $(this).parents('ul').first().prev('a').focus();
+            }
+        }
+    });
 });
