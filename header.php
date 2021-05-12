@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) {
 
 <body <?php body_class('attire'); ?> <?php AttireThemeEngine::AttireBodySchema(); ?> >
 <a class="skip-link screen-reader-text" href="#attire-content">
-    <?php _e('Skip to content', 'attire-blog'); ?></a>
+    <?php _e('Skip to content', 'attire'); ?></a>
 <?php
 if (function_exists('wp_body_open')) wp_body_open();
 
@@ -43,7 +43,7 @@ $ph_active = AttireThemeEngine::NextGetOption('ph_active', false);
 
 $meta = get_post_meta(get_the_ID(), 'attire_post_meta', true);
 // For page specific settings
-$ph_active = !isset($meta['page_header']) || (int)$meta['page_header'] === -1 ? $ph_active : (int)$meta['page_header'];
+$page_header_active = AttireThemeEngine::NextGetOption('ph_active', true);
 
 $hide_site_header = !isset($meta['hide_site_header']) || (int)$meta['hide_site_header'] === 0 ? 0 : (int)$meta['hide_site_header'];
 
@@ -73,7 +73,7 @@ $page_width = isset($meta['layout_page']) && $meta['layout_page'] !== 'default' 
     <!--        Page Header        -->
     <?php
 
-    if ($ph_active && $ph_show_on_fp && !is_404()) {
+    if ($page_header_active && $ph_show_on_fp && !is_404()) {
         do_action(ATTIRE_THEME_PREFIX . "before_page_header");
         ?>
         <div class="page_header_wrap">

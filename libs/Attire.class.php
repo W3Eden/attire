@@ -49,8 +49,9 @@ class Attire
 
     function Actions()
     {
-        add_action('wp_enqueue_scripts', array($this, 'enqueueThemeStyles'), 1);
-        add_action('wp_enqueue_scripts', array($this, 'enqueueScripts'));
+        add_action('wp_enqueue_scripts', [$this, 'enqueueThemeStyles'], 1);
+        add_action('wp_enqueue_scripts', [$this, 'enqueueScripts']);
+        add_filter('style_loader_tag', [$this, 'add_rel_preload'], 10, 2);
     }
 
     function enqueueThemeStyles()
@@ -99,7 +100,7 @@ class Attire
         $cssimport = '//fonts.googleapis.com/css?family=' . implode("|", $family);
         $cssimport = str_replace('||', '|', $cssimport);
 
-        wp_register_style('attire-google-fonts', $cssimport, array(), null);
+        wp_register_style('attire-google-fonts', $cssimport . '&display=swap', array(), null);
         wp_enqueue_style('attire-google-fonts');
 
         wp_enqueue_script('jquery');
@@ -120,6 +121,15 @@ class Attire
         wp_localize_script('attire-site', 'sitejs_local_obj', array(
             'home_url' => esc_url(home_url('/'))
         ));
+    }
+
+    function add_rel_preload($html, $handle)
+    {
+        if ($handle === 'attire-google-fonts') {
+            return str_replace("rel='stylesheet'",
+                'rel="preload" as="style" onload="this.rel=\'stylesheet\'"', $html);
+        }
+        return $html;
     }
 
     function sanitize_hex_color_front($color)
@@ -260,7 +270,7 @@ class Attire
             'footer_widget_number' => '3',
             'copyright_info' => '&copy;' . esc_attr__('Copyright ', 'attire') . date('Y') . '.',
 
-            'layout_front_page' => 'no-sidebar',
+            'layout_front_page' => 'right-sidebar-1',
             'front_page_ls' => 'left',
             'front_page_ls_width' => '3',
             'front_page_rs' => 'right',
@@ -385,6 +395,8 @@ class Attire
             "attire_single_post_comment_button_color" => "#007bff",
             "attire_single_post_comment_button_text_color" => "#ffffff",
             "attire_single_post_comment_button_size" => "btn-md",
+            "attire_posts_per_row" => 3,
+            'attire_archive_page_post_sorting' => 'modified_desc',
             'attire_archive_page_post_view' => 'excerpt',
             'attire_read_more_text' => 'read more...',
             'attire_single_post_post_navigation' => 'show',

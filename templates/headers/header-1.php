@@ -19,7 +19,7 @@ if ( isset( $theme_mod['attire_nav_behavior'] ) && $theme_mod['attire_nav_behavi
                     <div class="col-lg-auto logo-div">
                         <!-- Icon+Text & Image Logo Default Image Logo -->
                         <div class="middle-logo logo-div">
-                            <a class="site-logo navbar-brand"
+                            <a class="py-3 site-logo navbar-brand"
                                href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo AttireThemeEngine::SiteLogo(); ?></a>
 							<?php $description = get_bloginfo( 'description', 'display' );
 							if ( $description || is_customize_preview() ) : ?>

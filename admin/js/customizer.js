@@ -364,7 +364,7 @@
     setCss('ph_bg_color', '.page_header_wrap', 'background-color');
     setCss('ph_text_color', '.page_header_wrap *', 'color');
     //setCss('ph_text_align', '.page_header_wrap *', 'text-align');
-    setCss('ph_text_align', '#cph_title, #breadcrumbs', 'text-align');
+    setCss('ph_text_align', '#cph_title, #breadcrumbs, .page_header_wrap .meta-list', 'text-align');
     setCss('ph_bg_height', '.page_header_wrap', 'min-height');
     setCss('ph_bg_padding_top', '.page_header_wrap', 'padding-top');
     setCss('ph_bg_padding_bottom', '.page_header_wrap', 'padding-bottom');

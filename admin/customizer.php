@@ -252,7 +252,7 @@ if (class_exists('WP_Customize_Control')) {
                     <a href="<?php echo esc_url('https://wordpress.org/support/theme/attire'); ?>"
                        target="_blank"><?php esc_html_e('@Wordpress', 'attire'); ?></a>
                     or
-                    <a href="<?php echo esc_url('http://wpattire.com/support/free-support/'); ?>"
+                    <a href="<?php echo esc_url('http://wpattire.com/support/support/'); ?>"
                        target="_blank"><?php esc_html_e('@Our website', 'attire'); ?></a>
                 </p>
 
@@ -872,8 +872,14 @@ function attire_customize_register($wp_customize)
                     'fallback_refresh' => false,
                     'container_inclusive' => false,
                 ));
-
-
+            }elseif ($id === 'attire_archive_page_post_sorting') {
+                $wp_customize->selective_refresh->add_partial('attire_archive_page_post_sorting_partial', array(
+                    'settings' => array('attire_options[attire_archive_page_post_sorting]'),
+                    'selector' => '.archive-div',
+                    'render_callback' => 'attire_archive_page_post_view_rcb',
+                    'fallback_refresh' => false,
+                    'container_inclusive' => false,
+                ));
             }
         }
     }

@@ -2,7 +2,7 @@
   "attire_options": {
     "footer_widget_number": "3",
     "copyright_info": "&copy; Copyright 2019.",
-    "layout_front_page": "no-sidebar",
+    "layout_front_page": "right-sidebar-1",
     "front_page_ls": "left",
     "front_page_ls_width": "3",
     "front_page_rs": "right",
@@ -82,6 +82,8 @@
     "attire_single_post_comment_button_color": "#007bff",
     "attire_single_post_comment_button_text_color": "#ffffff",
     "attire_single_post_comment_button_size": "btn-md",
+    "attire_posts_per_row": 3,
+    "attire_archive_page_post_sorting": "modified_desc",
     "attire_archive_page_post_view": "excerpt",
     "attire_read_more_text": "Read more",
     "attire_single_post_post_navigation": "show",

@@ -23,7 +23,7 @@ if ( isset( $theme_mod['attire_nav_behavior'] ) && $theme_mod['attire_nav_behavi
 								   href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo AttireThemeEngine::SiteLogo(); ?></a>
 								<?php $description = get_bloginfo( 'description', 'display' );
 								if ( $description || is_customize_preview() ) : ?>
-									<h2 class="site-description"><?php echo wp_kses_post( $description ); /* WPCS: xss ok. */ ?></h2>
+									<h2 class="pb-3 pt-0 m-0 site-description"><?php echo wp_kses_post( $description ); /* WPCS: xss ok. */ ?></h2>
 								<?php
 								endif; ?>
 							</div>

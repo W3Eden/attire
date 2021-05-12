@@ -14,7 +14,7 @@ $color = isset($params['btn']) ? $params['btn'] : 'success';
 list($_color) = explode(" ", $color);
 ?>
 <style>
-    #<?php echo $form_id; ?>{
+    #<?php echo esc_attr($form_id); ?>{
         max-width: 100%;
         width: 600px;
         margin: 0 auto !important;
@@ -31,7 +31,7 @@ list($_color) = explode(" ", $color);
     }
     #email_<?php echo $params['id']; ?>:focus,
     #email_<?php echo $params['id']; ?>:hover{
-        border: 1px solid var(--color-<?php echo $_color ?>);
+        border: 1px solid var(--color-<?php echo esc_attr($_color) ?>);
         text-align: center;
         box-shadow: 0 0 15px rgba(var(--color-<?php echo $_color ?>-rgb), 0.4);
         transition: all ease-in-out 400ms;

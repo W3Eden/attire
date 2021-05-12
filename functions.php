@@ -96,11 +96,30 @@ class AttireBase
 
     function filters()
     {
-        add_filter('attire_sidebar_styles', array($this, 'SidebarStyles'));
-        add_filter('excerpt_more', array($this, 'attire_excerpt_more'));
-        add_filter('excerpt_length', array($this, 'attire_excerpt_length'), 999999);
-        add_filter('the_content', array($this, 'the_content'), 999999);
+        add_filter('attire_sidebar_styles', [$this, 'SidebarStyles']);
+        add_filter('excerpt_more', [$this, 'attire_excerpt_more']);
+        add_filter('excerpt_length', [$this, 'attire_excerpt_length'], 999999);
+        add_filter('the_content', [$this, 'the_content'], 999999);
+        // Hook our custom query function to the pre_get_posts
+        add_action('pre_get_posts', [$this, 'custom_query']);
     }
+
+//function to modify default WordPress query
+    function custom_query($query)
+    {
+        global $wpdb;
+
+        $post_sorting = AttireThemeEngine::NextGetOption('attire_archive_page_post_sorting', 'modified_desc');
+        $post_sorting = explode('_', $post_sorting);
+        // Make sure to only modify the main query on the homepage
+        if ($query->is_main_query() && !is_admin() && $query->is_home()) {
+            // Set parameters to modify the query
+            $query->set('orderby', $post_sorting[0]);
+            $query->set('order', strtoupper($post_sorting[1]));
+            $query->set('suppress_filters', 'true');
+        }
+    }
+
 
     function _remove_script_version($src)
     {
@@ -241,10 +260,12 @@ class AttireBase
                 if (empty($last_category) && !empty($custom_taxonomy) && $taxonomy_exists) {
 
                     $taxonomy_terms = get_the_terms($post->ID, $custom_taxonomy);
-                    $cat_id = $taxonomy_terms[0]->term_id;
-                    $cat_nicename = $taxonomy_terms[0]->slug;
-                    $cat_link = get_term_link($taxonomy_terms[0]->term_id, $custom_taxonomy);
-                    $cat_name = $taxonomy_terms[0]->name;
+                    if (is_array($taxonomy_terms)) {
+                        $cat_id = $taxonomy_terms[0]->term_id;
+                        $cat_nicename = $taxonomy_terms[0]->slug;
+                        $cat_link = get_term_link($taxonomy_terms[0]->term_id, $custom_taxonomy);
+                        $cat_name = $taxonomy_terms[0]->name;
+                    }
 
                 }
 

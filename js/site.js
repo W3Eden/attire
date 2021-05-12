@@ -8,9 +8,7 @@ jQuery(function ($) {
         top = $('.default-menu').offset().top;
         height = $('.default-menu').height();
     }
-    if (height >= 80) {
-        height = 80;
-    }
+
     var abheight = $('#wpadminbar').outerHeight();
 
     if ($('.stickable').length) {
@@ -22,8 +20,10 @@ jQuery(function ($) {
         window.onscroll = function () {
             if (window.pageYOffset > sticky) {
                 $('nav.stickable').addClass("fixed-top");
+                $('#attire-content').css("margin-top", height + 'px');
             } else {
                 $('nav.stickable').removeClass("fixed-top");
+                $('#attire-content').css("margin-top", 0);
             }
         };
 

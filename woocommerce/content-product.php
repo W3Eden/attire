@@ -15,26 +15,23 @@
  * @version 3.6.0
  */
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 global $product;
-$cols  = 12 / esc_attr(wc_get_loop_prop('columns'));
-$cols = in_array($cols, array(1,2,3,4)) ? $cols : 4;
 // Ensure visibility.
-if ( empty( $product ) || ! $product->is_visible() ) {
-	return;
+if (empty($product) || !$product->is_visible()) {
+    return;
 }
 ?>
-<div <?php wc_product_class( 'col-md-'.$cols, $product ); ?>>
+<div <?php wc_product_class('loop col-md', $product); ?>>
     <div class="card woo-product-card mb-4 border-0">
         <a href="<?php the_permalink(); ?>">
-        <?php do_action('woocommerce_before_shop_loop_item_title'); ?>
-        <div class="card-body">
-            <?php do_action( 'woocommerce_shop_loop_item_title' ); ?>
-            <?php do_action( 'woocommerce_after_shop_loop_item_title' ); ?>
-        </div>
+            <?php do_action('woocommerce_before_shop_loop_item_title'); ?>
+            <div class="card-body">
+                <?php do_action('woocommerce_shop_loop_item_title'); ?>
+                <?php do_action('woocommerce_after_shop_loop_item_title'); ?>
+            </div>
         </a>
-        <?php do_action( 'woocommerce_after_shop_loop_item' ); ?>
+        <?php do_action('woocommerce_after_shop_loop_item'); ?>
     </div>
-
 </div>

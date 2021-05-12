@@ -67,7 +67,7 @@ class AttireThemeEngine
                         Now, let's install Attire Blocks to super power your gutenberg editor.
                     </div>
                     <div class="xbtn">
-                        <a href="<?php echo admin_url('/plugin-install.php?s=Attire+Blocks&tab=search&type=tag'); ?>"
+                        <a href="<?php echo esc_url(admin_url('/plugin-install.php?s=Attire+Blocks&tab=search&type=tag')); ?>"
                            class="btx">
                             Install now
                         </a>
@@ -174,7 +174,7 @@ class AttireThemeEngine
     {
 
         $post_id = null;
-        if (is_page() || is_archive() || is_home()) {
+        if (is_single() || is_page() || is_archive() || is_home()) {
             $post_id = get_queried_object_id();
 
         }
@@ -203,12 +203,12 @@ class AttireThemeEngine
         $pb_height = AttireThemeEngine::NextGetOption('ph_bg_height', 200);
         $ph_bg_padding_top = AttireThemeEngine::NextGetOption('ph_bg_padding_top', 48);
         $ph_bg_padding_bottom = AttireThemeEngine::NextGetOption('ph_bg_padding_bottom', 48);
-        $pb_mb = AttireThemeEngine::NextGetOption('ph_margin_bottom', 20);
+        $pb_mb = AttireThemeEngine::NextGetOption('ph_margin_bottom', 0);
         $pb_opacity = AttireThemeEngine::NextGetOption('ph_overlay_opacity', 0);
         $pb_opacity = $pb_opacity / 100;
 
 
-        if (isset($ph_bg_img) && $ph_bg_img != '') {
+        if (isset($ph_bg_img) && $ph_bg_img !== '') {
             $pbg = esc_url($ph_bg_img);
             $ph_bg_color_rgb = self::hex2rgb($ph_bg_color);
             if ($ph_bg_color)
@@ -392,6 +392,12 @@ class AttireThemeEngine
          *
          */
 
+        if ($theme_mod['attire_posts_per_row'] === 1) {
+            $css .= 'article.post .card .card-image {height: auto;}';
+        } else {
+            $css .= 'article.post .card .card-image {height: 224px;}';
+        }
+
         $header_text_color = get_header_textcolor();
         if ($header_text_color === 'blank') {
             $css .= '.site-title,.site-description{display:none;}';
@@ -400,7 +406,6 @@ class AttireThemeEngine
 
         $search_form_visibility = isset($theme_mod['attire_search_form_visibility']) ? $theme_mod['attire_search_form_visibility'] : 'show';
         if ($search_form_visibility === 'hide') {
-//			$css .= 'header .mainmenu > .nav-item:last-child > a{padding-right:0;}';
             $css .= 'ul.ul-search{display:none;}';
         }
 
@@ -422,7 +427,7 @@ class AttireThemeEngine
         $css .= 'h5, h5 a{font-size:' . intval($theme_mod['heading4_font_size_tablet'] - 2) . 'px;}';
         $css .= 'h6, h6 a{font-size:' . intval($theme_mod['heading4_font_size_tablet'] - 4) . 'px;}';
         $css .= '.attire-content p, .attire-post-and-comments,.attire-post-and-comments p,.attire-post-and-comments article,.attire-post-and-comments ul,.attire-post-and-comments ol, 
-		.attire-post-and-comments table, .attire-post-and-comments blockquote, .attire-post-and-comments pre { ' . intval($theme_mod["body_font_size_tablet"]) . 'px;}';
+		.attire-post-and-comments table, .attire-post-and-comments blockquote, .attire-post-and-comments pre { font-size' . intval($theme_mod["body_font_size_tablet"]) . 'px;}';
         $css .= '.widget, .widget li, .widget p {font-size:' . intval($theme_mod['widget_content_font_size_tablet']) . 'px;}';
         $css .= '.widget .widget-title {font-size:' . intval($theme_mod['widget_title_font_size_tablet']) . 'px;}';
         $css .= 'header .mainmenu > .nav-item a,footer .footermenu > .menu-item a, .info-link,.attire-mbl-menu li.nav-item a,input.gn-search{font-size:' . $theme_mod['menu_top_font_size_tablet'] . 'px;}';
@@ -444,7 +449,7 @@ class AttireThemeEngine
         $css .= 'h5, h5 a{font-size:' . intval($theme_mod['heading4_font_size_mobile'] - 2) . 'px;}';
         $css .= 'h6, h6 a{font-size:' . intval($theme_mod['heading4_font_size_mobile'] - 4) . 'px;}';
         $css .= '.attire-content p, .attire-post-and-comments,.attire-post-and-comments p,.attire-post-and-comments article,.attire-post-and-comments ul,.attire-post-and-comments ol, 
-		.attire-post-and-comments table, .attire-post-and-comments blockquote, .attire-post-and-comments pre { ' . intval($theme_mod["body_font_size_mobile"]) . 'px; }';
+		.attire-post-and-comments table, .attire-post-and-comments blockquote, .attire-post-and-comments pre { font-size:' . intval($theme_mod["body_font_size_mobile"]) . 'px; }';
         $css .= '.widget, .widget li, .widget p {font-size:' . intval($theme_mod['widget_content_font_size_mobile']) . 'px;}';
         $css .= '.widget .widget-title {font-size:' . intval($theme_mod['widget_title_font_size_mobile']) . 'px;}';
         $css .= 'header .mainmenu > .nav-item a,footer .footermenu > .menu-item a, .info-link,.attire-mbl-menu li.nav-item a,input.gn-search{font-size:' . $theme_mod['menu_top_font_size_mobile'] . 'px;}';
@@ -646,8 +651,8 @@ class AttireThemeEngine
         $css .= ".widget .widget-title {{$font_family}{$font_size}{$font_weight}}";
         $css .= ".attire-content .widget .widget-title {{$color};{$background}}";
         $css .= ".footer-widgets-area .widget .widget-title {{$footer_background}}";
-        $css .= ".sticky .card{{$color};{$background}}";
-        $css .= ".sticky .card .card-body *{{$color} !important;}";
+//        $css .= ".sticky .card{{$color};{$background}}";
+//        $css .= ".sticky .card .card-body *{{$color} !important;}";
 
         /**
          *
@@ -871,7 +876,7 @@ class AttireThemeEngine
 
             return "<img src='{$logourl}' title='" . esc_attr($meta['title']) . "' alt='" . esc_attr($meta['alt']) . "' />";
         } else {
-            return '<h1 class="logo-header site-title">' . esc_html(get_bloginfo('name')) . '</h1>';
+            return '<h1 class="logo-header site-title mb-0">' . esc_html(get_bloginfo('name')) . '</h1>';
         }
     }
 
@@ -956,12 +961,12 @@ class AttireThemeEngine
         } elseif (is_archive()) {
             $title = is_post_type_archive() ? post_type_archive_title('', false) : single_term_title('', false);
         } elseif (is_search()) {
-            $title = sprintf(__('Search Regsult for %s', 'attire'), "“" . esc_attr(get_query_var('s') . "”"));
+            $title = sprintf(__('Search results for', 'attire').' %s', "“" . esc_attr(get_query_var('s') . "”"));
         } elseif ($post) {
             $post_id = $post->ID;
             $title = get_the_title($post_id);
         }
-        $show_breadcrumbs = (int)AttireThemeEngine::NextGetOption('ph_breadcrumb');
+        $show_breadcrumbs = (int)AttireThemeEngine::NextGetOption('ph_breadcrumb', true);
         ?>
 
         <div class="page_header_inner container">

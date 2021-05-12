@@ -76,7 +76,7 @@ class AttireFramework {
 		$left_sidebar_width  = 3;
 		$right_sidebar_width = 3;
 
-		if ( is_home() || is_front_page() ) {
+		if ( is_home() ) {
 			// if is_home() || is_front_page() default theme option is the top priority
 			$sidebar_layout      = esc_attr( $theme_mod['layout_front_page'] );
 			$left_sidebar        = esc_attr( $theme_mod['front_page_ls'] );
@@ -204,7 +204,7 @@ class AttireFramework {
 			'left_sidebar_width'  => 3,
 			'right_sidebar_width' => 3
 		);
-		if ( is_home() || is_front_page() ) {
+		if ( is_home() ) {
 			$sidebar_layout      = esc_attr( $theme_mod['layout_front_page'] );
 			$left_sidebar_width  = intval( $theme_mod['front_page_ls_width'] );
 			$right_sidebar_width = intval( $theme_mod['front_page_rs_width'] );

@@ -12,7 +12,7 @@ body {
     vertical-align: baseline;
 }
 
-#commentform input[type="text"] body #mainframe {
+#commentform input[type="text"], body #mainframe {
     padding: 0;
 }
 
@@ -90,10 +90,6 @@ header .navbar {
     padding: 0;
 }
 
-header li.nav-item {
-    line-height: 50px;
-}
-
 label {
     font-weight: bold;
 }
@@ -119,7 +115,7 @@ pre {
 .card .card-header,
 .attire-post-and-comments table th,
 th {
-    font-weight: bold;
+    font-weight: 500;
     font-family: var(--heading-font);
 }
 
@@ -395,24 +391,19 @@ span[id*=more-]:before {
 }
 
 .sticky .post-title::before {
-    content: '\f0f3';
+    content: '\f08d';
     font-family: "Font Awesome 5 Free";
     color: #fff;
     margin-top: 1px;
-    font-weight: 400 !important;
     position: absolute;
     top: 20px;
     font-size: 12pt;
-    padding: 7px 10px;
+    padding: 7px 11px;
     background: var(--color-main-nav-bg);
     width: 35px;
     border-radius: 3px;
 }
 
-.sticky .card {
-    background-color: rgba(108, 117, 125, 0.05);
-    color: #fff;
-}
 
 .archive-item .post-title a {
     text-decoration: none;
@@ -475,7 +466,7 @@ span[id*=more-]:before {
 }
 
 .attire-content {
-    padding-top: 15px;
+    padding-top: 30px;
     padding-bottom: 15px;
 }
 
@@ -814,7 +805,7 @@ header .widget-search-form {
 }
 
 .navigation2 .small-menu {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    /*border-bottom: 1px solid rgba(255, 255, 255, 0.1);*/
 }
 
 /* Navigation 1; Navigation 6 -> in Source */
@@ -834,7 +825,7 @@ header .widget-search-form {
 
 #header-2 h1.logo-header,
 #header-3 h1.logo-header {
-    line-height: 50px;
+    /*line-height: 50px;*/
 }
 
 #header-style-4 .logo-div img {
@@ -844,7 +835,7 @@ header .widget-search-form {
 
 #header-style-3 .logo-div img,
 #header-style-2 .logo-div img {
-    height: 50px;
+    /*height: 50px;*/
     padding-top: 10px;
     padding-bottom: 10px;
     width: auto;
@@ -858,11 +849,6 @@ header .widget-search-form {
 
 .small-menu .small-menu .list-inline {
     margin: 8px 0;
-}
-
-.small-menu .social-link,
-.small-menu .info-link {
-    line-height: 18px;
 }
 
 .small-menu .middle-social-icon li,
@@ -973,7 +959,7 @@ header .widget-search-form {
 }
 
 #header-1 .middle-header {
-    padding: 53px 0;
+    padding: 40px 0;
     position: relative;
 
 }
@@ -991,12 +977,20 @@ header .widget-search-form {
     background: rgba(0, 0, 0, 0.02);
 }
 
-#header-5 #top-bar .list-inline {
+#header-2 #top-bar {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+#header-5 #top-bar .list-inline, #header-2 #top-bar .list-inline {
     margin: 0;
 }
 
 #header-5 #top-bar .list-inline li {
     line-height: 38px;
+}
+
+#header-2 #top-bar .list-inline li {
+    line-height: 40px;
 }
 
 #header-5 .middle-header {
@@ -1453,7 +1447,7 @@ header li.nav-item:not(.desktop-search) a {
 .sidebar .widget {
     background: #ffffff;
     padding: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     border-radius: 5px;
     border: 1px solid #eee;
 }
@@ -1634,6 +1628,23 @@ a.footer-logo {
 
 .commentlist .bypostauthor .card {
     border-color: var(--color-main-nav-bg);
+}
+
+.comment-reply-title small {
+    display: inline-block;
+}
+
+.comment-reply-title small a#cancel-comment-reply-link {
+    margin-left: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 5px 10px;
+    border: 1px solid #435ec4;
+    border-radius: 3px;
+    background: #435ec4;
+    color: #fff;
+    text-decoration: none;
+    display: block;
 }
 
 .widget ul li {
@@ -1834,7 +1845,6 @@ a.subscription-toggle {
 /* END: TODO*/
 article.post .card .card-image {
     display: block;
-    height: 224px;
     overflow: hidden;
     background: rgba(48, 67, 138, 0.03) url("../images/icons/blank-images.svg") center center no-repeat;
     background-size: 32px;
@@ -1895,10 +1905,12 @@ article.post .card .card-image {
 
 article.post .card .card-image img {
     height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .post-content.card-text {
-    min-height: 150px;
+    /*min-height: 150px;*/
 }
 
 article.post.product {
@@ -2255,7 +2267,7 @@ article.post .card .card-image {
     line-height: 10px;
 }
 
-.attiire-featured-media {
+.attire-featured-media {
     background: linear-gradient(45deg, #5a46bd, #6679c4bf);
     color: #fff;
     border-radius: 4px;
@@ -2263,25 +2275,25 @@ article.post .card .card-image {
 }
 
 .card.woo-product-card img,
-.attiire-featured-media img {
+.attire-featured-media img {
     margin: 0;
 }
 
-.attiire-featured-media h2 {
+.attire-featured-media h2 {
     margin: 0 0 10px 0;
     font-size: 16pt !important;
 }
 
-.attiire-featured-media * {
+.attire-featured-media * {
     color: #ffffff !important;
     text-align: center
 }
 
-.wp-block-column:last-child .attiire-featured-media {
+.wp-block-column:last-child .attire-featured-media {
     background: linear-gradient(45deg, #46bdb2, #2981dfc4);
 }
 
-.attiire-featured-media .wp-block-button__link {
+.attire-featured-media .wp-block-button__link {
     padding: 8px 20px;
     font-size: 14px;
     letter-spacing: 2px;
@@ -2318,7 +2330,6 @@ article.post .card .card-image {
     clip-path: none;
     color: #21759b;
     display: block;
-    font-size: 14px;
     font-size: 0.875rem;
     font-weight: bold;
     height: auto;
