@@ -516,7 +516,7 @@ span[id*=more-]:before {
 .single-post .meta-list {
     padding: 10px 0;
     overflow: auto;
-    font-size: 11px;
+    font-size: 13px;
 }
 
 .single-post-content .meta-list {
@@ -540,7 +540,7 @@ span[id*=more-]:before {
 }
 
 .post-navs .card-footer {
-    font-size: 11px;
+    font-size: 15px;
 }
 
 .post-navs .col-md-6:last-child {
@@ -765,6 +765,10 @@ header .widget-search-form {
 .sidebar .widget_archive ul li,
 .sidebar .widget_recent_entries ul li {
     padding-left: 40px;
+}
+
+.sidebar ul li:before {
+    margin-right: 20px;
 }
 
 .sidebar .widget_recent_comments ul li:before,

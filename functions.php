@@ -174,12 +174,13 @@ class AttireBase
 
         // Settings
         $separator = '<i class="fas fa-angle-right"></i>';
+        $separator = '&nbsp;»&nbsp;';
         $breadcrums_id = 'breadcrumbs';
         $breadcrums_class = 'breadcrumbs';
         $home_title = 'Home';
 
         // If you have any custom post types with custom taxonomies, put the taxonomy name below (e.g. product_cat)
-        $custom_taxonomy = 'product_cat';
+        $custom_taxonomy = get_post_type() === 'wpdmpro' ? 'wpdmcategory' : 'product_cat';
 
         // Get the query & post information
         global $post, $wp_query;

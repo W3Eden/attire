@@ -39,19 +39,24 @@ if (is_home()) {
 $theme_default_page_width = AttireThemeEngine::NextGetOption('body_content_layout_type');
 $site_width = AttireThemeEngine::NextGetOption('main_layout_type', 'container-fluid');
 
-$ph_active = AttireThemeEngine::NextGetOption('ph_active', false);
-
 $meta = get_post_meta(get_the_ID(), 'attire_post_meta', true);
-// For page specific settings
+
+// theme default for page header
 $page_header_active = AttireThemeEngine::NextGetOption('ph_active', true);
 
-$hide_site_header = !isset($meta['hide_site_header']) || (int)$meta['hide_site_header'] === 0 ? 0 : (int)$meta['hide_site_header'];
+// check if the page has header enabled in `post meta`; this supersedes `ph_active`; for post type of `post` page header is always theme default
+if (is_page() && isset($meta['page_header']) && (int)$meta['page_header'] === 1) {
+    $page_header_active = true;
+} elseif (is_page() && isset($meta['page_header']) && (int)$meta['page_header'] === 0) {
+    $page_header_active = false;
+}
 
 $ph_show_on_fp = AttireThemeEngine::NextGetOption('ph_show_on_fp', false);
-
 if (!is_front_page()) {
     $ph_show_on_fp = true;
 }
+
+$hide_site_header = !isset($meta['hide_site_header']) || (int)$meta['hide_site_header'] === 0 ? 0 : (int)$meta['hide_site_header'];
 
 if ($post) {
     $meta = maybe_unserialize(get_post_meta($post_id, 'attire_post_meta', true));

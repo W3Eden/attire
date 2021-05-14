@@ -90,21 +90,21 @@ $navigation_buttons = $navigation_buttons === 'show' ? 'canshow' : 'noshow';
                         <div class="card post-navs <?php echo esc_attr($navigation_buttons); ?>">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-6">
                                         <?php if ($previous_post = get_previous_post()) echo esc_attr($previous_post->post_title); ?>
                                     </div>
-                                    <div class="col-md-6 text-right">
+                                    <div class="col-6 text-right">
                                         <?php if ($next_post = get_next_post()) echo esc_attr($next_post->post_title); ?>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer">
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <?php previous_post_link('%link', '&#9664; ' . __('Read Previous Article', 'attire')); ?>
+                                    <div class="col-6">
+                                        <?php previous_post_link('%link', '&#9664; ' . __('Previous Post', 'attire')); ?>
                                     </div>
-                                    <div class="col-md-6 text-right">
-                                        <?php next_post_link('%link', __('Read Next Article', 'attire') . ' &#9654;'); ?>
+                                    <div class="col-6 text-right">
+                                        <?php next_post_link('%link', __('Next Post', 'attire') . ' &#9654;'); ?>
                                     </div>
                                 </div>
                             </div>

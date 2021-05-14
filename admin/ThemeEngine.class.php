@@ -419,7 +419,28 @@ class AttireThemeEngine
          *
          */
 
-        $css .= '@media (min-width: 600px) and (max-width: 1024px){';
+        $css .= '@media (min-width: 1024px){';
+        $css .= 'h1, h1 a{font-size:' . intval($theme_mod['heading_font_size_desktop']) . 'px;}';
+        $css .= 'h2, h2 a{font-size:' . intval($theme_mod['heading2_font_size_desktop']) . 'px;}';
+        $css .= 'h3, h3 a{font-size:' . intval($theme_mod['heading3_font_size_desktop']) . 'px;}';
+        $css .= 'h4, h4 a{font-size:' . intval($theme_mod['heading4_font_size_desktop']) . 'px;}';
+        $css .= 'h5, h5 a{font-size:' . intval($theme_mod['heading4_font_size_desktop'] - 2) . 'px;}';
+        $css .= 'h6, h6 a{font-size:' . intval($theme_mod['heading4_font_size_desktop'] - 4) . 'px;}';
+        $css .= '.attire-content p, .attire-post-and-comments,.attire-post-and-comments p,.attire-post-and-comments article,.attire-post-and-comments ul,.attire-post-and-comments ol, 
+		.attire-post-and-comments table, .attire-post-and-comments blockquote, .attire-post-and-comments pre { font-size:' . intval($theme_mod["body_font_size_desktop"]) . 'px;}';
+        $css .= '.widget, .widget li, .widget p {font-size:' . intval($theme_mod['widget_content_font_size_desktop']) . 'px;}';
+        $css .= '.widget .widget-title {font-size:' . intval($theme_mod['widget_title_font_size_desktop']) . 'px;}';
+        $css .= 'header .mainmenu > .nav-item a,footer .footermenu > .menu-item a, .info-link,.attire-mbl-menu li.nav-item a,input.gn-search{font-size:' . $theme_mod['menu_top_font_size_desktop'] . 'px;}';
+        $css .= 'header .dropdown ul li a.dropdown-item, footer .dropdown ul li a.dropdown-item,.attire-mbl-menu .dropdown-menu li.nav-item a{font-size:' . $theme_mod['menu_dropdown_font_size_desktop'] . 'px;}';
+        $css .= '}';
+
+        /**
+         *
+         * Responsive css Desktop
+         *
+         */
+
+        $css .= '@media (min-width: 600px) and (max-width: 1023px){';
         $css .= 'h1, h1 a{font-size:' . intval($theme_mod['heading_font_size_tablet']) . 'px;}';
         $css .= 'h2, h2 a{font-size:' . intval($theme_mod['heading2_font_size_tablet']) . 'px;}';
         $css .= 'h3, h3 a{font-size:' . intval($theme_mod['heading3_font_size_tablet']) . 'px;}';
@@ -427,7 +448,7 @@ class AttireThemeEngine
         $css .= 'h5, h5 a{font-size:' . intval($theme_mod['heading4_font_size_tablet'] - 2) . 'px;}';
         $css .= 'h6, h6 a{font-size:' . intval($theme_mod['heading4_font_size_tablet'] - 4) . 'px;}';
         $css .= '.attire-content p, .attire-post-and-comments,.attire-post-and-comments p,.attire-post-and-comments article,.attire-post-and-comments ul,.attire-post-and-comments ol, 
-		.attire-post-and-comments table, .attire-post-and-comments blockquote, .attire-post-and-comments pre { font-size' . intval($theme_mod["body_font_size_tablet"]) . 'px;}';
+		.attire-post-and-comments table, .attire-post-and-comments blockquote, .attire-post-and-comments pre { font-size:' . intval($theme_mod["body_font_size_tablet"]) . 'px;}';
         $css .= '.widget, .widget li, .widget p {font-size:' . intval($theme_mod['widget_content_font_size_tablet']) . 'px;}';
         $css .= '.widget .widget-title {font-size:' . intval($theme_mod['widget_title_font_size_tablet']) . 'px;}';
         $css .= 'header .mainmenu > .nav-item a,footer .footermenu > .menu-item a, .info-link,.attire-mbl-menu li.nav-item a,input.gn-search{font-size:' . $theme_mod['menu_top_font_size_tablet'] . 'px;}';
@@ -485,10 +506,8 @@ class AttireThemeEngine
         $body_bg = esc_attr($theme_mod['body_bg_color']);
         $css .= "body {background-color:{$body_bg}}";
         $color_vars['body-bg-color'] = $body_bg;
-        $body_font_size = intval($theme_mod['body_font_size_desktop']);
         $body_font_color = esc_attr($theme_mod['body_color']);
         $body_font = esc_attr($theme_mod['body_font']);
-        $font_size = $body_font_size != '' ? "font-size:{$body_font_size}px;" : "";
         $text_color = $body_font_color ? "color:{$body_font_color};" : "";
 
         $button_font = isset($theme_mod['button_font']) ? esc_attr($theme_mod['button_font']) : '';
@@ -503,7 +522,7 @@ class AttireThemeEngine
         }
 
         $css .= ".attire-content p, .attire-post-and-comments,.attire-post-and-comments p,.attire-post-and-comments article,.attire-post-and-comments ul,.attire-post-and-comments ol, 
-		.attire-post-and-comments table, .attire-post-and-comments blockquote, .attire-post-and-comments pre {{$font_family}{$font_size}{$body_font_weight}{$text_color}}";
+		.attire-post-and-comments table, .attire-post-and-comments blockquote, .attire-post-and-comments pre {{$font_family}{$body_font_weight}{$text_color}}";
         $css .= ".site-description, .copyright-text, .attire-post-and-comments td, .attire-post-and-comments button, .attire-post-and-comments input{{$font_family}}";
 
 
@@ -514,18 +533,8 @@ class AttireThemeEngine
          */
         $heading_font_weight = intval($theme_mod['heading_font_weight']);
         $heading_font_weight = $heading_font_weight != '' ? "font-weight:{$heading_font_weight};" : "";
-        $heading_font_size = intval($theme_mod['heading_font_size_desktop']);
-        $heading2_font_size = intval($theme_mod['heading2_font_size_desktop']);
-        $heading3_font_size = intval($theme_mod['heading3_font_size_desktop']);
-        $heading4_font_size = intval($theme_mod['heading4_font_size_desktop']);
         $header_color = esc_attr($theme_mod['header_color']);
         $heading_font = esc_attr($theme_mod['heading_font']);
-        $h1_font_size = 'font-size:' . $heading_font_size . 'px;';
-        $h2_font_size = 'font-size:' . ($heading2_font_size) . 'px;';
-        $h3_font_size = 'font-size:' . ($heading3_font_size) . 'px;';
-        $h4_font_size = 'font-size:' . ($heading4_font_size) . 'px;';
-        $h5_font_size = 'font-size:' . ($heading4_font_size - 2) . 'px;';
-        $h6_font_size = 'font-size:' . ($heading4_font_size - 4) . 'px;';
 
         $text_color = $header_color ? "color:{$header_color};" : "";
 
@@ -537,18 +546,18 @@ class AttireThemeEngine
             $font_family = '';
         }
 
-        $css .= "h1, h1 a{{$font_family}{$h1_font_size}{$heading_font_weight}{$text_color}}";
+        $css .= "h1, h1 a{{$font_family}{$heading_font_weight}{$text_color}}";
         if ($button_font !== '') {
             $css .= ".btn, button.btn, a.btn{font-family:\"{$fonts[$button_font]['family']}\" !important; {$button_font_weight} letter-spacing:  0.5px;}";
             if (isset($fonts[$button_font]) && $fonts[$button_font]['family'] != '') $font_family_vars['--button-font'] = $fonts[$button_font]['family'];
         }
-        $css .= "h2, h2 a{{$font_family}{$h2_font_size}{$heading_font_weight}{$text_color}}";
-        $css .= "h3, h3 a, .archive-item .card-title.post-title a{{$font_family}{$h3_font_size}{$heading_font_weight}{$text_color}}";
-        $css .= "h4, h4 a{{$font_family}{$h4_font_size}{$heading_font_weight}{$text_color}}";
-        $css .= "h5, h5 a{{$font_family}{$h5_font_size}{$heading_font_weight}{$text_color}}";
-        $css .= "h6, h6 a{{$font_family}{$h6_font_size}{$heading_font_weight}{$text_color}}";
+        $css .= "h2, h2 a{{$font_family}{$heading_font_weight}{$text_color}}";
+        $css .= "h3, h3 a, .archive-item .card-title.post-title a{{$font_family}{$heading_font_weight}{$text_color}}";
+        $css .= "h4, h4 a{{$font_family}{$heading_font_weight}{$text_color}}";
+        $css .= "h5, h5 a{{$font_family}{$heading_font_weight}{$text_color}}";
+        $css .= "h6, h6 a{{$font_family}{$heading_font_weight}{$text_color}}";
         $css .= "h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .archive-item h3.card-title.post-title a, a{ color: {$theme_mod['a_color']};}";
-        $css .= ".footer-logo, .navbar-brand{{$font_family}{$h3_font_size}}";
+        $css .= ".footer-logo, .navbar-brand{{$font_family}}";
 
 
         /**
@@ -610,12 +619,10 @@ class AttireThemeEngine
          *
          */
 
-        $font_size = intval($theme_mod['widget_content_font_size_desktop']);
         $widget_content_font_weight = intval($theme_mod['widget_content_font_weight']);
         $font_weight = $widget_content_font_weight != '' ? "font-weight:{$widget_content_font_weight};" : "";
         $font = esc_attr($theme_mod['widget_content_font']);
         $color = "color:" . esc_attr($theme_mod['widget_content_font_color']);
-        $font_size = $font_size != '' ? "font-size:{$font_size}px;" : "";
 
         if ($font != '') {
             $font_family = isset($fonts[$font]) && $fonts[$font]['family'] != '' ? "font-family:\"{$fonts[$font]['family']}\", {$fonts[$font]['category']};" : "";
@@ -623,7 +630,7 @@ class AttireThemeEngine
             $font_family = '';
         }
 
-        $css .= ".widget, .widget li, .widget p {{$font_family}{$font_size}{$font_weight}}";
+        $css .= ".widget, .widget li, .widget p {{$font_family}{$font_weight}}";
         $css .= ".attire-content .widget, .attire-content .widget li, .attire-content  .widget p {{$color}}";
 
 
@@ -634,7 +641,7 @@ class AttireThemeEngine
          */
 
         $widget_title_font_weight = intval($theme_mod['widget_title_font_weight']);
-        $font_size = intval($theme_mod['widget_title_font_size_desktop']);
+
         $font_weight = $widget_title_font_weight != '' ? "font-weight:{$widget_title_font_weight};" : "";
         $font = esc_attr($theme_mod['widget_title_font']);
         $color = "color:" . esc_attr($theme_mod['widget_title_font_color']);
@@ -647,8 +654,7 @@ class AttireThemeEngine
             $font_family = '';
         }
 
-        $font_size = $font_size != '' ? "font-size:{$font_size}px;" : "";
-        $css .= ".widget .widget-title {{$font_family}{$font_size}{$font_weight}}";
+        $css .= ".widget .widget-title {{$font_family}{$font_weight}}";
         $css .= ".attire-content .widget .widget-title {{$color};{$background}}";
         $css .= ".footer-widgets-area .widget .widget-title {{$footer_background}}";
 //        $css .= ".sticky .card{{$color};{$background}}";
@@ -661,10 +667,8 @@ class AttireThemeEngine
          */
 
         $font = esc_attr($theme_mod['menu_top_font']);
-        $font_size = intval($theme_mod['menu_top_font_size_desktop']);
         $menu_top_font_weight = intval($theme_mod['menu_top_font_weight']);
         $font_weight = $menu_top_font_weight != '' ? "font-weight:{$menu_top_font_weight};" : "";
-        $font_size = $font_size != '' ? "font-size:{$font_size}px;" : "";
 
         if ($font != '') {
             $font_family = isset($fonts[$font]) && $fonts[$font]['family'] != '' ? "font-family:{$fonts[$font]['family']};" : "";
@@ -672,7 +676,7 @@ class AttireThemeEngine
             $font_family = '';
         }
 
-        $css .= "header .mainmenu > .nav-item a,footer .footermenu > .menu-item a, .info-link,.attire-mbl-menu li.nav-item a,input.gn-search{{$font_family}{$font_size}{$font_weight}}";
+        $css .= "header .mainmenu > .nav-item a,footer .footermenu > .menu-item a, .info-link,.attire-mbl-menu li.nav-item a,input.gn-search{{$font_family}{$font_weight}}";
 
         /**
          *
@@ -680,10 +684,8 @@ class AttireThemeEngine
          *
          */
         $menu_dropdown_font_weight = intval($theme_mod['menu_dropdown_font_weight']);
-        $font_size = intval($theme_mod['menu_dropdown_font_size_desktop']);
         $font_weight = $menu_dropdown_font_weight != '' ? "font-weight:{$menu_dropdown_font_weight};" : "";
         $font = esc_attr($theme_mod['menu_dropdown_font']);
-        $font_size = $font_size != '' ? "font-size:{$font_size}px;" : "";
 
         if ($font != '') {
             $font_family = isset($fonts[$font]) && $fonts[$font]['family'] != '' ? "font-family:\"{$fonts[$font]['family']}\", {$fonts[$font]['category']};" : "";
@@ -691,7 +693,7 @@ class AttireThemeEngine
             $font_family = '';
         }
 
-        $css .= "header .dropdown ul li a.dropdown-item, footer .dropdown ul li a.dropdown-item,.attire-mbl-menu .dropdown-menu li.nav-item a{{$font_family}{$font_size}{$font_weight}}";
+        $css .= "header .dropdown ul li a.dropdown-item, footer .dropdown ul li a.dropdown-item,.attire-mbl-menu .dropdown-menu li.nav-item a{{$font_family}{$font_weight}}";
 
         /**
          *
