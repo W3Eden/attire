@@ -680,6 +680,7 @@ footer ul {
 }
 
 header .dropdown-menu {
+    border-radius: 0;
     left: 0;
     margin-top: 0;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
@@ -805,7 +806,12 @@ header .widget-search-form {
 }
 
 .dropdown-toggle::after {
-    display: none;
+    display: none!important;
+}
+
+.dropdown-toggler {
+    height: 50px;
+    line-height: 50px;
 }
 
 .navigation2 .small-menu {
@@ -2350,4 +2356,8 @@ article.post .card .card-image {
 /* Do not show the outline on the skip link target. */
 #content[tabindex="-1"]:focus {
     outline: 0;
+}
+
+.skip-link.screen-reader-text {
+    max-width: 160px;
 }

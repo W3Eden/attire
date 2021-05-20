@@ -290,14 +290,14 @@ $attire_header_color_options = [
     'site_header_bg_color_left' => [
         'label' => __('Header Background Left', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_header_color_options',
         'default' => '#151515'
     ],
     'site_header_bg_color_right' => [
         'label' => __('Header Background Right', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_header_color_options',
         'default' => '#151515'
     ],
@@ -316,7 +316,7 @@ $attire_header_color_options = [
     'site_title_text_color' => [
         'label' => __('Site Title', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_header_color_options',
         'default' => '#ffffff'
     ],
@@ -324,7 +324,7 @@ $attire_header_color_options = [
     'site_description_text_color' => [
         'label' => __('Site Description', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_header_color_options',
         'default' => '#ffffff'
     ]
@@ -333,14 +333,14 @@ $attire_footer_color_options = [
     'site_footer_bg_color' => [
         'label' => __('Footer Background', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_footer_color_options',
         'default' => '#151515'
     ],
     'site_footer_title_text_color' => [
         'label' => __('Site Title', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_footer_color_options',
         'default' => '#ffffff'
     ],
@@ -624,56 +624,56 @@ $attire_main_nav_color_options = [
     'menu_top_font_color' => [
         'label' => __('Text Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_main_nav_color_options',
         'default' => '#ffffff'
     ],
     'main_nav_bg' => [
         'label' => __('Background Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_main_nav_color_options',
         'default' => '#151515'
     ],
     'menuhbg_color' => [
         'label' => __('Hover/Active Background Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_main_nav_color_options',
         'default' => '#ffffff'
     ],
     'menuht_color' => [
         'label' => __('Hover/Active Text Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_main_nav_color_options',
         'default' => '#000000'
     ],
     'menu_dropdown_bg_color' => [
         'label' => __('Dropdown Beackground Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_main_nav_color_options',
         'default' => '#ffffff'
     ],
     'menu_dropdown_font_color' => [
         'label' => __('Dropdown Text Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_main_nav_color_options',
         'default' => '#000000'
     ],
     'menu_dropdown_hover_bg' => [
         'label' => __('Dropdown Hover Background Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_main_nav_color_options',
         'default' => '#151515'
     ],
     'menu_dropdown_hover_font_color' => [
         'label' => __('Dropdown Hover Text Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_main_nav_color_options',
         'default' => '#ffffff'
     ],
@@ -682,49 +682,49 @@ $attire_footer_nav_color_options = [
     'footer_nav_top_font_color' => [
         'label' => __('Text Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_footer_nav_color_options',
         'default' => '#ffffff',
     ],
     'footer_nav_bg' => [
         'label' => __('Background Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_footer_nav_color_options',
         'default' => '#151515',
     ],
     'footer_nav_hbg' => [
         'label' => __('Hover/Active Background Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_footer_nav_color_options',
         'default' => '#ffffff',
     ],
     'footer_nav_ht_color' => [
         'label' => __('Hover/Active Text Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_footer_nav_color_options',
         'default' => '#000000',
     ],
     'footer_nav_dropdown_font_color' => [
         'label' => __('Dropdown Text Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_footer_nav_color_options',
         'default' => '#000000',
     ],
     'footer_nav_dropdown_hover_bg' => [
         'label' => __('Dropdown Hover Background Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_footer_nav_color_options',
         'default' => '#151515'
     ],
     'footer_nav_dropdown_hover_font_color' => [
         'label' => __('Dropdown Hover Text Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_footer_nav_color_options',
         'default' => '#ffffff'
     ]
@@ -733,49 +733,49 @@ $attire_body_color_options = [
     'body_bg_color' => [
         'label' => __('Background Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_body_color_options',
         'default' => '#F5F5F5'
     ],
     'a_color' => [
         'label' => __('Link Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_body_color_options',
         'default' => '#269865'
     ],
     'ah_color' => [
         'label' => __('Link Hover Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_body_color_options',
         'default' => '#777777'
     ],
     'header_color' => [
         'label' => __('Heading Text Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_body_color_options',
         'default' => '#000000'
     ],
     'body_color' => [
         'label' => __('Regular Text Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_body_color_options',
         'default' => '#000000'
     ],
     'attire_single_post_comment_button_color' => [
         'label' => __('Comment Button Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_body_color_options',
         'default' => '#007bff'
     ],
     'attire_single_post_comment_button_text_color' => [
         'label' => __('Comment Button Text Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_body_color_options',
         'default' => '#ffffff'
     ],
@@ -784,21 +784,21 @@ $attire_sidebar_widget_color_options = [
     'widget_title_font_color' => [
         'label' => __('Title Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_sidebar_widget_color_options',
         'default' => '#000000'
     ],
     'widget_content_font_color' => [
         'label' => __('Content Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_sidebar_widget_color_options',
         'default' => '#000000'
     ],
     'widget_bg_color' => [
         'label' => __('Background Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_sidebar_widget_color_options',
         'default' => '#ffffff'
     ]
@@ -807,21 +807,21 @@ $attire_footer_widget_color_options = [
     'footer_widget_title_font_color' => [
         'label' => __('Title Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_footer_widget_color_options',
         'default' => '#000000'
     ],
     'footer_widget_content_font_color' => [
         'label' => __('Content Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_footer_widget_color_options',
         'default' => '#000000'
     ],
     'footer_widget_bg_color' => [
         'label' => __('Background Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'section' => 'attire_footer_widget_color_options',
         'default' => '#D4D4D6'
     ]
@@ -1658,7 +1658,7 @@ $header_image = [
     'ph_bg_color' => [
         'label' => __('Page Header Background Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'default' => '#F5F5F5',
         'section' => 'header_image'
     ],
@@ -1677,7 +1677,7 @@ $header_image = [
     'ph_text_color' => [
         'label' => __('Page Header Text Color', 'attire'),
         'transport' => 'postMessage',
-        'type' => 'color',
+        'type' => 'alpha-color',
         'default' => '',
         'section' => 'header_image'
     ],
