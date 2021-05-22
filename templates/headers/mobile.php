@@ -1,22 +1,22 @@
-
 <div class="media attire-mbl-header">
     <div class="mr-3">
-        <a class="gn-icon gn-icon-menu attire-mbl-menu-trigger">
+        <a class="gn-icon gn-icon-menu attire-mbl-menu-trigger" tabindex="0">
             <i class="fas fa-bars"></i>
         </a>
     </div>
     <div class="media-body">
-        <a class="mbl-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+        <a class="mbl-logo" href="<?php echo esc_url(home_url('/')); ?>">
             <?php echo AttireThemeEngine::SiteLogo(); ?>
         </a>
     </div>
 </div>
 <section id="attire-mbl-menu">
-    <div id="dismiss">
+    <div id="dismiss" tabindex="0">
         <i class="fas fa-arrow-left"></i>
     </div>
     <div class="middle-logo logo-div p-5 text-center">
-        <a class="site-logo navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo AttireThemeEngine::MobileMenuLogo(); ?></a>
+        <a class="site-logo navbar-brand"
+           href="<?php echo esc_url(home_url('/')); ?>"><?php echo AttireThemeEngine::MobileMenuLogo(); ?></a>
     </div>
     <div class="p-1 bg-white">
         <?php get_template_part("templates/parts/mobile", "search"); ?>
@@ -24,16 +24,16 @@
     <nav class="attire-mbl-menu-wrapper">
         <div class="gn-scroller">
             <?php
-            if ( ! class_exists( 'wp_bootstrap_navwalker' ) ) {
-                require get_template_directory() . '/libs/wp_bootstrap_navwalker.php';
+            if (!class_exists('wp_bootstrap_navwalker_mobile')) {
+                require get_template_directory() . '/libs/wp_bootstrap_navwalker_mobile.php';
             }
-            wp_nav_menu( array(
+            wp_nav_menu(array(
                     'theme_location' => 'primary',
-                    'depth'          => 0,
-                    'container'      => false,
-                    'menu_class'     => 'attire-mbl-menu navbar-nav',
-                    'fallback_cb'    => 'wp_bootstrap_navwalker::fallback',
-                    'walker'         => new wp_bootstrap_navwalker()
+                    'depth' => 0,
+                    'container' => false,
+                    'menu_class' => 'attire-mbl-menu navbar-nav',
+                    'fallback_cb' => 'wp_bootstrap_navwalker_mobile::fallback',
+                    'walker' => new wp_bootstrap_navwalker_mobile()
                 )
             );
             ?>

@@ -806,7 +806,7 @@ header .widget-search-form {
 }
 
 .dropdown-toggle::after {
-    display: none!important;
+    display: none !important;
 }
 
 .dropdown-toggler {
@@ -1124,6 +1124,9 @@ header li.nav-item:not(.desktop-search) a {
     display: inline-block;
     letter-spacing: +.5px;
 }
+header li.nav-item:not(.desktop-search) .dropdown-toggler {
+    height: 50px;
+}
 
 .default-menu.navbar-light .navbar-nav > li > a i {
     position: relative;
@@ -1192,10 +1195,10 @@ header li.nav-item:not(.desktop-search) a {
 }
 
 #attire-mbl-menu {
-    width: 300px;
+    width: 100%;
     position: fixed;
     top: 0;
-    left: -305px;
+    left: calc(-100% - 5px);
     height: 100vh;
     z-index: 99999;
     color: #fff;
@@ -1237,6 +1240,14 @@ header li.nav-item:not(.desktop-search) a {
     display: block;
     height: 48px;
     line-height: 48px;
+}
+
+#attire-mbl-menu li.nav-item.dropdown a {
+    margin-right: 50px;
+}
+
+#attire-mbl-menu .dropdown-menu li.nav-item a {
+    line-height: 44px;
 }
 
 #attire-mbl-menu .dropdown-toggler {

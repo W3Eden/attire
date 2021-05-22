@@ -19,9 +19,9 @@ Attire is a fast, mobile responsive, highly customizable, SEO friendly multipurp
 
 == Changelog ==
 
-= 1.6.9 - 2021.05.20 =
-* Alpha/Opacity/Transparency added to all `Attire Colors` options
-* Fixed an issue that caused page specific `Page Header` settings not being applied
+= 1.7.0 - 2021.05.22 =
+* Created separate mobile navigation menu
+* Mobile navigation accessibility improvement
 
 = 1.6.8 - 2021.05.13 =
 * Breadcrumb enhancements

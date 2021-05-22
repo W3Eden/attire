@@ -81,12 +81,13 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 			$id         = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 			$data_depth = ' data-depth=' . $depth;
 
-			$output .= $indent . '<li' . $id . $value . $class_names . $data_depth . '>';
+			$output .= $indent . '<li tabindex=0' . $id . $value . $class_names . $data_depth . '>';
 //			print_r($depth);
 
 			$atts           = array();
 			$atts['title']  = ! empty( $item->title ) ? $item->title : '';
 			$atts['target'] = ! empty( $item->target ) ? $item->target : '';
+			$atts['tabindex'] = '-1';
 			$atts['rel']    = ! empty( $item->xfn ) ? $item->xfn : '';
 			$atts['href']   = ! empty( $item->url ) ? $item->url : '';
 //			$atts['class']  = 'dropdown-item';
