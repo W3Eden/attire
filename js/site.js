@@ -163,6 +163,21 @@ jQuery(function ($) {
     $('body')
         .on('keydown', function (e) {
 
+            // if last item in the menu is selected
+            if ($('ul.attire-mbl-menu li:last a').is(':focus')) {
+                if (e.which === 9) {
+                    e.preventDefault();
+                    $('#dismiss').focus();
+                }
+            }
+            // if #dismiss button in the menu is selected
+            if ($('#dismiss').is(':focus')) {
+                if (e.shiftKey && e.keyCode === 9) {
+                    e.preventDefault();
+                    $('ul.attire-mbl-menu li:last a').focus();
+                }
+            }
+
             // show mobile menu
             if ($(e.target).hasClass('attire-mbl-menu-trigger')) {
                 if (e.which === 32 || e.which === 13) {

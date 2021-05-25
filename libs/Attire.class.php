@@ -193,7 +193,7 @@ class Attire
                             <div class="media-body">
                                 <b><?php printf('<span class="fn">%s</span>', get_comment_author_link()) ?></b>
                                 <small class="text-muted">
-                                    <a href="<?php echo esc_url(get_comment_link($comment->comment_ID)); ?>"><?php printf('&mdash; %1$s ' . esc_attr__('at', 'attire') . ' %2$s', esc_html(get_comment_date()), esc_html(get_comment_time())); ?></a>
+                                    <a href="<?php echo esc_url(get_comment_link($comment->comment_ID)); ?>"><?php printf('&mdash; %1$s ' . esc_html__('at', 'attire') . ' %2$s', esc_html(get_comment_date()), esc_html(get_comment_time())); ?></a>
                                 </small>
 
                                 <?php comment_text() ?> <!-- end comment-content-->

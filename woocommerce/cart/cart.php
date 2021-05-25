@@ -121,7 +121,7 @@ do_action('woocommerce_before_cart'); ?>
 
                 <?php if (wc_coupons_enabled()) { ?>
                     <div class="coupon">
-                        <label for="coupon_code"><?php echo esc_attr__('Coupon:', 'attire'); ?></label> <input
+                        <label for="coupon_code"><?php echo esc_html__('Coupon:', 'attire'); ?></label> <input
                                 type="text"
                                 name="coupon_code"
                                 class="input-text form-control"

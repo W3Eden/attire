@@ -853,7 +853,6 @@ class AttireThemeEngine
 
     public static function NextGetOption($index = null, $default = null)
     {
-//		$attire_options = WPATTIRE()->theme_options;
         $attire_options = get_option('attire_options');
 
         if (!empty($attire_options[$index])) {
@@ -875,7 +874,7 @@ class AttireThemeEngine
             $logourl = esc_url($image[0]); // source : https://codex.wordpress.org/Theme_Logo
             $image_id = attachment_url_to_postid($logourl);
             $meta = wp_prepare_attachment_for_js($image_id);
-
+            if (!$meta) return esc_html(get_bloginfo('sitename'));
             return "<img src='{$logourl}' title='" . esc_attr($meta['title']) . "' alt='" . esc_attr($meta['alt']) . "' />";
         } else {
             return '<h1 class="logo-header site-title mb-0">' . esc_html(get_bloginfo('name')) . '</h1>';
@@ -890,7 +889,7 @@ class AttireThemeEngine
         if ($logourl) {
             $image_id = attachment_url_to_postid($logourl);
             $meta = wp_prepare_attachment_for_js($image_id);
-
+            if (!$meta) return esc_html(get_bloginfo('sitename'));
             return "<img src='{$logourl}' title='" . esc_attr($meta['title']) . "' alt='" . esc_attr($meta['alt']) . "' />";
         } else {
             return esc_html(get_bloginfo('sitename'));
@@ -907,7 +906,7 @@ class AttireThemeEngine
         if ($logourl) {
             $image_id = attachment_url_to_postid($logourl);
             $meta = wp_prepare_attachment_for_js($image_id);
-
+            if (!$meta) return esc_html(get_bloginfo('sitename'));
             return "<img src='{$logourl}' title='" . esc_attr($meta['title']) . "' alt='" . esc_attr($meta['alt']) . "' />";
         } else {
             return esc_html(get_bloginfo('sitename'));
@@ -963,7 +962,7 @@ class AttireThemeEngine
         } elseif (is_archive()) {
             $title = is_post_type_archive() ? post_type_archive_title('', false) : single_term_title('', false);
         } elseif (is_search()) {
-            $title = sprintf(__('Search results for', 'attire').' %s', "“" . esc_attr(get_query_var('s') . "”"));
+            $title = sprintf(__('Search results for', 'attire') . ' %s', "“" . esc_attr(get_query_var('s') . "”"));
         } elseif ($post) {
             $post_id = $post->ID;
             $title = get_the_title($post_id);

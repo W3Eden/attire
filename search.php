@@ -138,8 +138,8 @@ if (!is_array($post_types)) $post_types = array($post_types);
 
                 <div class="card">
                     <div class="card-body">
-                        <h2><?php echo esc_attr__('Nothing Found!', 'attire'); ?></h2>
-                        <p><?php echo esc_attr__('Try Different Search Term', 'attire'); ?></p>
+                        <h2><?php echo esc_html__('Nothing Found!', 'attire'); ?></h2>
+                        <p><?php echo esc_html__('Try Different Search Term', 'attire'); ?></p>
                     </div>
                 </div>
 

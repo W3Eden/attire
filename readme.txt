@@ -19,6 +19,10 @@ Attire is a fast, mobile responsive, highly customizable, SEO friendly multipurp
 
 == Changelog ==
 
+= 1.7.1 - 2021.05.25 =
+* Mobile menu keyboard navigation improvement
+* Now header/footer shows website name in case previously selected logo gets deleted from media library
+
 = 1.7.0 - 2021.05.22 =
 * Created separate mobile navigation menu
 * Mobile navigation accessibility improvement

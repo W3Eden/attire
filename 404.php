@@ -29,7 +29,7 @@ get_header(); ?>
                             </div>
                         </div>
                         <div  class="card-footer bg-white text-center">
-                            <a href="<?php echo esc_url(home_url('/')); ?>"><?php esc_attr_e('Back To Home', 'attire'); ?></a>
+                            <a href="<?php echo esc_url(home_url('/')); ?>"><?php esc_html_e('Back To Home', 'attire'); ?></a>
                         </div>
                     </div>
 
