@@ -105,7 +105,7 @@ class Attire
 
         wp_enqueue_script('jquery');
 
-        wp_register_script('bootstrap', ATTIRE_TEMPLATE_URL . '/bootstrap/js/bootstrap.bundle.js', array(
+        wp_register_script('bootstrap', ATTIRE_TEMPLATE_URL . '/bootstrap/js/bootstrap.bundle.min.js', array(
             'jquery',
         ), null, true);
         wp_enqueue_script('bootstrap');

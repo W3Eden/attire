@@ -204,21 +204,15 @@ class AttireThemeEngine
         $ph_bg_padding_top = AttireThemeEngine::NextGetOption('ph_bg_padding_top', 48);
         $ph_bg_padding_bottom = AttireThemeEngine::NextGetOption('ph_bg_padding_bottom', 48);
         $pb_mb = AttireThemeEngine::NextGetOption('ph_margin_bottom', 0);
-        $pb_opacity = AttireThemeEngine::NextGetOption('ph_overlay_opacity', 0);
-        $pb_opacity = $pb_opacity / 100;
 
 
         if (isset($ph_bg_img) && $ph_bg_img !== '') {
             $pbg = esc_url($ph_bg_img);
-            $ph_bg_color_rgb = self::hex2rgb($ph_bg_color);
             if ($ph_bg_color)
-                $css .= "background: linear-gradient(45deg, rgba($ph_bg_color_rgb,{$pb_opacity}), rgba($ph_bg_color_rgb,{$pb_opacity})), url({$pbg}) center no-repeat;";
+                $css .= "background: linear-gradient(45deg, {$ph_bg_color}, {$ph_bg_color}), url({$pbg}) center no-repeat;";
             else
                 $css .= "background: linear-gradient(45deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url({$pbg}) center no-repeat;";
-            $css .= "background-position: ;";
             $css .= "background-size: cover;";
-//			$css .= "background-attachment: fixed;";
-            $css .= "background-repeat: ;";
         }
 
         $css .= "padding-top: {$ph_bg_padding_top}px;";
@@ -419,7 +413,7 @@ class AttireThemeEngine
          *
          */
 
-        $css .= '@media (min-width: 1024px){';
+        $css .= '@media (min-width: 992px){';
         $css .= 'h1, h1 a{font-size:' . intval($theme_mod['heading_font_size_desktop']) . 'px;}';
         $css .= 'h2, h2 a{font-size:' . intval($theme_mod['heading2_font_size_desktop']) . 'px;}';
         $css .= 'h3, h3 a{font-size:' . intval($theme_mod['heading3_font_size_desktop']) . 'px;}';
@@ -440,7 +434,7 @@ class AttireThemeEngine
          *
          */
 
-        $css .= '@media (min-width: 600px) and (max-width: 1023px){';
+        $css .= '@media (min-width: 768px){';
         $css .= 'h1, h1 a{font-size:' . intval($theme_mod['heading_font_size_tablet']) . 'px;}';
         $css .= 'h2, h2 a{font-size:' . intval($theme_mod['heading2_font_size_tablet']) . 'px;}';
         $css .= 'h3, h3 a{font-size:' . intval($theme_mod['heading3_font_size_tablet']) . 'px;}';
@@ -462,7 +456,7 @@ class AttireThemeEngine
          *
          */
 
-        $css .= '@media only screen and (max-width: 599px) {';
+        $css .= '@media (min-width: 576px) {';
         $css .= 'h1, h1 a{font-size:' . intval($theme_mod['heading_font_size_mobile']) . 'px;}';
         $css .= 'h2, h2 a{font-size:' . intval($theme_mod['heading2_font_size_mobile']) . 'px;}';
         $css .= 'h3, h3 a{font-size:' . intval($theme_mod['heading3_font_size_mobile']) . 'px;}';
@@ -568,8 +562,8 @@ class AttireThemeEngine
         $logo_height = $theme_mod['site_logo_height'] ? intval($theme_mod['site_logo_height']) : 60;
         $footer_logo_height = $theme_mod['site_logo_footer_height'] ? intval($theme_mod['site_logo_footer_height']) : 60;
 
-        $css .= ".site-logo img{max-height:{$logo_height}px;}";
-        $css .= ".footer-logo img{max-height:{$footer_logo_height}px;}";
+        $css .= ".site-logo img{max-height:{$logo_height}px;width:auto;}";
+        $css .= ".footer-logo img{max-height:{$footer_logo_height}px;width:auto;}";
 
 
         /**
@@ -590,7 +584,7 @@ class AttireThemeEngine
         $site_title_line_height = "line-height:{$logo_height}px;";
         $footer_title_line_height = "line-height:{$footer_logo_height}px;";
 
-        $css .= ".navbar-light .navbar-brand,.navbar-dark .navbar-brand,.logo-header{{$heading_font_weight}{$site_title_text_color}{$site_title_line_height}}";
+        $css .= ".navbar-light .navbar-brand,.navbar-dark .navbar-brand,.logo-header{{$heading_font_weight}{$site_title_text_color}}";
         $css .= ".footer-logo{{$heading_font_weight}{$site_footer_title_text_color}{$footer_title_line_height}}";
         $css .= ".header-contents,.logo-header:hover,.footer-logo:hover, #attire-mbl-menu a.site-logo.navbar-brand, a.gn-icon.gn-icon-menu i.fas.fa-bars{{$site_title_text_color}}";
         $css .= ".site-description,.copyright-text{{$body_font_weight}{$site_description_text_color}}";
@@ -854,8 +848,7 @@ class AttireThemeEngine
     public static function NextGetOption($index = null, $default = null)
     {
         $attire_options = get_option('attire_options');
-
-        if (!empty($attire_options[$index])) {
+        if (isset($attire_options[$index])) {
             return $attire_options[$index];
         } else {
             return $default;

@@ -1662,18 +1662,18 @@ $header_image = [
         'default' => '#F5F5F5',
         'section' => 'header_image'
     ],
-    'ph_overlay_opacity' => [
-        'label' => __('BG Color Overlay Opacity', 'attire'),
-        'transport' => 'postMessage',
-        'type' => 'range',
-        'default' => 0,
-        'input_attrs' => [
-            'min' => 0,
-            'max' => 100,
-            'step' => 1
-        ],
-        'section' => 'header_image'
-    ],
+//    'ph_overlay_opacity' => [
+//        'label' => __('BG Color Overlay Opacity', 'attire'),
+//        'transport' => 'postMessage',
+//        'type' => 'range',
+//        'default' => 0,
+//        'input_attrs' => [
+//            'min' => 0,
+//            'max' => 100,
+//            'step' => 1
+//        ],
+//        'section' => 'header_image'
+//    ],
     'ph_text_color' => [
         'label' => __('Page Header Text Color', 'attire'),
         'transport' => 'postMessage',

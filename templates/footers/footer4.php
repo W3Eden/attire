@@ -26,7 +26,7 @@ $content_layout = $theme_mod['footer_content_layout_type'];
 											echo esc_html( $theme_mod['copyright_info'] );
 										}
 										echo wp_kses_post( __( ' Built with', 'attire' ) ) ?>
-                                        <a href="http://wpattire.com/" target="_blank"><strong>Attire</strong>.</a></p>
+                                        <a style="text-shadow: 2px 2px #2f4f4f;" href="https://wpattire.com/" target="_blank"><strong class="text-warning">ATTIRE</strong></a>
                                 </div>
                             </li>
                         </ul>

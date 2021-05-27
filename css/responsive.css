@@ -158,12 +158,12 @@
         display: none;
     }
 
-    .default-menu.navbar-light .navbar-brand.default-logo {
-        min-height: 50px;
-        letter-spacing: 0.3px;
-        line-height: 2;
-        padding: 10px 15px 10px 0;
-    }
+    /*.default-menu.navbar-light .navbar-brand.default-logo {*/
+    /*    min-height: 50px;*/
+    /*    letter-spacing: 0.3px;*/
+    /*    line-height: 2;*/
+    /*    padding: 10px 15px 10px 0;*/
+    /*}*/
 
     .attire-content.container-fluid {
         padding: 0;

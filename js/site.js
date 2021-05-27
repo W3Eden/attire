@@ -163,20 +163,40 @@ jQuery(function ($) {
     $('body')
         .on('keydown', function (e) {
 
-            // if last item in the menu is selected
-            if ($('ul.attire-mbl-menu li:last a').is(':focus')) {
-                if (e.which === 9) {
-                    e.preventDefault();
-                    $('#dismiss').focus();
-                }
+            var menu, elements, selectors, lastEl, firstEl, activeEl, tabKey, shiftKey, escKey;
+            menu = document.getElementById('attire-mbl-menu');
+            selectors = 'input, a, button';
+            elements = menu.querySelectorAll(selectors);
+            elements = Array.prototype.slice.call(elements);
+            tabKey = e.keyCode === 9;
+            shiftKey = e.shiftKey;
+            activeEl = document.activeElement; // eslint-disable-line @wordpress/no-global-active-element
+            lastEl = elements[elements.length - 1];
+            firstEl = elements[0];
+            escKey = e.keyCode === 27;
+
+            if (!shiftKey && tabKey && lastEl === activeEl) {
+                e.preventDefault();
+                firstEl.focus();
             }
-            // if #dismiss button in the menu is selected
-            if ($('#dismiss').is(':focus')) {
-                if (e.shiftKey && e.keyCode === 9) {
-                    e.preventDefault();
-                    $('ul.attire-mbl-menu li:last a').focus();
-                }
+
+            if (shiftKey && tabKey && firstEl === activeEl) {
+                e.preventDefault();
+                lastEl.focus();
             }
+
+            // If there are no elements in the menu, don't move the focus
+            if (tabKey && firstEl === lastEl) {
+                e.preventDefault();
+            }
+
+
+            if (escKey) {
+                e.preventDefault();
+                $('#attire-mbl-menu').removeClass('active');
+                $('.attire-mbl-menu-trigger').focus();
+            }
+
 
             // show mobile menu
             if ($(e.target).hasClass('attire-mbl-menu-trigger')) {

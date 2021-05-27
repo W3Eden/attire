@@ -11,12 +11,12 @@ if (!defined('ABSPATH')) {
         while (have_posts()): the_post();
             ?>
             <div class="archive-item col-md">
-                <?php get_template_part("content", get_post_format()); ?>
+                <?php get_template_part("content", get_post_format(), ['posts_per_row' => $posts_per_row]); ?>
                 <div class="clear"></div>
             </div>
             <?php
             $count++;
-            if ($count % $posts_per_row===0) {
+            if ($count % $posts_per_row === 0) {
                 echo '<div class="w-100"></div>';
             }
         endwhile; ?>

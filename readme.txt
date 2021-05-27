@@ -19,6 +19,11 @@ Attire is a fast, mobile responsive, highly customizable, SEO friendly multipurp
 
 == Changelog ==
 
+= 1.7.2 - 2021.05.27 =
+* Made the posts same height in a row if there are more than one post in a row (for blog and archive pages).
+* Fixed an issue with logo size in some headers.
+* Fixed an issue that caused breadcrumbs to appear in page header even if it was disabled.
+
 = 1.7.1 - 2021.05.25 =
 * Mobile menu keyboard navigation improvement
 * Now header/footer shows website name in case previously selected logo gets deleted from media library

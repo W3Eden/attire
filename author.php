@@ -14,7 +14,7 @@ get_header(); ?>
                     while (have_posts()): the_post();
                         ?>
                         <div class="archive-item col-md-4">
-                            <?php get_template_part("content", get_post_format()); ?>
+                            <?php get_template_part("content", get_post_format(), ['posts_per_row' => 3]); ?>
                             <div class="clear"></div>
                         </div>
                     <?php

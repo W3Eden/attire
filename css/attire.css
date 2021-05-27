@@ -314,6 +314,7 @@ blockquote::after {
 img {
     height: auto;
     max-width: 100%;
+    vertical-align: middle;
 }
 
 .wp-caption {
@@ -731,11 +732,11 @@ footer .dropdown-submenu .dropdown-menu {
 }
 
 header .widget-search-form {
-    display: none;
+    /*display: none;*/
 }
 
 .widget .ul-search {
-    display: none;
+    /*display: none;*/
 }
 
 .widget .list-group .list-group-item {
@@ -846,8 +847,8 @@ header .widget-search-form {
 #header-style-3 .logo-div img,
 #header-style-2 .logo-div img {
     /*height: 50px;*/
-    padding-top: 10px;
-    padding-bottom: 10px;
+    /*padding-top: 10px;*/
+    /*padding-bottom: 10px;*/
     width: auto;
 }
 
@@ -1009,10 +1010,10 @@ header .widget-search-form {
 
 }
 
-#header-5 .site-logo img {
-    height: 40px;
-    max-height: 40px;
-}
+/*#header-5 .site-logo img {*/
+/*    height: 40px;*/
+/*    max-height: 40px;*/
+/*}*/
 
 #header-5 #header-search-field {
     margin: 0 40px;
@@ -1117,13 +1118,17 @@ header .widget-search-form {
     font-size: 1.3em;
 }
 
-header li.nav-item:not(.desktop-search) a {
+header li.nav-item:not(.desktop-search) {
     height: 50px;
+}
+
+header li.nav-item:not(.desktop-search) a {
     padding: 0 20px;
     line-height: 50px;
     display: inline-block;
     letter-spacing: +.5px;
 }
+
 header li.nav-item:not(.desktop-search) .dropdown-toggler {
     height: 50px;
 }
@@ -1278,6 +1283,8 @@ header li.nav-item:not(.desktop-search) .dropdown-toggler {
 }
 
 #dismiss {
+    color: #fff;
+    border-radius: 3px;
     width: 35px;
     height: 35px;
     line-height: 35px;
@@ -1474,7 +1481,7 @@ header li.nav-item:not(.desktop-search) .dropdown-toggler {
 }
 
 .widget input#searchsubmit {
-    display: none;
+    /*display: none;*/
 }
 
 .widget ol,
@@ -1809,6 +1816,7 @@ ul#breadcrumbs li strong {
 .dropdown.nav-item.desktop-search {
     width: 48px;
     text-align: center;
+    padding: 0;
 }
 
 .desktop-search .list-search {
@@ -2371,4 +2379,8 @@ article.post .card .card-image {
 
 .skip-link.screen-reader-text {
     max-width: 160px;
+}
+
+.h-95-5 {
+    height: 95.5% !important;
 }

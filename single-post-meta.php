@@ -2,14 +2,16 @@
 if (!defined('ABSPATH')) {
     exit;
 }
-
+$archive_year  = get_the_time('Y');
+$archive_month = get_the_time('m');
+$archive_day   = get_the_time('d');
 ?>
 <div class="post-meta post-meta-bottom">
     <ul class="meta-list">
         <li>
             <i class="fa fa-calendar mr-2"></i><span><?php echo __('On', 'attire'); ?></span>
             <span class="black bold"><a
-                        href="<?php the_permalink(); ?>"><?php echo get_the_modified_date(); ?></a></span>
+                        href="<?php echo get_day_link( $archive_year, $archive_month, $archive_day); ?>"><?php echo get_the_modified_date(); ?></a></span>
         </li>
         <li>
             <i class="fa fa-user-circle mr-2"></i><span><?php echo __('By', 'attire'); ?></span>

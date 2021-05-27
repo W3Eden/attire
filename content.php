@@ -2,10 +2,15 @@
 if (!defined('ABSPATH')) {
     exit;
 }
+$posts_per_row = isset($args['posts_per_row']) ? $args['posts_per_row'] : 1;
+
+$archive_year = get_the_time('Y');
+$archive_month = get_the_time('m');
+$archive_day = get_the_time('d');
 ?>
-<article <?php post_class('post'); ?>>
+<article <?php post_class('post' . ($posts_per_row !== 1 ? ' h-95-5' : '')) ?>>
     <?php do_action(ATTIRE_THEME_PREFIX . 'before_content'); ?>
-    <div class="card">
+    <div class="card<?php echo $posts_per_row !== 1 ? ' h-100' : '' ?>">
         <a class="card-image"
            href="<?php the_permalink(); ?>"><?php the_post_thumbnail('attire-card-image', array('class' => 'card-img-top')); ?></a>
         <!-- /.post-thumb -->
@@ -34,7 +39,7 @@ if (!defined('ABSPATH')) {
                     <div class="col-md">
                         <span><?php _e('On', 'attire'); ?></span>
                         <span class="black bold"><a
-                                    href="<?php the_permalink(); ?>"><?php echo get_the_modified_date(); ?></a></span>
+                                    href="<?php echo get_day_link($archive_year, $archive_month, $archive_day); ?>"><?php echo get_the_modified_date(); ?></a></span>
                     </div>
                     <div class="col-md text-md-right">
                         <span><?php _e('By', 'attire'); ?></span>

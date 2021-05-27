@@ -1,6 +1,6 @@
 <div class="media attire-mbl-header">
     <div class="mr-3">
-        <a class="gn-icon gn-icon-menu attire-mbl-menu-trigger" tabindex="0">
+        <a id="open_mobile_menu" class="gn-icon gn-icon-menu attire-mbl-menu-trigger" tabindex="0">
             <i class="fas fa-bars"></i>
         </a>
     </div>
@@ -11,9 +11,9 @@
     </div>
 </div>
 <section id="attire-mbl-menu">
-    <div id="dismiss" tabindex="0">
+    <a id="dismiss" tabindex="0">
         <i class="fas fa-arrow-left"></i>
-    </div>
+    </a>
     <div class="middle-logo logo-div p-5 text-center">
         <a class="site-logo navbar-brand"
            href="<?php echo esc_url(home_url('/')); ?>"><?php echo AttireThemeEngine::MobileMenuLogo(); ?></a>
