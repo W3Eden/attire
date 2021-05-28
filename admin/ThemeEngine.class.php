@@ -407,34 +407,36 @@ class AttireThemeEngine
             $css .= '.back-to-top{display:none;}';
         }
 
+
+        /**
+         *
+         * Responsive css Mobile
+         *
+         */
+
+        $css .= '@media only screen and (max-width: 599px) {';
+        $css .= 'h1, h1 a{font-size:' . intval($theme_mod['heading_font_size_mobile']) . 'px;}';
+        $css .= 'h2, h2 a{font-size:' . intval($theme_mod['heading2_font_size_mobile']) . 'px;}';
+        $css .= 'h3, h3 a{font-size:' . intval($theme_mod['heading3_font_size_mobile']) . 'px;}';
+        $css .= 'h4, h4 a{font-size:' . intval($theme_mod['heading4_font_size_mobile']) . 'px;}';
+        $css .= 'h5, h5 a{font-size:' . intval($theme_mod['heading4_font_size_mobile'] - 2) . 'px;}';
+        $css .= 'h6, h6 a{font-size:' . intval($theme_mod['heading4_font_size_mobile'] - 4) . 'px;}';
+        $css .= '.attire-content p, .attire-post-and-comments,.attire-post-and-comments p,.attire-post-and-comments article,.attire-post-and-comments ul,.attire-post-and-comments ol, 
+		.attire-post-and-comments table, .attire-post-and-comments blockquote, .attire-post-and-comments pre { font-size:' . intval($theme_mod["body_font_size_mobile"]) . 'px; }';
+        $css .= '.widget, .widget li, .widget p , .widget a {font-size:' . intval($theme_mod['widget_content_font_size_mobile']) . 'px;}';
+        $css .= '.widget .widget-title {font-size:' . intval($theme_mod['widget_title_font_size_mobile']) . 'px;}';
+        $css .= 'header .mainmenu > .nav-item a,footer .footermenu > .menu-item a, .info-link,.attire-mbl-menu li.nav-item a,input.gn-search{font-size:' . $theme_mod['menu_top_font_size_mobile'] . 'px;}';
+        $css .= 'header .dropdown ul li a.dropdown-item, footer .dropdown ul li a.dropdown-item,.attire-mbl-menu .dropdown-menu li.nav-item a{font-size:' . $theme_mod['menu_dropdown_font_size_mobile'] . 'px;}';
+
+        $css .= '}';
+
         /**
          *
          * Responsive css Tablet
          *
          */
 
-        $css .= '@media (min-width: 992px){';
-        $css .= 'h1, h1 a{font-size:' . intval($theme_mod['heading_font_size_desktop']) . 'px;}';
-        $css .= 'h2, h2 a{font-size:' . intval($theme_mod['heading2_font_size_desktop']) . 'px;}';
-        $css .= 'h3, h3 a{font-size:' . intval($theme_mod['heading3_font_size_desktop']) . 'px;}';
-        $css .= 'h4, h4 a{font-size:' . intval($theme_mod['heading4_font_size_desktop']) . 'px;}';
-        $css .= 'h5, h5 a{font-size:' . intval($theme_mod['heading4_font_size_desktop'] - 2) . 'px;}';
-        $css .= 'h6, h6 a{font-size:' . intval($theme_mod['heading4_font_size_desktop'] - 4) . 'px;}';
-        $css .= '.attire-content p, .attire-post-and-comments,.attire-post-and-comments p,.attire-post-and-comments article,.attire-post-and-comments ul,.attire-post-and-comments ol, 
-		.attire-post-and-comments table, .attire-post-and-comments blockquote, .attire-post-and-comments pre { font-size:' . intval($theme_mod["body_font_size_desktop"]) . 'px;}';
-        $css .= '.widget, .widget li, .widget p {font-size:' . intval($theme_mod['widget_content_font_size_desktop']) . 'px;}';
-        $css .= '.widget .widget-title {font-size:' . intval($theme_mod['widget_title_font_size_desktop']) . 'px;}';
-        $css .= 'header .mainmenu > .nav-item a,footer .footermenu > .menu-item a, .info-link,.attire-mbl-menu li.nav-item a,input.gn-search{font-size:' . $theme_mod['menu_top_font_size_desktop'] . 'px;}';
-        $css .= 'header .dropdown ul li a.dropdown-item, footer .dropdown ul li a.dropdown-item,.attire-mbl-menu .dropdown-menu li.nav-item a{font-size:' . $theme_mod['menu_dropdown_font_size_desktop'] . 'px;}';
-        $css .= '}';
-
-        /**
-         *
-         * Responsive css Desktop
-         *
-         */
-
-        $css .= '@media (min-width: 768px){';
+        $css .= '@media (min-width: 600px) and (max-width: 1023px){';
         $css .= 'h1, h1 a{font-size:' . intval($theme_mod['heading_font_size_tablet']) . 'px;}';
         $css .= 'h2, h2 a{font-size:' . intval($theme_mod['heading2_font_size_tablet']) . 'px;}';
         $css .= 'h3, h3 a{font-size:' . intval($theme_mod['heading3_font_size_tablet']) . 'px;}';
@@ -450,26 +452,26 @@ class AttireThemeEngine
 
         $css .= '}';
 
+
         /**
          *
-         * Responsive css Mobile
+         * Responsive css Desktop
          *
          */
 
-        $css .= '@media (min-width: 576px) {';
-        $css .= 'h1, h1 a{font-size:' . intval($theme_mod['heading_font_size_mobile']) . 'px;}';
-        $css .= 'h2, h2 a{font-size:' . intval($theme_mod['heading2_font_size_mobile']) . 'px;}';
-        $css .= 'h3, h3 a{font-size:' . intval($theme_mod['heading3_font_size_mobile']) . 'px;}';
-        $css .= 'h4, h4 a{font-size:' . intval($theme_mod['heading4_font_size_mobile']) . 'px;}';
-        $css .= 'h5, h5 a{font-size:' . intval($theme_mod['heading4_font_size_mobile'] - 2) . 'px;}';
-        $css .= 'h6, h6 a{font-size:' . intval($theme_mod['heading4_font_size_mobile'] - 4) . 'px;}';
+        $css .= '@media (min-width: 1024px){';
+        $css .= 'h1, h1 a{font-size:' . intval($theme_mod['heading_font_size_desktop']) . 'px;}';
+        $css .= 'h2, h2 a{font-size:' . intval($theme_mod['heading2_font_size_desktop']) . 'px;}';
+        $css .= 'h3, h3 a{font-size:' . intval($theme_mod['heading3_font_size_desktop']) . 'px;}';
+        $css .= 'h4, h4 a{font-size:' . intval($theme_mod['heading4_font_size_desktop']) . 'px;}';
+        $css .= 'h5, h5 a{font-size:' . intval($theme_mod['heading4_font_size_desktop'] - 2) . 'px;}';
+        $css .= 'h6, h6 a{font-size:' . intval($theme_mod['heading4_font_size_desktop'] - 4) . 'px;}';
         $css .= '.attire-content p, .attire-post-and-comments,.attire-post-and-comments p,.attire-post-and-comments article,.attire-post-and-comments ul,.attire-post-and-comments ol, 
-		.attire-post-and-comments table, .attire-post-and-comments blockquote, .attire-post-and-comments pre { font-size:' . intval($theme_mod["body_font_size_mobile"]) . 'px; }';
-        $css .= '.widget, .widget li, .widget p {font-size:' . intval($theme_mod['widget_content_font_size_mobile']) . 'px;}';
-        $css .= '.widget .widget-title {font-size:' . intval($theme_mod['widget_title_font_size_mobile']) . 'px;}';
-        $css .= 'header .mainmenu > .nav-item a,footer .footermenu > .menu-item a, .info-link,.attire-mbl-menu li.nav-item a,input.gn-search{font-size:' . $theme_mod['menu_top_font_size_mobile'] . 'px;}';
-        $css .= 'header .dropdown ul li a.dropdown-item, footer .dropdown ul li a.dropdown-item,.attire-mbl-menu .dropdown-menu li.nav-item a{font-size:' . $theme_mod['menu_dropdown_font_size_mobile'] . 'px;}';
-
+		.attire-post-and-comments table, .attire-post-and-comments blockquote, .attire-post-and-comments pre { font-size:' . intval($theme_mod["body_font_size_desktop"]) . 'px;}';
+        $css .= '.widget, .widget li, .widget p {font-size:' . intval($theme_mod['widget_content_font_size_desktop']) . 'px;}';
+        $css .= '.widget .widget-title {font-size:' . intval($theme_mod['widget_title_font_size_desktop']) . 'px;}';
+        $css .= 'header .mainmenu > .nav-item a,footer .footermenu > .menu-item a, .info-link,.attire-mbl-menu li.nav-item a,input.gn-search{font-size:' . $theme_mod['menu_top_font_size_desktop'] . 'px;}';
+        $css .= 'header .dropdown ul li a.dropdown-item, footer .dropdown ul li a.dropdown-item,.attire-mbl-menu .dropdown-menu li.nav-item a{font-size:' . $theme_mod['menu_dropdown_font_size_desktop'] . 'px;}';
         $css .= '}';
 
         /**
@@ -861,10 +863,10 @@ class AttireThemeEngine
 
         $custom_logo_id = get_theme_mod('custom_logo');
 
-        $image = wp_get_attachment_image_src($custom_logo_id, 'full');
+        $image = wp_get_attachment_url($custom_logo_id);
 
-        if (is_array($image) && isset($image[0])) {
-            $logourl = esc_url($image[0]); // source : https://codex.wordpress.org/Theme_Logo
+        if (isset($image)) {
+            $logourl = esc_url($image); // source : https://codex.wordpress.org/Theme_Logo
             $image_id = attachment_url_to_postid($logourl);
             $meta = wp_prepare_attachment_for_js($image_id);
             if (!$meta) return esc_html(get_bloginfo('sitename'));
