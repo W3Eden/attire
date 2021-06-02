@@ -19,6 +19,9 @@ Attire is a fast, mobile responsive, highly customizable, SEO friendly multipurp
 
 == Changelog ==
 
+= 1.7.4 - 2021.06.02 =
+* General bug fixes and optimisations.
+
 = 1.7.3 - 2021.05.27 =
 * Made the posts same height in a row if there are more than one post in a row (for blog and archive pages).
 * Fixed an issue with logo size in some headers.

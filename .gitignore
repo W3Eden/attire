@@ -1,4 +1,5 @@
-
 .DS_Store
 download-manager/.DS_Store
 admin/.DS_Store
+#idea folder
+.idea/

@@ -1200,6 +1200,7 @@ header li.nav-item:not(.desktop-search) .dropdown-toggler {
 }
 
 #attire-mbl-menu {
+    display: none;
     width: 100%;
     position: fixed;
     top: 0;
@@ -1210,6 +1211,10 @@ header li.nav-item:not(.desktop-search) .dropdown-toggler {
     transition: all 0.3s;
     overflow-y: scroll;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+#attire-mbl-menu.active {
+    display: block;
 }
 
 #attire-mbl-menu .site-logo {
