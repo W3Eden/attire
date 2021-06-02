@@ -609,7 +609,7 @@ function attire_customizer_style()
 {
 
 
-    wp_enqueue_style('attire-customizer-controls-css', get_template_directory_uri() . '/admin/css/attire-customizer-controls.css');
+    wp_enqueue_style('attire-customizer-controls-css', get_template_directory_uri() . '/admin/css/attire-customizer-controls.min.css');
     wp_enqueue_style('attire-customizer-controls-chosen', get_template_directory_uri() . '/admin/chosen-select/chosen.min.css');
     wp_enqueue_script('attire-customizer-controls-chosen', get_template_directory_uri() . '/admin/chosen-select/chosen.jquery.min.js');
     wp_enqueue_script('attire-customizer-controls-js', get_template_directory_uri() . '/admin/js/attire-customizer-controls.js', array(
