@@ -8,7 +8,7 @@ if (class_exists('WP_Customize_Control')) {
         public function render_content()
         {
             $imageDir = '/images/layouts/';
-            $imguri = get_template_directory_uri() . $imageDir;
+            $imguri = ATTIRE_TEMPLATE_URL . $imageDir;
             ?>
             <span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
             <div class="attire-sb-layout">

@@ -53,14 +53,14 @@ if (class_exists('WP_Customize_Control')) {
         {
             wp_enqueue_script(
                 'alpha-color-picker',
-                get_stylesheet_directory_uri() . '/admin/custom-controls/alpha-color-picker/alpha-color-picker.js',
+                ATTIRE_TEMPLATE_URL . '/admin/custom-controls/alpha-color-picker/alpha-color-picker.js',
                 array('jquery', 'wp-color-picker'),
                 '1.0.0',
                 true
             );
             wp_enqueue_style(
                 'alpha-color-picker',
-                get_stylesheet_directory_uri() . '/admin/custom-controls/alpha-color-picker/alpha-color-picker.min.css',
+                ATTIRE_TEMPLATE_URL . '/admin/custom-controls/alpha-color-picker/alpha-color-picker.min.css',
                 array('wp-color-picker'),
                 '1.0.0'
             );

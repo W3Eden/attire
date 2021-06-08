@@ -543,32 +543,32 @@ $attire_header_options = [
             0 => [
                 'value' => 'header-1',
                 'title' => __('Default Navigation Header', 'attire'),
-                'src' => get_template_directory_uri() . '/images/headers/header1.jpg',
+                'src' => ATTIRE_TEMPLATE_URL . '/images/headers/header1.jpg',
             ],
             1 => [
                 'value' => 'header-2',
                 'title' => __('Compact Navigation Header', 'attire'),
-                'src' => get_template_directory_uri() . '/images/headers/header2.jpg',
+                'src' => ATTIRE_TEMPLATE_URL . '/images/headers/header2.jpg',
             ],
             2 => [
                 'value' => 'header-3',
                 'title' => __('Narrow Navigation Header', 'attire'),
-                'src' => get_template_directory_uri() . '/images/headers/header3.jpg',
+                'src' => ATTIRE_TEMPLATE_URL . '/images/headers/header3.jpg',
             ],
             3 => [
                 'value' => 'header-4',
                 'title' => __('Centered Navigation Header', 'attire'),
-                'src' => get_template_directory_uri() . '/images/headers/header4.jpg',
+                'src' => ATTIRE_TEMPLATE_URL . '/images/headers/header4.jpg',
             ],
             4 => [
                 'value' => 'header-5',
                 'title' => __('Extended Navigation Header', 'attire'),
-                'src' => get_template_directory_uri() . '/images/headers/header5.jpg',
+                'src' => ATTIRE_TEMPLATE_URL . '/images/headers/header5.jpg',
             ],
             5 => [
                 'value' => 'header-6',
                 'title' => __('Transparent Navigation Header', 'attire'),
-                'src' => get_template_directory_uri() . '/images/headers/header6.jpg'
+                'src' => ATTIRE_TEMPLATE_URL . '/images/headers/header6.jpg'
             ]
         ]
     ],
@@ -600,22 +600,22 @@ $attire_footer_options = [
             0 => [
                 'value' => 'footer1',
                 'title' => __('Narrow', 'attire'),
-                'src' => get_template_directory_uri() . '/images/footers/footer1.jpg',
+                'src' => ATTIRE_TEMPLATE_URL . '/images/footers/footer1.jpg',
             ],
             1 => [
                 'value' => 'footer2',
                 'title' => __('Large Centered', 'attire'),
-                'src' => get_template_directory_uri() . '/images/footers/footer2.jpg',
+                'src' => ATTIRE_TEMPLATE_URL . '/images/footers/footer2.jpg',
             ],
             2 => [
                 'value' => 'footer3',
                 'title' => __('Large Left', 'attire'),
-                'src' => get_template_directory_uri() . '/images/footers/footer3.jpg',
+                'src' => ATTIRE_TEMPLATE_URL . '/images/footers/footer3.jpg',
             ],
             3 => [
                 'value' => 'footer4',
                 'title' => __('Large Right', 'attire'),
-                'src' => get_template_directory_uri() . '/images/footers/footer4.jpg',
+                'src' => ATTIRE_TEMPLATE_URL . '/images/footers/footer4.jpg',
             ]
         ]
     ]

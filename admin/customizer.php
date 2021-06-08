@@ -593,7 +593,7 @@ add_action('customize_register', 'attire_customize_register');
  */
 function attire_customize_preview_js()
 {
-    wp_enqueue_script('attire_customizer', get_template_directory_uri() . '/admin/js/customizer.js', array('customize-preview'), '20171015', true);
+    wp_enqueue_script('attire_customizer', ATTIRE_TEMPLATE_URL . '/admin/js/customizer.js', array('customize-preview'), '20171015', true);
     wp_localize_script('attire_customizer', 'saved_mods',
         $theme_mod = WPATTIRE()->theme_options
     );
@@ -609,10 +609,10 @@ function attire_customizer_style()
 {
 
 
-    wp_enqueue_style('attire-customizer-controls-css', get_template_directory_uri() . '/admin/css/attire-customizer-controls.min.css');
-    wp_enqueue_style('attire-customizer-controls-chosen', get_template_directory_uri() . '/admin/chosen-select/chosen.min.css');
-    wp_enqueue_script('attire-customizer-controls-chosen', get_template_directory_uri() . '/admin/chosen-select/chosen.jquery.min.js');
-    wp_enqueue_script('attire-customizer-controls-js', get_template_directory_uri() . '/admin/js/attire-customizer-controls.js', array(
+    wp_enqueue_style('attire-customizer-controls-css', ATTIRE_TEMPLATE_URL . '/admin/css/attire-customizer-controls.min.css');
+    wp_enqueue_style('attire-customizer-controls-chosen', ATTIRE_TEMPLATE_URL . '/admin/chosen-select/chosen.min.css');
+    wp_enqueue_script('attire-customizer-controls-chosen', ATTIRE_TEMPLATE_URL . '/admin/chosen-select/chosen.jquery.min.js');
+    wp_enqueue_script('attire-customizer-controls-js', ATTIRE_TEMPLATE_URL . '/admin/js/attire-customizer-controls.js', array(
         'jquery',
         'customize-controls'
     ), false, true);

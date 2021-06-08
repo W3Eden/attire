@@ -98,7 +98,7 @@ class AttireMetaBoxes {
 			$meta = get_post_meta( $post->ID, 'attire_post_meta', true );
 			$sl = isset($meta['sidebar_layout']) ? $meta['sidebar_layout'] : 'default';
             $imageDir = '/images/layouts/';
-            $imguri = get_template_directory_uri() . $imageDir;
+            $imguri = ATTIRE_TEMPLATE_URL . $imageDir;
             ?>
             <div class="attire-sb-layout">
 				<div style="padding: 10px 0"><label>
