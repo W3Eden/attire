@@ -54,7 +54,7 @@ $navigation_buttons = $navigation_buttons === 'show' ? 'canshow' : 'noshow';
                     </div>
                     <?php
                     if ($meta_position === 'after-content') {
-                        get_template_part('single', 'post-meta');
+                        get_template_part('single', 'post-meta', ['classes' => 'mb-4']);
                     } ?>
                     <?php if (has_tag()) { ?>
                         <div class="single-post-tags card">

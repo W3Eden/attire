@@ -1,20 +1,21 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2021-05-11 21:15+0600\n"
-"PO-Revision-Date: 2021-05-11 21:15+0600\n"
+"POT-Creation-Date: 2021-06-20 13:05+0600\n"
+"PO-Revision-Date: 2021-06-20 13:05+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.3\n"
+"X-Generator: Poedit 3.0\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: .git\n"
+"X-Poedit-SearchPathExcluded-1: .idea\n"
 
 #: 404.php:26
 msgid "404 - PAGE  NOT FOUND!"
@@ -26,7 +27,7 @@ msgid ""
 "are looking for."
 msgstr ""
 
-#: admin/ThemeEngine.class.php:964
+#: admin/ThemeEngine.class.php:960
 msgid "Search results for"
 msgstr ""
 
@@ -721,10 +722,6 @@ msgstr ""
 msgid "Page Header Background Color"
 msgstr ""
 
-#: admin/customizer-config.php:1666
-msgid "BG Color Overlay Opacity"
-msgstr ""
-
 #: admin/customizer-config.php:1678
 msgid "Page Header Text Color"
 msgstr ""
@@ -761,29 +758,29 @@ msgstr ""
 msgid "Write a review"
 msgstr ""
 
-#: admin/customizer.php:746 admin/customizer.php:803
+#: admin/customizer.php:448 admin/customizer.php:505
 msgid "Measurement is in pixel."
 msgstr ""
 
-#: admin/customizer.php:1017
+#: admin/customizer.php:638
 msgid "Reset to default settings"
 msgstr ""
 
-#: admin/customizer.php:1017
+#: admin/customizer.php:638
 msgid "Reset"
 msgstr ""
 
-#: admin/customizer.php:1020
+#: admin/customizer.php:641
 msgid ""
 "Are you trying to reset Attire theme options to it's default settings."
 "\\nAction can not be reverted.\\nAre your sure?"
 msgstr ""
 
-#: admin/customizer.php:1022
+#: admin/customizer.php:643
 msgid "Reseting..."
 msgstr ""
 
-#: admin/customizer.php:1027
+#: admin/customizer.php:648
 msgid "Reset to Default"
 msgstr ""
 
@@ -820,11 +817,11 @@ msgstr ""
 msgid "Page Header"
 msgstr ""
 
-#: admin/metaboxes/attire-page-options.php:46
+#: admin/metaboxes/attire-page-options.php:47
 msgid "Hide Top Menu"
 msgstr ""
 
-#: admin/metaboxes/attire-page-options.php:51
+#: admin/metaboxes/attire-page-options.php:53
 msgid "Hide Site Footer"
 msgstr ""
 
@@ -844,11 +841,11 @@ msgstr ""
 msgid "More Details"
 msgstr ""
 
-#: content.php:35 single-post-meta.php:10
+#: content.php:40 single-post-meta.php:12
 msgid "On"
 msgstr ""
 
-#: content.php:40 single-post-meta.php:15
+#: content.php:45 single-post-meta.php:17
 msgid "By"
 msgstr ""
 
@@ -868,7 +865,7 @@ msgstr ""
 msgid "Post"
 msgstr ""
 
-#: footer.php:69 functions.php:385 search.php:42
+#: footer.php:69 functions.php:388 search.php:42
 msgid "Page"
 msgstr ""
 
@@ -978,11 +975,13 @@ msgstr ""
 msgid "Header & Footer"
 msgstr ""
 
-#: libs/wp_bootstrap_navwalker.php:206
+#: libs/wp_bootstrap_navwalker.php:212
+#: libs/wp_bootstrap_navwalker_mobile.php:211
 msgid "Home"
 msgstr ""
 
-#: libs/wp_bootstrap_navwalker.php:207
+#: libs/wp_bootstrap_navwalker.php:213
+#: libs/wp_bootstrap_navwalker_mobile.php:212
 msgid "Add a menu"
 msgstr ""
 
@@ -999,60 +998,61 @@ msgstr ""
 msgid "%d results found"
 msgstr ""
 
-#: single-post-meta.php:20
+#: single-post-meta.php:22
 msgid "In"
 msgstr ""
 
-#: single-post-meta.php:26
+#: single-post-meta.php:28
 msgid "No comments"
 msgstr ""
 
-#: single-post-meta.php:26
+#: single-post-meta.php:28
 msgid "One comment"
 msgstr ""
 
-#: single-post-meta.php:26
+#: single-post-meta.php:28
 #, php-format
 msgid "% comments"
 msgstr ""
 
 #: single.php:104
-msgid "Read Previous Article"
+msgid "Previous Post"
 msgstr ""
 
 #: single.php:107
-msgid "Read Next Article"
+msgid "Next Post"
 msgstr ""
 
-#: templates/footers/footer4.php:28
+#: templates/footers/footer1.php:20 templates/footers/footer2.php:28
+#: templates/footers/footer3.php:20 templates/footers/footer4.php:28
 msgid " Built with"
 msgstr ""
 
-#: templates/headers/header-5.php:121
+#: templates/headers/header-5.php:134
 msgid "items"
 msgstr ""
 
-#: templates/headers/header-5.php:121
+#: templates/headers/header-5.php:134
 msgid "item"
 msgstr ""
 
-#: templates/headers/header-5.php:123 templates/headers/header-5.php:131
+#: templates/headers/header-5.php:139 templates/headers/header-5.php:154
 msgid "Account"
 msgstr ""
 
-#: templates/headers/header-5.php:126 templates/headers/header-5.php:134
+#: templates/headers/header-5.php:144 templates/headers/header-5.php:159
 msgid "Login / Register"
 msgstr ""
 
-#: templates/headers/header-5.php:181
+#: templates/headers/header-5.php:207
 msgid "Cart"
 msgstr ""
 
-#: templates/headers/header-5.php:190
+#: templates/headers/header-5.php:217
 msgid "Continue Shopping"
 msgstr ""
 
-#: templates/headers/header-5.php:191
+#: templates/headers/header-5.php:218
 msgid "Checkout"
 msgstr ""
 
