@@ -513,8 +513,20 @@ $attire_back_to_top = [
             'show' => __('Show', 'attire'),
             'hide' => __('Hide', 'attire')
         ]
+    ],
+    'attire_back_to_top_location' => [
+        'label' => __('Back To Top Button Location', 'attire'),
+        'transport' => 'postMessage',
+        'type' => 'select',
+        'section' => 'attire_back_to_top',
+        'default' => 'right',
+        'choices' => [
+            'right' => __('Right', 'attire'),
+            'left' => __('Left', 'attire')
+        ]
     ]
 ];
+
 $attire_footer_widget_number = [
     'footer_widget_number' => [
         'label' => __('Number of Footer Widget Area', 'attire'),
@@ -770,7 +782,7 @@ $attire_body_color_options = [
         'transport' => 'postMessage',
         'type' => 'alpha-color',
         'section' => 'attire_body_color_options',
-        'default' => '#007bff'
+        'default' => '#1a2228'
     ],
     'attire_single_post_comment_button_text_color' => [
         'label' => __('Comment Button Text Color', 'attire'),

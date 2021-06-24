@@ -297,6 +297,16 @@
             }
         });
     });
+    wp.customize('attire_options[attire_back_to_top_location]', function (value) {
+        value.bind(function (newValue) {
+            if (newValue === 'left') {
+                $('.back-to-top').addClass('on-left');
+            } else {
+                $('.back-to-top').removeClass('on-left');
+            }
+        });
+    });
+
     wp.customize('attire_options[attire_nav_behavior]', function (value) {
         value.bind(function (newValue) {
             if (newValue === 'sticky') {

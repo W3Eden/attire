@@ -79,7 +79,7 @@
     "footer_widget_title_font_color": "#000000",
     "footer_widget_content_font_color": "#000000",
     "footer_widget_bg_color": "#D4D4D6",
-    "attire_single_post_comment_button_color": "#007bff",
+    "attire_single_post_comment_button_color": "#1a2228",
     "attire_single_post_comment_button_text_color": "#ffffff",
     "attire_single_post_comment_button_size": "btn-md",
     "attire_posts_per_row": 3,
@@ -92,6 +92,7 @@
     "copyright_info_visibility": "show",
     "attire_search_form_visibility": "show",
     "attire_back_to_top_visibility": "show",
+    "attire_back_to_top_location": "right",
     "attire_nav_behavior": "sticky",
     "site_logo_height": "32",
     "site_logo_footer_height": "32"

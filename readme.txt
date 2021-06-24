@@ -19,6 +19,12 @@ Attire is a fast, mobile responsive, highly customizable, SEO-friendly multipurp
 
 == Changelog ==
 
+= 1.7.7 - 2021.06.24 =
+* Better WooCommerce style
+* `Go To Top` button now can be positioned in either left or right
+* Changed theme color scheme (only applicable to new installs and resets)
+* General bug fixes and optimisations.
+
 = 1.7.6 - 2021.06.20 =
 * General optimisations and fixes.
 

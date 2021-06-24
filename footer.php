@@ -6,7 +6,9 @@ if (!defined('ABSPATH')) {
 do_action(ATTIRE_THEME_PREFIX . "body_content_after");
 
 $canshow = AttireThemeEngine::NextGetOption('attire_back_to_top_visibility', 'show');
+$position = AttireThemeEngine::NextGetOption('attire_back_to_top_location', 'right');
 $canshow = $canshow === 'show' ? ' canshow' : '';
+$position = $position === 'left' ? ' on-left' : '';
 
 $meta = get_post_meta(get_the_ID(), 'attire_post_meta', true);
 // For page specific settings
@@ -15,7 +17,7 @@ $hide_site_footer = !isset($meta['hide_site_footer']) || (int)$meta['hide_site_f
 ?>
 
 </div> <!-- END: attire-content div -->
-<a href="#" class="back-to-top <?php echo esc_attr($canshow); ?>" rel="nofollow">
+<a href="#" class="back-to-top <?php echo esc_attr($canshow . $position); ?>" rel="nofollow">
     <i class="fas fa-angle-up"></i>
 </a>
 <?php
