@@ -19,6 +19,10 @@ Attire is a fast, mobile responsive, highly customizable, SEO-friendly multipurp
 
 == Changelog ==
 
+= 1.7.8 - 2021.07.12 =
+* Auto focus search field in popup.
+* Removed `Reset` button form customizer to meet WordPress standard.
+
 = 1.7.7 - 2021.06.24 =
 * Better WooCommerce style
 * `Go To Top` button now can be positioned in either left or right

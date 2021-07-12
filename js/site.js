@@ -232,4 +232,7 @@ jQuery(function ($) {
                 }
             }
         });
+    $('#attire-search-modal').on('shown.bs.modal', function (e) {
+        $('#attire-search-modal input').focus();
+    });
 });

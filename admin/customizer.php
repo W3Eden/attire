@@ -631,36 +631,3 @@ add_action("customize_controls_print_styles", function () {
     </style>
     <?php
 });
-add_action("customize_controls_print_scripts", function () {
-    ?>
-    <script>
-        jQuery(function ($) {
-            $('.customize-save-button-wrapper').prepend("<a title='<?php _e('Reset to default settings', 'attire'); ?>' id='reset-attire' class='button button-secondary' href='#' style='float: left;margin-right: 5px;background: #fb4e60;color:#ffffff;border-color: rgba(251, 55, 56, 0.8)'><?php _e('Reset', 'attire'); ?></a>");
-            $('body').on('click', '#reset-attire', function (e) {
-                e.preventDefault();
-                if (!confirm("<?php _e('Are you trying to reset Attire theme options to it\'s default settings.\nAction can not be reverted.\nAre your sure?', 'attire'); ?>")) return false;
-                var tt = $(this);
-                tt.attr('disabled', 'disabled').html('<?php _e('Reseting...', 'attire'); ?>');
-                $.post(ajaxurl, {
-                    action: 'reset_attire_options',
-                    __reset_attire: '<?php echo wp_create_nonce(NONCE_KEY); ?>'
-                }, function (res) {
-                    //tt.removeAttr('disabled').html('<?php _e('Reset to Default', 'attire'); ?>');
-                    if (res.success) {
-                        //jQuery('#customize-preview iframe').attr('src', jQuery('#customize-preview iframe').attr('src'));
-                        location.reload(true);
-                    }
-                });
-            });
-
-        });
-    </script>
-    <?php
-});
-
-add_action("wp_ajax_reset_attire_options", function () {
-    if (wp_verify_nonce($_REQUEST['__reset_attire'], NONCE_KEY) && current_user_can('manage_options')) {
-        delete_option('attire_options');
-        wp_send_json(array('success' => true));
-    }
-});
