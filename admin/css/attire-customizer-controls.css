@@ -376,6 +376,7 @@ input[type="radio"]:checked::before {
     padding: 10px;
     background: #f5f5f5;
 }
+
 @keyframes bounceIn {
     0%, 20%, 40%, 60%, 80%, 100% {
         -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
@@ -480,12 +481,14 @@ input[type="radio"]:checked::before {
 }
 
 .attire-responsive-wrapper.active {
-    display: block !important;
+    display: table !important;
+    width: 100%;
 }
 
 .attire-responsive-icons .active {
     color: #000000;
 }
-.wp-core-ui select{
+
+.wp-core-ui select {
     max-width: 100%;
 }

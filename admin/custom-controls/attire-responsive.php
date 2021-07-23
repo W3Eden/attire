@@ -8,9 +8,10 @@ if (class_exists('WP_Customize_Control')) {
         public function render_content()
         {
             ?>
-            <label>
+            <label class=" w-100">
                 <?php if (!empty($this->label)) : ?>
-                    <table class="customize-control-title">
+                    <table class="customize-control-title w-100">
+                        <tbody class="d-table w-100">
                         <tr>
                             <td style="width:80%;">
                                 <?php echo esc_html($this->label); ?>
@@ -23,6 +24,7 @@ if (class_exists('WP_Customize_Control')) {
                                 </span>
                             </td>
                         </tr>
+                        </tbody>
                     </table>
                 <?php endif; ?>
                 <div class="attire-responsive-inputs">
@@ -78,4 +80,5 @@ if (class_exists('WP_Customize_Control')) {
                 </table>';
         }
 
-    }}
+    }
+}
