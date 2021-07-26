@@ -21,10 +21,6 @@
     overflow: hidden;
 }
 
-.woo-product-card a {
-    text-decoration: none !important;
-}
-
 .woocommerce span.onsale {
     left: 10px;
     top: 10px;
@@ -59,6 +55,18 @@
 
 .button.card-footer.bg-primary.btn.btn-primary.btn-block.border-0.p-3.loading:after {
     top: 1.1em !important;
+}
+
+.woocommerce a.button.loading::after, .woocommerce button.button.loading::after, .woocommerce input.button.loading::after, .woocommerce #respond input#submit.loading::after {
+    top: unset !important;
+}
+
+.woocommerce a.remove {
+    font-size: 1.4em !important;
+}
+
+.woocommerce a.remove, .product-name a, .woo-product-card a, .woocommerce a.remove, .woo-product-card a {
+    text-decoration: none !important;
 }
 
 .woocommerce table {
@@ -544,7 +552,7 @@ nav.woocommerce-pagination ul li span.current, nav.woocommerce-pagination ul li 
 .woocommerce nav.woocommerce-pagination ul li {
     padding: 0 5px;
     margin-right: 5px;
-    border: 1px solid rgba(0,0,0,.125);
+    border: 1px solid rgba(0, 0, 0, .125);
     border-radius: .25rem;
 }
 
@@ -552,4 +560,12 @@ nav.woocommerce-pagination ul li span.current, nav.woocommerce-pagination ul li 
 .woocommerce nav.woocommerce-pagination ul li a:hover,
 .woocommerce nav.woocommerce-pagination ul li span.current {
     background: none;
+}
+
+.woocommerce .col-1, .woocommerce .col-2 {
+    max-width: none;
+}
+
+.woocommerce .password-input, .woocommerce-form-login__rememberme {
+    width: 100%;
 }
