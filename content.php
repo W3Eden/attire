@@ -4,9 +4,19 @@ if (!defined('ABSPATH')) {
 }
 $posts_per_row = isset($args['posts_per_row']) ? $args['posts_per_row'] : 1;
 
-$archive_year = get_the_time('Y');
-$archive_month = get_the_time('m');
-$archive_day = get_the_time('d');
+$sort_by = AttireThemeEngine::NextGetOption('attire_archive_page_post_sorting', 'modified_desc');
+if (strpos($sort_by, 'date') !== false) {
+    $archive_year = get_the_time('Y');
+    $archive_month = get_the_time('m');
+    $archive_day = get_the_time('d');
+    $date_to_show = get_the_date();
+
+} else {
+    $archive_year = get_the_modified_time('Y');
+    $archive_month = get_the_modified_time('m');
+    $archive_day = get_the_modified_time('d');
+    $date_to_show = get_the_modified_date();
+}
 ?>
 <article <?php post_class('post' . ($posts_per_row !== 1 ? ' h-95-5' : '')) ?>>
     <?php do_action(ATTIRE_THEME_PREFIX . 'before_content'); ?>
@@ -39,7 +49,7 @@ $archive_day = get_the_time('d');
                     <div class="col-md">
                         <span><?php _e('On', 'attire'); ?></span>
                         <span class="black bold"><a
-                                    href="<?php echo get_day_link($archive_year, $archive_month, $archive_day); ?>"><?php echo get_the_modified_date(); ?></a></span>
+                                    href="<?php echo get_day_link($archive_year, $archive_month, $archive_day); ?>"><?php echo $date_to_show; ?></a></span>
                     </div>
                     <div class="col-md text-md-right">
                         <span><?php _e('By', 'attire'); ?></span>

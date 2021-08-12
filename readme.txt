@@ -19,6 +19,9 @@ Attire is a fast, mobile responsive, highly customizable, SEO-friendly multipurp
 
 == Changelog ==
 
+= 1.8.1 - 2021.08.12 =
+* Now post/archive shows modified/published date depending on how they are sorted in customizer.
+
 = 1.8.0 - 2021.07.26 =
 * Style fixes for WooCommerce
 
@@ -34,16 +37,16 @@ Attire is a fast, mobile responsive, highly customizable, SEO-friendly multipurp
 * Better WooCommerce style
 * `Go To Top` button now can be positioned in either left or right
 * Changed theme color scheme (only applicable to new installs and resets)
-* General bug fixes and optimisations.
+* General bug fixes and optimizations.
 
 = 1.7.6 - 2021.06.20 =
-* General optimisations and fixes.
+* General optimizations and fixes.
 
 = 1.7.5 - 2021.06.08 =
 * Adjusted some css and php functions to better support child themes
 
 = 1.7.4 - 2021.06.02 =
-* General bug fixes and optimisations.
+* General bug fixes and optimizations.
 
 = 1.7.3 - 2021.05.27 =
 * Made the posts same height in a row if there are more than one post in a row (for blog and archive pages).
@@ -98,7 +101,7 @@ Attire is a fast, mobile responsive, highly customizable, SEO-friendly multipurp
 * Support for WordPress version 5.6
 
 = 1.5.5 - 2020.10.17 =
-* More responsive customisation option
+* More responsive customization option
 * Reduced css file size
 * Some css issues addressed
 
