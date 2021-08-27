@@ -19,6 +19,12 @@ Attire is a fast, mobile responsive, highly customizable, SEO-friendly multipurp
 
 == Changelog ==
 
+= 1.8.3 - 2021.08.27 =
+* Updated WooCommerce integration.
+
+= 1.8.2 - 2021.08.21 =
+* Page header, Site Header, Sidebar Layout and page with can now be set per post including custom post types.
+
 = 1.8.1 - 2021.08.12 =
 * Now post/archive shows modified/published date depending on how they are sorted in customizer.
 
