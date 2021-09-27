@@ -41,6 +41,12 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu
 
     public function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
     {
+        if (!$item->title) $item->title = get_the_title($item->ID);
+        if (!$item->url) $item->url = get_the_permalink($item->ID);
+        if (gettype($args) === 'array') $args = self::array_to_object($args);
+        $args->before = empty($args->before) ? '' : $args->before;
+        $args->after = empty($args->after) ? '' : $args->after;
+
         $indent = ($depth) ? str_repeat("\t", $depth) : '';
 
         /**
@@ -178,46 +184,68 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu
      */
     public static function fallback($args)
     {
-        if (current_user_can('manage_options')) {
+        extract($args);
+        $fb_output = null;
+        if ($container) {
+            $fb_output = '<' . $container;
 
-            extract($args);
-
-            $fb_output = null;
-
-            if ($container) {
-                $fb_output = '<' . $container;
-
-                if ($container_id) {
-                    $fb_output .= ' id="' . $container_id . '"';
-                }
-
-                if ($container_class) {
-                    $fb_output .= ' class="' . $container_class . '"';
-                }
-
-                $fb_output .= '>';
+            if ($container_id) {
+                $fb_output .= ' id="' . $container_id . '"';
             }
 
-            $fb_output .= '<ul role="menu"';
-
-            if ($menu_id) {
-                $fb_output .= ' id="' . $menu_id . '"';
-            }
-
-            if ($menu_class) {
-                $fb_output .= ' class="' . $menu_class . '"';
+            if ($container_class) {
+                $fb_output .= ' class="' . $container_class . '"';
             }
 
             $fb_output .= '>';
+        }
+
+        $fb_output .= '<ul role="menu"';
+
+        if ($menu_id) {
+            $fb_output .= ' id="' . $menu_id . '"';
+        }
+
+        if ($menu_class) {
+            $fb_output .= ' class="' . $menu_class . '"';
+        }
+        $fb_output .= '>';
+
+        if (current_user_can('manage_options')) {
             $fb_output .= '<li class="nav-item menu-item"><a href="' . get_home_url() . '">' . __("Home", "attire") . '</a></li>';
             $fb_output .= '<li class="nav-item menu-item"><a href="' . admin_url('nav-menus.php') . '">' . __("Add a menu", "attire") . '</a></li>';
-            $fb_output .= '</ul>';
+        } else {
 
-            if ($container) {
-                $fb_output .= '</' . $container . '>';
-            }
-
-            echo $fb_output;
+            $fb_output .= wp_list_pages(
+                [
+                    'echo' => false,
+                    'title_li' => '',
+                    'depth' => 0,
+                    'walker' => new wp_bootstrap_navwalker()
+                ]
+            );
         }
+
+        $fb_output .= '</ul>';
+
+        if ($container) {
+            $fb_output .= '</' . $container . '>';
+        }
+        echo $fb_output;
+    }
+
+    function array_to_object($array)
+    {
+        $obj = new stdClass;
+        foreach ($array as $k => $v) {
+            if (strlen($k)) {
+                if (is_array($v)) {
+                    $obj->{$k} = self::array_to_object($v); //RECURSION
+                } else {
+                    $obj->{$k} = $v;
+                }
+            }
+        }
+        return $obj;
     }
 }

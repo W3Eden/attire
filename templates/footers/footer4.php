@@ -42,7 +42,7 @@ $content_layout = $theme_mod['footer_content_layout_type'];
 						'container'      => false,
 						'depth'          => 1,
 						'menu_class'     => 'list-inline footermenu navbar',
-						'fallback_cb'    => 'wp_bootstrap_navwalker::fallback',
+						'fallback_cb'    => '',
 						'walker'         => new wp_bootstrap_navwalker()
 					) );
 					?>

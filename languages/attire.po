@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2021-06-24 15:37+0600\n"
-"PO-Revision-Date: 2021-06-24 15:37+0600\n"
+"POT-Creation-Date: 2021-09-27 08:34+0600\n"
+"PO-Revision-Date: 2021-09-27 08:34+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -321,13 +321,13 @@ msgstr ""
 
 #: admin/customizer-config.php:443 admin/customizer-config.php:454
 #: admin/customizer-config.php:465 admin/customizer-config.php:476
-#: libs/MetaBoxes.class.php:85
+#: libs/MetaBoxes.class.php:90
 msgid "Full-Width"
 msgstr ""
 
 #: admin/customizer-config.php:444 admin/customizer-config.php:455
 #: admin/customizer-config.php:466 admin/customizer-config.php:477
-#: libs/MetaBoxes.class.php:86
+#: libs/MetaBoxes.class.php:91
 msgid "Container"
 msgstr ""
 
@@ -519,7 +519,7 @@ msgstr ""
 
 #: admin/customizer-config.php:844 admin/customizer-config.php:892
 #: admin/customizer-config.php:939 admin/customizer-config.php:987
-#: libs/MetaBoxes.class.php:33
+#: libs/MetaBoxes.class.php:37
 msgid "Sidebar Layout"
 msgstr ""
 
@@ -766,34 +766,12 @@ msgstr ""
 msgid "Measurement is in pixel."
 msgstr ""
 
-#: admin/customizer.php:638
-msgid "Reset to default settings"
-msgstr ""
-
-#: admin/customizer.php:638
-msgid "Reset"
-msgstr ""
-
-#: admin/customizer.php:641
-msgid ""
-"Are you trying to reset Attire theme options to it's default settings."
-"\\nAction can not be reverted.\\nAre your sure?"
-msgstr ""
-
-#: admin/customizer.php:643
-msgid "Reseting..."
-msgstr ""
-
-#: admin/customizer.php:648
-msgid "Reset to Default"
-msgstr ""
-
 #: admin/metaboxes/attire-page-options.php:22
 msgid "Top Menu Style"
 msgstr ""
 
 #: admin/metaboxes/attire-page-options.php:24
-#: admin/metaboxes/attire-page-options.php:38 libs/MetaBoxes.class.php:84
+#: admin/metaboxes/attire-page-options.php:38 libs/MetaBoxes.class.php:89
 msgid "Theme Default"
 msgstr ""
 
@@ -845,11 +823,11 @@ msgstr ""
 msgid "More Details"
 msgstr ""
 
-#: content.php:40 single-post-meta.php:12
+#: content.php:50 single-post-meta.php:23
 msgid "On"
 msgstr ""
 
-#: content.php:45 single-post-meta.php:17
+#: content.php:55 single-post-meta.php:28
 msgid "By"
 msgstr ""
 
@@ -857,11 +835,11 @@ msgstr ""
 msgid "Subscribe"
 msgstr ""
 
-#: download-manager/email-to-download.php:54
+#: download-manager/email-to-download.php:50
 msgid "Please enter a valid email address"
 msgstr ""
 
-#: download-manager/email-to-download.php:54
+#: download-manager/email-to-download.php:50
 msgid "Email Address"
 msgstr ""
 
@@ -971,20 +949,20 @@ msgstr ""
 msgid "Post Comment"
 msgstr ""
 
-#: libs/MetaBoxes.class.php:26
+#: libs/MetaBoxes.class.php:30
 msgid "Page Width"
 msgstr ""
 
-#: libs/MetaBoxes.class.php:40
+#: libs/MetaBoxes.class.php:44
 msgid "Header & Footer"
 msgstr ""
 
-#: libs/wp_bootstrap_navwalker.php:212
+#: libs/wp_bootstrap_navwalker.php:215
 #: libs/wp_bootstrap_navwalker_mobile.php:211
 msgid "Home"
 msgstr ""
 
-#: libs/wp_bootstrap_navwalker.php:213
+#: libs/wp_bootstrap_navwalker.php:216
 #: libs/wp_bootstrap_navwalker_mobile.php:212
 msgid "Add a menu"
 msgstr ""
@@ -1002,21 +980,29 @@ msgstr ""
 msgid "%d results found"
 msgstr ""
 
-#: single-post-meta.php:22
+#: single-post-meta.php:33
 msgid "In"
 msgstr ""
 
-#: single-post-meta.php:28
+#: single-post-meta.php:39
 msgid "No comments"
 msgstr ""
 
-#: single-post-meta.php:28
+#: single-post-meta.php:39
 msgid "One comment"
 msgstr ""
 
-#: single-post-meta.php:28
+#: single-post-meta.php:39
 #, php-format
 msgid "% comments"
+msgstr ""
+
+#: single-wpdmpro.php:51
+msgid "Previous Item"
+msgstr ""
+
+#: single-wpdmpro.php:54
+msgid "Next Item"
 msgstr ""
 
 #: single.php:104

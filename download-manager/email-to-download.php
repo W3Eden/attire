@@ -6,9 +6,9 @@
  */
 if (!defined('ABSPATH')) die();
 
-    $idl = 0;
-    $form_id = "__wpdm_email_2download_{$params['id']}";
-    $form_button_label = isset($params['btn_label']) ? $params['btn_label'] : __( "Subscribe", "attire" );
+$idl = 0;
+$form_id = "__wpdm_email_2download_{$params['id']}";
+$form_button_label = isset($params['btn_label']) ? $params['btn_label'] : __( "Subscribe", "attire" );
 $section_id = "section_".uniqid();
 $color = isset($params['btn']) ? $params['btn'] : 'success';
 list($_color) = explode(" ", $color);
@@ -38,25 +38,21 @@ list($_color) = explode(" ", $color);
     }
 </style>
 <div id="<?php echo $section_id;?>" class="<?php echo $section_id;?>">
-<form id="<?php echo $form_id; ?>" class="<?php echo $form_id; ?>" method=post action="<?php echo esc_url(home_url('/')); ?>" style="font-weight:normal;font-size:12px;padding:0px;margin:0px">
+    <form id="<?php echo $form_id; ?>" class="<?php echo $form_id; ?>" method=post action="<?php echo esc_url(home_url('/')); ?>" style="font-weight:normal;font-size:12px;padding:0px;margin:0px">
 
         <div class="wpdm-email-to-download">
             <h3><?php echo isset($params['title']) ? $params['title'] : ''; ?></h3>
             <?php echo isset($params['intro']) ? $params['intro'] : ''; ?>
 
             <input type=hidden name="__wpdm_ID" value="<?php echo $params['id']; ?>" />
-            <input type=hidden name="dataType" value="json" />
-            <input type=hidden name="execute" value="wpdm_getlink" />
-            <input type=hidden name="verify" value="email" />
-            <input type=hidden name="action" value="wpdm_ajax_call" />
 
             <div class="media">
-                <div class="media-body"><input type="email" required="required"  oninvalid="this.setCustomValidity('<?php echo __( "Please enter a valid email address" , "attire" ) ?>')" class="form-control form-control-lg group-item email-lock-mail" placeholder="<?php _e("Email Address", "attire"); ; ?>" size="20" id="email_<?php echo $params['id']; ?>" name="email" /></div>
-                <div class="ml-3"><button id="wpdm_submit_<?php echo $params['id']; ?>" class="wpdm_submit btn btn-<?php echo $color; ?> btn-lg group-item"  type=submit><?php echo $form_button_label; ?></button></div>
+                <div class="media-body"><input type="email" style="padding: 0 20px;text-align: center;line-height: 48px;" required="required"  oninvalid="this.setCustomValidity('<?php echo __( "Please enter a valid email address" , "download-manager" ) ?>')" class="form-control form-control-lg group-item email-lock-mail" placeholder="<?php _e("Email Address", "download-manager"); ; ?>" size="20" id="email_<?php echo $params['id']; ?>" name="email" /></div>
+                <div class="ml-3"><button style="padding: 0 30px;line-height: 48px;color: #fff;" id="wpdm_submit_<?php echo $params['id']; ?>" class="wpdm_submit btn btn-<?php echo isset($params['btn']) ? $params['btn'] : 'success'; ?> btn-lg group-item"  type=submit><?php echo $form_button_label; ?></button></div>
             </div>
 
         </div>
-</form>
+    </form>
 </div>
 
 <script type="text/javascript">
@@ -78,11 +74,10 @@ list($_color) = explode(" ", $color);
             var nocache = new Date().getMilliseconds();
 
             $(this).ajaxSubmit({
-                url: '<?php echo esc_url(home_url('/?__='));?>' + nocache,
+                url: '<?php echo wpdm_rest_url('email-to-download'); ?>',
                 success:function(res){
-
                     WPDM.unblockUI('.<?php echo $section_id; ?>');
-                    WPDM.notify(res.msg, res.type);
+                    WPDM.notify(res.message, 'success', 'bottom-full', 5000);
                 }});
 
             return false;
@@ -90,4 +85,3 @@ list($_color) = explode(" ", $color);
     });
 
 </script>
-
