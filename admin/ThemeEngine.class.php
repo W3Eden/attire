@@ -407,6 +407,7 @@ class AttireThemeEngine
             $css .= '.back-to-top{display:none;}';
         }
 
+        $ph_bg_padding_top = AttireThemeEngine::NextGetOption('ph_bg_padding_top', 48);
 
         /**
          *
@@ -421,6 +422,7 @@ class AttireThemeEngine
         $css .= 'h4, h4 a{font-size:' . intval($theme_mod['heading4_font_size_mobile']) . 'px;}';
         $css .= 'h5, h5 a{font-size:' . intval($theme_mod['heading4_font_size_mobile'] - 2) . 'px;}';
         $css .= 'h6, h6 a{font-size:' . intval($theme_mod['heading4_font_size_mobile'] - 4) . 'px;}';
+        $css .= '.page_header_wrap{padding-top:max(' . $ph_bg_padding_top . 'px,50px);}';
         $css .= '.attire-content p, .attire-post-and-comments,.attire-post-and-comments p,.attire-post-and-comments article,.attire-post-and-comments ul,.attire-post-and-comments ol, 
 		.attire-post-and-comments table, .attire-post-and-comments blockquote, .attire-post-and-comments pre { font-size:' . intval($theme_mod["body_font_size_mobile"]) . 'px; }';
         $css .= '.widget, .widget li, .widget p , .widget a {font-size:' . intval($theme_mod['widget_content_font_size_mobile']) . 'px;}';
@@ -443,6 +445,7 @@ class AttireThemeEngine
         $css .= 'h4, h4 a{font-size:' . intval($theme_mod['heading4_font_size_tablet']) . 'px;}';
         $css .= 'h5, h5 a{font-size:' . intval($theme_mod['heading4_font_size_tablet'] - 2) . 'px;}';
         $css .= 'h6, h6 a{font-size:' . intval($theme_mod['heading4_font_size_tablet'] - 4) . 'px;}';
+        $css .= '.page_header_wrap{padding-top:max(' . $ph_bg_padding_top . 'px,50px);}';
         $css .= '.attire-content p, .attire-post-and-comments,.attire-post-and-comments p,.attire-post-and-comments article,.attire-post-and-comments ul,.attire-post-and-comments ol, 
 		.attire-post-and-comments table, .attire-post-and-comments blockquote, .attire-post-and-comments pre { font-size:' . intval($theme_mod["body_font_size_tablet"]) . 'px;}';
         $css .= '.widget, .widget li, .widget p {font-size:' . intval($theme_mod['widget_content_font_size_tablet']) . 'px;}';

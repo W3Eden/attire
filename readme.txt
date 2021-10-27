@@ -19,6 +19,9 @@ Attire is a fast, mobile responsive, highly customizable, SEO-friendly multipurp
 
 == Changelog ==
 
+= 1.8.5 - 2021.10.05 =
+* CSS optimizations.
+
 = 1.8.4 - 2021.09.27 =
 * Top menu set to list all pages if no menu was selected.
 * WPDM email-to-download template updated.
