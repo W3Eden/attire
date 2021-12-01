@@ -19,6 +19,9 @@ Attire is a fast, mobile responsive, highly customizable, SEO-friendly multipurp
 
 == Changelog ==
 
+= 1.8.6 - 2021.12.01 =
+* Customizer visual adjustments
+
 = 1.8.5 - 2021.10.05 =
 * CSS optimizations.
 
