@@ -409,6 +409,7 @@ class Attire
             'attire_back_to_top_visibility' => 'show',
             'attire_back_to_top_location' => 'right',
             'attire_nav_behavior' => 'sticky',
+            'attire_sticky_nav_height' => 60,
 
             'site_logo_height' => '32',
             'site_logo_footer_height' => '32'

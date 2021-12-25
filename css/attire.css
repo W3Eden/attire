@@ -1104,6 +1104,19 @@ header .widget-search-form {
     color: #fff !important;
 }
 
+.default-menu {
+    width: 100%;
+    min-height: 50px;
+    /*max-height: 150px;*/
+}
+
+.default-logo img {
+    -webkit-transition: height .5s ease, max-height .5s ease, visibility 1s ease;
+    -moz-transition: height .5s ease, max-height .5s ease, visibility 1s ease;
+    -o-transition: height .5s ease, max-height 1s ease, visibility 1s ease;
+    transition: height .5s ease, max-height .5s ease, visibility 1s ease;
+}
+
 .default-menu.navbar-light .navbar-toggler {
     border-radius: 0;
     border-width: 0;
@@ -1738,6 +1751,7 @@ a.footer-logo {
 .back-to-top.on-left {
     left: 22px !important;
 }
+
 .back-to-top:not(.on-left) {
     right: 22px !important;
 }

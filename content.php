@@ -49,7 +49,7 @@ if (strpos($sort_by, 'date') !== false) {
                     <div class="col-md">
                         <span><?php _e('On', 'attire'); ?></span>
                         <span class="black bold"><a
-                                    href="<?php echo get_day_link($archive_year, $archive_month, $archive_day); ?>"><?php echo $date_to_show; ?></a></span>
+                                    href="<?php the_permalink(); ?>"><?php echo $date_to_show; ?></a></span>
                     </div>
                     <div class="col-md text-md-right">
                         <span><?php _e('By', 'attire'); ?></span>

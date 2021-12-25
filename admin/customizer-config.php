@@ -501,6 +501,18 @@ $attire_header_general_settings = [
             'static' => __('Static', 'attire')
         ],
     ],
+    'attire_sticky_nav_height' => [
+	    'label' => __('Sticky Menu Height', 'attire'),
+	    'transport' => 'postMessage',
+	    'type' => 'range',
+	    'section' => 'attire_header_general_settings',
+	    'default' => 60,
+	    'input_attrs' => [
+		    'min' => 30,
+		    'max' => 300,
+		    'step' => 1
+	    ]
+    ]
 ];
 $attire_back_to_top = [
     'attire_back_to_top_visibility' => [
