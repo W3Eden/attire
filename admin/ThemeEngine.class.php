@@ -411,16 +411,24 @@ class AttireThemeEngine
 
         /**
          *
-         * Sticky header height
+         * Header normal/sticky height
          *
          */
+	    $logo_height = $theme_mod['site_logo_height'] ? intval($theme_mod['site_logo_height']) : 60;
+
 	    if ( isset( $theme_mod['attire_sticky_nav_height'] ) && ( $theme_mod['attire_nav_behavior'] === 'sticky' ) ) {
 	        $sn_height = $theme_mod['attire_sticky_nav_height'] ?? 50;
 	        $css       .= 'nav.stickable.fixed-top{ min-height:' . intval( $sn_height ) . 'px; }';
-	        $css       .= 'nav.stickable.fixed-top .site-logo img{ max-height:' . intval( $sn_height ) . 'px!important; }';
+	        if ($logo_height>$sn_height) {
+		        $css .= 'nav.stickable.fixed-top .site-logo img{ max-height:' . intval( $sn_height ) . 'px!important; }';
+	        }
         }
-
-        /**
+	    $nn_height = $theme_mod['attire_nav_height'] ?? 50;
+	    $css       .= 'nav{ min-height:' . intval( $nn_height ) . 'px; }';
+	    if ($logo_height>$nn_height) {
+		    $css       .= '.site-logo img{ max-height:' . intval( $nn_height ) . 'px!important; }';
+	    }
+	    /**
          *
          * Responsive css Mobile
          *

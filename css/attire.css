@@ -1110,7 +1110,7 @@ header .widget-search-form {
     -o-transition: min-height .5s ease, max-height 1s ease, visibility 1s ease;
     transition: min-height .5s ease, max-height .5s ease, visibility 1s ease;
     width: 100%;
-    min-height: 50px;
+    /*min-height: 50px;*/
     /*max-height: 150px;*/
 }
 

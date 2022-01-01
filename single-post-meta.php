@@ -21,8 +21,7 @@ if (strpos($sort_by, 'date')!==false) {
     <ul class="meta-list">
         <li>
             <i class="fa fa-calendar mr-2"></i><span><?php echo __('On', 'attire'); ?></span>
-            <span class="black bold"><a
-                        href="<?php echo get_day_link($archive_year, $archive_month, $archive_day); ?>"><?php echo $date_to_show; ?></a></span>
+            <span class="black bold"><?php echo $date_to_show; ?></span>
         </li>
         <li>
             <i class="fa fa-user-circle mr-2"></i><span><?php echo __('By', 'attire'); ?></span>
