@@ -4,6 +4,7 @@ jQuery(function ($) {
 
     var top = 0;
     var height = 0;
+    var sticky_height = 0;
     if ($('.default-menu').length) {
         top = $('.default-menu').offset().top;
         height = $('.default-menu').height();
@@ -15,15 +16,20 @@ jQuery(function ($) {
         var topspace = 0;
         if ($('.admin-bar').length)
             topspace = 30;
+        sticky_height = $('.stickable').height();
 
         var sticky = $('.stickable')[0].offsetTop;
         window.onscroll = function () {
-            if (window.pageYOffset > sticky) {
+            if (window.scrollY > sticky) {
                 $('nav.stickable').addClass("fixed-top");
                 $('#attire-content').css("margin-top", height + 'px');
+                $('.attire-content').css('transition', 'margin 0s ease-in')
             } else {
                 $('nav.stickable').removeClass("fixed-top");
                 $('#attire-content').css("margin-top", 0);
+                if (sticky_height !== height) // do the transition only if sticky menu has different height than the default menu
+                    $('.attire-content').css('transition', 'margin .5s ease-in')
+
             }
         };
 

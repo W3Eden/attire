@@ -37,7 +37,7 @@ get_header(); ?>
                     <div class="card">
                         <img class="card-img-top"
                              src="<?php echo esc_url(get_avatar_url(get_the_author_meta('user_email'), array('size' => 300))); ?>"
-                             alt="<?php esc_attr_e('Author avatar', 'attire'); ?>">
+                             alt="<?php _e('Author avatar', 'attire'); ?>">
 
                         <div class="card-footer text-muted">
                             <?php echo esc_html(get_the_author_meta('display_name')); ?>

@@ -297,6 +297,7 @@
             }
         });
     });
+
     wp.customize('attire_options[attire_back_to_top_location]', function (value) {
         value.bind(function (newValue) {
             if (newValue === 'left') {
@@ -317,6 +318,14 @@
             }
         });
     });
+
+
+    /**
+     *
+     * NAVIGATION STYLE -> Nav normal/sticky height
+     */
+    setCss('attire_sticky_nav_height', 'nav.stickable.fixed-top', 'min-height');
+    setCss('attire_nav_height', 'nav.default-menu', 'min-height');
 
     /**
      *

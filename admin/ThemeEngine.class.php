@@ -196,7 +196,7 @@ class AttireThemeEngine
         $css = "";
 
 
-        $ph_bg_img = $ph_bg_img ? $ph_bg_img : get_header_image();
+        $ph_bg_img = $ph_bg_img ?: get_header_image();
         $ph_bg_color = AttireThemeEngine::NextGetOption('ph_bg_color', '');
         $ph_text_color = AttireThemeEngine::NextGetOption('ph_text_color', '');
         $ph_text_align = AttireThemeEngine::NextGetOption('ph_text_align', 'center');
@@ -417,16 +417,16 @@ class AttireThemeEngine
 	    $logo_height = $theme_mod['site_logo_height'] ? intval($theme_mod['site_logo_height']) : 60;
 
 	    if ( isset( $theme_mod['attire_sticky_nav_height'] ) && ( $theme_mod['attire_nav_behavior'] === 'sticky' ) ) {
-	        $sn_height = $theme_mod['attire_sticky_nav_height'] ?? 50;
+	        $sn_height = isset( $theme_mod['attire_sticky_nav_height'] ) ? $theme_mod['attire_sticky_nav_height'] : 50;
 	        $css       .= 'nav.stickable.fixed-top{ min-height:' . intval( $sn_height ) . 'px; }';
 	        if ($logo_height>$sn_height) {
-		        $css .= 'nav.stickable.fixed-top .site-logo img{ max-height:' . intval( $sn_height ) . 'px!important; }';
+		        $css .= 'nav.stickable.fixed-top .site-logo img{ height:'.$logo_height.'px;max-height:' . intval( $sn_height ) . 'px!important; }';
 	        }
         }
-	    $nn_height = $theme_mod['attire_nav_height'] ?? 50;
-	    $css       .= 'nav{ min-height:' . intval( $nn_height ) . 'px; }';
+	    $nn_height = isset( $theme_mod['attire_nav_height'] ) ? $theme_mod['attire_nav_height'] : 50;
+	    $css       .= 'nav.default-menu{ min-height:' . intval( $nn_height ) . 'px; }';
 	    if ($logo_height>$nn_height) {
-		    $css       .= '.site-logo img{ max-height:' . intval( $nn_height ) . 'px!important; }';
+		    $css       .= '.site-logo img{ height:'.$logo_height.'px;max-height:' . intval( $nn_height ) . 'px!important; }';
 	    }
 	    /**
          *
@@ -1013,25 +1013,32 @@ class AttireThemeEngine
     public static function PageHeaderStyle()
     {
 
-        global $post;
-        $title = '';
-        if (is_home()) {
-            $post_id = get_option('page_for_posts');
-            $title = get_the_title($post_id);
-        } elseif (is_archive()) {
-            $title = is_post_type_archive() ? post_type_archive_title('', false) : single_term_title('', false);
-        } elseif (is_search()) {
-            $title = sprintf(__('Search results for', 'attire') . ' %s', "“" . esc_attr(get_query_var('s') . "”"));
-        } elseif ($post) {
-            $post_id = $post->ID;
-            $title = get_the_title($post_id);
-        }
-        $show_breadcrumbs = (int)AttireThemeEngine::NextGetOption('ph_breadcrumb', true);
+	    global $post;
+	    $title = '';
+        // don't show page header if the front page is the blog page
+	    if ( is_home() && is_front_page() ) return;
+
+        if  ( is_home() ) {
+		    $post_id = get_option( 'page_for_posts' );
+		    $title   = get_the_title( $post_id );
+	    } elseif ( is_archive() ) {
+		    $title = is_post_type_archive() ? post_type_archive_title( '', false ) : single_term_title( '', false );
+		    if ( is_author() ) {
+			    $auth_id = $post->post_author;
+			    $title   = get_the_author_meta( 'display_name', $auth_id );
+		    }
+	    } elseif ( is_search() ) {
+		    $title = sprintf( __( 'Search results for', 'attire' ) . ' %s', "“" . esc_attr( get_query_var( 's' ) . "”" ) );
+	    } elseif ( $post ) {
+		    $post_id = $post->ID;
+		    $title   = get_the_title( $post_id );
+	    }
+	    $show_breadcrumbs = (int) AttireThemeEngine::NextGetOption( 'ph_breadcrumb', true );
         ?>
 
         <div class="page_header_inner container">
             <h1 id="cph_title"><?php echo esc_html($title); ?></h1>
-            <?php if ($show_breadcrumbs === 1) { ?>
+	        <?php if ( $show_breadcrumbs === 1 && ! is_author() ) { ?>
                 <div id="breadcrumbs">
                     <?php if (function_exists('rank_math_the_breadcrumbs')) {
                         rank_math_the_breadcrumbs(); ?>

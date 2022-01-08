@@ -74,7 +74,7 @@ $navigation_buttons = $navigation_buttons === 'show' ? 'canshow' : 'noshow';
                                     <div class="media">
                                         <img class="mr-3 mb-3 circle author-image"
                                              src="<?php echo esc_url(get_avatar_url(get_the_author_meta('ID'), array('size' => 128))); ?>"
-                                             alt="<?php esc_attr_e('Author Avatar', 'attire') ?>">
+                                             alt="<?php _e('Author Avatar', 'attire') ?>">
                                         <div class="media-body">
                                             <h3 class="author-name mt-0"><?php echo esc_html(get_the_author_meta('display_name')); ?></h3>
                                             <?php echo wp_kses_post(get_the_author_meta('description')); ?>

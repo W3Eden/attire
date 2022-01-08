@@ -81,7 +81,7 @@ if ( isset( $theme_mod['attire_nav_behavior'] ) && $theme_mod['attire_nav_behavi
             <div class="<?php echo esc_attr( $content_layout ); ?> header-contents">
                 <button class="col-lg-1 navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                         data-target="#header1_menu" aria-controls="header1_menu" aria-expanded="false"
-                        aria-label="<?php esc_attr_e( 'Toggle navigation', 'attire' ); ?>">
+                        aria-label="<?php _e( 'Toggle navigation', 'attire' ); ?>">
                     <span class="mobile-menu-toggle"><i class="fas fa-bars " aria-hidden="true"></i></span>
                 </button>
 

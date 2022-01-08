@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <div class="input-group">
                     <input type="search" required="required"
                            class="search-field form-control"
-                           value="" name="s" title="<?php esc_attr_e( 'Search for:', 'attire' ); ?>"/>
+                           value="" name="s" title="<?php _e( 'Search for:', 'attire' ); ?>"/>
 
                     <span class="input-group-addon" id="mobile-search-icon">
                         <button type="submit"><i class="fas fa-search"></i></button>

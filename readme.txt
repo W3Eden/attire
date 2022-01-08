@@ -19,9 +19,13 @@ Attire is a fast, mobile responsive, highly customizable, SEO-friendly multipurp
 
 == Changelog ==
 
+= 1.8.9 - 2022.01.08 =
+* Live update for new options in customization.
+* General optimizations and CSS adjustments.
+
 = 1.8.8 - 2022.01.01 =
-* Nav height adjustment options
-* Moved all navigation menu customisation options under one section for convenience.
+* Nav height adjustment options.
+* Moved all navigation menu customization options under one section for convenience.
 
 = 1.8.7 - 2021.12.25 =
 * Sticky nav height can be adjusted now

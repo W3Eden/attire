@@ -26,13 +26,13 @@ if (isset($theme_mod['attire_nav_behavior']) && $theme_mod['attire_nav_behavior'
                                 <?php
                                 endif; ?>
                                 <?php if (isset($theme_mod['contact_email']) && $theme_mod['contact_email'] !== '') { ?>
-                                    <li class="list-inline-item" title="<?php esc_attr_e('Email', 'attire'); ?>">
+                                    <li class="list-inline-item" title="<?php _e('Email', 'attire'); ?>">
                                         <i class="far fa-paper-plane text-info"></i><span
                                                 class="hidden-xs-up"><?php echo esc_html($theme_mod['contact_email']); ?></span>
                                     </li>
                                 <?php }
                                 if (isset($theme_mod['contact_phone']) && $theme_mod['contact_phone'] !== '') { ?>
-                                    <li class="list-inline-item" title="<?php esc_attr_e('Hot Line', 'attire'); ?>"><i
+                                    <li class="list-inline-item" title="<?php _e('Hot Line', 'attire'); ?>"><i
                                                 class="fas fa-phone text-primary"></i><span
                                                 class="hidden-xs-up"><?php echo esc_html($theme_mod['contact_phone']); ?></span>
                                     </li>
@@ -172,7 +172,7 @@ if (isset($theme_mod['attire_nav_behavior']) && $theme_mod['attire_nav_behavior'
                 <div class="<?php echo esc_attr($content_layout); ?> header-contents">
                     <button class="col-lg-1 navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                             data-target="#header1_menu" aria-controls="header1_menu" aria-expanded="false"
-                            aria-label="<?php esc_attr_e('Toggle navigation', 'attire'); ?>">
+                            aria-label="<?php _e('Toggle navigation', 'attire'); ?>">
                         <span class="mobile-menu-toggle"><i class="fas fa-bars " aria-hidden="true"></i></span>
                     </button>
 

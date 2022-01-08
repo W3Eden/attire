@@ -188,7 +188,7 @@ class Attire
                         <div class="media">
                             <img class="align-self-start mr-3 circle pull-left"
                                  src="<?php echo esc_url(get_avatar_url($comment, array('size' => '64'))); ?>"
-                                 alt="<?php esc_attr_e('Commenter\'s Avatar', 'attire'); ?>">
+                                 alt="<?php _e('Commenter\'s Avatar', 'attire'); ?>">
                             <!-- end .avatar-box -->
                             <div class="media-body">
                                 <b><?php printf('<span class="fn">%s</span>', get_comment_author_link()) ?></b>
@@ -295,7 +295,7 @@ class Attire
             'archive_page_rs_width' => '3',
 
             'nav_header' => 'header-1',
-            'footer_style' => 'footer4',
+            'footer_style' => 'footer2',
 
             'main_layout_type' => 'container-fluid',
             'main_layout_width' => '1300',
@@ -308,21 +308,21 @@ class Attire
             'heading_font_size_desktop' => '25',
             'heading_font_size_tablet' => '25',
             'heading_font_size_mobile' => '25',
-            'heading2_font_size_desktop' => '21',
-            'heading2_font_size_tablet' => '21',
-            'heading2_font_size_mobile' => '21',
-            'heading3_font_size_desktop' => '17',
-            'heading3_font_size_tablet' => '17',
-            'heading3_font_size_mobile' => '17',
-            'heading4_font_size_desktop' => '14',
-            'heading4_font_size_tablet' => '14',
-            'heading4_font_size_mobile' => '14',
+            'heading2_font_size_desktop' => '22',
+            'heading2_font_size_tablet' => '22',
+            'heading2_font_size_mobile' => '22',
+            'heading3_font_size_desktop' => '20',
+            'heading3_font_size_tablet' => '20',
+            'heading3_font_size_mobile' => '20',
+            'heading4_font_size_desktop' => '18',
+            'heading4_font_size_tablet' => '18',
+            'heading4_font_size_mobile' => '18',
             'heading_font_weight' => '700',
 
             'body_font' => 'Rubik:400,400i,500,700',
-            'body_font_size_desktop' => '14',
-            'body_font_size_tablet' => '14',
-            'body_font_size_mobile' => '14',
+            'body_font_size_desktop' => '15',
+            'body_font_size_tablet' => '15',
+            'body_font_size_mobile' => '15',
             'body_font_weight' => '400',
 
             'button_font' => 'Sen:400,700,800',
@@ -335,21 +335,21 @@ class Attire
             'widget_title_font_weight' => '500',
 
             'widget_content_font' => 'Rubik:400,400i,500,700',
-            'widget_content_font_size_desktop' => '13',
-            'widget_content_font_size_tablet' => '13',
-            'widget_content_font_size_mobile' => '13',
+            'widget_content_font_size_desktop' => '15',
+            'widget_content_font_size_tablet' => '15',
+            'widget_content_font_size_mobile' => '15',
             'widget_content_font_weight' => '400',
 
             'menu_top_font' => 'Rubik:400,400i,500,700',
-            'menu_top_font_size_desktop' => '13',
-            'menu_top_font_size_tablet' => '13',
-            'menu_top_font_size_mobile' => '13',
+            'menu_top_font_size_desktop' => '15',
+            'menu_top_font_size_tablet' => '15',
+            'menu_top_font_size_mobile' => '15',
             'menu_top_font_weight' => '400',
 
             'menu_dropdown_font' => 'Rubik:400,400i,500,700',
-            'menu_dropdown_font_size_desktop' => '13',
-            'menu_dropdown_font_size_tablet' => '13',
-            'menu_dropdown_font_size_mobile' => '13',
+            'menu_dropdown_font_size_desktop' => '15',
+            'menu_dropdown_font_size_tablet' => '15',
+            'menu_dropdown_font_size_mobile' => '15',
             'menu_dropdown_font_weight' => '400',
 
             'site_header_bg_color_left' => '#fafafa',
@@ -409,7 +409,7 @@ class Attire
             'attire_back_to_top_visibility' => 'show',
             'attire_back_to_top_location' => 'right',
             'attire_nav_behavior' => 'sticky',
-            'attire_sticky_nav_height' => 60,
+            'attire_sticky_nav_height' => 50,
             'attire_nav_height' => 50,
 
             'site_logo_height' => '32',
