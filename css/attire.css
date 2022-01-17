@@ -918,11 +918,6 @@ header .widget-search-form {
     padding-top: 10px;
 }
 
-.site-logo {
-    padding-bottom: 0 !important;
-    padding-top: 0 !important;
-}
-
 #mobile-search-icon {
     padding-left: 0;
 }
@@ -1102,21 +1097,15 @@ header .widget-search-form {
     color: #fff !important;
 }
 
-.default-menu {
-    -webkit-transition: min-height .5s ease, max-height .5s ease, visibility 1s ease;
-    -moz-transition: min-height .5s ease, max-height .5s ease, visibility 1s ease;
-    -o-transition: min-height .5s ease, max-height 1s ease, visibility 1s ease;
-    transition: min-height .5s ease, max-height .5s ease, visibility 1s ease;
-    width: 100%;
-    /*min-height: 50px;*/
-    /*max-height: 150px;*/
+.default-menu, .default-logo img {
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
 }
 
-.default-logo img {
-    -webkit-transition: height .5s ease, max-height .5s ease, visibility 1s ease;
-    -moz-transition: height .5s ease, max-height .5s ease, visibility 1s ease;
-    -o-transition: height .5s ease, max-height .5s ease, visibility 1s ease;
-    transition: height .5s ease, max-height .5s ease, visibility 1s ease;
+.default-menu {
+    width: 100%;
 }
 
 /*.attire-content {*/
@@ -1583,9 +1572,8 @@ a.footer-logo {
 
 /* Post comments css*/
 
-#comments ul,
-#comments ol {
-    /*list-style: none;*/
+.commentlist {
+    list-style: none;
 }
 
 .mx_comments #comments,
@@ -2254,29 +2242,29 @@ nav.long-nav.navbar.navbar-expand-lg.navbar-light.navbar-dark.default-menu.justi
 }
 
 .w3eden .media.well.link-template-widget {
-    background: rgba(0, 0, 0, 0.07) !important;
+    background: rgba(0, 0, 0, 0.07);
 }
 
 #gallery-1 .gallery-item {
-    margin: 0 10px 10px 0 !important;
-    width: calc(33.33% - 10px) !important;
+    margin: 0 10px 10px 0;
+    width: calc(33.33% - 10px);
 }
 
 .gallery-item img {
-    border: 0 !important;
+    border: 0;
     border-radius: 3px;
 }
 
 article.post .card .card-image {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .wp-block-button:not(.is-style-outline) .wp-block-button__link {
-    color: #ffffff !important;
+    color: #ffffff;
 }
 
 .wp-block-cover p:not(.has-text-color) {
-    color: white !important;
+    color: white;
 }
 
 .wp-block-group.has-background {

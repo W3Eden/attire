@@ -345,7 +345,19 @@ $attire_logo_options         = [
 		'transport'   => 'postMessage',
 		'type'        => 'range',
 		'section'     => 'attire_logo_options',
-		'default'     => 80,
+		'default'     => 60,
+		'input_attrs' => [
+			'min'  => 10,
+			'max'  => 200,
+			'step' => 1
+		]
+	],
+	'sticky_logo_height'             => [
+		'label'       => __( 'Sticky Menu Logo Height (Shouldn\'t be bigger than `Sticky Menu Height`)', 'attire' ),
+		'transport'   => 'postMessage',
+		'type'        => 'range',
+		'section'     => 'attire_logo_options',
+		'default'     => 60,
 		'input_attrs' => [
 			'min'  => 10,
 			'max'  => 200,

@@ -19,6 +19,9 @@ Attire is a fast, mobile responsive, highly customizable, SEO-friendly multipurp
 
 == Changelog ==
 
+= 1.9.0 - 2022.01.17 =
+* Logo Size can now be adjusted for Sticky Menu
+
 = 1.8.9 - 2022.01.08 =
 * Live update for new options in customization.
 * General optimizations and CSS adjustments.

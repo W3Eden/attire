@@ -414,20 +414,13 @@ class AttireThemeEngine
          * Header normal/sticky height
          *
          */
-	    $logo_height = $theme_mod['site_logo_height'] ? intval($theme_mod['site_logo_height']) : 60;
 
 	    if ( isset( $theme_mod['attire_sticky_nav_height'] ) && ( $theme_mod['attire_nav_behavior'] === 'sticky' ) ) {
-	        $sn_height = isset( $theme_mod['attire_sticky_nav_height'] ) ? $theme_mod['attire_sticky_nav_height'] : 50;
-	        $css       .= 'nav.stickable.fixed-top{ min-height:' . intval( $sn_height ) . 'px; }';
-	        if ($logo_height>$sn_height) {
-		        $css .= 'nav.stickable.fixed-top .site-logo img{ height:'.$logo_height.'px;max-height:' . intval( $sn_height ) . 'px!important; }';
-	        }
+	        $css       .= 'nav.stickable.fixed-top{ height:' . intval( $theme_mod['attire_sticky_nav_height'] ) . 'px; }';
         }
 	    $nn_height = isset( $theme_mod['attire_nav_height'] ) ? $theme_mod['attire_nav_height'] : 50;
-	    $css       .= 'nav.default-menu{ min-height:' . intval( $nn_height ) . 'px; }';
-	    if ($logo_height>$nn_height) {
-		    $css       .= '.site-logo img{ height:'.$logo_height.'px;max-height:' . intval( $nn_height ) . 'px!important; }';
-	    }
+	    $css       .= 'nav.default-menu{ height:' . intval( $nn_height ) . 'px; }';
+
 	    /**
          *
          * Responsive css Mobile
@@ -584,10 +577,12 @@ class AttireThemeEngine
          *
          */
         $logo_height = $theme_mod['site_logo_height'] ? intval($theme_mod['site_logo_height']) : 60;
+        $sticky_logo_height = $theme_mod['sticky_logo_height'] ? intval($theme_mod['sticky_logo_height']) : 60;
         $footer_logo_height = $theme_mod['site_logo_footer_height'] ? intval($theme_mod['site_logo_footer_height']) : 60;
 
-        $css .= ".site-logo img{max-height:{$logo_height}px;width:auto;}";
-        $css .= ".footer-logo img{max-height:{$footer_logo_height}px;width:auto;}";
+        $css .= ".site-logo img{height:{$logo_height}px;width:auto;}";
+	    $css .= 'nav.stickable.fixed-top .site-logo img{max-height:'. intval( $theme_mod['attire_sticky_nav_height'] ) .'px;height:' . $sticky_logo_height . 'px;width:auto;}';
+	    $css .= ".footer-logo img{height:{$footer_logo_height}px;width:auto;}";
 
 
         /**

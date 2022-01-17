@@ -412,7 +412,8 @@ class Attire
             'attire_sticky_nav_height' => 50,
             'attire_nav_height' => 50,
 
-            'site_logo_height' => '32',
+            'site_logo_height' => '60',
+            'sticky_logo_height' => '60',
             'site_logo_footer_height' => '32'
         );
 
