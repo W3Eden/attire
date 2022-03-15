@@ -384,7 +384,7 @@ class Attire
             'header_color' => '#333333',
             'body_color' => '#444444',
 
-            'widget_title_font_color' => '#ffffff',
+            'widget_title_font_color' => '#000000',
             'widget_content_font_color' => '#444444',
             'widget_bg_color' => '#ffffff',
 

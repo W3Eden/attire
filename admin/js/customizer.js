@@ -262,9 +262,9 @@
      *
      */
 
-    setCss('widget_bg_color', '.sidebar-area', 'background-color');
-    setCss('widget_content_font_color', '.sidebar-area .widget, *.widget li, *.widget p', 'color');
-    setCss('widget_title_font_color', '.sidebar-area .widget .widget-title', 'color');
+    setCss('widget_bg_color', '.sidebar .widget', 'background');
+    setCss('widget_content_font_color', '.sidebar .widget, *.widget li, *.widget p', 'color');
+    setCss('widget_title_font_color', '.sidebar .widget h2, .sidebar .widget .wp-block-search__label', 'color');
 
     /**
      *
@@ -273,8 +273,8 @@
      */
     setCss('footer_widget_bg_color', '.footer-widgets-area', 'background-color');
     setCss('footer_widget_content_font_color', '.footer-widgets-area .widget *:not(.widget-title)', 'color');
-    setCss('footer_widget_title_font_color', '.footer-widgets-area .widget .widget-title', 'color');
-    setCss('footer_widget_title_font_color', '.footer-widgets-area .widget .widget-title', 'color');
+    setCss('footer_widget_title_font_color', '.footer-widgets-area .widget h2, .footer-widgets-area .widget .wp-block-search__label', 'color');
+    setCss('footer_widget_title_font_color', '.footer-widgets-area .widget h2, .footer-widgets-area .widget .wp-block-search__label', 'color');
 
     /**
      *
@@ -349,9 +349,9 @@
      * Typography -> Widget Fonts
      */
 
-    setFont('widget_title_font', '.widget .widget-title', 'font-family');
-    setCss('widget_title_font_size', '.widget .widget-title', 'font-size');
-    setCss('widget_title_font_weight', '.widget .widget-title', 'font-weight');
+    setFont('widget_title_font', '.widget h2, .widget .wp-block-search__label', 'font-family');
+    setCss('widget_title_font_size', '.widget h2, .widget .wp-block-search__label', 'font-size');
+    setCss('widget_title_font_weight', '.widget h2, .widget .wp-block-search__label', 'font-weight');
 
     setFont('widget_content_font', '.widget *:not(.widget-heading)', 'font-family');
     setCss('widget_content_font_size', '.widget *:not(.widget-heading)', 'font-size');

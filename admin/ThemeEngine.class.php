@@ -626,7 +626,17 @@ class AttireThemeEngine
         $css .= ".footer-div{ {$site_footer_bg}}";
 
 
-        /**
+
+	    /**
+	     *
+	     * Sidebar/Footer widget background
+	     *
+	     */
+	    $css .= ".footer-widgets-area {background-color : " . esc_attr($theme_mod['footer_widget_bg_color']) . "}";
+	    $css .= ".sidebar .widget {background-color : " . esc_attr($theme_mod['widget_bg_color']) . "}";
+
+
+	    /**
          *
          * Sidebar/Footer Widget Content css
          *
@@ -635,7 +645,8 @@ class AttireThemeEngine
         $widget_content_font_weight = intval($theme_mod['widget_content_font_weight']);
         $font_weight = $widget_content_font_weight != '' ? "font-weight:{$widget_content_font_weight};" : "";
         $font = esc_attr($theme_mod['widget_content_font']);
-        $color = "color:" . esc_attr($theme_mod['widget_content_font_color']);
+        $sidebar_widget_text_color = "color:" . esc_attr($theme_mod['widget_content_font_color']);
+        $footer_widget_text_color = "color:" . esc_attr($theme_mod['footer_widget_content_font_color']);
 
         if ($font != '') {
             $font_family = isset($fonts[$font]) && $fonts[$font]['family'] != '' ? "font-family:\"{$fonts[$font]['family']}\", {$fonts[$font]['category']};" : "";
@@ -643,8 +654,8 @@ class AttireThemeEngine
             $font_family = '';
         }
 
-        $css .= ".widget, .widget li, .widget p {{$font_family}{$font_weight}}";
-        $css .= ".attire-content .widget, .attire-content .widget li, .attire-content  .widget p {{$color}}";
+        $css .= ".sidebar .widget,.sidebar .widget li,.sidebar .widget p {{$font_family}{$font_weight}{$sidebar_widget_text_color}}";
+        $css .= ".footer-widgets .widget,.footer-widgets .widget li,.footer-widgets .widget p {{$footer_widget_text_color}}";
 
 
         /**
@@ -658,8 +669,7 @@ class AttireThemeEngine
         $font_weight = $widget_title_font_weight != '' ? "font-weight:{$widget_title_font_weight};" : "";
         $font = esc_attr($theme_mod['widget_title_font']);
         $color = "color:" . esc_attr($theme_mod['widget_title_font_color']);
-        $background = "background:" . esc_attr($theme_mod['main_nav_bg']);
-        $footer_background = "background:" . esc_attr($theme_mod['footer_nav_bg']);
+        $color_footer = "color:" . esc_attr($theme_mod['footer_widget_title_font_color']);
 
         if ($font != '') {
             $font_family = isset($fonts[$font]) && $fonts[$font]['family'] != '' ? "font-family:\"{$fonts[$font]['family']}\", {$fonts[$font]['category']};" : "";
@@ -668,8 +678,8 @@ class AttireThemeEngine
         }
 
         $css .= ".widget .widget-title {{$font_family}{$font_weight}}";
-        $css .= ".attire-content .widget .widget-title {{$color};{$background}}";
-        $css .= ".footer-widgets-area .widget .widget-title {{$footer_background}}";
+        $css .= ".sidebar .widget h2, .sidebar .widget .wp-block-search__label {{$color};}";
+        $css .= ".footer-widgets .widget h2, .footer-widgets .widget .wp-block-search__label {{$color_footer};}";
 //        $css .= ".sticky .card{{$color};{$background}}";
 //        $css .= ".sticky .card .card-body *{{$color} !important;}";
 
@@ -791,16 +801,6 @@ class AttireThemeEngine
 
         $footer_nav_dd_hover_text = 'color:' . esc_attr($theme_mod['footer_nav_dropdown_hover_font_color']);
         $css .= "footer .footermenu > .dropdown li:hover *{{$footer_nav_dd_hover_text};}";
-
-
-        /**
-         *
-         * Footer widget css
-         *
-         */
-        $css .= ".footer-widgets-area {background-color : " . esc_attr($theme_mod['footer_widget_bg_color']) . "}";
-        $css .= ".footer-widgets .widget-title, .footer-widgets-area .widget-heading {color : " . esc_attr($theme_mod['footer_widget_title_font_color']) . "}";
-        $css .= ".footer-widgets .widget *:not(.widget-title):not(input){color : " . esc_attr($theme_mod['footer_widget_content_font_color']) . "}";
 
         /**
          *

@@ -19,6 +19,9 @@ Attire is a fast, mobile responsive, highly customizable, SEO-friendly multipurp
 
 == Changelog ==
 
+= 1.9.1 - 2022.03.14 =
+* Sidebar and footer widget colors can now be adjusted properly.
+
 = 1.9.0 - 2022.01.17 =
 * Logo Size can now be adjusted for Sticky Menu
 
