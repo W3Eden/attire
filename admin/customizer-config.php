@@ -11,180 +11,150 @@ $attire_config = [
 
 $attire_panels = [
 	'attire_general_settings' => [
-		'title'       => __( 'General Settings', 'attire' ),
-		'description' => '',
-		'priority'    => 3
+		'title'    => __( 'General Settings', 'attire' ),
+		'priority' => 3
 	],
 	'attire_layouts'          => [
-		'title'       => __( 'Sidebar Layouts', 'attire' ),
-		'description' => '',
-		'priority'    => 4
+		'title'    => __( 'Sidebar Layouts', 'attire' ),
+		'priority' => 4
 	],
 	'attire_typography'       => [
-		'title'       => __( 'Typography', 'attire' ),
-		'description' => '',
-		'priority'    => 5
+		'title'    => __( 'Typography', 'attire' ),
+		'priority' => 5
 	],
 	'attire_color_panel'      => [
-		'title'       => __( 'Attire Colors', 'attire' ),
-		'description' => '',
-		'priority'    => 6
+		'title'    => __( 'Attire Colors', 'attire' ),
+		'priority' => 6
 	]
 ];
 
 $attire_sections = [
 	'attire_write_review'                 => [
-		'title'       => __( 'Support/Review', 'attire' ),
-		'description' => '',
-		'priority'    => 1
+		'title'    => __( 'Support/Review', 'attire' ),
+		'priority' => 1
 	],
 	'attire_header_color_options'         => [
-		'title'       => __( 'Header', 'attire' ),
-		'description' => '',
-		'panel'       => 'attire_color_panel',
-		'priority'    => 1
+		'title'    => __( 'Header', 'attire' ),
+		'panel'    => 'attire_color_panel',
+		'priority' => 1
 	],
 	'attire_blog_options'                 => [
-		'title'       => __( 'Blog', 'attire' ),
-		'description' => '',
-		'priority'    => 6
+		'title'    => __( 'Blog', 'attire' ),
+		'priority' => 6
 	],
 	'attire_footer_color_options'         => [
-		'title'       => __( 'Footer', 'attire' ),
-		'description' => '',
-		'panel'       => 'attire_color_panel',
-		'priority'    => 2
+		'title'    => __( 'Footer', 'attire' ),
+		'panel'    => 'attire_color_panel',
+		'priority' => 2
 	],
 	'attire_main_nav_color_options'       => [
-		'title'       => __( 'Main Menu', 'attire' ),
-		'description' => '',
-		'panel'       => 'attire_color_panel',
-		'priority'    => 3
+		'title'    => __( 'Main Menu', 'attire' ),
+		'panel'    => 'attire_color_panel',
+		'priority' => 3
 	],
 	'attire_footer_nav_color_options'     => [
-		'title'       => __( 'Footer Menu', 'attire' ),
-		'description' => '',
-		'panel'       => 'attire_color_panel',
-		'priority'    => 4
+		'title'    => __( 'Footer Menu', 'attire' ),
+		'panel'    => 'attire_color_panel',
+		'priority' => 4
 	],
 	'attire_body_color_options'           => [
-		'title'       => __( 'Body', 'attire' ),
-		'description' => '',
-		'panel'       => 'attire_color_panel',
-		'priority'    => 5
+		'title'    => __( 'Body', 'attire' ),
+		'panel'    => 'attire_color_panel',
+		'priority' => 5
 	],
 	'attire_sidebar_widget_color_options' => [
-		'title'       => __( 'Sidebar Widget', 'attire' ),
-		'description' => '',
-		'panel'       => 'attire_color_panel',
-		'priority'    => 6
+		'title'    => __( 'Sidebar Widget', 'attire' ),
+		'panel'    => 'attire_color_panel',
+		'priority' => 6
 	],
 	'attire_footer_widget_color_options'  => [
-		'title'       => __( 'Footer Widget', 'attire' ),
-		'description' => '',
-		'panel'       => 'attire_color_panel',
-		'priority'    => 3
+		'title'    => __( 'Footer Widget', 'attire' ),
+		'panel'    => 'attire_color_panel',
+		'priority' => 3
 	],
 	'attire_header_options'               => [
-		'title'       => __( 'Header Style', 'attire' ),
-		'description' => '',
-		'panel'       => '',
-		'priority'    => 3
+		'title'    => __( 'Header Style', 'attire' ),
+		'panel'    => '',
+		'priority' => 3
 	],
 	'attire_footer_options'               => [
-		'title'       => __( 'Footer Style', 'attire' ),
-		'description' => '',
-		'panel'       => '',
-		'priority'    => 3
+		'title'    => __( 'Footer Style', 'attire' ),
+		'panel'    => '',
+		'priority' => 3
 	],
 	'attire_logo_options'                 => [
-		'title'       => __( 'Logo', 'attire' ),
-		'description' => '',
-		'panel'       => 'attire_general_settings',
-		'priority'    => 120
+		'title'    => __( 'Logo', 'attire' ),
+		'panel'    => 'attire_general_settings',
+		'priority' => 120
 	],
-	'attire_footer_widget_number'         => [
-		'title'       => __( 'Footer Widgets', 'attire' ),
-		'description' => '',
-		'panel'       => 'attire_general_settings',
-		'priority'    => 120
-	],
+//	'attire_footer_widget_number'         => [
+//		'title'    => __( 'Footer Widgets', 'attire' ),
+//		'panel'    => 'attire_general_settings',
+//		'priority' => 120
+//	],
 	'attire_back_to_top'                  => [
-		'title'       => __( 'Back To Top', 'attire' ),
-		'description' => '',
-		'panel'       => 'attire_general_settings',
-		'priority'    => 120
+		'title'    => __( 'Back To Top', 'attire' ),
+		'panel'    => 'attire_general_settings',
+		'priority' => 120
 	],
 	'attire_layout_options'               => [
-		'title'       => __( 'Site Layout', 'attire' ),
-		'description' => '',
-		'priority'    => 3
+		'title'    => __( 'Site Layout', 'attire' ),
+		'priority' => 3
 	],
 	'attire_social'                       => [
-		'title'       => __( 'Social Networks', 'attire' ),
-		'description' => '',
-		'panel'       => 'attire_general_settings',
-		'priority'    => 120
+		'title'    => __( 'Social Networks', 'attire' ),
+		'panel'    => 'attire_general_settings',
+		'priority' => 120
 	],
 	'attire_contact'                      => [
-		'title'       => __( 'Contact Info', 'attire' ),
-		'description' => '',
-		'panel'       => 'attire_general_settings',
-		'priority'    => 120
+		'title'    => __( 'Contact Info', 'attire' ),
+		'panel'    => 'attire_general_settings',
+		'priority' => 120
 	],
 	'attire_copyright'                    => [
-		'title'       => __( 'Copyright Info', 'attire' ),
-		'description' => '',
-		'panel'       => 'attire_general_settings',
-		'priority'    => 120
+		'title'    => __( 'Copyright Info', 'attire' ),
+		'panel'    => 'attire_general_settings',
+		'priority' => 120
 	],
 	'attire_front_page_layout'            => [
-		'title'       => __( 'Blog Page Layout', 'attire' ),
-		'description' => '',
-		'panel'       => 'attire_layouts',
-		'priority'    => 120
+		'title'    => __( 'Blog Page Layout', 'attire' ),
+		'panel'    => 'attire_layouts',
+		'priority' => 120
 	],
 	'attire_default_post_layout'          => [
-		'title'       => __( 'Default Post Layout', 'attire' ),
-		'description' => '',
-		'panel'       => 'attire_layouts',
-		'priority'    => 120
+		'title'    => __( 'Default Post Layout', 'attire' ),
+		'panel'    => 'attire_layouts',
+		'priority' => 120
 	],
 	'attire_default_page_layout'          => [
-		'title'       => __( 'Default Page Layout', 'attire' ),
-		'description' => '',
-		'panel'       => 'attire_layouts',
-		'priority'    => 120
+		'title'    => __( 'Default Page Layout', 'attire' ),
+		'panel'    => 'attire_layouts',
+		'priority' => 120
 	],
 	'attire_archive_page_layout'          => [
-		'title'       => __( 'Archive Page Layout', 'attire' ),
-		'description' => '',
-		'panel'       => 'attire_layouts',
-		'priority'    => 120
+		'title'    => __( 'Archive Page Layout', 'attire' ),
+		'panel'    => 'attire_layouts',
+		'priority' => 120
 	],
 	'attire_generic_fonts'                => [
-		'title'       => __( 'Generic Fonts', 'attire' ),
-		'description' => '',
-		'panel'       => 'attire_typography',
-		'priority'    => 120
+		'title'    => __( 'Generic Fonts', 'attire' ),
+		'panel'    => 'attire_typography',
+		'priority' => 120
 	],
 	'attire_post_fonts'                   => [
-		'title'       => __( 'Post Fonts', 'attire' ),
-		'description' => '',
-		'panel'       => 'attire_typography',
-		'priority'    => 120
+		'title'    => __( 'Post Fonts', 'attire' ),
+		'panel'    => 'attire_typography',
+		'priority' => 120
 	],
 	'attire_widget_fonts'                 => [
-		'title'       => __( 'Widget Fonts', 'attire' ),
-		'description' => '',
-		'panel'       => 'attire_typography',
-		'priority'    => 120
+		'title'    => __( 'Widget Fonts', 'attire' ),
+		'panel'    => 'attire_typography',
+		'priority' => 120
 	],
 	'attire_menu_fonts'                   => [
-		'title'       => __( 'Menu Fonts', 'attire' ),
-		'description' => '',
-		'panel'       => 'attire_typography',
-		'priority'    => 120
+		'title'    => __( 'Menu Fonts', 'attire' ),
+		'panel'    => 'attire_typography',
+		'priority' => 120
 	]
 ];
 
@@ -352,8 +322,9 @@ $attire_logo_options         = [
 			'step' => 1
 		]
 	],
-	'sticky_logo_height'             => [
-		'label'       => __( 'Sticky Menu Logo Height (Shouldn\'t be bigger than `Sticky Menu Height`)', 'attire' ),
+	'sticky_logo_height'           => [
+		'label'       => __( 'Sticky Menu Logo Height', 'attire' ),
+		'description' => __( 'Shouldn\'t be bigger than `Sticky Menu Height.`', 'attire' ),
 		'transport'   => 'postMessage',
 		'type'        => 'range',
 		'section'     => 'attire_logo_options',
@@ -511,10 +482,10 @@ $attire_back_to_top          = [
 
 $attire_footer_widget_number = [
 	'footer_widget_number' => [
-		'label'     => __( 'Number of Footer Widget Area', 'attire' ),
+		'label'     => __( 'Footer Widget Areas/Columns', 'attire' ),
 		'transport' => 'refresh',
 		'type'      => 'select',
-		'section'   => 'attire_footer_widget_number',
+		'section'   => 'attire_layout_options',
 		'default'   => 3,
 		'choices'   => [
 			0 => 0,
@@ -1085,7 +1056,6 @@ $attire_generic_fonts                = [
 	],
 	'heading_font_size_desktop'  => [
 		'label'       => __( 'H1 Font Size', 'attire' ),
-		'description' => '',
 		'transport'   => 'postMessage',
 		'type'        => 'attire_responsive_input',
 		'control_id'  => 'h1_font_size',
@@ -1099,7 +1069,6 @@ $attire_generic_fonts                = [
 	],
 	'heading_font_size_tablet'   => [
 		'label'       => __( 'H1 Font Size', 'attire' ),
-		'description' => '',
 		'transport'   => 'postMessage',
 		'type'        => 'attire_responsive_input',
 		'control_id'  => 'h1_font_size',
@@ -1113,7 +1082,6 @@ $attire_generic_fonts                = [
 	],
 	'heading_font_size_mobile'   => [
 		'label'       => __( 'H1 Font Size', 'attire' ),
-		'description' => '',
 		'transport'   => 'postMessage',
 		'type'        => 'attire_responsive_input',
 		'control_id'  => 'h1_font_size',
@@ -1127,7 +1095,6 @@ $attire_generic_fonts                = [
 	],
 	'heading2_font_size_desktop' => [
 		'label'       => __( 'H2 Font Size', 'attire' ),
-		'description' => '',
 		'transport'   => 'postMessage',
 		'type'        => 'attire_responsive_input',
 		'control_id'  => 'h2_font_size',
@@ -1141,7 +1108,6 @@ $attire_generic_fonts                = [
 	],
 	'heading2_font_size_tablet'  => [
 		'label'       => __( 'H2 Font Size', 'attire' ),
-		'description' => '',
 		'transport'   => 'postMessage',
 		'type'        => 'attire_responsive_input',
 		'control_id'  => 'h2_font_size',
@@ -1155,7 +1121,6 @@ $attire_generic_fonts                = [
 	],
 	'heading2_font_size_mobile'  => [
 		'label'       => __( 'H2 Font Size', 'attire' ),
-		'description' => '',
 		'transport'   => 'postMessage',
 		'type'        => 'attire_responsive_input',
 		'control_id'  => 'h2_font_size',
@@ -1169,7 +1134,6 @@ $attire_generic_fonts                = [
 	],
 	'heading3_font_size_desktop' => [
 		'label'       => __( 'H3 Font Size', 'attire' ),
-		'description' => '',
 		'transport'   => 'postMessage',
 		'type'        => 'attire_responsive_input',
 		'control_id'  => 'h3_font_size',
@@ -1183,7 +1147,6 @@ $attire_generic_fonts                = [
 	],
 	'heading3_font_size_tablet'  => [
 		'label'       => __( 'H3 Font Size', 'attire' ),
-		'description' => '',
 		'transport'   => 'postMessage',
 		'type'        => 'attire_responsive_input',
 		'control_id'  => 'h3_font_size',
@@ -1197,7 +1160,6 @@ $attire_generic_fonts                = [
 	],
 	'heading3_font_size_mobile'  => [
 		'label'       => __( 'H3 Font Size', 'attire' ),
-		'description' => '',
 		'transport'   => 'postMessage',
 		'type'        => 'attire_responsive_input',
 		'control_id'  => 'h3_font_size',
@@ -1211,7 +1173,6 @@ $attire_generic_fonts                = [
 	],
 	'heading4_font_size_desktop' => [
 		'label'       => __( 'H4 Font Size', 'attire' ),
-		'description' => '',
 		'transport'   => 'postMessage',
 		'type'        => 'attire_responsive_input',
 		'control_id'  => 'h4_font_size',
@@ -1225,7 +1186,6 @@ $attire_generic_fonts                = [
 	],
 	'heading4_font_size_tablet'  => [
 		'label'       => __( 'H4 Font Size', 'attire' ),
-		'description' => '',
 		'transport'   => 'postMessage',
 		'type'        => 'attire_responsive_input',
 		'control_id'  => 'h4_font_size',
@@ -1239,7 +1199,6 @@ $attire_generic_fonts                = [
 	],
 	'heading4_font_size_mobile'  => [
 		'label'       => __( 'H4 Font Size', 'attire' ),
-		'description' => '',
 		'transport'   => 'postMessage',
 		'type'        => 'attire_responsive_input',
 		'control_id'  => 'h4_font_size',
@@ -1322,11 +1281,10 @@ $attire_generic_fonts                = [
 		'section' => 'attire_generic_fonts'
 	],
 	'button_font'            => [
-		'label'       => __( 'Font Family', 'attire' ),
-		'transport'   => 'postMessage',
-		'type'        => 'typography',
-		'section'     => 'attire_generic_fonts',
-		'description' => esc_html__( 'Font family buttons', 'attire' )
+		'label'     => __( 'Font Family', 'attire' ),
+		'transport' => 'postMessage',
+		'type'      => 'typography',
+		'section'   => 'attire_generic_fonts',
 	],
 	'button_font_weight'     => [
 		'label'       => __( 'Font Weight', 'attire' ),

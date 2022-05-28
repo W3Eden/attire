@@ -1,27 +1,27 @@
 <?php
-if (class_exists('WP_Customize_Control')) {
-    class Attire_Google_Font_Picker_Control extends WP_Customize_Control
-    {
-        public $type = 'google_font_picker';
+if ( class_exists( 'WP_Customize_Control' ) ) {
+	class Attire_Google_Font_Picker_Control extends WP_Customize_Control {
+		public $type = 'google_font_picker';
 
-        public function render_content()
-        {
+		public function render_content() {
 
 
-            ?>
+			?>
             <label class="w-100">
-                <?php if (!empty($this->label)) : ?>
-                    <span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
-                <?php endif; ?>
+				<?php if ( ! empty( $this->label ) ) : ?>
+                    <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+				<?php endif; ?>
                 <select id="<?php echo $this->id; ?>" <?php $this->link(); ?>
-                        name="<?php echo esc_attr($this->id); ?>" <?php $this->input_attrs(); ?>>
-                    <?php foreach ($this->choices as $key => $value) { ?>
-                        <option value="<?php echo $key; ?>" <?php selected($this->value(), $key) ?> ><?php echo $value; ?></option>
-                    <?php } ?>
+                        name="<?php echo esc_attr( $this->id ); ?>" <?php $this->input_attrs(); ?>>
+					<?php foreach ( $this->choices as $key => $value ) { ?>
+                        <option value="<?php echo $key; ?>" <?php selected( $this->value(), $key ) ?> ><?php echo $value; ?></option>
+					<?php } ?>
                 </select>
-
+				<?php if ( $this->description ) : ?>
+                    <em class="customize-control-description"><?php echo esc_html( $this->description ); ?></em>
+				<?php endif; ?>
             </label>
-            <?php /*
+			<?php /*
             <div style="display: flex">
                 <div>
                     <label>
@@ -65,7 +65,7 @@ if (class_exists('WP_Customize_Control')) {
                     $('#<?php echo $this->id; ?>').chosen({width: "100%"});
                 });
             </script>
-            <?php
-        }
-    }
+			<?php
+		}
+	}
 }

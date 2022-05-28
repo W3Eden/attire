@@ -51,6 +51,9 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 					}
 					?>
                 </div>
+	            <?php if ( $this->description ) : ?>
+                    <em class="customize-control-description"><?php echo esc_html( $this->description ); ?></em>
+	            <?php endif; ?>
             </label>
 			<?php
 		}

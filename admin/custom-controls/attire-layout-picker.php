@@ -55,6 +55,10 @@ if (class_exists('WP_Customize_Control')) {
                          title="<?php _e('Two Right Sidebar', 'attire'); ?>"/>
                 </label>
             </div>
+	        <?php
+	        if ( $this->description ) :?>
+                <em class="customize-control-description"><?php echo esc_html( $this->description ); ?></em>
+	        <?php endif; ?>
             <?php
         }
     }

@@ -19,6 +19,10 @@ Attire is a fast, mobile responsive, highly customizable, SEO-friendly multipurp
 
 == Changelog ==
 
+= 1.9.2 - 2022.05.27 =
+* Customizer Modernization
+* WordPress 6.0 support
+
 = 1.9.1 - 2022.03.14 =
 * Sidebar and footer widget colors can now be adjusted properly.
 
