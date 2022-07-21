@@ -1166,6 +1166,7 @@ header li.nav-item:not(.desktop-search) .dropdown-toggler {
     width: 100%;
     z-index: 9999 !important;
     background: #ffffff;
+    top: 0;
 }
 
 .attire-mbl-header .gn-icon-menu {
