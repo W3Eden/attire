@@ -19,6 +19,9 @@ Attire is a fast, mobile responsive, highly customizable, SEO-friendly multipurp
 
 == Changelog ==
 
+= 1.9.3 - 2022.07.21 =
+* Mobile Sticky menu updated
+
 = 1.9.2 - 2022.05.27 =
 * Customizer Modernization
 * WordPress 6.0 support
