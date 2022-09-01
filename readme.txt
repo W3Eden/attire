@@ -19,6 +19,9 @@ Attire is a fast, mobile responsive, highly customizable, SEO-friendly multipurp
 
 == Changelog ==
 
+= 1.9.4 - 2022.09.01 =
+* Style adjustments.
+
 = 1.9.3 - 2022.07.21 =
 * Mobile Sticky menu updated
 

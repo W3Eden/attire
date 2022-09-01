@@ -538,6 +538,20 @@ img {
     font-size: 15px;
 }
 
+.post-navs .card-footer a {
+    vertical-align: middle;
+}
+
+.previous-post a:before {
+    content: "◀";
+    margin-right: 4px;
+}
+
+.next-post a:after {
+    content: "▶";
+    margin-left: 4px;
+}
+
 .post-navs .col-md-6:last-child {
     border-left: 1px solid #dddddd;
 }
