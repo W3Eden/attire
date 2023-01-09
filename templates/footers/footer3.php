@@ -4,6 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 $theme_mod      = WPATTIRE()->theme_options;
 $content_layout = $theme_mod['footer_content_layout_type'];
+$site_logo_url = $theme_mod['site_logo_url'] && $theme_mod['site_logo_url'] != '#' ? esc_url($theme_mod['site_logo_url']) : esc_url(home_url('/'));
 ?>
 <footer class="footer3" id="footer3">
     <div class="item dark">
@@ -24,7 +25,7 @@ $content_layout = $theme_mod['footer_content_layout_type'];
                     </div>
 				<?php } ?>
                 <div class="col-lg-4 col-sm-4 text-center"><a class="footer-logo navbar-brand default-logo"
-                                                              href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo AttireThemeEngine::FooterLogo(); ?></a>
+                                                              href="<?php echo $site_logo_url; ?>"><?php echo AttireThemeEngine::FooterLogo(); ?></a>
                 </div>
                 <div class="col-lg-4 col-sm-4 social-icons-div">
                     <ul class="list-inline text-right social-icons-div">

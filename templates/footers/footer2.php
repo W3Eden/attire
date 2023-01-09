@@ -4,6 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 $theme_mod      = WPATTIRE()->theme_options;
 $content_layout = $theme_mod['footer_content_layout_type']; // container or container-fluid
+$site_logo_url = $theme_mod['site_logo_url'] && $theme_mod['site_logo_url'] != '#' ? esc_url($theme_mod['site_logo_url']) : esc_url(home_url('/'));
 ?>
 <footer class="footer2" id="footer2">
     <div class="item dark">
@@ -13,7 +14,7 @@ $content_layout = $theme_mod['footer_content_layout_type']; // container or cont
                     <ul class="list-inline ">
                         <li class="list-inline-item">
                             <a class="footer-logo navbar-brand default-logo"
-                               href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo AttireThemeEngine::FooterLogo(); ?></a>
+                               href="<?php echo $site_logo_url; ?>"><?php echo AttireThemeEngine::FooterLogo(); ?></a>
                         </li>
                     </ul>
 					<?php if ( isset( $theme_mod['copyright_info_visibility'] ) && $theme_mod['copyright_info_visibility'] === 'show' ) { ?>

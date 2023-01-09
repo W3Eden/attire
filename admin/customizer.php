@@ -114,7 +114,8 @@ function attire_customize_register( $wp_customize ) {
 					'label'    => $label,
 					'section'  => $section,
 					'settings' => $theme_option . '[' . $id . ']',
-				) );
+                    'description' => $description,
+                    ) );
 				break;
 			case 'attire_review':
 				$wp_customize->add_setting( $theme_option . '[' . $id . ']', array(

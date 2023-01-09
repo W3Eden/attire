@@ -310,6 +310,28 @@ $attire_footer_color_options = [
 	],
 ];
 $attire_logo_options         = [
+    'site_logo_mobile_menu'        => [
+        'label'     => __( 'Mobile Menu Logo', 'attire' ),
+        'transport' => 'postMessage',
+        'type'      => 'image',
+        'section'   => 'attire_logo_options',
+        'default'   => '',
+    ],
+    'site_logo_footer'             => [
+        'label'     => __( 'Footer Logo', 'attire' ),
+        'transport' => 'postMessage',
+        'type'      => 'image',
+        'section'   => 'attire_logo_options',
+        'default'   => ''
+    ],
+	'site_logo_url'             => [
+		'label'       => __( 'Site Logo URL', 'attire' ),
+        'description' => __( 'Useful when you want to link a page other than you websites\' homepage.', 'attire' ),
+		'transport'   => 'postMessage',
+        'type'      => 'text',
+		'section'     => 'attire_logo_options',
+		'default'     => '#'
+	],
 	'site_logo_height'             => [
 		'label'       => __( 'Site Logo Height', 'attire' ),
 		'transport'   => 'postMessage',
@@ -335,13 +357,6 @@ $attire_logo_options         = [
 			'step' => 1
 		]
 	],
-	'site_logo_footer'             => [
-		'label'     => __( 'Footer Logo', 'attire' ),
-		'transport' => 'postMessage',
-		'type'      => 'image',
-		'section'   => 'attire_logo_options',
-		'default'   => ''
-	],
 	'site_logo_footer_height'      => [
 		'label'       => __( 'Footer Logo Height', 'attire' ),
 		'transport'   => 'postMessage',
@@ -353,13 +368,6 @@ $attire_logo_options         = [
 			'max'  => 200,
 			'step' => 1
 		]
-	],
-	'site_logo_mobile_menu'        => [
-		'label'     => __( 'Mobile Menu Logo', 'attire' ),
-		'transport' => 'postMessage',
-		'type'      => 'image',
-		'section'   => 'attire_logo_options',
-		'default'   => '',
 	],
 	'site_logo_mobile_menu_height' => [
 		'label'       => __( 'Mobile Menu Logo Height', 'attire' ),

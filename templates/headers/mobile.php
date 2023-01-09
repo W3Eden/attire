@@ -1,3 +1,7 @@
+<?php
+$theme_mod      = WPATTIRE()->theme_options;
+$site_logo_url = $theme_mod['site_logo_url'] && $theme_mod['site_logo_url'] != '#' ? esc_url($theme_mod['site_logo_url']) : esc_url(home_url('/'));
+?>
 <div class="media attire-mbl-header">
     <div class="mr-3">
         <a id="open_mobile_menu" class="gn-icon gn-icon-menu attire-mbl-menu-trigger" tabindex="0">
@@ -5,7 +9,7 @@
         </a>
     </div>
     <div class="media-body">
-        <a class="mbl-logo" href="<?php echo esc_url(home_url('/')); ?>">
+        <a class="mbl-logo" href="<?php echo $site_logo_url; ?>">
             <?php echo AttireThemeEngine::SiteLogo(); ?>
         </a>
     </div>
@@ -16,7 +20,7 @@
     </a>
     <div class="middle-logo logo-div p-5 text-center">
         <a class="site-logo navbar-brand"
-           href="<?php echo esc_url(home_url('/')); ?>"><?php echo AttireThemeEngine::MobileMenuLogo(); ?></a>
+           href="<?php echo $site_logo_url; ?>"><?php echo AttireThemeEngine::MobileMenuLogo(); ?></a>
     </div>
     <div class="p-1 bg-white">
         <?php get_template_part("templates/parts/mobile", "search"); ?>

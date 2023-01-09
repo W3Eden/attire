@@ -9,6 +9,8 @@ $stickable      = '';
 if ( isset( $theme_mod['attire_nav_behavior'] ) && $theme_mod['attire_nav_behavior'] === 'sticky' ) {
 	$stickable = ' stickable';
 }
+$site_logo_url = $theme_mod['site_logo_url'] && $theme_mod['site_logo_url'] != '#' ? esc_url($theme_mod['site_logo_url']) : esc_url(home_url('/'));
+
 ?>
 <div id="header-style-3" class="d-none d-lg-block">
     <header id="header-3" class="header navigation3">
@@ -16,7 +18,7 @@ if ( isset( $theme_mod['attire_nav_behavior'] ) && $theme_mod['attire_nav_behavi
             <div class="<?php echo esc_attr( $content_layout ); ?> header-contents">
                 <!-- Icon+Text & Image Logo Default Image Logo -->
                 <div class="logo-div">
-                    <a class="navbar-brand default-logo site-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo AttireThemeEngine::SiteLogo(); ?></a>
+                    <a class="navbar-brand default-logo site-logo" href="<?php echo $site_logo_url; ?>"><?php echo AttireThemeEngine::SiteLogo(); ?></a>
                 </div>
 
                 <button class="col-lg-1 navbar-toggler float-right" type="button" data-toggle="collapse"
