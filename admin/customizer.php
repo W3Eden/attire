@@ -542,9 +542,7 @@ function attire_customize_register( $wp_customize ) {
 					'render_callback'     => 'attire_footer_style_rcb',
 					'fallback_refresh'    => false,
 					'container_inclusive' => false,
-
 				) );
-
 			} elseif ( $id === 'copyright_info' ) {
 				$wp_customize->selective_refresh->add_partial( 'copyright_info_partial', array(
 					'settings'            => array( 'attire_options[copyright_info]' ),
@@ -552,10 +550,7 @@ function attire_customize_register( $wp_customize ) {
 					'render_callback'     => 'attire_copyright_info_rcb',
 					'fallback_refresh'    => false,
 					'container_inclusive' => false,
-
 				) );
-
-
 			} elseif ( $id === 'copyright_info_visibility' ) {
 				$wp_customize->selective_refresh->add_partial( 'copyright_info_visibility_partial', array(
 					'settings'            => array( 'attire_options[copyright_info_visibility]' ),
@@ -563,7 +558,6 @@ function attire_customize_register( $wp_customize ) {
 					'render_callback'     => 'attire_copyright_info_visibility_rcb',
 					'fallback_refresh'    => false,
 					'container_inclusive' => false,
-
 				) );
 			} elseif ( $id === 'attire_archive_page_post_view' ) {
 				$wp_customize->selective_refresh->add_partial( 'attire_archive_page_post_view_partial', array(
@@ -593,7 +587,7 @@ add_action( 'customize_register', 'attire_customize_register' );
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function attire_customize_preview_js() {
-	wp_enqueue_script( 'attire_customizer', ATTIRE_TEMPLATE_URL . '/admin/js/customizer.js', array( 'customize-preview' ), '20171015', true );
+	wp_enqueue_script( 'attire_customizer', ATTIRE_TEMPLATE_URL . '/admin/js/customizer.js', array( 'customize-preview' ), '20230226', true );
 	wp_localize_script( 'attire_customizer', 'saved_mods',
 		$theme_mod = WPATTIRE()->theme_options
 	);

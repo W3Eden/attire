@@ -64,7 +64,7 @@ class AttireThemeEngine
                     <div class="xcontent">
                         <a href="#" id="xclose">Dismiss</a>
                         <h2>Awesome! Your theme is ready</h2>
-                        Now, let's install Attire Blocks to super power your gutenberg editor.
+                        Now, let's install Attire Blocks to superpower your gutenberg editor.
                     </div>
                     <div class="xbtn">
                         <a href="<?php echo esc_url(admin_url('/plugin-install.php?s=Attire+Blocks&tab=search&type=tag')); ?>"

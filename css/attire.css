@@ -2311,8 +2311,8 @@ code, kbd, samp {
     line-height: 1.4;
 }
 
-.footer-widgets * {
-    color: #ffffff !important;
+.footer-widgets *:not(a) {
+    color: #000000;
 }
 
 .footer-widgets .post-date {

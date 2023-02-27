@@ -251,7 +251,7 @@
      */
     setCss('body_bg_color', 'body #mainframe', 'background-color');
     setCss('body_color', '.attire-post-and-comments,.attire-post-and-comments p,.attire-post-and-comments article,.attire-post-and-comments ul,.attire-post-and-comments ol, .attire-post-and-comments table, .attire-post-and-comments blockquote, .attire-post-and-comments pre ', 'color');
-    setCss('a_color', '.attire-content a,.small-menu a,.page_header_wrap a', 'color');
+    setCss('a_color', 'h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .archive-item h3.card-title.post-title a, a', 'color');
     setCss('ah_color', '.attire-content a:hover,.footer-widgets-area a:hover,.small-menu a:hover', 'color');
     setCss('header_color', 'h1,h2,h3,h4,h5,h6,h1 *,h2 *,h3 *,h4 *,h5 *,h6 *', 'color');
 
@@ -337,7 +337,6 @@
     setCss('header_color', 'h1 *, h1,h2:not(.site-description) *, h2:not(.site-description),h3 *, h3,h4 *, h4,h5 *, h5,h6 *, h6', 'color');
 
     setFont('body_font', body_elements, 'font-family');
-    setCss('body_font_size', '.site-description,' + body_elements, 'font-size');
     setCss('body_font_weight', '.site-description,' + body_elements, 'font-weight');
     setCss('body_color', body_elements, 'color');
 
@@ -492,6 +491,7 @@
     setResponsiveCss('heading2_font_size_desktop', 'h2:not(.site-description) *, h2:not(.site-description),.h2', 'font-size');
     setResponsiveCss('heading3_font_size_desktop', 'h3 *, h3,.h3', 'font-size');
     setResponsiveCss('heading4_font_size_desktop', 'h4 *, h4,.h4', 'font-size');
+    setResponsiveCss('body_font_size_desktop', '.site-description,' + body_elements, 'font-size');
     setResponsiveCss('widget_title_font_size_desktop', '.widget .widget-title', 'font-size');
     setResponsiveCss('widget_content_font_size_desktop', '.widget, .widget li, .widget p', 'font-size');
     setResponsiveCss('menu_top_font_size_desktop', 'header .mainmenu > .nav-item a,footer .footermenu > .menu-item a, .info-link,.attire-mbl-menu li.nav-item a,input.gn-search', 'font-size');
@@ -502,6 +502,7 @@
     setResponsiveCss('heading2_font_size_tablet', 'h2:not(.site-description) *, h2:not(.site-description),.h2', 'font-size');
     setResponsiveCss('heading3_font_size_tablet', 'h3 *, h3,.h3', 'font-size');
     setResponsiveCss('heading4_font_size_tablet', 'h4 *, h4,.h4', 'font-size');
+    setResponsiveCss('body_font_size_tablet', '.site-description,' + body_elements, 'font-size');
     setResponsiveCss('widget_title_font_size_tablet', '.widget .widget-title', 'font-size');
     setResponsiveCss('widget_content_font_size_tablet', '.widget, .widget li, .widget p', 'font-size');
     setResponsiveCss('menu_top_font_size_tablet', 'header .mainmenu > .nav-item a,footer .footermenu > .menu-item a, .info-link,.attire-mbl-menu li.nav-item a,input.gn-search', 'font-size');
@@ -512,6 +513,7 @@
     setResponsiveCss('heading2_font_size_mobile', 'h2:not(.site-description) *, h2:not(.site-description),.h2', 'font-size');
     setResponsiveCss('heading3_font_size_mobile', 'h3 *, h3,.h3', 'font-size');
     setResponsiveCss('heading4_font_size_mobile', 'h4 *, h4,.h4', 'font-size');
+    setResponsiveCss('body_font_size_mobile', '.site-description,' + body_elements, 'font-size');
     setResponsiveCss('widget_title_font_size_mobile', '.widget .widget-title', 'font-size');
     setResponsiveCss('widget_content_font_size_mobile', '.widget, .widget li, .widget p', 'font-size');
     setResponsiveCss('menu_top_font_size_mobile', 'header .mainmenu > .nav-item a,footer .footermenu > .menu-item a, .info-link,.attire-mbl-menu li.nav-item a,input.gn-search', 'font-size');
