@@ -419,7 +419,7 @@ class AttireThemeEngine
 	        $css       .= 'nav.stickable.fixed-top{ height:' . intval( $theme_mod['attire_sticky_nav_height'] ) . 'px; }';
         }
 	    $nn_height = isset( $theme_mod['attire_nav_height'] ) ? $theme_mod['attire_nav_height'] : 50;
-	    $css       .= 'nav.default-menu{ height:' . intval( $nn_height ) . 'px; }';
+	    $css       .= 'nav.default-menu{ min-height:' . intval( $nn_height ) . 'px; }';
 
 	    /**
          *

@@ -195,8 +195,8 @@
      * General Settings -> Logo
      *
      */
-    setCss('site_logo_height', '.site-logo img', 'max-height');
-    setCss('site_logo_footer_height', '.footer-logo img', 'max-height');
+    setCss('site_logo_height', '.site-logo img', 'height');
+    setCss('site_logo_footer_height', '.footer-logo img', 'height');
 
     /**
      *
@@ -273,7 +273,6 @@
      */
     setCss('footer_widget_bg_color', '.footer-widgets-area', 'background-color');
     setCss('footer_widget_content_font_color', '.footer-widgets-area .widget *:not(.widget-title)', 'color');
-    setCss('footer_widget_title_font_color', '.footer-widgets-area .widget h2, .footer-widgets-area .widget .wp-block-search__label', 'color');
     setCss('footer_widget_title_font_color', '.footer-widgets-area .widget h2, .footer-widgets-area .widget .wp-block-search__label', 'color');
 
     /**

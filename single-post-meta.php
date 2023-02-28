@@ -17,7 +17,7 @@ if (strpos($sort_by, 'date')!==false) {
     $date_to_show = get_the_modified_date();
 }
 ?>
-<div class="post-meta post-meta-bottom <?= isset($args['classes']) ? esc_attr($args['classes']) : ''; ?>">
+<div class="post-meta post-meta-bottom <?php echo isset($args['classes']) ? esc_attr($args['classes']) : ''; ?>">
     <ul class="meta-list">
         <li>
             <i class="fa fa-calendar mr-2"></i><span><?php echo __('On', 'attire'); ?></span>

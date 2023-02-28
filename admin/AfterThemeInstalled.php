@@ -42,11 +42,11 @@ function render_attire_admin_page() {
 		<?php
 		if ( ! file_exists( WP_CONTENT_DIR . '/plugins/attire-blocks/' ) ) {
 			?>
-            <div id="aitte-intro">
+            <div id="aitte-intro" class="row d-block">
                 <div class="xcard" style="max-width: 100%!important;" id="ab_notice">
                     <div class="xcontent" style="font-size: 13px;">
                         <h2 style="font-size: 1.3em;">Awesome! Your theme is ready</h2>
-                        Now, let's install Attire Blocks to superpower your gutenberg editor.
+                        Now, let's install Attire Blocks to superpower your Gutenberg editor.
                     </div>
                     <div class="xbtn">
                         <a href="<?php echo esc_url( admin_url( '/plugin-install.php?s=Attire+Blocks&tab=search&type=tag' ) ); ?>"
@@ -60,31 +60,92 @@ function render_attire_admin_page() {
 		}
 
 		?>
-        <h2 style="font-size: 1.15em;">Here are some resources to help you make the Attire theme your Swiss Army Knife
-            for WordPress design.</h2>
+        <h2 style="font-size: 1.15em;" class="mb-3">Here are some resources to help you make the Attire theme your Swiss
+            Army Knife
+            for WordPress design. You'll find more guides <a class="text-info"
+                                                             href="https://wpattire.com/documentation/">here</a>.</h2>
+        <hr class="dropdown-divider">
         <div class="row">
-            <div class="col-md-6 mb-3">
-                <iframe width="100%" height="300" src="https://www.youtube.com/embed/b6frQutbc6M"
+            <div class="col-md-6 pl-0">
+                <iframe class="xcard mb-0" width="100%" height="315" src="https://www.youtube.com/embed/7kLYaKPL-Zw"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen></iframe>
             </div>
-            <div class="col-md-6 mb-3">
-                <iframe width="100%" height="300" src="https://www.youtube.com/embed/7kLYaKPL-Zw"
+            <div class="col-md-6 pr-0">
+                <iframe class="xcard mb-0" width="100%" height="315" src="https://www.youtube.com/embed/FeCQW5cTTfY"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen></iframe>
             </div>
-            <div class="col-md-6">
-                <iframe width="100%" height="300" src="https://www.youtube.com/embed/5i8S14BL9Ho"
+            <div class="col-md-6 pl-0">
+                <iframe class="xcard mb-0" width="100%" height="315" src="https://www.youtube.com/embed/zJw8lAQh-2Y"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+            </div>
+
+            <div class="col-md-6 pr-0">
+                <iframe class="xcard mb-0" width="100%" height="315" src="https://www.youtube.com/embed/5i8S14BL9Ho"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen></iframe>
             </div>
 
         </div>
-        <h4 class="mt-3"><em>You'll find more guides <a class="text-info" href="https://wpattire.com/documentation/">here</a>.</em>
-        </h4>
+
+        <style>
+            .xcard {
+                padding: 20px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.20);
+                margin: 20px 0;
+                border: 0;
+                display: flex;
+                grid-template-columns: 1fr 150px;
+                background: #ffffff;
+            }
+
+            .xcontent {
+                flex: 4;
+                padding-left: 10px;
+                position: relative;
+            }
+
+            .xbtn {
+                width: 200px;
+                min-width: 200px;
+                align-content: center;
+                display: grid;
+            }
+
+            .xcard h2 {
+                margin: 5px 0 5px;
+            }
+
+            .xbtn .btx {
+                padding: 15px 20px;
+                color: #ffffff;
+                font-weight: 600;
+                text-decoration: none;
+                display: block;
+                text-align: center;
+                position: relative;
+                border-radius: 5px;
+                background: linear-gradient(135deg, #ecc344 0%, #e42d7f 100%);
+                border: 0;
+                transition: all ease-in-out 300ms;
+                box-shadow: 0 0 10px rgba(228, 45, 127, 0.3);
+                margin: 0 5px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            .xbtn .btx:hover {
+                transition: all ease-in-out 300ms;
+                background: linear-gradient(135deg, #ecc344 19%, #e42d7f 90%);
+            }
+        </style>
+
     </div>
 	<?php
 }

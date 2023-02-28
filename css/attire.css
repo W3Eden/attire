@@ -606,6 +606,10 @@ a.read-more-link {
     left: 0 !important;
 }
 
+.customize-partial-edit-shortcut button svg {
+    margin-top: -5px;
+}
+
 .site-description {
     white-space: nowrap;
     font-size: 1em;
