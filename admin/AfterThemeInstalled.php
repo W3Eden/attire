@@ -38,15 +38,24 @@ add_action( 'admin_enqueue_scripts', 'load_bootstrap_admin' );
 function render_attire_admin_page() {
 
 	?>
-    <div class="container">
-		<?php
+    <div class="welcome">
+        <div class='container'>
+        <div class='content'>
+            <h1 class='text-white' style='font-weight: 700;'>Welcome to Attire</h1>
+            <p  class='text-white' style="font-size: 1.3em; font-weight: 200; max-width: 800px">Here are some resources to help you make the Attire theme your SwissArmy Knife
+            for WordPress design. You'll find more guides <a class="text-warning" href="https://wpattire.com/documentation/">here</a>.</p>
+        </div>
+    </div>
+    </div>
+    <div class="container">		
+        <?php
 		if ( ! file_exists( WP_CONTENT_DIR . '/plugins/attire-blocks/' ) ) {
 			?>
             <div id="aitte-intro" class="row d-block">
-                <div class="xcard" style="max-width: 100%!important;" id="ab_notice">
-                    <div class="xcontent" style="font-size: 13px;">
-                        <h2 style="font-size: 1.3em;">Awesome! Your theme is ready</h2>
-                        Now, let's install Attire Blocks to superpower your Gutenberg editor.
+                <div class="xcard" style="max-width: 100%!important; margin-top: -50px; border-radius: 5px" id="ab_notice">
+                    <div class="xcontent" style="font-size: 16px !important;">
+                        <h2 class='mt-0 rounded' style="font-size: 1.3em; font-weight: 700">Awesome! Your theme is ready</h2>
+                        <p class='mb-0'>Now, let's install Attire Blocks to superpower your Gutenberg editor.</p>
                     </div>
                     <div class="xbtn">
                         <a href="<?php echo esc_url( admin_url( '/plugin-install.php?s=Attire+Blocks&tab=search&type=tag' ) ); ?>"
@@ -58,13 +67,7 @@ function render_attire_admin_page() {
             </div>
 			<?php
 		}
-
 		?>
-        <h2 style="font-size: 1.15em;" class="mb-3">Here are some resources to help you make the Attire theme your Swiss
-            Army Knife
-            for WordPress design. You'll find more guides <a class="text-info"
-                                                             href="https://wpattire.com/documentation/">here</a>.</h2>
-        <hr class="dropdown-divider">
         <div class="row">
             <div class="col-md-6 pl-0">
                 <iframe class="xcard mb-0" width="100%" height="315" src="https://www.youtube.com/embed/7kLYaKPL-Zw"
@@ -95,6 +98,24 @@ function render_attire_admin_page() {
         </div>
 
         <style>
+            @import url('https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap');
+
+            #wpwrap {
+                background-color: #F6F9FC;
+                font-family: 'Sen', sans-serif !important;
+            }
+            #wpcontent {
+                padding-left: 0;
+            }
+            .welcome .content p {
+                font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+            }
+            .welcome {
+                background: linear-gradient(135deg, #492cdd 0%, #AD38E2 100%);
+                padding: 3rem 0 6.5rem;
+            }
+
+
             .xcard {
                 padding: 20px;
                 box-shadow: 0 0 20px rgba(0, 0, 0, 0.20);
@@ -103,6 +124,9 @@ function render_attire_admin_page() {
                 display: flex;
                 grid-template-columns: 1fr 150px;
                 background: #ffffff;
+                max-width: unset !important;
+                width: 100% !important;
+                border-radius: 6px
             }
 
             .xcontent {
