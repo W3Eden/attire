@@ -52,7 +52,7 @@ function render_attire_admin_page() {
 		if ( ! file_exists( WP_CONTENT_DIR . '/plugins/attire-blocks/' ) ) {
 			?>
             <div id="aitte-intro" class="row d-block">
-                <div class="xcard" style="max-width: 100%!important; margin-top: -50px; border-radius: 5px" id="ab_notice">
+                <div class="xcard" style="max-width: 100%!important; margin-top: -50px; border-radius: 5px; box-shadow: 0 13px 27px -5px rgb(50 50 93 / 25%), 0 8px 16px -8px rgb(0 0 0 / 30%), 0 -6px 16px -6px rgb(0 0 0 / 3%)" id="ab_notice">
                     <div class="xcontent" style="font-size: 16px !important;">
                         <h2 class='mt-0 rounded' style="font-size: 1.3em; font-weight: 700">Awesome! Your theme is ready</h2>
                         <p class='mb-0'>Now, let's install Attire Blocks to superpower your Gutenberg editor.</p>
