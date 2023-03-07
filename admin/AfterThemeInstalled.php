@@ -40,27 +40,36 @@ function render_attire_admin_page() {
 	?>
     <div class="welcome">
         <div class='container'>
-        <div class='content'>
-            <h1 class='text-white' style='font-weight: 700;'>Welcome to Attire</h1>
-            <p  class='text-white' style="font-size: 1.3em; font-weight: 200; max-width: 800px">Here are some resources to help you make the Attire theme your SwissArmy Knife
-            for WordPress design. You'll find more guides <a class="text-warning" href="https://wpattire.com/documentation/">here</a>.</p>
+            <div class='content'>
+                <h1 class='text-white' style='font-weight: 700;'><?php _e( 'Welcome to Attire', 'attire' ) ?></h1>
+                <p class='text-white' style="font-size: 1.3em; font-weight: 200;"><?php _e( 'Here are some resources to help you make the Attire theme your Swiss Army Knife
+            of WordPress design.', 'attire' ) ?>
+                    <br/>
+                    <br/>
+					<?php _e( 'You\'ll find more guides', 'attire' ) ?>
+                    <a class="text-warning"
+                       href="https://wpattire.com/documentation/"><?php _e( 'here', 'attire' ) ?></a>.
+                </p>
+            </div>
         </div>
     </div>
-    </div>
-    <div class="container">		
-        <?php
+    <div class="container">
+		<?php
 		if ( ! file_exists( WP_CONTENT_DIR . '/plugins/attire-blocks/' ) ) {
 			?>
             <div id="aitte-intro" class="row d-block">
-                <div class="xcard" style="max-width: 100%!important; margin-top: -50px; border-radius: 5px; box-shadow: 0 13px 27px -5px rgb(50 50 93 / 25%), 0 8px 16px -8px rgb(0 0 0 / 30%), 0 -6px 16px -6px rgb(0 0 0 / 3%)" id="ab_notice">
+                <div class="xcard"
+                     style="max-width: 100%!important; margin-top: -50px; border-radius: 5px; box-shadow: 0 13px 27px -5px rgb(50 50 93 / 25%), 0 8px 16px -8px rgb(0 0 0 / 30%), 0 -6px 16px -6px rgb(0 0 0 / 3%)"
+                     id="ab_notice">
                     <div class="xcontent" style="font-size: 16px !important;">
-                        <h2 class='mt-0 rounded' style="font-size: 1.3em; font-weight: 700">Awesome! Your theme is ready</h2>
-                        <p class='mb-0'>Now, let's install Attire Blocks to superpower your Gutenberg editor.</p>
+                        <h2 class='mt-0 rounded'
+                            style="font-size: 1.3em; font-weight: 700"><?php _e( 'Awesome! Your theme is ready', 'attire' ) ?></h2>
+                        <p class='mb-0'><?php _e( 'Now, let\'s install Attire Blocks to superpower your Gutenberg editor.', 'attire' ) ?></p>
                     </div>
                     <div class="xbtn">
                         <a href="<?php echo esc_url( admin_url( '/plugin-install.php?s=Attire+Blocks&tab=search&type=tag' ) ); ?>"
                            class="btx">
-                            Install now
+							<?php _e( 'Install now', 'attire' ) ?>
                         </a>
                     </div>
                 </div>
@@ -104,12 +113,15 @@ function render_attire_admin_page() {
                 background-color: #F6F9FC;
                 font-family: 'Sen', sans-serif !important;
             }
+
             #wpcontent {
                 padding-left: 0;
             }
+
             .welcome .content p {
-                font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
             }
+
             .welcome {
                 background: linear-gradient(135deg, #492cdd 0%, #AD38E2 100%);
                 padding: 3rem 0 6.5rem;
