@@ -72,6 +72,7 @@ require_once( ATTIRE_TEMPLATE_DIR . "/libs/MetaBoxes.class.php" );
 require_once( ATTIRE_TEMPLATE_DIR . "/libs/StructuredData.class.php" );
 require_once( ATTIRE_TEMPLATE_DIR . '/admin/customizer.php' );
 require_once( ATTIRE_TEMPLATE_DIR . '/admin/AfterThemeInstalled.php' );
+require_once( ATTIRE_TEMPLATE_DIR . '/admin/AfterThemeDeactivated.php' );
 
 
 class AttireBase {
