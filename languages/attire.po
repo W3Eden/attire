@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2023-03-07 13:17+0600\n"
-"PO-Revision-Date: 2023-03-07 13:17+0600\n"
+"POT-Creation-Date: 2023-04-26 16:26+0600\n"
+"PO-Revision-Date: 2023-04-26 16:26+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -120,103 +120,103 @@ msgid "Attire Colors"
 msgstr ""
 
 #: admin/customizer-config.php:33
-msgid "Support/Review"
-msgstr ""
-
-#: admin/customizer-config.php:37
 msgid "Header"
 msgstr ""
 
-#: admin/customizer-config.php:42
+#: admin/customizer-config.php:38
 msgid "Blog"
 msgstr ""
 
-#: admin/customizer-config.php:46
+#: admin/customizer-config.php:42
 msgid "Footer"
 msgstr ""
 
-#: admin/customizer-config.php:51
+#: admin/customizer-config.php:47
 msgid "Main Menu"
 msgstr ""
 
-#: admin/customizer-config.php:56 libs/Attire.class.php:157
+#: admin/customizer-config.php:52 libs/Attire.class.php:157
 msgid "Footer Menu"
 msgstr ""
 
-#: admin/customizer-config.php:61
+#: admin/customizer-config.php:57
 msgid "Body"
 msgstr ""
 
-#: admin/customizer-config.php:66
+#: admin/customizer-config.php:62
 msgid "Sidebar Widget"
 msgstr ""
 
-#: admin/customizer-config.php:71
+#: admin/customizer-config.php:67
 msgid "Footer Widget"
 msgstr ""
 
-#: admin/customizer-config.php:76
+#: admin/customizer-config.php:72
 msgid "Header Style"
 msgstr ""
 
-#: admin/customizer-config.php:81 admin/customizer-config.php:614
+#: admin/customizer-config.php:77 admin/customizer-config.php:614
 msgid "Footer Style"
 msgstr ""
 
-#: admin/customizer-config.php:86
+#: admin/customizer-config.php:82
 msgid "Logo"
 msgstr ""
 
-#: admin/customizer-config.php:96
+#: admin/customizer-config.php:92
 msgid "Back To Top"
 msgstr ""
 
-#: admin/customizer-config.php:101 admin/customizer-config.php:387
+#: admin/customizer-config.php:97 admin/customizer-config.php:387
 msgid "Site Layout"
 msgstr ""
 
-#: admin/customizer-config.php:105
+#: admin/customizer-config.php:101
 msgid "Social Networks"
 msgstr ""
 
-#: admin/customizer-config.php:110
+#: admin/customizer-config.php:106
 msgid "Contact Info"
 msgstr ""
 
-#: admin/customizer-config.php:115 admin/customizer-config.php:1628
+#: admin/customizer-config.php:111 admin/customizer-config.php:1628
 msgid "Copyright Info"
 msgstr ""
 
-#: admin/customizer-config.php:120
+#: admin/customizer-config.php:116
 msgid "Blog Page Layout"
 msgstr ""
 
-#: admin/customizer-config.php:125
+#: admin/customizer-config.php:121
 msgid "Default Post Layout"
 msgstr ""
 
-#: admin/customizer-config.php:130
+#: admin/customizer-config.php:126
 msgid "Default Page Layout"
 msgstr ""
 
-#: admin/customizer-config.php:135
+#: admin/customizer-config.php:131
 msgid "Archive Page Layout"
 msgstr ""
 
-#: admin/customizer-config.php:140
+#: admin/customizer-config.php:136
 msgid "Generic Fonts"
 msgstr ""
 
-#: admin/customizer-config.php:145
+#: admin/customizer-config.php:141
 msgid "Post Fonts"
 msgstr ""
 
-#: admin/customizer-config.php:150
+#: admin/customizer-config.php:146
 msgid "Widget Fonts"
 msgstr ""
 
-#: admin/customizer-config.php:155
+#: admin/customizer-config.php:151
 msgid "Menu Fonts"
+msgstr ""
+
+#: admin/customizer-config.php:156
+msgid "Support/Review"
 msgstr ""
 
 #: admin/customizer-config.php:163
@@ -926,7 +926,7 @@ msgstr ""
 msgid "Post"
 msgstr ""
 
-#: footer.php:71 functions.php:377 search.php:42
+#: footer.php:71 functions.php:378 search.php:42
 msgid "Page"
 msgstr ""
 
@@ -942,11 +942,11 @@ msgstr ""
 msgid "Search..."
 msgstr ""
 
-#: functions.php:128
+#: functions.php:129
 msgid "Boxed Panel"
 msgstr ""
 
-#: functions.php:149
+#: functions.php:150
 msgid "read more..."
 msgstr ""
 
@@ -1147,31 +1147,31 @@ msgstr ""
 msgid "Checkout"
 msgstr ""
 
-#: woocommerce/cart/cart.php:77
+#: woocommerce/cart/cart.php:75
 msgid "Product"
 msgstr ""
 
-#: woocommerce/cart/cart.php:95
+#: woocommerce/cart/cart.php:93
 msgid "Price"
 msgstr ""
 
-#: woocommerce/cart/cart.php:101
+#: woocommerce/cart/cart.php:99
 msgid "Quantity"
 msgstr ""
 
-#: woocommerce/cart/cart.php:118
+#: woocommerce/cart/cart.php:116
 msgid "Total"
 msgstr ""
 
-#: woocommerce/cart/cart.php:142
+#: woocommerce/cart/cart.php:140
 msgid "Coupon code"
 msgstr ""
 
-#: woocommerce/cart/cart.php:144
+#: woocommerce/cart/cart.php:142
 msgid "Apply coupon"
 msgstr ""
 
-#: woocommerce/cart/cart.php:150
+#: woocommerce/cart/cart.php:148
 msgid "Update cart"
 msgstr ""
 

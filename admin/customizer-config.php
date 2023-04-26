@@ -29,10 +29,6 @@ $attire_panels = [
 ];
 
 $attire_sections = [
-	'attire_write_review'                 => [
-		'title'    => __( 'Support/Review', 'attire' ),
-		'priority' => 1
-	],
 	'attire_header_color_options'         => [
 		'title'    => __( 'Header', 'attire' ),
 		'panel'    => 'attire_color_panel',
@@ -155,7 +151,11 @@ $attire_sections = [
 		'title'    => __( 'Menu Fonts', 'attire' ),
 		'panel'    => 'attire_typography',
 		'priority' => 120
-	]
+	],
+	'attire_write_review'                 => [
+		'title'    => __( 'Support/Review', 'attire' ),
+		'priority' => 200
+	],
 ];
 
 $attire_blog_options         = [
@@ -310,25 +310,25 @@ $attire_footer_color_options = [
 	],
 ];
 $attire_logo_options         = [
-    'site_logo_mobile_menu'        => [
-        'label'     => __( 'Mobile Menu Logo', 'attire' ),
-        'transport' => 'postMessage',
-        'type'      => 'image',
-        'section'   => 'attire_logo_options',
-        'default'   => '',
-    ],
-    'site_logo_footer'             => [
-        'label'     => __( 'Footer Logo', 'attire' ),
-        'transport' => 'postMessage',
-        'type'      => 'image',
-        'section'   => 'attire_logo_options',
-        'default'   => ''
-    ],
-	'site_logo_url'             => [
+	'site_logo_mobile_menu'        => [
+		'label'     => __( 'Mobile Menu Logo', 'attire' ),
+		'transport' => 'postMessage',
+		'type'      => 'image',
+		'section'   => 'attire_logo_options',
+		'default'   => '',
+	],
+	'site_logo_footer'             => [
+		'label'     => __( 'Footer Logo', 'attire' ),
+		'transport' => 'postMessage',
+		'type'      => 'image',
+		'section'   => 'attire_logo_options',
+		'default'   => ''
+	],
+	'site_logo_url'                => [
 		'label'       => __( 'Site Logo URL', 'attire' ),
-        'description' => __( 'Useful when you want to link a page other than you websites\' homepage.', 'attire' ),
+		'description' => __( 'Useful when you want to link a page other than you websites\' homepage.', 'attire' ),
 		'transport'   => 'postMessage',
-        'type'      => 'text',
+		'type'        => 'text',
 		'section'     => 'attire_logo_options',
 		'default'     => '#'
 	],

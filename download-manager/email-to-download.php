@@ -47,7 +47,7 @@ list($_color) = explode(" ", $color);
             <input type=hidden name="__wpdm_ID" value="<?php echo $params['id']; ?>" />
 
             <div class="media">
-                <div class="media-body"><input type="email" style="padding: 0 20px;text-align: center;line-height: 48px;" required="required"  oninvalid="this.setCustomValidity('<?php echo __( "Please enter a valid email address" , "download-manager" ) ?>')" class="form-control form-control-lg group-item email-lock-mail" placeholder="<?php _e("Email Address", "download-manager"); ; ?>" size="20" id="email_<?php echo $params['id']; ?>" name="email" /></div>
+                <div class="media-body"><input type="email" style="padding: 0 20px;text-align: center;line-height: 48px;" required="required"  oninvalid="this.setCustomValidity('<?php echo __( "Please enter a valid email address" , "attire" ) ?>')" class="form-control form-control-lg group-item email-lock-mail" placeholder="<?php _e("Email Address", "attire"); ; ?>" size="20" id="email_<?php echo $params['id']; ?>" name="email" /></div>
                 <div class="ml-3"><button style="padding: 0 30px;line-height: 48px;color: #fff;" id="wpdm_submit_<?php echo $params['id']; ?>" class="wpdm_submit btn btn-<?php echo isset($params['btn']) ? $params['btn'] : 'success'; ?> btn-lg group-item"  type=submit><?php echo $form_button_label; ?></button></div>
             </div>
 
