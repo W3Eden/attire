@@ -1899,8 +1899,9 @@ article.post .card .card-image {
 }
 
 .search-image-link img {
-    max-width: 100%;
-    height: auto;
+    width: 100%; /* or any custom size */
+    height: 100%;
+    object-fit: cover;
     border-radius: 3px;
 }
 

@@ -110,6 +110,10 @@ class AttireBase {
 			$query->set( 'orderby', $post_sorting[0] );
 			$query->set( 'order', strtoupper( $post_sorting[1] ) );
 			$query->set( 'suppress_filters', 'true' );
+
+		}
+		if ( isset( $_REQUEST['post_type'] ) ) {
+			$query->set( 'post_type', $_REQUEST['post_type'] );
 		}
 	}
 

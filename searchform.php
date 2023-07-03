@@ -14,6 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                        type="hidden">
                 <input name="post_type[]" value="post"
                        type="hidden">
+                <input name="post_type[]" value="wpdmpro"
+                       type="hidden">
                 <div class="input-group">
                     <input type="search" required="required"
                            class="search-field form-control"
@@ -27,7 +29,8 @@ if ( ! defined( 'ABSPATH' ) ) {
         </form>
     </li>
     <li class="dropdown nav-item desktop-search">
-        <a class="mk-search-trigger mk-fullscreen-trigger" href="#" data-toggle="modal" data-target="#attire-search-modal">
+        <a class="mk-search-trigger mk-fullscreen-trigger" href="#" data-toggle="modal"
+           data-target="#attire-search-modal">
             <div id="search-button"><i class="fa fa-search"></i></div>
         </a>
     </li>

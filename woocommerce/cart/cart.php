@@ -12,7 +12,7 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 7.4.0
+ * @version 7.8.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -24,18 +24,18 @@ do_action( 'woocommerce_before_cart' ); ?>
 <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
 	<?php do_action( 'woocommerce_before_cart_table' ); ?>
 
-	<table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
-		<thead>
-		<tr>
-			<th class="product-remove">&nbsp;</th>
-			<th class="product-thumbnail">&nbsp;</th>
-			<th class="product-name"><?php echo esc_html__( 'Product', 'attire' ); ?></th>
-			<th class="product-price"><?php echo esc_html__( 'Price', 'attire' ); ?></th>
-			<th class="product-quantity"><?php echo esc_html__( 'Quantity', 'attire' ); ?></th>
-			<th class="product-subtotal"><?php echo esc_html__( 'Total', 'attire' ); ?></th>
-		</tr>
-		</thead>
-		<tbody>
+    <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
+        <thead>
+        <tr>
+            <th class="product-remove">&nbsp;</th>
+            <th class="product-thumbnail">&nbsp;</th>
+            <th class="product-name"><?php echo esc_html__( 'Product', 'attire' ); ?></th>
+            <th class="product-price"><?php echo esc_html__( 'Price', 'attire' ); ?></th>
+            <th class="product-quantity"><?php echo esc_html__( 'Quantity', 'attire' ); ?></th>
+            <th class="product-subtotal"><?php echo esc_html__( 'Total', 'attire' ); ?></th>
+        </tr>
+        </thead>
+        <tbody>
 		<?php do_action( 'woocommerce_before_cart_contents' ); ?>
 
 		<?php
@@ -46,9 +46,9 @@ do_action( 'woocommerce_before_cart' ); ?>
 			if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
 				$product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
 				?>
-				<tr class="woocommerce-cart-form__cart-item <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
+                <tr class="woocommerce-cart-form__cart-item <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
 
-					<td class="product-remove">
+                    <td class="product-remove">
 						<?php
 						echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
 							'<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s">&times;</a>',
@@ -58,9 +58,9 @@ do_action( 'woocommerce_before_cart' ); ?>
 							esc_attr( $_product->get_sku() )
 						), $cart_item_key );
 						?>
-					</td>
+                    </td>
 
-					<td class="product-thumbnail">
+                    <td class="product-thumbnail">
 						<?php
 						$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
 
@@ -70,9 +70,9 @@ do_action( 'woocommerce_before_cart' ); ?>
 							printf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $thumbnail );
 						}
 						?>
-					</td>
+                    </td>
 
-					<td class="product-name" data-title="<?php _e( 'Product', 'attire' ); ?>">
+                    <td class="product-name" data-title="<?php _e( 'Product', 'attire' ); ?>">
 						<?php
 						if ( ! $product_permalink ) {
 							echo apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;';
@@ -88,15 +88,15 @@ do_action( 'woocommerce_before_cart' ); ?>
 							echo '<p class="backorder_notification">' . esc_html__( 'Available on backorder', 'attire' ) . '</p>';
 						}
 						?>
-					</td>
+                    </td>
 
-					<td class="product-price" data-title="<?php _e( 'Price', 'attire' ); ?>">
+                    <td class="product-price" data-title="<?php _e( 'Price', 'attire' ); ?>">
 						<?php
 						echo apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
 						?>
-					</td>
+                    </td>
 
-					<td class="product-quantity" data-title="<?php _e( 'Quantity', 'attire' ); ?>">
+                    <td class="product-quantity" data-title="<?php _e( 'Quantity', 'attire' ); ?>">
 						<?php
 						if ( $_product->is_sold_individually() ) {
 							$product_quantity = sprintf( '1 <input type="hidden" name="cart[%s][qty]" value="1" />', $cart_item_key );
@@ -111,14 +111,14 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 						echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item );
 						?>
-					</td>
+                    </td>
 
-					<td class="product-subtotal" data-title="<?php _e( 'Total', 'attire' ); ?>">
+                    <td class="product-subtotal" data-title="<?php _e( 'Total', 'attire' ); ?>">
 						<?php
 						echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key );
 						?>
-					</td>
-				</tr>
+                    </td>
+                </tr>
 				<?php
 			}
 		}
@@ -126,36 +126,36 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 		<?php do_action( 'woocommerce_cart_contents' ); ?>
 
-		<tr>
-			<td colspan="6" class="actions">
+        <tr>
+            <td colspan="6" class="actions">
 
 				<?php if ( wc_coupons_enabled() ) { ?>
-					<div class="coupon">
-						<label for="coupon_code"><?php echo esc_html__( 'Coupon:', 'attire' ); ?></label> <input
-							type="text"
-							name="coupon_code"
-							class="input-text form-control"
-							id="coupon_code"
-							value=""
-							placeholder="<?php _e( 'Coupon code', 'attire' ); ?>"/>
-						<input type="submit" class="button" name="apply_coupon"
-						       value="<?php _e( 'Apply coupon', 'attire' ); ?>"/>
+                    <div class="coupon">
+                        <label for="coupon_code"><?php echo esc_html__( 'Coupon:', 'attire' ); ?></label> <input
+                                type="text"
+                                name="coupon_code"
+                                class="input-text form-control"
+                                id="coupon_code"
+                                value=""
+                                placeholder="<?php _e( 'Coupon code', 'attire' ); ?>"/>
+                        <input type="submit" class="button" name="apply_coupon"
+                               value="<?php _e( 'Apply coupon', 'attire' ); ?>"/>
 						<?php do_action( 'woocommerce_cart_coupon' ); ?>
-					</div>
+                    </div>
 				<?php } ?>
 
-				<input type="submit" class="button" name="update_cart"
-				       value="<?php _e( 'Update cart', 'attire' ); ?>"/>
+                <input type="submit" class="button" name="update_cart"
+                       value="<?php _e( 'Update cart', 'attire' ); ?>"/>
 
 				<?php do_action( 'woocommerce_cart_actions' ); ?>
 
 				<?php wp_nonce_field( 'woocommerce-cart' ); ?>
-			</td>
-		</tr>
+            </td>
+        </tr>
 
 		<?php do_action( 'woocommerce_after_cart_contents' ); ?>
-		</tbody>
-	</table>
+        </tbody>
+    </table>
 	<?php do_action( 'woocommerce_after_cart_table' ); ?>
 </form>
 

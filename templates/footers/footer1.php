@@ -40,7 +40,7 @@ $site_logo_url = $theme_mod['site_logo_url'] && $theme_mod['site_logo_url'] != '
 							if ( isset( $theme_mod['googleplus_profile_url'] ) && $theme_mod['googleplus_profile_url'] !== '' ) { ?>
                                 <li class="list-inline-item"><a class="social-link" rel="nofollow" target="_blank"
                                                                 href="<?php echo esc_url( $theme_mod['googleplus_profile_url'] ); ?>"><i
-                                                class="fab fa-google-plus-g"></i></a></li>
+                                                class="fab fa-youtube"></i></a></li>
 							<?php }
 							if ( isset( $theme_mod['twitter_profile_url'] ) && $theme_mod['twitter_profile_url'] !== '' ) { ?>
                                 <li class="list-inline-item"><a class="social-link" rel="nofollow" target="_blank"
