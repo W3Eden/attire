@@ -2415,3 +2415,9 @@ code, kbd, samp {
 .h-95-5 {
     height: 95.5% !important;
 }
+
+/*right sidebar default search box css*/
+.sidebar-area-right .wp-block-search__input, .sidebar-area-right .wp-block-search__button {
+    border-radius: 0.3rem;
+    border: 1px solid #eee;
+}
