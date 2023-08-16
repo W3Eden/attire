@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2023-04-26 16:26+0600\n"
-"PO-Revision-Date: 2023-04-26 16:26+0600\n"
+"POT-Creation-Date: 2023-08-16 14:51+0600\n"
+"PO-Revision-Date: 2023-08-16 14:51+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -922,31 +922,31 @@ msgstr ""
 msgid "Email Address"
 msgstr ""
 
-#: footer.php:67 search.php:34
+#: footer.php:67 search.php:37
 msgid "Post"
 msgstr ""
 
-#: footer.php:71 functions.php:378 search.php:42
+#: footer.php:71 functions.php:382 search.php:46
 msgid "Page"
 msgstr ""
 
-#: footer.php:78 search.php:52
+#: footer.php:78 search.php:56
 msgid "Downloads"
 msgstr ""
 
-#: footer.php:85 search.php:63
+#: footer.php:85 search.php:67
 msgid "Products"
 msgstr ""
 
-#: footer.php:92 search.php:70 templates/parts/mobile-search.php:13
+#: footer.php:92 search.php:74 templates/parts/mobile-search.php:13
 msgid "Search..."
 msgstr ""
 
-#: functions.php:129
+#: functions.php:133
 msgid "Boxed Panel"
 msgstr ""
 
-#: functions.php:150
+#: functions.php:154
 msgid "read more..."
 msgstr ""
 
@@ -1050,7 +1050,7 @@ msgstr ""
 msgid "Add a menu"
 msgstr ""
 
-#: search-post.php:12 search-wpdmpro.php:17 search.php:23
+#: search-post.php:12 search-wpdmpro.php:17 search.php:25
 msgid "Search result for: "
 msgstr ""
 
@@ -1058,12 +1058,11 @@ msgstr ""
 msgid "Last updated on "
 msgstr ""
 
-#: search.php:21
-#, php-format
-msgid "%d results found"
+#: search.php:23
+msgid " results found"
 msgstr ""
 
-#: searchform.php:20
+#: searchform.php:22
 msgid "Search for:"
 msgstr ""
 
@@ -1080,7 +1079,7 @@ msgid "One comment"
 msgstr ""
 
 #: single-post-meta.php:38
-#, php-format
+#, no-php-format
 msgid "% comments"
 msgstr ""
 
@@ -1111,7 +1110,7 @@ msgstr ""
 
 #: templates/headers/header-1.php:91 templates/headers/header-2.php:105
 #: templates/headers/header-3.php:27 templates/headers/header-4.php:40
-#: templates/headers/header-5.php:177 templates/headers/header-6.php:35
+#: templates/headers/header-5.php:177 templates/headers/header-6.php:41
 msgid "Toggle navigation"
 msgstr ""
 

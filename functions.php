@@ -112,7 +112,7 @@ class AttireBase {
 			$query->set( 'suppress_filters', 'true' );
 
 		}
-		if ( isset( $_REQUEST['post_type'] ) ) {
+		if ( isset( $_REQUEST['post_type'] ) && $query->is_search ) {
 			$query->set( 'post_type', $_REQUEST['post_type'] );
 		}
 	}

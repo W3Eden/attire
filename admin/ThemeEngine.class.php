@@ -729,7 +729,7 @@ class AttireThemeEngine
 
         $color_vars['main-nav-bg'] = esc_attr($theme_mod['main_nav_bg']);
         $main_nav_bg = 'background-color:' . esc_attr($theme_mod['main_nav_bg']);
-        $css .= "#header-style-3 nav.navbar, #header-style-2 nav.navbar, .short-nav .collapse.navbar-collapse,.long-nav,#attire-mbl-menu{ {$main_nav_bg};}";
+        $css .= "#header-6.header-with-bg nav.navbar,#header-style-3 nav.navbar, #header-style-2 nav.navbar, .short-nav .collapse.navbar-collapse,.long-nav,#attire-mbl-menu{ {$main_nav_bg};}";
 
         $color_vars['menuhbg-color'] = esc_attr($theme_mod['menuhbg_color']);
         $main_nav_hover_active_bg = 'background-color:' . esc_attr($theme_mod['menuhbg_color']);

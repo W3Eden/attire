@@ -19,6 +19,14 @@ Attire is a fast, mobile responsive, highly customizable, SEO-friendly multipurp
 
 == Changelog ==
 
+= 2.0.1 - 2023.08.16 =
+* Transparent Nav behavior fix.
+* Translation improvements.
+
+= 2.0.0 - 2023.08.14 =
+* Updated FontAwesome to  latest version(v6.4.2).
+* Fixed nav bar being hidden in search result.
+
 = 1.9.9 - 2023.08.13 =
 * Fixed transparent header height issue while scrolling.
 * Improved minor UI elements.

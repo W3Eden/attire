@@ -20,7 +20,7 @@ if ( ! is_array( $post_types ) ) {
             <div class="card mb-3">
                 <div class="card-header bg-white">
                     <div class="float-right text-success">
-						<?php echo sprintf( __( "%d results found", "attire" ), $wp_query->found_posts ); ?>
+                        <?php echo sprintf("%d" . __(" results found", "attire"), $wp_query->found_posts); ?>
                     </div>
                     <h2 class="search-result-title m-0 p-0"><?php echo __( 'Search result for: ', 'attire' ) . esc_html( get_search_query() ) ?></h2>
                 </div>
