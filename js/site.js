@@ -20,7 +20,7 @@ jQuery(function ($) {
 
         var sticky = $('.stickable')[0].offsetTop;
         window.onscroll = function () {
-            if (window.scrollY > sticky) {
+            if (window.scrollY >= sticky) {
                 $('nav.stickable').addClass("fixed-top");
                 $('#attire-content').css("margin-top", height + 'px');
                 $('.attire-content').css('transition', 'margin 0s ease-in')
