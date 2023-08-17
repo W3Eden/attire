@@ -12,7 +12,7 @@ if (isset($theme_mod['attire_nav_behavior']) && $theme_mod['attire_nav_behavior'
 }
 
 $site_logo_url = $theme_mod['site_logo_url'] && $theme_mod['site_logo_url'] != '#' ? esc_url($theme_mod['site_logo_url']) : esc_url(home_url('/'));
-
+$dropdown_position = $theme_mod['dropdown_menu_position'] ?: 'right';
 ?>
 
     <script>
@@ -45,19 +45,33 @@ $site_logo_url = $theme_mod['site_logo_url'] && $theme_mod['site_logo_url'] != '
 
                         <?php
 
-
-                        if (!class_exists('wp_bootstrap_navwalker')) {
-                            require get_template_directory() . '/libs/wp_bootstrap_navwalker.php';
+                        if ($dropdown_position === 'right') {
+                            if (!class_exists('wp_bootstrap_navwalker')) {
+                                require get_template_directory() . '/libs/wp_bootstrap_navwalker.php';
+                            }
+                            wp_nav_menu(array(
+                                    'theme_location' => 'primary',
+                                    'depth' => 0,
+                                    'container' => false,
+                                    'menu_class' => 'nav navbar-nav mainmenu ml-auto ',
+                                    'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
+                                    'walker' => new wp_bootstrap_navwalker()
+                                )
+                            );
+                        } else {
+                            if (!class_exists('wp_bootstrap_navwalker_left')) {
+                                require get_template_directory() . '/libs/wp_bootstrap_navwalker_left.php';
+                            }
+                            wp_nav_menu(array(
+                                    'theme_location' => 'primary',
+                                    'depth' => 0,
+                                    'container' => false,
+                                    'menu_class' => 'nav navbar-nav mainmenu ml-auto ',
+                                    'fallback_cb' => 'wp_bootstrap_navwalker_left::fallback',
+                                    'walker' => new wp_bootstrap_navwalker_left()
+                                )
+                            );
                         }
-                        wp_nav_menu(array(
-                                'theme_location' => 'primary',
-                                'depth' => 0,
-                                'container' => false,
-                                'menu_class' => 'nav navbar-nav mainmenu ml-auto ',
-                                'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
-                                'walker' => new wp_bootstrap_navwalker()
-                            )
-                        );
                         get_search_form(true);
                         ?>
 

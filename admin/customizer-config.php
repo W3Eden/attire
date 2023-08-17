@@ -545,12 +545,23 @@ $attire_header_options       = [
 			]
 		]
 	],
-	'dropdown_menu_animation'       => [
-		'label'     => __( 'Dropdown Menu Animation', 'attire' ),
-		'transport' => 'postMessage',
+	'dropdown_menu_position'       => [
+		'label'     => __( 'Dropdown Menu Position', 'attire' ),
+		'transport' => 'refresh',
 		'type'      => 'select',
 		'section'   => 'attire_header_options',
-		'default'   => 'none',
+		'default'   => 'right',
+		'choices'   => [
+			'right'    => __( 'Right', 'attire' ),
+			'left'  => __( 'Left', 'attire' )
+		]
+	],
+	'dropdown_menu_animation'       => [
+		'label'     => __( 'Dropdown Menu Animation', 'attire' ),
+		'transport' => 'refresh',
+		'type'      => 'select',
+		'section'   => 'attire_header_options',
+		'default'   => 'swingin',
 		'choices'   => [
 			'none'    => __( 'No Animation', 'attire' ),
 			'fadein'  => __( 'Fade In', 'attire' ),

@@ -404,6 +404,8 @@ class Attire
 
             'container_width' => '1100',
 
+            'dropdown_menu_animation' => 'swingin',
+            'dropdown_menu_position' => 'right',
             'copyright_info_visibility' => 'show',
             'attire_search_form_visibility' => 'show',
             'attire_back_to_top_visibility' => 'show',

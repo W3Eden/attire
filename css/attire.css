@@ -1115,6 +1115,31 @@ header .widget-search-form {
     color: #fff !important;
 }
 
+/*Dropleft menu styles*/
+.dropleft .dropdown-menu {
+    left: auto !important;
+}
+
+.mainmenu > .dropdown > .dropleft {
+    right: 0 !important;
+    left: auto !important;
+}
+
+.dropleft {
+    margin: 0 !important;
+}
+
+.dropleft .dropdown-toggle::before {
+    content: none;
+}
+
+header .dropleft a.dropdown-toggle.dropdown-item {
+    padding-left: 0;
+    padding-right: 20px !important;
+}
+
+/*End Dropleft menu styles*/
+
 .default-menu, .default-logo img {
     -webkit-transition: all .5s ease;
     -moz-transition: all .5s ease;

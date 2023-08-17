@@ -12,6 +12,7 @@ if (isset($theme_mod['attire_nav_behavior']) && $theme_mod['attire_nav_behavior'
     $stickable = ' stickable';
 }
 $site_logo_url = $theme_mod['site_logo_url'] && $theme_mod['site_logo_url'] != '#' ? esc_url($theme_mod['site_logo_url']) : esc_url(home_url('/'));
+$dropdown_position = $theme_mod['dropdown_menu_position'] ?: 'right';
 
 ?>
     <div id="header-style-5" class="d-none d-lg-block">
@@ -173,28 +174,44 @@ $site_logo_url = $theme_mod['site_logo_url'] && $theme_mod['site_logo_url'] != '
             <nav class="long-nav navbar navbar-expand-lg navbar-light navbar-dark default-menu justify-content-between <?php echo esc_attr($stickable . ' ' . $nav_width); ?>">
                 <div class="<?php echo esc_attr($content_layout); ?> header-contents">
                     <button class="col-lg-1 navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-                            data-target="#header1_menu" aria-controls="header1_menu" aria-expanded="false"
+                            data-target="#header5_menu" aria-controls="header5_menu" aria-expanded="false"
                             aria-label="<?php _e('Toggle navigation', 'attire'); ?>">
                         <span class="mobile-menu-toggle"><i class="fas fa-bars " aria-hidden="true"></i></span>
                     </button>
 
-                    <div class="collapse navbar-collapse" id="header1_menu">
+                    <div class="collapse navbar-collapse" id="header5_menu">
+
 
                         <?php
-                        if (!class_exists('wp_bootstrap_navwalker')) {
-                            require get_template_directory() . '/libs/wp_bootstrap_navwalker.php';
-                        }
-                        wp_nav_menu(array(
-                                'theme_location' => 'primary',
-                                'depth' => 0,
-                                'container' => false,
-                                'menu_class' => 'nav navbar-nav mainmenu mr-auto',
-                                'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
-                                'walker' => new wp_bootstrap_navwalker()
-                            )
-                        );
-                        get_search_form(true);
 
+                        if ($dropdown_position === 'right') {
+                            if (!class_exists('wp_bootstrap_navwalker')) {
+                                require get_template_directory() . '/libs/wp_bootstrap_navwalker.php';
+                            }
+                            wp_nav_menu(array(
+                                    'theme_location' => 'primary',
+                                    'depth' => 0,
+                                    'container' => false,
+                                    'menu_class' => 'nav navbar-nav mainmenu mr-auto',
+                                    'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
+                                    'walker' => new wp_bootstrap_navwalker()
+                                )
+                            );
+                        } else {
+                            if (!class_exists('wp_bootstrap_navwalker_left')) {
+                                require get_template_directory() . '/libs/wp_bootstrap_navwalker_left.php';
+                            }
+                            wp_nav_menu(array(
+                                    'theme_location' => 'primary',
+                                    'depth' => 0,
+                                    'container' => false,
+                                    'menu_class' => 'nav navbar-nav mainmenu mr-auto',
+                                    'fallback_cb' => 'wp_bootstrap_navwalker_left::fallback',
+                                    'walker' => new wp_bootstrap_navwalker_left()
+                                )
+                            );
+                        }
+                        get_search_form(true);
                         ?>
                     </div>
                 </div>

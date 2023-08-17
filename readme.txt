@@ -19,6 +19,9 @@ Attire is a fast, mobile responsive, highly customizable, SEO-friendly multipurp
 
 == Changelog ==
 
+= 2.0.2 - 2023.08.17 =
+* Added an option to choose the position of navigation menu dropdown items(left/right).
+
 = 2.0.1 - 2023.08.16 =
 * Transparent Nav behavior fix.
 * Translation improvements.
