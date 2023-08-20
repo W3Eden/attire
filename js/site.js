@@ -12,6 +12,7 @@ jQuery(function ($) {
 
     var abheight = $('#wpadminbar').outerHeight();
     var lastScrollTop = 0;
+    var hdr_6 = $('#header-6');
 
     if ($('.stickable').length) {
         var topspace = 0;
@@ -39,13 +40,13 @@ jQuery(function ($) {
 
             if ((window.scrollY >= sticky) && sd) {
                 $('nav.stickable').addClass("fixed-top");
-                $('#attire-content').css("margin-top", height + 'px');
-                $('.attire-content').css('transition', 'margin 0s ease-in')
+                if (hdr_6.length === 0) $('#attire-content').css("margin-top", height + 'px');
+                $('.attire-content').css('transition', 'margin 0s ease-in');
             } else if ((window.scrollY <= sticky) && su) {
                 $('nav.stickable').removeClass("fixed-top");
                 $('#attire-content').css("margin-top", 0);
                 if (sticky_height !== height) // do the transition only if sticky menu has different height than the default menu
-                    $('.attire-content').css('transition', 'margin .5s ease-in')
+                    if (hdr_6.length === 0) $('.attire-content').css('transition', 'margin .5s ease-in')
 
             }
         };
