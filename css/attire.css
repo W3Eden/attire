@@ -1067,7 +1067,6 @@ header .widget-search-form {
 
 #header-6:not(.header-with-bg) {
     background: transparent !important;
-    top: 15px;
 }
 
 .admin-bar.attire-logged-in #header-6 {
@@ -1141,10 +1140,10 @@ header .dropleft a.dropdown-toggle.dropdown-item {
 /*End Dropleft menu styles*/
 
 .default-menu, .default-logo img {
-    -webkit-transition: all .5s ease;
-    -moz-transition: all .5s ease;
-    -o-transition: all .5s ease;
-    transition: all .5s ease;
+    -webkit-transition: width .5s ease, height .5s ease;
+    -moz-transition: width .5s ease, height .5s ease;
+    -o-transition: width .5s ease, height .5s ease;
+    transition: width .5s ease, height .5s ease;
 }
 
 .default-menu {

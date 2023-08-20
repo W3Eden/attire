@@ -12,7 +12,7 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 7.8.0
+ * @version 7.9.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -123,12 +123,9 @@ do_action( 'woocommerce_before_cart' ); ?>
 			}
 		}
 		?>
-
 		<?php do_action( 'woocommerce_cart_contents' ); ?>
-
         <tr>
             <td colspan="6" class="actions">
-
 				<?php if ( wc_coupons_enabled() ) { ?>
                     <div class="coupon">
                         <label for="coupon_code"><?php echo esc_html__( 'Coupon:', 'attire' ); ?></label> <input
@@ -158,11 +155,9 @@ do_action( 'woocommerce_before_cart' ); ?>
     </table>
 	<?php do_action( 'woocommerce_after_cart_table' ); ?>
 </form>
-
 <div class="cart-collaterals">
 	<?php
 	do_action( 'woocommerce_cart_collaterals' );
 	?>
 </div>
-
 <?php do_action( 'woocommerce_after_cart' ); ?>

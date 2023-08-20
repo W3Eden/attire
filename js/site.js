@@ -11,6 +11,7 @@ jQuery(function ($) {
     }
 
     var abheight = $('#wpadminbar').outerHeight();
+    var lastScrollTop = 0;
 
     if ($('.stickable').length) {
         var topspace = 0;
@@ -20,11 +21,27 @@ jQuery(function ($) {
 
         var sticky = $('.stickable')[0].offsetTop;
         window.onscroll = function () {
-            if (window.scrollY >= sticky) {
+
+            // st= scroll top, su= scroll up, sd= scroll down
+            var su = false;
+            var sd = false;
+            var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+            if (st > lastScrollTop) {
+                // downscroll code
+                su = false;
+                sd = true;
+            } else if (st < lastScrollTop) {
+                // upscroll code
+                su = true;
+                sd = false;
+            } // else was horizontal scroll
+            lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+
+            if ((window.scrollY >= sticky) && sd) {
                 $('nav.stickable').addClass("fixed-top");
                 $('#attire-content').css("margin-top", height + 'px');
                 $('.attire-content').css('transition', 'margin 0s ease-in')
-            } else {
+            } else if ((window.scrollY <= sticky) && su) {
                 $('nav.stickable').removeClass("fixed-top");
                 $('#attire-content').css("margin-top", 0);
                 if (sticky_height !== height) // do the transition only if sticky menu has different height than the default menu

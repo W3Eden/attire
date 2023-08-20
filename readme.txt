@@ -19,6 +19,10 @@ Attire is a fast, mobile responsive, highly customizable, SEO-friendly multipurp
 
 == Changelog ==
 
+= 2.0.3 - 2023.08.20 =
+* WooCommerce template update.
+* Scroll animation made smoother for sticky nav.
+
 = 2.0.2 - 2023.08.17 =
 * Added an option to choose the position of navigation menu dropdown items(left/right).
 

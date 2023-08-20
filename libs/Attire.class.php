@@ -110,7 +110,7 @@ class Attire
         ), null, true);
         wp_enqueue_script('bootstrap');
 
-        wp_register_script('attire-site', ATTIRE_TEMPLATE_URL . '/js/site.js', array(
+        wp_register_script('attire-site', ATTIRE_TEMPLATE_URL . '/js/site.min.js', array(
             'jquery'
         ), null, true);
         wp_enqueue_script('attire-site');
