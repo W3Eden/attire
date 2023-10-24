@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2023-08-17 13:27+0600\n"
-"PO-Revision-Date: 2023-08-17 13:28+0600\n"
+"POT-Creation-Date: 2023-10-24 19:31+0600\n"
+"PO-Revision-Date: 2023-10-24 19:32+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -10,9 +10,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4\n"
 "X-Poedit-Basepath: ..\n"
-"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: .git\n"
 "X-Poedit-SearchPathExcluded-1: .idea\n"
@@ -58,6 +58,73 @@ msgstr ""
 msgid "Install now"
 msgstr ""
 
+#: admin/OptionFields.class.php:19
+msgid "Select"
+msgstr ""
+
+#: admin/OptionFields.class.php:20
+msgid "Wide"
+msgstr ""
+
+#: admin/OptionFields.class.php:21
+msgid "Boxed"
+msgstr ""
+
+#: admin/OptionFields.class.php:22
+msgid "Framed"
+msgstr ""
+
+#: admin/OptionFields.class.php:39 admin/metaboxes/attire-page-options.php:25
+msgid "Default"
+msgstr ""
+
+#: admin/OptionFields.class.php:68
+msgid "Do Not Apply"
+msgstr ""
+
+#: admin/OptionFields.class.php:69 admin/metaboxes/attire-page-options.php:24
+#: admin/metaboxes/attire-page-options.php:38 libs/MetaBoxes.class.php:89
+msgid "Theme Default"
+msgstr ""
+
+#: admin/ThemeEngine.class.php:282 admin/ThemeEngine.class.php:284
+#: admin/custom-controls/attire-layout-picker.php:26
+#: admin/custom-controls/attire-layout-picker.php:27
+#: admin/customizer-config.php:870 admin/customizer-config.php:918
+#: admin/customizer-config.php:965 admin/customizer-config.php:1013
+#: libs/MetaBoxes.class.php:125 libs/MetaBoxes.class.php:126
+msgid "Left Sidebar"
+msgstr ""
+
+#: admin/ThemeEngine.class.php:292 admin/ThemeEngine.class.php:294
+#: admin/custom-controls/attire-layout-picker.php:33
+#: admin/custom-controls/attire-layout-picker.php:34
+#: admin/customizer-config.php:889 admin/customizer-config.php:937
+#: admin/customizer-config.php:984 admin/customizer-config.php:1032
+#: libs/MetaBoxes.class.php:133 libs/MetaBoxes.class.php:134
+msgid "Right Sidebar"
+msgstr ""
+
+#: admin/ThemeEngine.class.php:302 admin/ThemeEngine.class.php:304
+msgid "Footer1"
+msgstr ""
+
+#: admin/ThemeEngine.class.php:312 admin/ThemeEngine.class.php:314
+msgid "Footer2"
+msgstr ""
+
+#: admin/ThemeEngine.class.php:322 admin/ThemeEngine.class.php:324
+msgid "Footer3"
+msgstr ""
+
+#: admin/ThemeEngine.class.php:331 admin/ThemeEngine.class.php:333
+msgid "Footer4"
+msgstr ""
+
+#: admin/ThemeEngine.class.php:340 admin/ThemeEngine.class.php:342
+msgid "Footer5"
+msgstr ""
+
 #: admin/ThemeEngine.class.php:1026
 msgid "Search results for"
 msgstr ""
@@ -67,22 +134,6 @@ msgstr ""
 #: admin/customizer-config.php:393 libs/MetaBoxes.class.php:117
 #: libs/MetaBoxes.class.php:118
 msgid "Full Width"
-msgstr ""
-
-#: admin/custom-controls/attire-layout-picker.php:26
-#: admin/custom-controls/attire-layout-picker.php:27
-#: admin/customizer-config.php:870 admin/customizer-config.php:918
-#: admin/customizer-config.php:965 admin/customizer-config.php:1013
-#: libs/MetaBoxes.class.php:125 libs/MetaBoxes.class.php:126
-msgid "Left Sidebar"
-msgstr ""
-
-#: admin/custom-controls/attire-layout-picker.php:33
-#: admin/custom-controls/attire-layout-picker.php:34
-#: admin/customizer-config.php:889 admin/customizer-config.php:937
-#: admin/customizer-config.php:984 admin/customizer-config.php:1032
-#: libs/MetaBoxes.class.php:133 libs/MetaBoxes.class.php:134
-msgid "Right Sidebar"
 msgstr ""
 
 #: admin/custom-controls/attire-layout-picker.php:40
@@ -657,6 +708,10 @@ msgstr ""
 msgid "Font Family"
 msgstr ""
 
+#: admin/customizer-config.php:1062
+msgid "Font family for H1...H6 html tags"
+msgstr ""
+
 #: admin/customizer-config.php:1065 admin/customizer-config.php:1309
 msgid "Font Weight"
 msgstr ""
@@ -851,15 +906,6 @@ msgstr ""
 msgid "Top Menu Style"
 msgstr ""
 
-#: admin/metaboxes/attire-page-options.php:24
-#: admin/metaboxes/attire-page-options.php:38 libs/MetaBoxes.class.php:89
-msgid "Theme Default"
-msgstr ""
-
-#: admin/metaboxes/attire-page-options.php:25
-msgid "Default"
-msgstr ""
-
 #: admin/metaboxes/attire-page-options.php:26
 msgid "Compact"
 msgstr ""
@@ -896,12 +942,66 @@ msgstr ""
 msgid "About"
 msgstr ""
 
+#: comments.php:11
+msgid ""
+"This post is password protected. Enter the password to view any comments."
+msgstr ""
+
 #: comments.php:19
 msgid "Discussion"
 msgstr ""
 
-#: comments.php:41
+#: comments.php:24
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:25
+msgid "Previous Comments"
+msgstr ""
+
+#: comments.php:26
+msgid "Next Comments"
+msgstr ""
+
+#: comments.php:41 libs/Attire.class.php:208
 msgid "Reply"
+msgstr ""
+
+#: comments.php:58
+msgid "You must be"
+msgstr ""
+
+#: comments.php:58
+msgid "logged in"
+msgstr ""
+
+#: comments.php:58
+msgid "to post a comment."
+msgstr ""
+
+#: comments.php:61
+msgid "Logged in as"
+msgstr ""
+
+#: comments.php:61 libs/Attire.class.php:558
+msgid "Log out?"
+msgstr ""
+
+#: comments.php:64
+msgid "Leave a Comment"
+msgstr ""
+
+#: comments.php:65 libs/Attire.class.php:584
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: comments.php:66 libs/Attire.class.php:589
+msgid "Cancel reply"
+msgstr ""
+
+#: comments.php:67 libs/Attire.class.php:590
+msgid "Post Comment"
 msgstr ""
 
 #: content-wpdmpro.php:37
@@ -948,6 +1048,12 @@ msgstr ""
 msgid "Search..."
 msgstr ""
 
+#: functions.php:33 functions.php:42
+msgid ""
+"Attire requires PHP version 5.2 or later. Please upgrade your php version "
+"for better performance/security."
+msgstr ""
+
 #: functions.php:133
 msgid "Boxed Panel"
 msgstr ""
@@ -972,8 +1078,16 @@ msgstr ""
 msgid "Top Menu"
 msgstr ""
 
+#: libs/Attire.class.php:178 libs/Attire.class.php:206
+msgid "Edit"
+msgstr ""
+
 #: libs/Attire.class.php:191
 msgid "Commenter's Avatar"
+msgstr ""
+
+#: libs/Attire.class.php:196
+msgid "at"
 msgstr ""
 
 #: libs/Attire.class.php:462
@@ -1008,10 +1122,6 @@ msgstr ""
 msgid "Logged in as %3$s"
 msgstr ""
 
-#: libs/Attire.class.php:558
-msgid "Log out?"
-msgstr ""
-
 #: libs/Attire.class.php:561
 #, php-format
 msgid "Logged in as %s. Edit your profile."
@@ -1025,17 +1135,12 @@ msgstr ""
 msgid "Leave a Reply"
 msgstr ""
 
-#: libs/Attire.class.php:584
-#, php-format
-msgid "Leave a Reply to %s"
+#: libs/Framework.class.php:23
+msgid "Monthly Archives: "
 msgstr ""
 
-#: libs/Attire.class.php:589
-msgid "Cancel reply"
-msgstr ""
-
-#: libs/Attire.class.php:590
-msgid "Post Comment"
+#: libs/Framework.class.php:47
+msgid "Search Result For:  "
 msgstr ""
 
 #: libs/MetaBoxes.class.php:30
@@ -1058,6 +1163,14 @@ msgstr ""
 
 #: search-post.php:12 search-wpdmpro.php:17 search.php:25
 msgid "Search result for: "
+msgstr ""
+
+#: search-post.php:46 search-wpdmpro.php:52 search.php:145
+msgid "Nothing Found!"
+msgstr ""
+
+#: search-post.php:47 search-wpdmpro.php:53 search.php:146
+msgid "Try Different Search Term"
 msgstr ""
 
 #: search-result-wpdmpro.php:16
@@ -1095,6 +1208,10 @@ msgstr ""
 
 #: single-wpdmpro.php:58
 msgid "Next Item"
+msgstr ""
+
+#: single.php:61
+msgid "Post Tags"
 msgstr ""
 
 #: single.php:77
@@ -1152,36 +1269,61 @@ msgstr ""
 msgid "Checkout"
 msgstr ""
 
-#: woocommerce/cart/cart.php:75
+#: woocommerce/cart/cart.php:32 woocommerce/cart/cart.php:75
 msgid "Product"
 msgstr ""
 
-#: woocommerce/cart/cart.php:93
+#: woocommerce/cart/cart.php:33 woocommerce/cart/cart.php:93
 msgid "Price"
 msgstr ""
 
-#: woocommerce/cart/cart.php:99
+#: woocommerce/cart/cart.php:34 woocommerce/cart/cart.php:99
 msgid "Quantity"
 msgstr ""
 
-#: woocommerce/cart/cart.php:116
+#: woocommerce/cart/cart.php:35 woocommerce/cart/cart.php:116
 msgid "Total"
 msgstr ""
 
-#: woocommerce/cart/cart.php:140
+#: woocommerce/cart/cart.php:88
+msgid "Available on backorder"
+msgstr ""
+
+#: woocommerce/cart/cart.php:131
+msgid "Coupon:"
+msgstr ""
+
+#: woocommerce/cart/cart.php:137
 msgid "Coupon code"
 msgstr ""
 
-#: woocommerce/cart/cart.php:142
+#: woocommerce/cart/cart.php:139
 msgid "Apply coupon"
 msgstr ""
 
-#: woocommerce/cart/cart.php:148
+#: woocommerce/cart/cart.php:145
 msgid "Update cart"
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:28
+msgid "Please login to checkout."
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:48
+msgid "Your order"
 msgstr ""
 
 #: woocommerce/loop/result-count.php:29
 msgid "Showing the single result"
+msgstr ""
+
+#: woocommerce/loop/sale-flash.php:27
+msgid "Sale!"
+msgstr ""
+
+#: woocommerce/order/order-details-customer.php:34
+#: woocommerce/order/order-details-customer.php:52
+msgid "N/A"
 msgstr ""
 
 #: woocommerce/single-product/related.php:27
