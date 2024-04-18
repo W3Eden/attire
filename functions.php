@@ -59,10 +59,10 @@ function AttireNotActivatedAdminNotice() {
 }
 
 
-define( 'ATTIRE_THEME_PREFIX', 'attire_', false );
-define( "ATTIRE_TEMPLATE_DIR", get_template_directory(), false );
-define( "ATTIRE_THEME_URL", get_stylesheet_directory_uri(), false );
-define( "ATTIRE_TEMPLATE_URL", esc_url( get_template_directory_uri() ), false );
+define( 'ATTIRE_THEME_PREFIX', 'attire_');
+define( "ATTIRE_TEMPLATE_DIR", get_template_directory());
+define( "ATTIRE_THEME_URL", get_stylesheet_directory_uri());
+define( "ATTIRE_TEMPLATE_URL", esc_url( get_template_directory_uri() ));
 
 
 require_once( ATTIRE_TEMPLATE_DIR . "/admin/ThemeEngine.class.php" );

@@ -10,53 +10,78 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see     https://docs.woocommerce.com/document/template-structure/
+ * @see     https://woo.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 5.6.0
+ * @version 8.7.0
  */
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
-$show_shipping = ! wc_ship_to_billing_address_only() && $order->needs_shipping_address();
+$show_shipping = !wc_ship_to_billing_address_only() && $order->needs_shipping_address();
 ?>
 <section class="woocommerce-customer-details">
 
-	<?php if ( $show_shipping ) : ?>
+    <?php if ($show_shipping) : ?>
 
-	<section class="woocommerce-columns woocommerce-columns--2 woocommerce-columns--addresses row addresses">
-		<div class="woocommerce-column woocommerce-column--1 woocommerce-column--billing-address col-md-6">
+    <section class="woocommerce-columns woocommerce-columns--2 woocommerce-columns--addresses row addresses">
+        <div class="woocommerce-column woocommerce-column--1 woocommerce-column--billing-address col-md-6">
 
-	<?php endif; ?>
+            <?php endif; ?>
 
-	<h2 class="woocommerce-column__title"><?php esc_html_e( 'Billing address', 'attire' ); ?></h2>
+            <h2 class="woocommerce-column__title"><?php esc_html_e('Billing address', 'attire'); ?></h2>
 
-	<address>
-		<?php echo wp_kses_post( $order->get_formatted_billing_address( esc_html__( 'N/A', 'attire' ) ) ); ?>
+            <address>
+                <?php echo wp_kses_post($order->get_formatted_billing_address(esc_html__('N/A', 'attire'))); ?>
 
-		<?php if ( $order->get_billing_phone() ) : ?>
-			<p class="woocommerce-customer-details--phone"><?php echo esc_html( $order->get_billing_phone() ); ?></p>
-		<?php endif; ?>
+                <?php if ($order->get_billing_phone()) : ?>
+                    <p class="woocommerce-customer-details--phone"><?php echo esc_html($order->get_billing_phone()); ?></p>
+                <?php endif; ?>
 
-		<?php if ( $order->get_billing_email() ) : ?>
-			<p class="woocommerce-customer-details--email"><?php echo esc_html( $order->get_billing_email() ); ?></p>
-		<?php endif; ?>
-	</address>
+                <?php if ($order->get_billing_email()) : ?>
+                    <p class="woocommerce-customer-details--email"><?php echo esc_html($order->get_billing_email()); ?></p>
+                <?php endif; ?>
 
-	<?php if ( $show_shipping ) : ?>
+                <?php
+                /**
+                 * Action hook fired after an address in the order customer details.
+                 *
+                 * @param string $address_type Type of address (billing or shipping).
+                 * @param WC_Order $order Order object.
+                 * @since 8.7.0
+                 */
+                do_action('woocommerce_order_details_after_customer_address', 'billing', $order);
+                ?>
+            </address>
 
-		</div><!-- /.col-1 -->
+            <?php if ($show_shipping) : ?>
 
-		<div class="woocommerce-column woocommerce-column--2 woocommerce-column--shipping-address  col-md-6">
-			<h2 class="woocommerce-column__title"><?php esc_html_e( 'Shipping address', 'attire' ); ?></h2>
-			<address>
-				<?php echo wp_kses_post( $order->get_formatted_shipping_address( esc_html__( 'N/A', 'attire' ) ) ); ?>
-			</address>
-		</div><!-- /.col-2 -->
+        </div><!-- /.col-1 -->
 
-	</section><!-- /.col2-set -->
+        <div class="woocommerce-column woocommerce-column--2 woocommerce-column--shipping-address col-2">
+            <h2 class="woocommerce-column__title"><?php esc_html_e('Shipping address', 'attire'); ?></h2>
+            <address>
+                <?php echo wp_kses_post($order->get_formatted_shipping_address(esc_html__('N/A', 'attire'))); ?>
 
-	<?php endif; ?>
+                <?php if ($order->get_shipping_phone()) : ?>
+                    <p class="woocommerce-customer-details--phone"><?php echo esc_html($order->get_shipping_phone()); ?></p>
+                <?php endif; ?>
+                <?php
+                /**
+                 * Action hook fired after an address in the order customer details.
+                 *
+                 * @param string $address_type Type of address (billing or shipping).
+                 * @param WC_Order $order Order object.
+                 * @since 8.7.0
+                 */
+                do_action('woocommerce_order_details_after_customer_address', 'shipping', $order);
+                ?>
+            </address>
+        </div><!-- /.col-2 -->
 
-	<?php do_action( 'woocommerce_order_details_after_customer_details', $order ); ?>
+    </section><!-- /.col2-set -->
+
+<?php endif; ?>
+
+    <?php do_action('woocommerce_order_details_after_customer_details', $order); ?>
 
 </section>
