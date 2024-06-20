@@ -19,9 +19,13 @@ Attire is a fast, mobile responsive, highly customizable, SEO-friendly multipurp
 
 == Changelog ==
 
+= 2.0.6 - 2024.06.20 =
+* Updated WooCommerce templates.
+* Performance optimizations for faster page load times.
+
 = 2.0.5 - 2024.04.18 =
-* Updated WooCommerce templates
-* Updated to support WordPress 6.5
+* Updated WooCommerce templates.
+* Updated to support WordPress 6.5.
 
 = 2.0.4 - 2023.10.24 =
 * Fixed translation issues.

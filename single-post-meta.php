@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
 }
 
 $sort_by = AttireThemeEngine::NextGetOption('attire_archive_page_post_sorting', 'modified_desc');
-if (strpos($sort_by, 'date')!==false) {
+if ( str_contains( $sort_by, 'date' ) ) {
     $archive_year = get_the_time('Y');
     $archive_month = get_the_time('m');
     $archive_day = get_the_time('d');
