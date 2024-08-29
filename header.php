@@ -39,7 +39,7 @@ if (is_home()) {
 $theme_default_page_width = AttireThemeEngine::NextGetOption('body_content_layout_type');
 $site_width = AttireThemeEngine::NextGetOption('main_layout_type', 'container-fluid');
 
-$meta = get_post_meta(get_the_ID(), 'attire_post_meta', true);
+$meta = json_decode(get_post_meta(get_the_ID(), 'attire_post_meta', true),true);
 
 // theme default for page header
 $page_header_active = AttireThemeEngine::NextGetOption('ph_active', true);
@@ -59,7 +59,7 @@ if (!is_front_page()) {
 $hide_site_header = !isset($meta['hide_site_header']) || (int)$meta['hide_site_header'] === 0 ? 0 : (int)$meta['hide_site_header'];
 
 if ($post) {
-    $meta = maybe_unserialize(get_post_meta($post_id, 'attire_post_meta', true));
+    $meta = json_decode(get_post_meta($post_id, 'attire_post_meta', true),true);
 }
 
 $page_width = isset($meta['layout_page']) && $meta['layout_page'] !== 'default' && $meta['layout_page'] !== '' ? $meta['layout_page'] : $theme_default_page_width;
