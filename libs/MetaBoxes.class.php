@@ -12,7 +12,7 @@ class AttireMetaBoxes
     {
         global $post;
         if (!empty($post)) {
-	        $this->metadata = json_decode( get_post_meta( $post->ID, 'attire_post_meta', true ), true );
+            $this->metadata = maybe_unserialize(get_post_meta($post->ID, 'attire_post_meta', true));
         }
         $this->Actions();
     }
@@ -66,12 +66,12 @@ class AttireMetaBoxes
     {
 
         if (!is_array($this->metadata)) {
-	        $this->metadata = json_decode( get_post_meta( $post->ID, 'attire_post_meta', true ), true );
+            $this->metadata = maybe_unserialize(get_post_meta($post->ID, 'attire_post_meta', true));
         }
 
         $container_fluid = "";
         $container = "";
-	    $val = json_decode( get_post_meta( $post->ID, 'attire_post_meta', true ), true );
+        $val = get_post_meta($post->ID, 'attire_post_meta', true);
         if (isset($val['layout_page'])) {
             $val = $val['layout_page'];
 
@@ -99,7 +99,7 @@ class AttireMetaBoxes
     public function SidebarLayout($post)
     {
 
-	    $meta = json_decode( get_post_meta( $post->ID, 'attire_post_meta', true ), true );
+        $meta = get_post_meta($post->ID, 'attire_post_meta', true);
         $sl = isset($meta['sidebar_layout']) ? $meta['sidebar_layout'] : 'default';
         $imageDir = '/images/layouts/';
         $imguri = ATTIRE_TEMPLATE_URL . $imageDir;
@@ -207,7 +207,7 @@ class AttireMetaBoxes
                 $pagemeta['layout_page'] = sanitize_text_field($pagemeta['layout_page']);
             }
 
-            update_post_meta($postid, 'attire_post_meta', json_encode($pagemeta));
+            update_post_meta($postid, 'attire_post_meta', $pagemeta);
         }
     }
 }
