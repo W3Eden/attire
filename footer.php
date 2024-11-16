@@ -10,7 +10,7 @@ $position = AttireThemeEngine::NextGetOption('attire_back_to_top_location', 'rig
 $canshow = $canshow === 'show' ? ' canshow' : '';
 $position = $position === 'left' ? ' on-left' : '';
 
-$meta = get_post_meta(get_the_ID(), 'attire_post_meta', true);
+$meta = AttireFramework::GetAttirePostMeta(get_the_ID());
 // For page specific settings
 $hide_site_footer = !isset($meta['hide_site_footer']) || (int)$meta['hide_site_footer'] === 0 ? 0 : (int)$meta['hide_site_footer'];
 

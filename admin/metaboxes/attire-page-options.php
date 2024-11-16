@@ -7,7 +7,7 @@
  */
 if (!defined("ABSPATH")) die();
 global $attire_options;
-$meta = get_post_meta($post->ID, 'attire_post_meta', true);
+$meta = AttireFramework::GetAttirePostMeta($post->ID);
 $hide_site_header = isset($meta['hide_site_header']) ? (int)$meta['hide_site_header'] : 0;
 $nav_header = isset($meta['nav_header']) ? $meta['nav_header'] : '';
 $page_header = isset($meta['page_header']) ? (int)$meta['page_header'] : -1;

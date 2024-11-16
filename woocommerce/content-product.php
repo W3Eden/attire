@@ -10,28 +10,29 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see     https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce/Templates
- * @version 3.6.0
+ * @see     https://woocommerce.com/document/template-structure/
+ * @package WooCommerce\Templates
+ * @version 9.4.0
  */
 
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
 global $product;
 // Ensure visibility.
-if (empty($product) || !$product->is_visible()) {
-    return;
+if ( empty( $product ) || ! $product->is_visible() ) {
+	return;
 }
 ?>
-<div <?php wc_product_class('loop col-md', $product); ?>>
+<div <?php wc_product_class( 'loop col-md', $product ); ?>>
+	<?php do_action( 'woocommerce_before_shop_loop_item' ); ?>
     <div class="card woo-product-card mb-4 border-0">
         <a href="<?php the_permalink(); ?>">
-            <?php do_action('woocommerce_before_shop_loop_item_title'); ?>
+			<?php do_action( 'woocommerce_before_shop_loop_item_title' ); ?>
             <div class="card-body">
-                <?php do_action('woocommerce_shop_loop_item_title'); ?>
-                <?php do_action('woocommerce_after_shop_loop_item_title'); ?>
+				<?php do_action( 'woocommerce_shop_loop_item_title' ); ?>
+				<?php do_action( 'woocommerce_after_shop_loop_item_title' ); ?>
             </div>
         </a>
-        <?php do_action('woocommerce_after_shop_loop_item'); ?>
+		<?php do_action( 'woocommerce_after_shop_loop_item' ); ?>
     </div>
 </div>

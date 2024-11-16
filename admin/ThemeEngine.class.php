@@ -971,7 +971,7 @@ class AttireThemeEngine
     function PageLayout($type)
     {
         global $post;
-        $data = maybe_unserialize(get_post_meta($post->ID, 'attire_post_meta', true));
+        $data = AttireFramework::GetAttirePostMeta($post->ID);
 
         if (is_page() && $post->ID != '' && isset($data['pagelayout']) && $data['pagelayout'] != '') {
             $type = sanitize_text_field($data['pagelayout']);
@@ -988,7 +988,7 @@ class AttireThemeEngine
         $style = '';
         if (!isset($_REQUEST['wp_customize'])) {
             if (is_page() || is_single()) {
-                $attire_post_meta = get_post_meta(get_the_ID(), 'attire_post_meta', true);
+                $attire_post_meta = AttireFramework::GetAttirePostMeta(get_the_ID());
                 $style = isset($attire_post_meta['nav_header']) ? sanitize_text_field($attire_post_meta['nav_header']) : '';
             }
         }
@@ -1075,7 +1075,7 @@ class AttireThemeEngine
 
         $style = '';
         if (is_page() || is_single()) {
-            $attire_post_meta = get_post_meta(get_the_ID(), 'attire_post_meta', true);
+            $attire_post_meta = AttireFramework::GetAttirePostMeta(get_the_ID());
             $style = isset($attire_post_meta['footer_style']) ? sanitize_text_field($attire_post_meta['footer_style']) : '';
         }
 

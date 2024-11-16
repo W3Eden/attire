@@ -21,8 +21,9 @@ if (strpos($sort_by, 'date') !== false) {
 <article <?php post_class('post' . ($posts_per_row !== 1 ? ' h-95-5' : '')) ?>>
     <?php do_action(ATTIRE_THEME_PREFIX . 'before_content'); ?>
     <div class="card<?php echo $posts_per_row !== 1 ? ' h-100' : '' ?>">
-        <a class="card-image"
-           href="<?php the_permalink(); ?>"><?php the_post_thumbnail('attire-card-image', array('class' => 'card-img-top')); ?></a>
+	    <?php if ( get_the_post_thumbnail_url() ) {
+		    the_post_thumbnail( 'attire-card-image', array( 'class' => 'card-img-top' ) );
+	    } ?>
         <!-- /.post-thumb -->
         <div class="card-body">
             <?php do_action(ATTIRE_THEME_PREFIX . 'before_post_title'); ?>

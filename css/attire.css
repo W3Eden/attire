@@ -403,6 +403,10 @@ img {
     border-radius: 3px;
 }
 
+.sticky .post-title a{
+    margin-left: 40px;
+}
+
 .archive-item .post-title a {
     text-decoration: none;
     color: black;

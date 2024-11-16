@@ -78,7 +78,7 @@ class AttireFramework
         $right_sidebar = 'right';
         $left_sidebar_width = 3;
         $right_sidebar_width = 3;
-        $meta = get_post_meta(get_the_ID(), 'attire_post_meta', true);
+        $meta = self::GetAttirePostMeta(get_the_ID());
 
         if (is_home()) {
             // if is_home() || is_front_page() default theme option is the top priority
@@ -97,7 +97,7 @@ class AttireFramework
             $right_sidebar_width = intval($theme_mod['default_page_rs_width']);
 
         } elseif (is_single()) {
-            $meta = get_post_meta(get_the_ID(), 'attire_post_meta', true);
+            $meta = self::GetAttirePostMeta(get_the_ID());
             $sl = isset($meta['sidebar_layout']) ? $meta['sidebar_layout'] : 'default';
             $sidebar_layout = $sl === 'default' ? esc_attr($theme_mod['layout_default_post']) : $sl;
             $left_sidebar = esc_attr($theme_mod['default_post_ls']);
@@ -163,6 +163,26 @@ class AttireFramework
 
     }
 
+	/**
+	 * @param $post_id
+	 *
+	 * @return array
+	 */
+	public static function GetAttirePostMeta( $post_id ): array {
+		$metadata = maybe_unserialize( get_post_meta( $post_id, 'attire_post_meta', true ) );
+
+		if ( is_string( $metadata ) && json_decode( $metadata ) !== null ) {
+			// Decode JSON
+			$metadata = json_decode( $metadata, true );
+		}
+
+		if ( $metadata === "" || $metadata === false ) {
+			$metadata = [];
+		}
+
+		return $metadata;
+	}
+
     /**
      * @usage Render Sidebar
      *
@@ -216,7 +236,7 @@ class AttireFramework
             $left_sidebar_width = intval($theme_mod['front_page_ls_width']);
             $right_sidebar_width = intval($theme_mod['front_page_rs_width']);
         } elseif (is_single() || is_page()) {
-            $meta = get_post_meta(get_the_ID(), 'attire_post_meta', true);
+            $meta = self::GetAttirePostMeta(get_the_ID());
 
             if (is_page()) {
                 $sl = isset($meta['sidebar_layout']) ? $meta['sidebar_layout'] : 'default';
