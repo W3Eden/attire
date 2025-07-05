@@ -974,7 +974,11 @@ class Attire
 
 }
 
-$__attire = new Attire();
+function attire_class_init() {
+	global $__attire;
+	$__attire = new Attire();
+}
+add_action('after_setup_theme', 'attire_class_init', 2);
 
 function WPATTIRE()
 {

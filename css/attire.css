@@ -2449,3 +2449,78 @@ code, kbd, samp {
     border-radius: 0.3rem;
     border: 1px solid #eee;
 }
+
+/* Comment List Styling */
+.commentlist {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2em;
+}
+
+.commentlist > li {
+    padding: 0;
+    margin: 0 0 1.5em;
+}
+
+/* Nested Comments - Indentation Only */
+.commentlist .children {
+    list-style: none;
+    padding: 0 0 0 30px;
+    margin: 1.5em 0 0 0;
+}
+
+/* Deeper Nesting Levels */
+.commentlist .children .children {
+    padding-left: 30px;
+}
+
+.commentlist .children .children .children {
+    padding-left: 30px;
+}
+
+/* Comment Card Styling */
+.commentlist .card {
+    margin-bottom: 1.5em;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.comment-body {
+    padding: 1.25em;
+}
+
+/* Comment Meta Styling */
+.comment-meta {
+    margin-bottom: 0.75em;
+    font-size: 0.9em;
+    color: #6c757d;
+}
+
+.comment-author {
+    font-weight: 600;
+    color: #333;
+    margin-right: 0.5em;
+}
+
+.comment-metadata {
+    font-size: 0.85em;
+    color: #6c757d;
+}
+
+/* Reply Link */
+.comment-reply-link {
+    font-size: 0.85em;
+    margin-left: 0.5em;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.comment-reply-link:hover {
+    text-decoration: underline;
+}
+
+/* Comment Content */
+.comment-content {
+    margin-top: 0.75em;
+    line-height: 1.6;
+}

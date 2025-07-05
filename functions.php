@@ -86,6 +86,7 @@ class AttireBase {
 
 	function actions() {
 		//delete_option( 'attire_options' );
+		add_action('after_setup_theme', [$this, 'attire_block_editor_support']);
 
 	}
 
@@ -107,13 +108,18 @@ class AttireBase {
 		// Make sure to only modify the main query on the homepage
 		if ( $query->is_main_query() && ! is_admin() && $query->is_home() ) {
 			// Set parameters to modify the query
-			$query->set( 'orderby', $post_sorting[0] );
-			$query->set( 'order', strtoupper( $post_sorting[1] ) );
-			$query->set( 'suppress_filters', 'true' );
-
+			$query->set( 'orderby', isset( $post_sorting[0] ) ? sanitize_key( $post_sorting[0] ) : 'date' );
+			$query->set( 'order', ( isset( $post_sorting[1] ) && in_array( strtoupper( $post_sorting[1] ), array( 'ASC', 'DESC' ) ) ) ? strtoupper( $post_sorting[1] ) : 'DESC' );
+			$query->set( 'suppress_filters', true );
 		}
-		if ( isset( $_REQUEST['post_type'] ) && $query->is_search ) {
-			$query->set( 'post_type', $_REQUEST['post_type'] );
+		
+		// Only allow post types that are registered and publicly queryable
+		if ( $query->is_search() && ! empty( $_REQUEST['post_type'] ) ) {
+			$post_type = sanitize_key( $_REQUEST['post_type'] );
+			$post_types = get_post_types( array( 'public' => true, 'exclude_from_search' => false ), 'names' );
+			if ( in_array( $post_type, $post_types, true ) ) {
+				$query->set( 'post_type', $post_type );
+			}
 		}
 	}
 
@@ -235,17 +241,21 @@ class AttireBase {
 					$_category     = array_values( $category );
 					$last_category = end( $_category );
 
-					// Get parent any categories and create array
-					$get_cat_parents = rtrim( get_category_parents( $last_category->term_id, true, ',' ), ',' );
-					$cat_parents     = explode( ',', $get_cat_parents );
+					// Ensure we have a valid category ID before proceeding
+					if ( $last_category && is_object( $last_category ) && isset( $last_category->term_id ) ) {
+						// Get parent categories and create array
+						$get_cat_parents = get_category_parents( $last_category->term_id, true, ',' );
+						$cat_parents     = $get_cat_parents ? explode( ',', rtrim( $get_cat_parents, ',' ) ) : [];
 
-					// Loop through parent categories and store in variable $cat_display
-					$cat_display = '';
-					foreach ( $cat_parents as $parents ) {
-						$cat_display .= '<li class="item-cat">' . $parents . '</li>';
-						$cat_display .= '<li class="separator"> ' . $separator . ' </li>';
+						// Loop through parent categories and store in variable $cat_display
+						$cat_display = '';
+						foreach ( $cat_parents as $parents ) {
+							if ( ! empty( trim( $parents ) ) ) {
+								$cat_display .= '<li class="item-cat">' . $parents . '</li>';
+								$cat_display .= '<li class="separator"> ' . $separator . ' </li>';
+							}
+						}
 					}
-
 				}
 
 				// If it's a custom post type within a custom taxonomy
@@ -396,9 +406,32 @@ class AttireBase {
 
 		}
 	}
+	/**
+	 * Add theme support for block editor features
+	 */
+	function attire_block_editor_support() {
+		// Add support for block styles
+		add_theme_support('wp-block-styles');
+
+		// Add support for full and wide align blocks
+		add_theme_support('align-wide');
+
+		// Add support for responsive embeds
+		add_theme_support('responsive-embeds');
+
+		// Add HTML5 support
+		add_theme_support('html5', array(
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+			'style',
+			'script',
+			'navigation-widgets',
+		));
+
+	}
 }
 
 new AttireBase();
-
-
-

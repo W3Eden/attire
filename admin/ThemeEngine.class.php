@@ -851,7 +851,7 @@ class AttireThemeEngine
 	function minify_css($input) {
 		if(trim($input) === "") return $input;
 		return preg_replace(
-			array(
+			[
 				// Remove comment(s)
 				'#("(?:[^"\\\]++|\\\.)*+"|\'(?:[^\'\\\\]++|\\\.)*+\')|\/\*(?!\!)(?>.*?\*\/)|^\s*|\s*$#s',
 				// Remove unused white-space(s)
@@ -873,8 +873,8 @@ class AttireThemeEngine
 				'#(?<=[\{;])(border|outline):none(?=[;\}\!])#',
 				// Remove empty selector(s)
 				'#(\/\*(?>.*?\*\/))|(^|[\{\}])(?:[^\s\{\}]+)\{\}#s'
-			),
-			array(
+			],
+			[
 				'$1',
 				'$1$2$3$4$5$6$7',
 				'$1',
@@ -886,7 +886,7 @@ class AttireThemeEngine
 				'$1$2$3',
 				'$1:0',
 				'$1$2'
-			),
+			],
 			$input);
 	}
 
@@ -906,48 +906,49 @@ class AttireThemeEngine
         echo "itemtype='http://schema.org/$result' itemscope='itemscope'";
     }
 
-    public static function NextGetOption($index = null, $default = null)
+    public static function NextGetOption($index = null, $default = '')
     {
-        $attire_options = get_option('attire_options');
-        if (isset($attire_options[$index])) {
+        $attire_options = get_option('attire_options', array());
+        if (isset($index) && isset($attire_options[$index]) && $attire_options[$index] !== '') {
             return $attire_options[$index];
-        } else {
-            return $default;
         }
+        return $default;
     }
 
 
     public static function SiteLogo()
     {
-
         $custom_logo_id = get_theme_mod('custom_logo');
+        $image = $custom_logo_id ? wp_get_attachment_url($custom_logo_id) : '';
 
-        $image = wp_get_attachment_url($custom_logo_id);
-
-        if (isset($image)) {
-            $logourl = esc_url($image); // source : https://codex.wordpress.org/Theme_Logo
+        if (!empty($image)) {
+            $logourl = esc_url($image);
             $image_id = attachment_url_to_postid($logourl);
-            $meta = wp_prepare_attachment_for_js($image_id);
-            if (!$meta) return esc_html(get_bloginfo('sitename'));
-            return "<img src='{$logourl}' title='" . esc_attr($meta['title']) . "' alt='" . esc_attr($meta['alt']) . "' />";
-        } else {
-            return '<h1 class="logo-header site-title mb-0">' . esc_html(get_bloginfo('name')) . '</h1>';
+            if ($image_id) {
+                $meta = wp_prepare_attachment_for_js($image_id);
+                if ($meta) {
+                    return "<img src='{$logourl}' title='" . esc_attr($meta['title']) . "' alt='" . esc_attr($meta['alt']) . "' />";
+                }
+            }
         }
+        return '<h1 class="logo-header site-title mb-0">' . esc_html(get_bloginfo('name')) . '</h1>';
     }
 
     public static function FooterLogo()
     {
-        $logourl = esc_url(self::NextGetOption('site_logo_footer'));
+        $logourl = self::NextGetOption('site_logo_footer');
 
-
-        if ($logourl) {
+        if (!empty($logourl)) {
+            $logourl = esc_url($logourl);
             $image_id = attachment_url_to_postid($logourl);
-            $meta = wp_prepare_attachment_for_js($image_id);
-            if (!$meta) return esc_html(get_bloginfo('sitename'));
-            return "<img src='{$logourl}' title='" . esc_attr($meta['title']) . "' alt='" . esc_attr($meta['alt']) . "' />";
-        } else {
-            return esc_html(get_bloginfo('sitename'));
+            if ($image_id) {
+                $meta = wp_prepare_attachment_for_js($image_id);
+                if ($meta) {
+                    return "<img src='{$logourl}' title='" . esc_attr($meta['title']) . "' alt='" . esc_attr($meta['alt']) . "' />";
+                }
+            }
         }
+        return esc_html(get_bloginfo('sitename'));
     }
 
 
@@ -1093,5 +1094,3 @@ class AttireThemeEngine
 }
 
 new AttireThemeEngine();
-
-
